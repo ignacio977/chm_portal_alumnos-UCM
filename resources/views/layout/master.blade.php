@@ -6,7 +6,7 @@
     @yield('styles')<!--Definir archivos css, js, etc. o framework-->
   </head>
   <body>
-    @include('layout.nav')
-    @yield('body')
+    @include('layout.nav')<!--Incluir nav-->
+    @yield('body')<!--Definir body-->
   </body>
 </html>
