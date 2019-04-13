@@ -1,7 +1,7 @@
 {{-- Navbar --}}
 <nav>
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">UCM</a>
+  <div class="nav-wrapper" style="background-color: #17AEF6;">
+    <a href="#!" class="brand-logo" align="middle">UCM</a>
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a href="#user"><img class="circle" height="50" align="middle" style="transform: translateY(-15%);" src="images/smile.png"></a></li>
