@@ -2,11 +2,20 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    @yield('title') <!--Definir titulo de pagina-->
-    @yield('styles')<!--Definir archivos css, js, etc. o framework-->
+    <!--Definir titulo de pagina-->
+    @yield('title')
+
+    <!--Definimos frameworks y/o js, css, etc. necesarios-->
+    @yield('styles')
+
+    <!--Incluir nav-->
+    @include('layout.nav')
   </head>
   <body>
-    @include('layout.nav')<!--Incluir nav-->
-    @yield('body')<!--Definir body-->
+    <!--Definir body-->
+    @yield('body')
+
+    <!--Agregar scripts necesarios-->
+    @yield('scripts')
   </body>
 </html>
