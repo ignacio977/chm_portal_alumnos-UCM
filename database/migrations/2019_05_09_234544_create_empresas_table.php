@@ -15,6 +15,7 @@ class CreateEmpresasTable extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('id_referencia');
             $table->foreign('id_referencia')->references('id')->on('users')->onDelete('cascade');
             $table->string('nombre');
             $table->string('direccion');
