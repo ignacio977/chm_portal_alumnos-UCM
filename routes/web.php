@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('home');
 });
+
+
+#Estudiantes#
+Route::get('/Estudiante', 'EstudiantesController@index');
+
+#Profesores#
+Route::get('/Profesor', 'ProfesoresController@index');
+
+#Director#
+Route::get('/Director', 'DirectorController@index');
+
+#Secretaria#
+Route::get('/Secretaria', 'SecretariaController@index');
+
+#CAP#
+Route::get('/Cap', 'CapController@index');
