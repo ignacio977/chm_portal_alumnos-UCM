@@ -11,7 +11,7 @@
       <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons">arrow_drop_down</i></a></li>
     </ul>
     <ul id='dropdown1' class='dropdown-content'>
-      <li><a href="">Test</a></li> {{-- agregar botones extras para redireccionar a sus trabajos. NO MODIFICAR ESTE--}}
+      <li><a href="">Testtt</a></li> {{-- agregar botones extras para redireccionar a sus trabajos. NO MODIFICAR ESTE--}}
     </ul>
   </div>
 </nav>
