@@ -20,7 +20,6 @@
   <a class="waves-effect waves-light btn" href="/Profesor">Rol Profesor</a>
   <a class="waves-effect waves-light btn" href="/Director">Rol Director</a>
   <a class="waves-effect waves-light btn" href="/Secretaria">Rol Secretaria</a>
-  <a class="waves-effect waves-light btn" href="/Cap">Rol CAP</a>
 
 @endsection
 
