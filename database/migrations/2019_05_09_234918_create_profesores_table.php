@@ -17,6 +17,7 @@ class CreateProfesoresTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('id_referencia');
             $table->foreign('id_referencia')->references('id')->on('users')->onDelete('cascade');
+            $table->string('rut')->unique();/*RUT de persona natural*/
             $table->string('nombres');
             $table->string('apellidos');
             $table->string('telefono');

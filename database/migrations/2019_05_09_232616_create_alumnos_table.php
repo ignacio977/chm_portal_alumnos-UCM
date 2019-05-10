@@ -16,6 +16,7 @@ class CreateAlumnosTable extends Migration
         Schema::create('alumnos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('id_referencia');
+            $table->string('rut')->unique();/*RUT de persona natural*/
             $table->foreign('id_referencia')->references('id')->on('users')->onDelete('cascade');
             $table->string('nombres');
             $table->string('apellidos');
