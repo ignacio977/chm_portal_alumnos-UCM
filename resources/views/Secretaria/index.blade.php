@@ -1,3 +1,9 @@
+{{-- Restriccion de acceso --}}
+@if(Auth::user()->type!='secretaria')
+  @php
+    header("Location: /home")
+  @endphp
+@endif
 @extends('layout.master')
 
 @section('title')

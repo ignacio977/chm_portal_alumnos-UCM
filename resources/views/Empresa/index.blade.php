@@ -1,13 +1,14 @@
 {{-- Restriccion de acceso --}}
-@if(Auth::user()->type!='profesor')
+@if(Auth::user()->type!='empresa')
   @php
     header("Location: /home")
   @endphp
 @endif
+
 @extends('layout.master')
 
 @section('title')
-  <title>Perfil Profesor</title>
+  <title>Perfil INFORMACION EMPRESA</title>
 @endsection
 
 @section('styles')
@@ -15,7 +16,7 @@
 @endsection
 
 @section('body')
-  INFORMACIÓN DEL PROFESOR
+INFORMACIÓN DE LA EMPRESA
 @endsection
 
 @section('scripts')
