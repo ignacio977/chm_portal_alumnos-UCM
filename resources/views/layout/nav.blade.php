@@ -49,58 +49,26 @@
 {{-- Modal (cuadro emergente de inicio de sesión) --}}
 <div id="modal1" class="modal"> 
   <div class="modal-content">
-    <!--
-      <form method="POST" action="/home">
-        {{ csrf_field() }}  
-        <label for="inputRut">Rut</label> 
-        <input type="text" class="form-control" id="inputRut" name="rut">
-
-        <label for="inputPassword">Contraseña</label> 
-        <input type="password" class="form-control" id="inputPassword" name="password" >  
-        <br>  
-        <button type="submit" class='btn waves-effect waves-light'>Iniciar sesión
-              <i class="material-icons right">send</i>
-        </button>       
-      </form>
-    -->
     <form action="{{ route('login') }}" id="form_id" method="POST">
-        @csrf
-
-        <div class="form-group row">
-
-            <div class="col-md-6">
-                <input id="rut" type="text" class="form-control{{ $errors->has('rut') ? ' is-invalid' : '' }}" name="rut"  required autofocus>
-
-                @if ($errors->has('rut'))
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('rut') }}</strong>
-                    </span>
-                @endif
-            </div>
+      @csrf
+      {{-- Entrada de rut --}}
+      <div class="form-group row">
+        <div class="col-md-6">
+            <label for="rut">Rut</label> 
+          <input id="rut" type="text" class="form-control" name="rut"  required autofocus>
         </div>
-
-        <div class="form-group row">
-
-            <div class="col-md-6">
-                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"  required>
-
-                @if ($errors->has('password'))
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
-            </div>
+      </div>
+      {{-- Entrada de contraseña --}}
+      <div class="form-group row">
+        <div class="col-md-6">
+            <label for="password">Contraseña</label> 
+            <input id="password" type="password" class="form-control" name="password"  required>
         </div>
-
-
-
-        <button type="submit" class='btn waves-effect waves-light'>Iniciar sesión
-            <i class="material-icons right">send</i>
-      </button>    
-
-
-            </div>
-        </div>
+      </div>
+      {{-- Botón submit --}}
+      <button type="submit" class='btn waves-effect waves-light'>Iniciar sesión
+        <i class="material-icons right">send</i>
+      </button>  
     </form>
   </div>
 </div> 
