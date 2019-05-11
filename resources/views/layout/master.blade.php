@@ -8,6 +8,9 @@
     <!--Definimos frameworks y/o js, css, etc. necesarios-->
     @yield('styles')
 
+    <!--Mostrar errores, si es que hay-->
+    @include('layout.errores')
+
     <!--Incluir nav-->
     @include('layout.nav')
   </head>

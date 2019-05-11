@@ -1,3 +1,4 @@
+
 {{-- Navbar --}}
 <nav>
   <div class="nav-wrapper" style="background-color: #17AEF6;">
@@ -55,14 +56,14 @@
       <div class="form-group row">
         <div class="col-md-6">
             <label for="rut">Rut</label> 
-          <input id="rut" type="text" class="form-control" name="rut"  required autofocus>
+          <input id="rut" type="text" class="form-control{{ $errors->has('rut') ? ' is-invalid' : '' }}" name="rut"  required autofocus>
         </div>
       </div>
       {{-- Entrada de contraseña --}}
       <div class="form-group row">
         <div class="col-md-6">
             <label for="password">Contraseña</label> 
-            <input id="password" type="password" class="form-control" name="password"  required>
+            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"  required>
         </div>
       </div>
       {{-- Botón submit --}}
