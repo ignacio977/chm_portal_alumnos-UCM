@@ -1,5 +1,5 @@
 {{-- Restriccion de acceso --}}
-@if(Auth::user()->tipo_usuario!='director')
+@if(Auth::user()->tipo_usuario!='empresa')
   @php
     header("Location: /home")
   @endphp
@@ -8,7 +8,7 @@
 @extends('layout.master')
 
 @section('title')
-  <title>Perfil DIRECTOR DE CARRERA</title>
+  <title>Perfil INFORMACION EMPRESA</title>
 @endsection
 
 @section('styles')
@@ -16,7 +16,7 @@
 @endsection
 
 @section('body')
-INFORMACIÓN DEL DIRECTOR DE CARRERA
+INFORMACIÓN DE LA EMPRESA
 @endsection
 
 @section('scripts')
