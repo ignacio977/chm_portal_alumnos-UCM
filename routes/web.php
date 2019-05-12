@@ -31,5 +31,3 @@ Route::get('/Director', 'DirectorController@index');
 Route::get('/Secretaria', 'SecretariaController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::post('/home', 'HomeController@iniciar_sesion');
