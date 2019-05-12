@@ -27,17 +27,3 @@ Route::get('/Director', 'DirectorController@index');
 
 #Secretaria#
 Route::get('/Secretaria', 'SecretariaController@index');
-
-#CAP#
-Route::get('/Cap', 'CapController@index');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
