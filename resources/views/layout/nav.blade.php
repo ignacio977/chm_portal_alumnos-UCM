@@ -2,8 +2,8 @@
 {{-- Navbar --}}
 <nav>
   <div class="nav-wrapper" style="background-color: #17AEF6;">
+    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
     <a href="#!" class="brand-logo" align="middle">UCM</a>
-    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a href="#user"><img class="circle" height="50" align="middle" style="transform: translateY(-15%);" src="images/smile.png"></a></li>
       @if (Route::has('login'))
@@ -25,10 +25,6 @@
       <li><a href="">Botón 1</a></li>
       <li><a href="">Botón 2</a></li>
       <li><a href="">Botón 3</a></li>
-      <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons">arrow_drop_down</i></a></li>
-    </ul>
-    <ul id='dropdown1' class='dropdown-content'>
-      <li><a href="">Test</a></li> {{-- agregar botones extras para redireccionar a sus trabajos. NO MODIFICAR ESTE--}}
     </ul>
   </div>
 </nav>

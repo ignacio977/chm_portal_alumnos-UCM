@@ -1,3 +1,10 @@
+{{-- Restriccion de acceso --}}
+@if(Auth::user()->tipo_usuario!='director')
+  @php
+    header("Location: /home")
+  @endphp
+@endif
+
 @extends('layout.master')
 
 @section('title')

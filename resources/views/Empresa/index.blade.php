@@ -1,7 +1,14 @@
+{{-- Restriccion de acceso --}}
+@if(Auth::user()->tipo_usuario!='empresa')
+  @php
+    header("Location: /home")
+  @endphp
+@endif
+
 @extends('layout.master')
 
 @section('title')
-  <title>Perfil CAP</title>
+  <title>Perfil INFORMACION EMPRESA</title>
 @endsection
 
 @section('styles')
@@ -9,7 +16,7 @@
 @endsection
 
 @section('body')
-  INFORMACIÓN DEL CAP
+INFORMACIÓN DE LA EMPRESA
 @endsection
 
 @section('scripts')

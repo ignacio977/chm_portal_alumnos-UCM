@@ -29,14 +29,14 @@ class CreateUsersTable extends Migration
             $table->string('celular');
 
             /*Solo Alumno*/
-            $table->date('fecha_ingreso');
+            $table->date('fecha_ingreso')->nullable();;
 
             /*Solo Profesor*/
             $table->string('cargo')->nullable();
             $table->string('departamento')->nullable();
 
             /*Otros*/
-            $table->string('tipo_usuario'); /*Alumno, profesor, director, empresa, secretaria*/
+            $table->string('tipo_usuario'); /*estudiante, profesor, director, empresa, secretaria*/
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
