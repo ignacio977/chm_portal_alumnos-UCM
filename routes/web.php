@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('home');
 });
@@ -27,3 +29,5 @@ Route::get('/Director', 'DirectorController@index');
 
 #Secretaria#
 Route::get('/Secretaria', 'SecretariaController@index');
+
+Route::get('/home', 'HomeController@index')->name('home');
