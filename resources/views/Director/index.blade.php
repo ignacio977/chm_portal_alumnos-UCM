@@ -1,5 +1,5 @@
 {{-- Restriccion de acceso --}}
-@if(Auth::user()->type!='director')
+@if(Auth::user()->tipo_usuario!='director')
   @php
     header("Location: /home")
   @endphp
