@@ -15,14 +15,14 @@
               <li><a>{{ Auth::user()->nombres }}</a></li>
               <li><a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                {{ __('Cerrar sesión') }}
+                document.getElementById('logout-form').submit();"><b>
+                {{ __('Cerrar sesión') }}</b>
              </a></li>
              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
              </form>
         @else
-              <li><a class="modal-trigger" href="#modal1">Iniciar sesión</a></li>
+              <li><b><a class="modal-trigger" href="#modal1">Iniciar sesión</a></b></li>
 
         @endauth
       @endif
