@@ -10,6 +10,7 @@
     header("Location: /home")
   @endphp
 @endif
+
 @extends('layout.master')
 
 @section('title')

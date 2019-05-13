@@ -1,9 +1,16 @@
 {{-- Restriccion de acceso --}}
-@if(Auth::user()->type!='estudiante')
+@if(Auth::check())
+  @if(Auth::user()->tipo_usuario!='estudiante')
+    @php
+      header("Location: /home")
+    @endphp
+  @endif
+@else
   @php
     header("Location: /home")
   @endphp
 @endif
+
 @extends('layout.master')
 
 @section('title')

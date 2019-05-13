@@ -1,11 +1,15 @@
 {{-- Restriccion de acceso --}}
-@php
-  $user = Auth::User();
-  if(!isset($user))
-    header("Location: /home");
-  if($user->tipo_usuario!='empresa')
-    header("Location: /home");
-@endphp
+@if(Auth::check())
+  @if(Auth::user()->tipo_usuario!='empresa')
+    @php
+      header("Location: /home")
+    @endphp
+  @endif
+@else
+  @php
+    header("Location: /home")
+  @endphp
+@endif
 
 @extends('layout.master')
 

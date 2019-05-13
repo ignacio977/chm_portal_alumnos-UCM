@@ -1,9 +1,16 @@
 {{-- Restriccion de acceso --}}
-@if(Auth::user()->tipo_usuario!='secretaria')
+@if(Auth::check())
+  @if(Auth::user()->tipo_usuario!='secretaria')
+    @php
+      header("Location: /home")
+    @endphp
+  @endif
+@else
   @php
     header("Location: /home")
   @endphp
 @endif
+
 @extends('layout.master')
 
 @section('title')

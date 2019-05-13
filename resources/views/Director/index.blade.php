@@ -1,5 +1,11 @@
 {{-- Restriccion de acceso --}}
-@if(Auth::user()->tipo_usuario!='director')
+@if(Auth::check())
+  @if(Auth::user()->tipo_usuario!='director')
+    @php
+      header("Location: /home")
+    @endphp
+  @endif
+@else
   @php
     header("Location: /home")
   @endphp
