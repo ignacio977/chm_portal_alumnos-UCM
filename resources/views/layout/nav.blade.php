@@ -51,6 +51,7 @@
   </li>
 </ul>
 
+{{-- Login Form --}}
 @include ('layout.login_modal')
 
 
