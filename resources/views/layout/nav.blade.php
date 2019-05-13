@@ -2,30 +2,30 @@
 {{-- Navbar --}}
 <nav>
   <div class="nav-wrapper" style="background-color: #17AEF6;">
-    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+    @if (Route::has('login'))
+      @auth
+        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+      @endauth
+    @endif
     <a href="#!" class="brand-logo" align="middle">UCM</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#user"><img class="circle" height="50" align="middle" style="transform: translateY(-15%);" src="images/smile.png"></a></li>
-
-
       <li><a href="">Botón 1</a></li>
       <li><a href="">Botón 2</a></li>
       <li><a href="">Botón 3</a></li>
       @if (Route::has('login'))
         @auth <!--Si hay una sesión iniciada-->
-              <li><a>{{ Auth::user()->nombres }}</a></li>
-              <li><a href="{{ route('logout') }}"
-                class="red darken-1" 
-                onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><b>
-                {{ __('Cerrar sesión') }}</b>
-             </a></li>
-             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-             </form>
+          <li><a>{{ Auth::user()->nombres }}</a></li>
+          <li><a href="{{ route('logout') }}"
+                  class="red darken-1" 
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();"><b>
+                  {{ __('Cerrar sesión') }}</b>
+          </a></li>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
         @else
-              <li><b><a class="modal-trigger blue darken-2" href="#modal1">Iniciar sesión</a></b></li>
-
+          <li><b><a class="modal-trigger blue darken-2" href="#modal1">Iniciar sesión</a></b></li>
         @endauth
       @endif
     </ul>
