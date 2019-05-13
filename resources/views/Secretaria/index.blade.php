@@ -1,9 +1,6 @@
 {{-- Restriccion de acceso --}}
-@if(Auth::user()->tipo_usuario!='secretaria')
-  @php
-    header("Location: /home")
-  @endphp
-@endif
+@include('layout.redirect')
+
 @extends('layout.master')
 
 @section('title')

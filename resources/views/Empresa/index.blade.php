@@ -1,9 +1,5 @@
 {{-- Restriccion de acceso --}}
-@if(Auth::user()->tipo_usuario!='empresa')
-  @php
-    header("Location: /home")
-  @endphp
-@endif
+@include('layout.redirect')
 
 @extends('layout.master')
 

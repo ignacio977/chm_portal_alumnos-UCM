@@ -1,9 +1,6 @@
 {{-- Restriccion de acceso --}}
-@if(Auth::user()->type!='estudiante')
-  @php
-    header("Location: /home")
-  @endphp
-@endif
+@include('layout.redirect')
+
 @extends('layout.master')
 
 @section('title')
