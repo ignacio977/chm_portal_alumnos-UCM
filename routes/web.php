@@ -30,4 +30,8 @@ Route::get('/Director', 'DirectorController@index');
 #Secretaria#
 Route::get('/Secretaria', 'SecretariaController@index');
 
+#Empresa#
+Route::get('/Empresa', 'EmpresaController@index');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
