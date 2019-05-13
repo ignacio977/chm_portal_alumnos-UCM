@@ -16,10 +16,6 @@
   {{-- Contenido --}}
 
   {{-- Botones para ir a cada uno de los roles --}}
-  <a class="waves-effect waves-light btn" href="/Estudiante">Rol Estudiante</a>
-  <a class="waves-effect waves-light btn" href="/Profesor">Rol Profesor</a>
-  <a class="waves-effect waves-light btn" href="/Director">Rol Director</a>
-  <a class="waves-effect waves-light btn" href="/Secretaria">Rol Secretaria</a>
 
 @endsection
 
