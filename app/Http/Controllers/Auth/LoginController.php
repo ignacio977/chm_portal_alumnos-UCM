@@ -36,7 +36,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    public function username(){ //Función que permite que para logearse sea con otro atributo y no el email por defecto. Obligatoriamente debe llamarse username. Esto es sólo con fines de prueba.
-        return 'rut';
-    }
 }
