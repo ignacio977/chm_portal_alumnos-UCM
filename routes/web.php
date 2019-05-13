@@ -19,19 +19,19 @@ Route::get('/', function () {
 
 
 #Estudiantes#
-Route::get('/Estudiante', 'EstudiantesController@index');
+Route::get('/Estudiante', 'EstudiantesController@index')->name('estudiante');
 
 #Profesores#
-Route::get('/Profesor', 'ProfesoresController@index');
+Route::get('/Profesor', 'ProfesoresController@index')->name('profesor');
 
 #Director#
-Route::get('/Director', 'DirectorController@index');
+Route::get('/Director', 'DirectorController@index')->name('director');
 
 #Secretaria#
-Route::get('/Secretaria', 'SecretariaController@index');
+Route::get('/Secretaria', 'SecretariaController@index')->name('secretaria');
 
 #Empresa#
-Route::get('/Empresa', 'EmpresaController@index');
+Route::get('/Empresa', 'EmpresaController@index')->name('empresa');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
