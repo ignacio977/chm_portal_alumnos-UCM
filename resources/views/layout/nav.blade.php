@@ -15,6 +15,7 @@
         @auth <!--Si hay una sesión iniciada-->
               <li><a>{{ Auth::user()->nombres }}</a></li>
               <li><a href="{{ route('logout') }}"
+                class="red darken-1" 
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();"><b>
                 {{ __('Cerrar sesión') }}</b>
