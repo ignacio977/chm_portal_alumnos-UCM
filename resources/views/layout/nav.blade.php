@@ -7,6 +7,7 @@
     <ul class="right hide-on-med-and-down">
       <li><a href="#user"><img class="circle" height="50" align="middle" style="transform: translateY(-15%);" src="images/smile.png"></a></li>
 
+
       <li><a href="">Botón 1</a></li>
       <li><a href="">Botón 2</a></li>
       <li><a href="">Botón 3</a></li>
@@ -22,7 +23,7 @@
                 @csrf
              </form>
         @else
-              <li><b><a class="modal-trigger" href="#modal1">Iniciar sesión</a></b></li>
+              <li><b><a class="modal-trigger blue darken-2" href="#modal1">Iniciar sesión</a></b></li>
 
         @endauth
       @endif
