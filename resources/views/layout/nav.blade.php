@@ -31,7 +31,7 @@
   </div>
 </nav>
 
-{{-- Sidenav (menú desplegable que al que se cambia cuando se está en un dispositivo móvil) --}}
+{{-- Sidenav --}}
 <ul id="slide-out" class="sidenav">
   <li>
     <div class="user-view">
@@ -44,7 +44,23 @@
     </div>
   </li>
   <li>
-    <a class="waves-effect" href="#!">Test</a> {{-- Agregar acá los botones igual, para poder visualizar en dispositivos móviles --}}
+    @if(Auth::check()) {{-- Verificamos que esté iniciada la sesión --}}
+      @if (Auth::user()->tipo_usuario == 'estudiante'){{-- Botones a los que tendrá acceso solo el estudiante --}}
+        <a class="waves-effect" href="#!">Botón Estudiante 1</a> {{-- Copiar el botón para agregar redireccionamientos --}}        
+      @endif
+      @if (Auth::user()->tipo_usuario == 'profesor')
+        <a class="waves-effect" href="#!">Botón Profesor</a> 
+      @endif
+      @if (Auth::user()->tipo_usuario == 'director')
+        <a class="waves-effect" href="#!">Botón Director</a> 
+      @endif
+      @if (Auth::user()->tipo_usuario == 'secretaria')
+        <a class="waves-effect" href="#!">Botón Secretaria</a> 
+      @endif
+      @if (Auth::user()->tipo_usuario == 'empresa')
+        <a class="waves-effect" href="#!">Botón Empresa</a> 
+      @endif
+    @endif
   </li>
   <li>
     <div class="divider"></div>
