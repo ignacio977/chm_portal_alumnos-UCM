@@ -13,25 +13,22 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('home');
-});
-
+Route::get('/', function () {return view('home');});
 
 #Estudiantes#
-Route::get('/Estudiante', 'EstudiantesController@index');
+Route::get('/estudiante', 'EstudiantesController@index');
 
 #Profesores#
-Route::get('/Profesor', 'ProfesoresController@index');
+Route::get('/profesor', 'ProfesoresController@index');
 
 #Director#
-Route::get('/Director', 'DirectorController@index');
+Route::get('/director', 'DirectorController@index');
 
 #Secretaria#
-Route::get('/Secretaria', 'SecretariaController@index');
+Route::get('/secretaria', 'SecretariaController@index');
 
 #Empresa#
-Route::get('/Empresa', 'EmpresaController@index');
+Route::get('/empresa', 'EmpresaController@index');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
