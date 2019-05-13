@@ -14,9 +14,6 @@
 {{-- Aqui trabajamos todo el contenido de la vista --}}
 @section('body')
   {{-- Contenido --}}
-
-  {{-- Botones para ir a cada uno de los roles --}}
-
 @endsection
 
 {{-- Agregamos los scripts para todos los elementos que utilicen JQuery al final para ayudar en tiempos de carga --}}
