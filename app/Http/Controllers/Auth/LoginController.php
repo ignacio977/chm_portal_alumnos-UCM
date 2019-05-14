@@ -42,7 +42,7 @@ class LoginController extends Controller
 
     public function authenticated($request , $user){ //Funcion para redireccionar dependiendo del rol de cada usuario.
         if($user->tipo_usuario == 'estudiante'){
-            return redirect()->route('estudiante') ;
+            return redirect()->route('estudiante');
         }
         elseif($user->tipo_usuario == 'profesor'){
             return redirect()->route('profesor');
