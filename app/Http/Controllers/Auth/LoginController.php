@@ -36,11 +36,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    public function username(){ //Función que permite que para logearse sea con otro atributo y no el email por defecto. Obligatoriamente debe llamarse username.
+    public function username(){ //Utilizamos RUT a modo de username (Prev: email)
         return 'rut';
     }
 
-    public function authenticated($request , $user){ // función para redireccionar dependiendo del rol de cada usuario.
+    public function authenticated($request , $user){ //Funcion para redireccionar dependiendo del rol de cada usuario.
         if($user->tipo_usuario == 'estudiante'){
             return redirect()->route('estudiante') ;
         }

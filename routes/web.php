@@ -11,9 +11,12 @@
 |
 */
 
+#Auth Middleware#
 Auth::routes();
 
+#Home & Index#
 Route::get('/', function () {return view('home');});
+Route::get('/home', 'HomeController@index')->name('home');
 
 #Estudiantes#
 Route::get('/estudiante', 'EstudiantesController@index')->name('estudiante');
@@ -29,7 +32,3 @@ Route::get('/secretaria', 'SecretariaController@index')->name('secretaria');
 
 #Empresa#
 Route::get('/empresa', 'EmpresaController@index')->name('empresa');
-
-
-
-Route::get('/home', 'HomeController@index')->name('home');
