@@ -7,11 +7,13 @@
   @endphp
   @if(Auth::user()->tipo_usuario != $uri)
     @php
-      header("Location: /home")
+      header("Location: /home");
+      die();
     @endphp
   @endif
 @else
   @php
-    header("Location: /home")
+    header("Location: /home");
+    die();
   @endphp
 @endif
