@@ -6,7 +6,7 @@
         <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
       @endauth
     @endif
-    <a href="#!" class="brand-logo" align="middle">UCM</a>
+    <a href="/home" class="brand-logo" align="middle">UCM</a>
     <ul class="right hide-on-med-and-down">
       <li><a href="">Botón 1</a></li>
       <li><a href="">Botón 2</a></li>
@@ -46,19 +46,19 @@
   <li>
     @if(Auth::check()) {{-- Verificamos que esté iniciada la sesión --}}
       @if (Auth::user()->tipo_usuario == 'estudiante'){{-- Botones a los que tendrá acceso solo el estudiante --}}
-        <a class="waves-effect" href="#!">Botón Estudiante 1</a> {{-- Copiar el botón para agregar redireccionamientos --}}        
+        <a class="waves-effect" href="/estudiante">Perfil Estudiante</a> {{-- Copiar el botón para agregar redireccionamientos --}}        
       @endif
       @if (Auth::user()->tipo_usuario == 'profesor')
-        <a class="waves-effect" href="#!">Botón Profesor</a> 
+        <a class="waves-effect" href="/profesor">Perfil Profesor</a> 
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
-        <a class="waves-effect" href="#!">Botón Director</a> 
+        <a class="waves-effect" href="/director">Perfil Director</a> 
       @endif
       @if (Auth::user()->tipo_usuario == 'secretaria')
-        <a class="waves-effect" href="#!">Botón Secretaria</a> 
+        <a class="waves-effect" href="/secretaria">Perfil Secretaria</a> 
       @endif
       @if (Auth::user()->tipo_usuario == 'empresa')
-        <a class="waves-effect" href="#!">Botón Empresa</a> 
+        <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
       @endif
     @endif
   </li>

@@ -14,6 +14,7 @@
 {{-- Aqui trabajamos todo el contenido de la vista --}}
 @section('body')
   {{-- Contenido --}}
+  Home
 @endsection
 
 {{-- Agregamos los scripts para todos los elementos que utilicen JQuery al final para ayudar en tiempos de carga --}}
