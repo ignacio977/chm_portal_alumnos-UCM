@@ -1,6 +1,6 @@
 {{-- Navbar --}}
 <nav>
-  <div class="nav-wrapper" style="background-color: #17AEF6;">
+  <div class="nav-wrapper" style="background-color: #253e85;">
     @if (Route::has('login'))
       @auth
         <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
