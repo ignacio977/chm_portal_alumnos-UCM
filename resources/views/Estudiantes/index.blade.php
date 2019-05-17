@@ -1,4 +1,4 @@
-{{-- Restriccion de acceso --}}
+{{-- Restriccion de acceso - Leer comentario en layout.redirect--}}
 @include('layout.redirect')
 
 @extends('layout.master')
