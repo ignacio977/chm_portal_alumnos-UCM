@@ -55,6 +55,7 @@ class LoginController extends Controller
         }
         elseif($user->tipo_usuario == 'empresa'){
             return redirect()->route('empresa');
+            //return redirect()->route('hola');
         }
     }
 }

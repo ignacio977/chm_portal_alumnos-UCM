@@ -8,8 +8,8 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([ 
-            'rut' => '0.000.000-0',
-            'password' => bcrypt('123456789'),
+            'rut' => '0',
+            'password' => bcrypt('0'),
             'nombres' => 'Nombres Estudiante',
             'apellidos' => 'Apellidos Estudiante',
             'email' => 'estudiante@gmail.com',
@@ -22,8 +22,8 @@ class UsersTableSeeder extends Seeder
           ]);
 
           DB::table('users')->insert([ 
-            'rut' => '1.111.111-1',
-            'password' => bcrypt('123456789'),
+            'rut' => '1',
+            'password' => bcrypt('1'),
             'nombres' => 'Nombres Profesor',
             'apellidos' => 'Apellidos Profesor',
             'email' => 'profesor@gmail.com',
@@ -37,8 +37,8 @@ class UsersTableSeeder extends Seeder
           ]);
 
           DB::table('users')->insert([ 
-            'rut' => '2.222.222-2',
-            'password' => bcrypt('123456789'),
+            'rut' => '2',
+            'password' => bcrypt('2'),
             'nombres' => 'Nombres Director',
             'apellidos' => 'Apellidos Director',
             'email' => 'director@gmail.com',
@@ -50,8 +50,8 @@ class UsersTableSeeder extends Seeder
           ]);
 
           DB::table('users')->insert([ 
-            'rut' => '3.333.333-3',
-            'password' => bcrypt('123456789'),
+            'rut' => '3',
+            'password' => bcrypt('3'),
             'nombres' => 'Nombres Empresa',
             'apellidos' => 'NE',
             'email' => 'empresa@gmail.com',
@@ -63,8 +63,8 @@ class UsersTableSeeder extends Seeder
           ]);
 
           DB::table('users')->insert([ 
-            'rut' => '4.444.444-4',
-            'password' => bcrypt('123456789'),
+            'rut' => '4',
+            'password' => bcrypt('4'),
             'nombres' => 'Nombres Secretaria',
             'apellidos' => 'Apellidos Secretaria',
             'email' => 'secretaria@gmail.com',

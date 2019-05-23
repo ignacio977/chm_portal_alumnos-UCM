@@ -36,9 +36,9 @@
   <li>
     <div class="user-view">
       <div class="background">
-        <img src="images/forest.jpg">
+        <img src="/images/forest.jpg">
       </div>
-      <a href="#user"><img class="circle" src="images/smile.png"></a>
+      <a href="#user"><img class="circle" src="/images/smile.png"></a>
       <a href="#name"><span class="white-text name">Mike John</span></a>
       <a href="#email"><span class="white-text email">correolindo@gmail.com</span></a>
     </div>
@@ -58,7 +58,8 @@
         <a class="waves-effect" href="/secretaria">Perfil Secretaria</a> 
       @endif
       @if (Auth::user()->tipo_usuario == 'empresa')
-        <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
+      <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
+        <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a> 
       @endif
     @endif
   </li>

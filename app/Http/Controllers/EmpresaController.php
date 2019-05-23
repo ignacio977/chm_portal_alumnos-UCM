@@ -11,6 +11,11 @@ class EmpresaController extends Controller
         return view('Empresa.index');
     }
 
+    public function CreacionPracticasProfesionales()
+    {
+        return view('Empresa.CreacionPracticasProfesionales');
+    }
+
      public function create()
     {
         //
