@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+
+
+
 
 class EstudiantesController extends Controller
 {
-    public function index()
+    public function index(request $request)
     {
-        return view('Estudiantes.index');
+        //dd($request->all()); // muestra el contenido del request
+        $students = User::All();
+        return view('Estudiantes.index', compact('students'));
     }
 
     public function create()

@@ -12,7 +12,24 @@
 @endsection
 
 @section('body')
-INFORMACIÓN DEL ESTUDIANTE
+@foreach ($students as $student) {{-- Obtención de los datos del estudiante --}}
+    @if ($student->id == Auth::user()->id) {{-- TODO: Arreglar estética --}}
+    
+      Nombre: {{$student->nombres}}
+      {{$student->apellidos}}
+      <br>
+      Email: {{$student->email}}
+      <br>
+      Dirección: {{$student->direccion_actual}}
+      <br>
+      Telefono: {{$student->telefono}}
+      <br>
+      Celular: {{$student->celular}}
+      <br>
+      Fecha de Ingreso: {{$student->fecha_ingreso}}
+    @endif
+@endforeach
+
 @endsection
 
 @section('scripts')
