@@ -39,8 +39,10 @@
         <img src="/images/forest.jpg">
       </div>
       <a href="#user"><img class="circle" src="/images/smile.png"></a>
-      <a href="#name"><span class="white-text name">Mike John</span></a>
-      <a href="#email"><span class="white-text email">correolindo@gmail.com</span></a>
+      @auth
+        <a href="#name"><span class="white-text name">{{Auth::user()->nombres}}</span></a>
+        <a href="#email"><span class="white-text email">{{Auth::user()->email}}</span></a>
+      @endauth
     </div>
   </li>
   <li>
