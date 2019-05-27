@@ -18,6 +18,9 @@ Auth::routes();
 Route::get('/', function () {return view('home');});
 Route::get('/home', 'HomeController@index')->name('home');
 
+#Cambiar foto#
+Route::patch('/foto', 'HomeController@cambiar_foto');
+
 #Estudiantes#
 Route::get('/estudiante', 'EstudiantesController@index')->name('estudiante');
 
