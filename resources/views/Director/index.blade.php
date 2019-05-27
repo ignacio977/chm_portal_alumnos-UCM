@@ -12,7 +12,7 @@
 @endsection
 
 @section('body')
-  @foreach ($directors as $director) {{-- Obtención de los datos del estudiante --}}
+  @foreach ($directors as $director) {{-- Obtención de los datos del Director de Carrera --}}
     @if ($director->id == Auth::user()->id) {{-- TODO: Arreglar estética --}} 
       Nombre: {{$director->nombres}}
       {{$director->apellidos}}
