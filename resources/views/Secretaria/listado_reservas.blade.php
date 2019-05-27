@@ -38,7 +38,7 @@
                                       <td>{{$reser->bloque}}</td>
                                       <td>{{$reser->fecha_ingreso}}</td>
                                       <td>{{$reser->fecha_salida}}</td>
-                                      <td> <a  href="{{route('secretaria_listado_reservas.destroy', $reser->id)}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">Cancelar</i></a> <a  href="" class="waves-effect waves-light btn-small"><i class="pe-7s-pen"> Editar</i></a></td>
+                                      <td> <a  href="{{route('secretaria_listado_reservas.destroy', $reser->id)}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">Cancelar</i></a> <a  href="lista_reserva/{id}" class="waves-effect waves-light btn-small"><i class="pe-7s-pen"> Editar</i></a></td>
                                       </tr>
                                       @endforeach
                                       </tbody>

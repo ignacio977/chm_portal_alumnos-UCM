@@ -588,7 +588,7 @@ class SecretariaController extends Controller
 
     public function show($id)
     {
-        //
+        return view('Secretaria.edit_reserva');
     }
 
     public function edit($id)
