@@ -35,6 +35,10 @@ Route::get('/secretaria_reserva', function () {
 Route::get('/secretaria_agregar_sala', function () {
         return view('Secretaria.agregar_sala');
 });
+Route::get('secretaria_listado_reservas/{id}/destroy',[
+    'uses' => 'SecretariaController@destroy',
+    'as'   => 'secretaria_listado_reservas.destroy'] 
+);
 
 Route::get('/secretaria_listado_reservas', 'SecretariaController@listado_reservas')->name('listado_reservas');
 Route::post('/agregar_sala', 'SecretariaController@agregar_sala');

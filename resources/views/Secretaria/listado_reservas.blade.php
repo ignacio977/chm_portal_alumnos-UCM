@@ -10,21 +10,19 @@
 @endsection
 
 @section('body')
-
-<div class="content">
+    <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Hoteles Disponibles</h4>
+                                <h4 class="title">Listado De Reservas</h4>
                             </div>
                             <div class="content">
                               <form>
                                   <div class="content table-responsive table-full-width">
                                       <table class="table table-hover table-striped">
                                           <thread>
-
                                           <th>ID user</th>
                                           <th>ID sala</th>
                                           <th>Bloque</th>
@@ -32,19 +30,15 @@
                                           <th>Fecha Salida</th>
                                           <th>Accion</th>
                                           </thread>
-
                                       <tbody>
                                       @foreach($reserva as $reser) <!--recorre todos los registros encontrados y los muestra en la vista-->
                                       <tr>
-
                                       <td>{{$reser->id_user}}</td>
                                       <td>{{$reser->id_sala}}</td>
-                                      <td>{{$reser->blque}}</td>
+                                      <td>{{$reser->bloque}}</td>
                                       <td>{{$reser->fecha_ingreso}}</td>
                                       <td>{{$reser->fecha_salida}}</td>
-
-                                      <td> <a href="" class="btns ">Editar</a>  </td>
-
+                                      <td> <a  href="{{route('secretaria_listado_reservas.destroy', $reser->id)}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">Cancelar</i></a> <a  href="" class="waves-effect waves-light btn-small"><i class="pe-7s-pen"> Editar</i></a></td>
                                       </tr>
                                       @endforeach
                                       </tbody>
@@ -56,15 +50,9 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-        </div>
-
-
-
-
+    </div>
 @endsection
 
 @section('scripts')

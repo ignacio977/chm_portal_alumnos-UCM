@@ -603,6 +603,8 @@ class SecretariaController extends Controller
 
     public function destroy($id)
     {
-        //
+      $reserva = Reserva::find($id); //Esta funcion elimina el usuario seleccionado
+      $reserva -> delete();
+      return redirect()->route('listado_reservas');
     }
 }
