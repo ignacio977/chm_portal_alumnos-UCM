@@ -9,8 +9,8 @@ class EmpresaController extends Controller
 {
     public function index()
     {
-        $companys = User::All();
-        return view('Empresa.index', compact('companys'));
+        $companies = User::All();
+        return view('Empresa.index', compact('companies'));
     }
 
      public function create()
