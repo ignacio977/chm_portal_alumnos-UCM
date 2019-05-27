@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class DirectorController extends Controller
 {
     public function index()
     {
-        return view('Director.index');
+        $directors = User::All();
+        return view('Director.index', compact('directors'));
     }
 
      public function create()
