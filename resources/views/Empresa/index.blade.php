@@ -12,7 +12,22 @@
 @endsection
 
 @section('body')
-INFORMACIÓN DE LA EMPRESA
+  @foreach ($companys as $company) {{-- Obtención de los datos de la Empresa --}}
+    @if ($company->id == Auth::user()->id) {{-- TODO: Arreglar estética --}} 
+      Nombre: {{$company->nombres}}
+      {{$company->apellidos}}
+      <br>
+      Rut: {{$company->rut}}
+      <br>
+      Email: {{$company->email}}
+      <br>
+      Dirección: {{$company->direccion_actual}}
+      <br>
+      Telefono: {{$company->telefono}}
+      <br>
+      Celular: {{$company->celular}} 
+    @endif
+  @endforeach
 @endsection
 
 @section('scripts')

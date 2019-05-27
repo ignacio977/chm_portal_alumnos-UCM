@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class EmpresaController extends Controller
 {
     public function index()
     {
-        return view('Empresa.index');
+        $companys = User::All();
+        return view('Empresa.index', compact('companys'));
     }
 
      public function create()
