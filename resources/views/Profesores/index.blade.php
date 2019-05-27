@@ -12,7 +12,7 @@
 @endsection
 
 @section('body')
-@foreach ($professors as $professor) {{-- Obtención de los datos del estudiante --}}
+@foreach ($professors as $professor) {{-- Obtención de los datos del profesor --}}
 @if ($professor->id == Auth::user()->id) {{-- TODO: Arreglar estética --}} 
   Nombre: {{$professor->nombres}} {{$professor->apellidos}}
   <br>
