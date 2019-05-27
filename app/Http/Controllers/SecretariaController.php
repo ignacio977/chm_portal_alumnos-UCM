@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class SecretariaController extends Controller
 {
 
     public function index()
     {
-        return view('Secretaria.index');
+        $secretaries = User::All();
+        return view('Secretaria.index', compact('secretaries'));
     }
 
     public function create()
