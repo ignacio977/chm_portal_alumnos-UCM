@@ -12,7 +12,20 @@
 @endsection
 
 @section('body')
-INFORMACIÓN DEL DIRECTOR DE CARRERA
+  @foreach ($directors as $director) {{-- Obtención de los datos del Director de Carrera --}}
+    @if ($director->id == Auth::user()->id) {{-- TODO: Arreglar estética --}} 
+      Nombre: {{$director->nombres}}
+      {{$director->apellidos}}
+      <br>
+      Email: {{$director->email}}
+      <br>
+      Dirección: {{$director->direccion_actual}}
+      <br>
+      Telefono: {{$director->telefono}}
+      <br>
+      Celular: {{$director->celular}} 
+    @endif
+  @endforeach
 @endsection
 
 @section('scripts')
