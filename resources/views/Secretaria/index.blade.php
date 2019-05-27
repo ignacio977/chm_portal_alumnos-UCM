@@ -12,7 +12,21 @@
 @endsection
 
 @section('body')
-  INFORMACIÓN DE LA SECRETARIA
+  @foreach ($secretaries as $secretary) {{-- Obtención de los datos de la secretaria --}}
+    @if ($secretary->id == Auth::user()->id) {{-- TODO: Arreglar estética --}} 
+      Nombre: {{$secretary->nombres}} {{$secretary->apellidos}}
+      <br>
+      Rut: {{$secretary->rut}}
+      <br>
+      Email: {{$secretary->email}}
+      <br>
+      Dirección: {{$secretary->direccion_actual}}
+      <br>
+      Telefono: {{$secretary->telefono}}
+      <br>
+      Celular: {{$secretary->celular}}    
+    @endif
+  @endforeach
 @endsection
 
 @section('scripts')
