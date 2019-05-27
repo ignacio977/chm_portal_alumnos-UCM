@@ -15,7 +15,7 @@
         @auth <!--Si hay una sesión iniciada-->
           <li><a>{{ Auth::user()->nombres }}</a></li>
           <li><a href="{{ route('logout') }}"
-                  class="red darken-1" 
+                  class="red darken-1"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
                   <b>{{ __('Cerrar sesión') }}</b>
@@ -46,19 +46,22 @@
   <li>
     @if(Auth::check()) {{-- Verificamos que esté iniciada la sesión --}}
       @if (Auth::user()->tipo_usuario == 'estudiante'){{-- Botones a los que tendrá acceso solo el estudiante --}}
-        <a class="waves-effect" href="/estudiante">Perfil Estudiante</a> {{-- Copiar el botón para agregar redireccionamientos --}}        
+        <a class="waves-effect" href="/estudiante">Perfil Estudiante</a> {{-- Copiar el botón para agregar redireccionamientos --}}
       @endif
       @if (Auth::user()->tipo_usuario == 'profesor')
-        <a class="waves-effect" href="/profesor">Perfil Profesor</a> 
+        <a class="waves-effect" href="/profesor">Perfil Profesor</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
-        <a class="waves-effect" href="/director">Perfil Director</a> 
+        <a class="waves-effect" href="/director">Perfil Director</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'secretaria')
-        <a class="waves-effect" href="/secretaria">Perfil Secretaria</a> 
+        <a class="waves-effect" href="/secretaria">Perfil Secretaria</a>
+        <a class="waves-effect" href="/secretaria_reserva">Reserva De Salas</a>
+        <a class="waves-effect" href="/secretaria_agregar_sala">Agregar Sala</a>
+        <a class="waves-effect" href="/secretaria_listado_reservas">Listado De Reservas</a> 
       @endif
       @if (Auth::user()->tipo_usuario == 'empresa')
-        <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
+        <a class="waves-effect" href="/empresa">Perfil Empresa</a>
       @endif
     @endif
   </li>
@@ -69,5 +72,3 @@
 
 {{-- Login Form --}}
 @include ('layout.login_modal')
-
-

@@ -29,6 +29,16 @@ Route::get('/director', 'DirectorController@index')->name('director');
 
 #Secretaria#
 Route::get('/secretaria', 'SecretariaController@index')->name('secretaria');
+Route::get('/secretaria_reserva', function () {
+        return view('Secretaria.reserva');
+});
+Route::get('/secretaria_agregar_sala', function () {
+        return view('Secretaria.agregar_sala');
+});
+
+Route::get('/secretaria_listado_reservas', 'SecretariaController@listado_reservas')->name('listado_reservas');
+Route::post('/agregar_sala', 'SecretariaController@agregar_sala');
+Route::post('/agregar_reserva_secretaria', 'SecretariaController@agregar_reserva');
 
 #Empresa#
 Route::get('/empresa', 'EmpresaController@index')->name('empresa');
