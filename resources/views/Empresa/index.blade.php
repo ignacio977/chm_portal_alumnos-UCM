@@ -12,7 +12,7 @@
 @endsection
 
 @section('body')
-  @foreach ($companys as $company) {{-- Obtención de los datos de la Empresa --}}
+  @foreach ($companies as $company) {{-- Obtención de los datos de la Empresa --}}
     @if ($company->id == Auth::user()->id) {{-- TODO: Arreglar estética --}} 
       Nombre: {{$company->nombres}}
       {{$company->apellidos}}
