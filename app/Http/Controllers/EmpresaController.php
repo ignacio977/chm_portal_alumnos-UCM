@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class EmpresaController extends Controller
 {
@@ -27,13 +28,17 @@ class EmpresaController extends Controller
         $errores[4] = "";
         $errores[5] = "";
         $actividad = 0;
-        if($request->Actividad1 == null || $request->Actividad2 == null || 
-        $request->Actividad3 == null || $request->Actividad4 == null){
-            $actividad = 0;
-            $errores[0] = "Debe haber al menos una actividad";
-        }else{
+        if($request->Actividad1 != null)
             $actividad ++;
-        }
+        if($request->Actividad2 != null)
+            $actividad ++;
+        if($request->Actividad3 != null)
+            $actividad ++;
+        if($request->Actividad4 != null)
+            $actividad ++;
+        if($actividad == 0)
+            $errores[0] = "Debe haber al menos una actividad";
+
         $campos = 0;
 
         if($request->DesdeH == null){
@@ -53,7 +58,7 @@ class EmpresaController extends Controller
             $campos ++;
         }
         
-        if($actividad != 0 && $campos != 0){
+        if($actividad == 0 || $campos != 0){
             return view('Empresa.CreacionPracticasProfesionales', compact('errores', 'request'));
         }else{
             if($request->DesdeD == $request->HastaD){
@@ -114,7 +119,47 @@ class EmpresaController extends Controller
 
     public function InsercionPracticaProfesional(Request $request)
     {
-        dd($request->all());
+        $DesdeH = $request->DesdeH[0].$request->DesdeH[1].$request->DesdeH[2].$request->DesdeH[3].$request->DesdeH[4];
+        $HastaH = $request->HastaH[0].$request->HastaH[1].$request->HastaH[2].$request->HastaH[3].$request->HastaH[4];
+
+        //dd($request->all());
+        if($request->Actividad1 == "")
+            $request->Actividad1 = " ";
+        
+        if($request->Actividad2 == "")
+            $request->Actividad2 = " ";
+            
+        if($request->Actividad3 == "")
+            $request->Actividad3 = " ";
+            
+        if($request->Actividad4 == "")
+            $request->Actividad4 = " ";
+
+        DB::table('practicasprofesionales')->insert([
+            ['EmpresaId' => $request->idEmpresa, 
+            'DiasDesde' => $request->DesdeD, 
+            'DiasHasta' => $request->HastaD, 
+            'HorasDesde' => $DesdeH, 
+            'HorasHasta' => $HastaH, 
+            'Actividad1' => $request->Actividad1, 
+            'Actividad2' => $request->Actividad2, 
+            'Actividad3' => $request->Actividad3, 
+            'Actividad4' => $request->Actividad4, 
+            'PuestoOfrecido' => $request->PuestoOfrecido,
+            'Enfoque' => $request->Enfoque],
+        ]);
+        $request->DesdeD = "";
+        $request->HastaD = "";
+        $request->DesdeH = "";
+        $request->HastaH = "";
+        $request->Actividad1 = "";
+        $request->Actividad2 = "";
+        $request->Actividad3 = "";
+        $request->Actividad4 = "";
+        $request->PuestoOfrecido = "";
+        $request->Enfoque = "";
+        $errores = 1;
+        return view('Empresa.CreacionPracticasProfesionales', compact('errores', 'request'));
     }
 
     public function show($id)

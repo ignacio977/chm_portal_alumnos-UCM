@@ -25,6 +25,11 @@
 @endsection
 
 @section('body')
+@if($errores == 1)
+  <div class="card-panel teal accent-1">
+    Practica Profesional creada correctamente
+  </div>
+@endif
 <br>
 <div class="container">
   <div class="card-panel center">
