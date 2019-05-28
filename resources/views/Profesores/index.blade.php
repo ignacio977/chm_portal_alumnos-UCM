@@ -5,6 +5,7 @@
 
 @section('title')
   <title>Perfil Profesor</title>
+  <title>Perfil Profesor</title>
 @endsection
 
 @section('styles')

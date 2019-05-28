@@ -328,7 +328,7 @@ class SecretariaController extends Controller
                                     //  return view('reserva.guardado');
                                }
                                else {
-                                return redirect('/secretaria')->with('error_reserva', 'Sala ocupada en el bloque 5');
+                                return redirect('/secretaria_reserva')->with('error_reserva', 'Sala ocupada en el bloque 5');
                                }
                           }
                           else{

@@ -24,6 +24,12 @@ Route::get('/estudiante', 'EstudiantesController@index')->name('estudiante');
 #Profesores#
 Route::get('/profesor', 'ProfesoresController@index')->name('profesor');
 
+Route::get('/profesores_reserva', function () {
+        return view('Profesores.reserva');
+});
+Route::post('/agregar_reserva_profesores', 'ProfesoresController@agregar_reserva');
+Route::get('/profesores_listado_reservas', 'ProfesoresController@listado_reservas')->name('Prof_listado_reservas');
+
 #Director#
 Route::get('/director', 'DirectorController@index')->name('director');
 
