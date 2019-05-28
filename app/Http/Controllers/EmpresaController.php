@@ -18,7 +18,7 @@ class EmpresaController extends Controller
     }
 
 
-     public function InsercionPracticaProfesional(Request $request)
+     public function VerificacionPracticaProfesional(Request $request)
     {
         $errores[0] = "";
         $errores[1] = "";
@@ -26,12 +26,13 @@ class EmpresaController extends Controller
         $errores[3] = "";
         $errores[4] = "";
         $errores[5] = "";
+        $actividad = 0;
         if($request->Actividad1 == null || $request->Actividad2 == null || 
         $request->Actividad3 == null || $request->Actividad4 == null){
-            $actividad = 1;
+            $actividad = 0;
             $errores[0] = "Debe haber al menos una actividad";
         }else{
-            $actividad = 0;
+            $actividad ++;
         }
         $campos = 0;
 
@@ -52,7 +53,7 @@ class EmpresaController extends Controller
             $campos ++;
         }
         
-        if($actividad != 1 && $campos != 0){
+        if($actividad != 0 && $campos != 0){
             return view('Empresa.CreacionPracticasProfesionales', compact('errores', 'request'));
         }else{
             if($request->DesdeD == $request->HastaD){
@@ -104,16 +105,16 @@ class EmpresaController extends Controller
                         $HorasT --;
                         $MinT = $MinT + 60;
                     }
-                    return $Dias." ". $HorasT .":" . $MinT;
+                    return view('Empresa.Boletin', compact('Dias', 'HorasT', 'MinT','actividad', 'request'));
                 }
             }
         }
-        return view('Empresa.CreacionPracticasProfesionales', compact($errores));
+        return view('Empresa.CreacionPracticasProfesionales', compact('errores'));
     }
 
-    public function store(Request $request)
+    public function InsercionPracticaProfesional(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     public function show($id)

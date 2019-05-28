@@ -25,6 +25,7 @@
 @endsection
 
 @section('body')
+<br>
 <div class="container">
   <div class="card-panel center">
     <form class="col s12" action="{{url('/empresa/practicas/carga')}}" method="post" >
@@ -145,8 +146,8 @@
             <label for="Actividad4">Actividad 4</label>
           </div>
       </div>
-      <input class="btn waves-effect waves-light" type="submit">
       <a class="waves-effect red darken-1 btn" href="http://localhost:8000/empresa" >Cancel</a>
+      <input class="btn waves-effect waves-light" type="submit">
     </form>
   </div>
 </div>
