@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('direccion_procedencia');
             $table->string('telefono');
             $table->string('celular');
+            $table->string('foto');
 
             /*Solo Alumno*/
             $table->date('fecha_ingreso')->nullable();;
