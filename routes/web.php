@@ -24,6 +24,12 @@ Route::get('/estudiante', 'EstudiantesController@index')->name('estudiante');
 #Profesores#
 Route::get('/profesor', 'ProfesoresController@index')->name('profesor');
 
+Route::get('/profesores_reserva', function () {
+        return view('Profesores.reserva');
+});
+Route::post('/agregar_reserva_profesores', 'ProfesoresController@agregar_reserva');
+Route::get('/profesores_listado_reservas', 'ProfesoresController@listado_reservas')->name('Prof_listado_reservas');
+
 #Director#
 Route::get('/director', 'DirectorController@index')->name('director');
 
@@ -37,7 +43,7 @@ Route::get('/secretaria_agregar_sala', function () {
 });
 Route::get('secretaria_listado_reservas/{id}/destroy',[
     'uses' => 'SecretariaController@destroy',
-    'as'   => 'secretaria_listado_reservas.destroy'] 
+    'as'   => 'secretaria_listado_reservas.destroy']
 );
 
 Route::get('/secretaria_listado_reservas', 'SecretariaController@listado_reservas')->name('listado_reservas');

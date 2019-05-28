@@ -12,7 +12,7 @@
 
 @section('body')
 <div class="container">
-  <form method="POST" action="/agregar_reserva_secretaria">
+  <form method="POST" action="/agregar_reserva_profesores">
     @csrf
     @if(session('status_reserva'))
         <div class="card-panel green accent-3">
@@ -101,7 +101,7 @@
           </label>
         </div>
       </div>
-      <a class="waves-effect red darken-1 btn" href="/secretaria" >Cancel</a>
+      <a class="waves-effect red darken-1 btn" href="/" >Cancel</a>
       <button class="btn waves-effect waves-light" type="submit" name="action">Crear Reserva
       <i class="material-icons right">send</i>
       </button>

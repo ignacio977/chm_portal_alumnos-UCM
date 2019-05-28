@@ -50,6 +50,8 @@
       @endif
       @if (Auth::user()->tipo_usuario == 'profesor')
         <a class="waves-effect" href="/profesor">Perfil Profesor</a>
+        <a class="waves-effect" href="/profesores_reserva">Reserva De Salas</a>
+        <a class="waves-effect" href="/profesores_listado_reservas">Mis Reservas</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
         <a class="waves-effect" href="/director">Perfil Director</a>
@@ -58,7 +60,7 @@
         <a class="waves-effect" href="/secretaria">Perfil Secretaria</a>
         <a class="waves-effect" href="/secretaria_reserva">Reserva De Salas</a>
         <a class="waves-effect" href="/secretaria_agregar_sala">Agregar Sala</a>
-        <a class="waves-effect" href="/secretaria_listado_reservas">Listado De Reservas</a> 
+        <a class="waves-effect" href="/secretaria_listado_reservas">Listado De Reservas</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'empresa')
         <a class="waves-effect" href="/empresa">Perfil Empresa</a>
