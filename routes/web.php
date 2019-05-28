@@ -33,3 +33,6 @@ Route::get('/secretaria', 'SecretariaController@index')->name('secretaria');
 #Empresa#
 Route::get('/empresa', 'EmpresaController@index')->name('empresa');
 Route::get('/empresa/practicas', 'EmpresaController@CreacionPracticasProfesionales')->name('hola');
+
+#Coordinador de practicas#
+Route::get('/profesor/coordinador', 'CoordinadorController@AprobarPracticas')->name('MostrarPracticas');
