@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostulacionesPracticasTable extends Migration
+class PostulacionesPracticasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,8 @@ class CreatePostulacionesPracticasTable extends Migration
     {
         Schema::create('postulaciones_practicas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('alumnoid')->unsigned();
-            $table->integer('practicaid')->unsigned();
+            $table->bigInteger('alumnoid')->unsigned();
+            $table->bigInteger('practicaid')->unsigned();
             $table->date('fecha');
             $table->string('estado');
             $table->timestamps();
@@ -32,6 +32,6 @@ class CreatePostulacionesPracticasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('postulaciones_practicas');
+        //
     }
 }
