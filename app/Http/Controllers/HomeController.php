@@ -31,7 +31,7 @@ class HomeController extends Controller
 
     function cambiar_foto(Request $request) //Funcion para el cambio de PFP (Profile Picture)
     {
-        $usuario = find(Auth::user()->id); //Obtenemos el ID del usuario logeado
+        $usuario = Auth::User(); //Obtenemos el ID del usuario logeado
         $foto_anterior = Auth::user()->foto; //Directorio de archivo, por si existe un PFP previo
         $this->validate($request, [
         'select_file'  => 'required|image|mimes:jpeg,jpg,png,gif|max:2048'
