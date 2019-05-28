@@ -21,7 +21,6 @@ class CreatePracticasprofesionalesTable extends Migration
             $table->string('HorasDesde');
             $table->string('HorasHasta');
             $table->string('Actividad1');
-            $table->string('Actividad1');
             $table->string('Actividad2');
             $table->string('Actividad3');
             $table->string('Actividad4');
