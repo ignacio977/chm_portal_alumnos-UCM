@@ -21,6 +21,11 @@ class SecretariaController extends Controller
         $reserva = Reserva::orderBy('id','ASC')->paginate(6);
          return view('Secretaria.listado_reservas')->with('reserva', $reserva);
     }
+    public function listado_salas()
+    {
+         $salas = Salas::orderBy('id')->paginate(10);
+         return view('Secretaria.listado_salas')->with('salas', $salas);
+    }
 
 
     public function agregar_sala(Request $request)
@@ -603,8 +608,14 @@ class SecretariaController extends Controller
 
     public function destroy($id)
     {
-      $reserva = Reserva::find($id); //Esta funcion elimina el usuario seleccionado
+      $reserva = Reserva::find($id); //Esta funcion elimina la reserva seleccionado
       $reserva -> delete();
       return redirect()->route('listado_reservas');
+    }
+    public function destroysala($id)
+    {
+      $sala = Salas::find($id); //Esta funcion elimina la sala seleccionado
+      $sala -> delete();
+      return redirect()->route('listado_salas');
     }
 }

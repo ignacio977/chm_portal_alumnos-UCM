@@ -60,6 +60,7 @@
         <a class="waves-effect" href="/secretaria">Perfil Secretaria</a>
         <a class="waves-effect" href="/secretaria_reserva">Reserva De Salas</a>
         <a class="waves-effect" href="/secretaria_agregar_sala">Agregar Sala</a>
+        <a class="waves-effect" href="/secretaria_listado_salas">Listado De Salas</a>
         <a class="waves-effect" href="/secretaria_listado_reservas">Listado De Reservas</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'empresa')

@@ -14,7 +14,7 @@
   <form method="POST" action="/agregar_sala">
     @csrf
     @if(session('status_sala'))
-        <div class="card-panel deep-orange darken-1">
+        <div class="card-panel green accent-3">
         {{session('status_sala')}}
         </div>
     @endif
