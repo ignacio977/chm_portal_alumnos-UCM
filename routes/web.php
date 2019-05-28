@@ -20,6 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 #Estudiantes#
 Route::get('/estudiante', 'EstudiantesController@index')->name('estudiante');
+Route::get('/estudiante/practicasofertadas', 'EstudiantesController@catalogopracticas')->name('CatPag');
 
 #Profesores#
 Route::get('/profesor', 'ProfesoresController@index')->name('profesor');
