@@ -577,7 +577,7 @@ class SecretariaController extends Controller
                           }
         }
         return redirect('/secretaria_reserva')->with('status_reserva', 'Se ha ingresado la Reserva correctamente');
-
+        
    }
 
 

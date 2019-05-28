@@ -47,11 +47,11 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input type="date" name="fecha_ingreso" min="<?php echo date('Y-m-d');?>" class="form-control" required>
+          <input type="text" name="fecha_ingreso" class="datepicker" required>
           <label class="black-text text-darken-2">Desde: </label>
         </div>
         <div class="input-field col s6">
-          <input type="date" name="fecha_salida"  min="<?php echo date('Y-m-d');?>" class="form-control" required>
+          <input type="text" name="fecha_salida"   class="datepicker" required>
           <label class="black-text text-darken-2">Hasta: </label>
         </div>
       </div>
