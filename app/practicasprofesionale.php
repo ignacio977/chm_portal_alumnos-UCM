@@ -13,4 +13,8 @@ class practicasprofesionale extends Model
         'Actividad4', 'PuestoOfrecido', 'Enfoque',
         'Estado', 'created_at', 'updated_at',
     ];
+
+    public function PostulacionPractica(){
+        return $this->hasMany(PostulacionPractica::class, 'id', 'practicaid');
+      }
 }
