@@ -49,7 +49,7 @@ class EstudiantesController extends Controller
     public function catalogopracticas()
     {
         $estudiante=Auth::user();
-        $Practicas =   practicasprofesionale::where('Estado', '=', 'Aprobado')->paginate(1);
+        $Practicas =   practicasprofesionale::where('Estado', '=', 'Aprobado')->paginate(5);
         return view('Estudiantes.CatalogoPractica',compact('Practicas'));
     }
 
@@ -59,6 +59,6 @@ class EstudiantesController extends Controller
                                     ->where('Estado', '=', 'Aprobado')
                                     ->where('id',$request->id)
                                     ->get();
-        return $Practicas;
+        return view('Estudiantes.PracticasDetalle',compact('Practicas'));
     }
 }
