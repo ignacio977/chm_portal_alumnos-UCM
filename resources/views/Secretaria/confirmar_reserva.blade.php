@@ -29,7 +29,7 @@
       <div class="row">
         <div class="input-field col s12">
           <label class="black-text text-darken-2">Id usuario</label>
-          <input type="text" name="id_user" class="form-control" value="{{ Auth::user()->id}}" readonly="readonly" required>
+          <input type="text" name="id_user" class="form-control" value="{{ $reserva->id_user}}" readonly="readonly" required>
         </div>
       </div>
       <div class="row">
@@ -73,7 +73,7 @@
           <h6 class="center-align black-text text-darken-2"></h6>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="input-field col s12">
           <input type="hidden" name="estado" class="form-control" value="1" readonly="readonly" required>

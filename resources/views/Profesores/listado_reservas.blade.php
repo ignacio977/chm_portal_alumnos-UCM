@@ -31,12 +31,14 @@
                                       <tbody>
                                       @foreach($reserva as $reser) <!--recorre todos los registros encontrados y los muestra en la vista-->
                                         @if($reser->id_user == ( Auth::user()->id))
+                                          @if( $reser->estado == 1 )
                                             <tr>
                                             <td>{{$reser->id_sala}}</td>
                                             <td>{{$reser->bloque}}</td>
                                             <td>{{$reser->fecha_ingreso}}</td>
                                             <td>{{$reser->fecha_salida}}</td>
                                             </tr>
+                                          @endif
                                         @endif
                                       @endforeach
                                       </tbody>
