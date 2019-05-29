@@ -16,9 +16,11 @@ class EstudiantesController extends Controller
         return view('Estudiantes.index');
     }
 
-    public function solicitud_practica(Request $request)
+    public function solicitud_practica($id,$idestudiante)
     {
-        
+        $idpractica = $id;
+        $estudiante = $idestudiante;
+        return $idpractica; 
     }
 
     public function store(Request $request)
@@ -59,6 +61,10 @@ class EstudiantesController extends Controller
                                     ->where('Estado', '=', 'Aprobado')
                                     ->where('id',$request->id)
                                     ->get();
-        return $Practicas;
+        
+        return view ('Estudiantes.PracticasDetalle', $Practicas);
     }
+
+ 
+
 }
