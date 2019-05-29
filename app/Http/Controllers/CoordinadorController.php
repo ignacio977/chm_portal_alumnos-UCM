@@ -7,5 +7,10 @@ use App\PracticasProfesionale;
 
 class CoordinadorController extends Controller
 {
-    //$practicasPendientes = PostulacionesPractica::all()->where('estado', 'Pendiente');
+    public function AprobarPracticas()
+    {
+       // $practicasPendientes = PostulacionesPractica::all()->where('estado', 'Pendiente');
+       // return view('Profesor.practicas', compact('practicasPendientes'));
+        return view('Profesor.practicas');
+    }
 }
