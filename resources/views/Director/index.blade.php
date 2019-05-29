@@ -4,7 +4,7 @@
 @extends('layout.master')
 
 @section('title')
-  <title>Perfil DIRECTOR DE CARRERA</title>
+  <title>Perfil Director de Carrera</title>
 @endsection
 
 @section('styles')
@@ -35,8 +35,8 @@
             </div>
         </div>      
         <div class="col s8">            
-            <div class="card-panel z-depth-5"> <!--Rectangulito donde estará el título y el botón desplegable -->
-              <h4>Bienvenido Director de Carrera</h4>  
+            <div class="card-panel z-depth-5"> <!--Rectángulo donde estará el título y el botón desplegable -->
+              <h4>Bienvenido, Director de Carrera</h4>  
             </div>
             <ul class="collapsible"> <!--Collapsible de información-->
             <li>
@@ -93,7 +93,6 @@
           </ul>
         </div>      
       </div>
-
     @endif
   @endforeach
 @endsection
