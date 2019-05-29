@@ -11,9 +11,9 @@ class EstudiantesController extends Controller
         return view('Estudiantes.index');
     }
 
-    public function create()
+    public function solicitud_practica(Request $request)
     {
-        //
+        
     }
 
     public function store(Request $request)

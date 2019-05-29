@@ -20,7 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 #Estudiantes#
 Route::get('/estudiante', 'EstudiantesController@index')->name('estudiante');
-
+Route::post('/estudiante/solicitud_practicas', 'EstudiantesController@solicitud_practica')->name('solicitudpractica');
 #Profesores#
 Route::get('/profesor', 'ProfesoresController@index')->name('profesor');
 
