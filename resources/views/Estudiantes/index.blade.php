@@ -17,8 +17,12 @@
         <div class="row"> <!--Seccion izquierda con datos escenciales Nombre y RUT -->
           <div class="col s4">
             <div class="card-panel z-depth-5"> 
-            <div align="center">           
-              <img src="/images/smile.png") style="width:40%">
+            <div align="center">    
+              @if (empty(Auth::user()->foto))  
+                <img src="/images/smile.png") style="width:40%">
+              @else
+                <img src="{{$student->foto}}") style="width:40%">
+              @endif
             </div> <!--Recoger nombre y RUT de la BD-->
               <h4><i class="material-icons">person</i>&nbsp{{$student->nombres}}&nbsp{{$student->apellidos}}
               </h4>               
