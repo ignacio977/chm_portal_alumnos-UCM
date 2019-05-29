@@ -13,13 +13,16 @@
 
 @section('body')
   @foreach ($professors as $professor) {{-- Obtención de los datos del profesor --}}
-    @if ($professor->id == Auth::user()->id) {{-- TODO: Arreglar estética --}} 
-
+    @if ($professor->id == Auth::user()->id)
         <div class="row"> <!--Seccion izquierda con datos escenciales Nombre y RUT -->
           <div class="col s4">
             <div class="card-panel z-depth-5"> 
-            <div align="center">           
-              <img src="/images/smile.png") style="width:40%">
+            <div align="center">    
+              @if (empty(Auth::user()->foto))  
+                <img src="/images/smile.png") style="width:40%">
+              @else
+                <img src="{{$professor->foto}}") style="width:40%">
+              @endif
             </div> <!--Recoger nombre y RUT de la BD-->
               <h4><i class="material-icons">person</i>&nbsp{{$professor->nombres}}&nbsp{{$professor->apellidos}}
               </h4>               
@@ -32,9 +35,7 @@
               <div class="section">
                 <h5><b>Cargo</b></h5>
                 <p><b><i>&nbsp&nbsp{{$professor->cargo}}</i></b></p>
-              </div>
-
-             
+              </div>            
             </div>
           </div>
           
@@ -80,7 +81,6 @@
               </li>
             </ul>
             
-
             <ul class="collapsible"> <!--Collapsible de información extra1-->
               <li>
                 <div class="collapsible-header"><i class="material-icons">chrome_reader_mode</i>
@@ -110,11 +110,8 @@
                 </div>
               </li>
             </ul>
-
-
           </div>
         </div>
-         
     @endif
   @endforeach
 @endsection
