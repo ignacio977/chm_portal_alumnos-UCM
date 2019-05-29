@@ -39,7 +39,7 @@
         <img src="/images/forest.jpg">
       </div>
       @if (empty(Auth::user()->foto)) {{-- Si el usuario no tiene foto --}}
-        <a class="modal-trigger" href="#modal_photo"><img class="circle" src="/images/smile.png"></a>
+        <a class="modal-trigger" href="#modal_photo"><img class="circle" src="/images/default.png"></a>
       @else {{-- Si el usuario sí tiene foto --}}
         <?php $direccion_imagen = Auth::user()->foto ?>
         <a class="modal-trigger" href="#modal_photo"><img class="circle" src="{{ URL::asset("{$direccion_imagen}") }}"></a>
