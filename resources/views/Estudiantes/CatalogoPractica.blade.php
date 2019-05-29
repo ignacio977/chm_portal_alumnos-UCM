@@ -9,7 +9,6 @@
 @section('styles')
   @include('layout.materialize')
   <!--provisional-->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 @endsection
 
 @section('body')
@@ -51,7 +50,8 @@
           </thead>
         </tbody>
       </table>
-      {{ $Practicas->links() }}
+      <!--Aqui crearé la paginación-->
+      @include('layout.pagination')
   </div>
 </div>
 @endsection
