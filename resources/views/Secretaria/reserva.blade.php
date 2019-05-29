@@ -47,11 +47,11 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input type="text" name="fecha_ingreso" class="datepicker" required>
+          <input type="text" id="fecha_inicio" name="fecha_ingreso" class="datepicker" required>
           <label class="black-text text-darken-2">Desde: </label>
         </div>
         <div class="input-field col s6">
-          <input type="text" name="fecha_salida"   class="datepicker" required>
+          <input type="text" id="fecha_final" name="fecha_salida"   class="datepicker" required>
           <label class="black-text text-darken-2">Hasta: </label>
         </div>
       </div>
@@ -113,4 +113,38 @@
 
 @section('scripts')
   <script src={{ asset('js/nav_scripts.js') }}></script>
+  <script>
+      $(document).ready(function() {
+          // obtenemos la fecha actual
+          var date = new Date();
+          var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+          // inicializamos datapicker para cada input en este caso con la fecha activa a partir del dia de hoy y con el formato de fecha dd/mm/yy
+          $("#fecha_inicio").datepicker({
+            minDate: new Date(y, m, d),
+            disableWeekends: true,
+            format: 'yyyy-mm-dd',
+            firstDay: 1,
+            i18n: {
+              months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+              monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+              weekdays: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+              weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+              weekdaysAbbrev: ['D', 'L', 'M', 'M', 'J', 'V', 'S']
+            }
+          });
+          $("#fecha_final").datepicker({
+            minDate: new Date(y, m, d),
+            disableWeekends: true,
+            format: 'yyyy-mm-dd',
+            firstDay: 1,
+            i18n: {
+              months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+              monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+              weekdays: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+              weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+              weekdaysAbbrev: ['D', 'L', 'M', 'M', 'J', 'V', 'S']
+            }
+          });
+       });
+  </script>
 @endsection
