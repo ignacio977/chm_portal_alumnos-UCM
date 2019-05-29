@@ -49,7 +49,18 @@ class EstudiantesController extends Controller
     public function catalogopracticas()
     {
         $estudiante=Auth::user();
-        $Practicas['Practicas'] =   DB::table('practicasprofesionales')->where('Estado', '=', 'Aprobado')->get();
-        return response()->json($Practicas);
+        $Practicas['Practicas'] =   DB::table('practicasprofesionales')
+                                    ->where('Estado', '=', 'Aprobado')
+                                    ->get();
+        return view('Estudiantes.Prueba')->with($Practicas);
+    }
+
+    public function practicasdetalle(Request $request)
+    {
+        $Practicas['Practicas'] =   DB::table('practicasprofesionales')
+                                    ->where('Estado', '=', 'Aprobado')
+                                    ->where('id',$request->id)
+                                    ->get();
+        return $Practicas;
     }
 }

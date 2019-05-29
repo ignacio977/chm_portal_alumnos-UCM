@@ -13,8 +13,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
     {
         DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '0',
-            'DiasDesde'     => '2019-01-01',
-            'DiasHasta'     => '2019-07-01',
+            'DiasDesde'     => 'Martes',
+            'DiasHasta'     => 'Viernes',
             'HorasDesde'    => '08:30',
             'HorasHasta'    => '16:30',
             'Actividad1'    => 'Desarrollo',
@@ -27,8 +27,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '1',
-            'DiasDesde'     => '2019-02-01',
-            'DiasHasta'     => '2019-08-01',
+            'DiasDesde'     => 'Lunes',
+            'DiasHasta'     => 'Jueves',
             'HorasDesde'    => '09:00',
             'HorasHasta'    => '17:00',
             'Actividad1'    => 'Desarrollo',
@@ -41,8 +41,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '2',
-            'DiasDesde'     => '2019-03-01',
-            'DiasHasta'     => '2019-08-01',
+            'DiasDesde'     => 'Lunes',
+            'DiasHasta'     => 'Miercoles',
             'HorasDesde'    => '08:00',
             'HorasHasta'    => '17:00',
             'Actividad1'    => 'Desarrollo',
@@ -55,8 +55,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '3',
-            'DiasDesde'     => '2019-01-01',
-            'DiasHasta'     => '2019-12-25',
+            'DiasDesde'     => 'Lunes',
+            'DiasHasta'     => 'Domingo',
             'HorasDesde'    => '06:00',
             'HorasHasta'    => '19:00',
             'Actividad1'    => 'Desarrollo',
