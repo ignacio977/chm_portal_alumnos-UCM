@@ -97,7 +97,7 @@
             <ul class="collapsible"> <!--Collapsible de información extra2-->
               <li>
                 <div class="collapsible-header"><i class="material-icons">chrome_reader_mode</i>
-                  &nbsp<b>Información 2</b></h6> </div>
+                  &nbsp<b>Información 3</b></h6> </div>
                 <div class="collapsible-body">
                   <span>
                     <div class="section">
