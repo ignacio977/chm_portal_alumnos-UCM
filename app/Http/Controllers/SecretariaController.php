@@ -27,6 +27,17 @@ class SecretariaController extends Controller
          return view('Secretaria.listado_salas')->with('salas', $salas);
     }
 
+    public function confirmar_listado_reservas()
+    {
+        $reserva = Reserva::orderBy('id','ASC')->paginate(6);
+         return view('Secretaria.confirmar_listado_reservas')->with('reserva', $reserva);
+
+        
+        /*$reserva = Reserva::where('estado', '=', 0)->get();
+         return view('Secretaria.listado_reservas')->with('reserva', $reserva);*/
+    }
+
+
 
     public function agregar_sala(Request $request)
     {
@@ -92,6 +103,7 @@ class SecretariaController extends Controller
                                          $reserva->id_user = $request->id_user;
                                          $reserva->id_sala = $id_sala[0]->id;
                                          $reserva->bloque = $request->bloque_1;
+                                         $reserva->estado = $request->estado;
                                          $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                          $reserva->fecha_salida = $request->input('fecha_salida');
                                          $reserva->save();
@@ -150,6 +162,7 @@ class SecretariaController extends Controller
                                             $reserva->id_user = $request->id_user;
                                             $reserva->id_sala = $id_sala[0]->id;
                                             $reserva->bloque = $request->bloque_2;
+                                            $reserva->estado = $request->estado;
                                             $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                             $reserva->fecha_salida = $request->input('fecha_salida');
                                             $reserva->save();
@@ -209,6 +222,7 @@ class SecretariaController extends Controller
                                          $reserva->id_user = $request->id_user;
                                          $reserva->id_sala = $id_sala[0]->id;
                                          $reserva->bloque = $request->bloque_3;
+                                         $reserva->estado = $request->estado;
                                          $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                          $reserva->fecha_salida = $request->input('fecha_salida');
                                          $reserva->save();
@@ -268,6 +282,7 @@ class SecretariaController extends Controller
                                           $reserva->id_user = $request->id_user;
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_4;
+                                          $reserva->estado = $request->estado;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -327,6 +342,7 @@ class SecretariaController extends Controller
                                           $reserva->id_user = $request->id_user;
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_5;
+                                          $reserva->estado = $request->estado;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -386,6 +402,7 @@ class SecretariaController extends Controller
                                           $reserva->id_user = $request->id_user;
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_6;
+                                          $reserva->estado = $request->estado;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -445,6 +462,7 @@ class SecretariaController extends Controller
                                           $reserva->id_user = $request->id_user;
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_7;
+                                          $reserva->estado = $request->estado;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -504,6 +522,7 @@ class SecretariaController extends Controller
                                           $reserva->id_user = $request->id_user;
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_8;
+                                          $reserva->estado = $request->estado;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -563,6 +582,7 @@ class SecretariaController extends Controller
                                           $reserva->id_user = $request->id_user;
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_9;
+                                          $reserva->estado = $request->estado;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -598,12 +618,21 @@ class SecretariaController extends Controller
 
     public function edit($id)
     {
-        //
+        $reserva = Reserva::find($id);//busca la id recibida en la base de datos
+        return view('secretaria.confirmar_reserva')->with('reserva', $reserva);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $reserva = Reserva::find($id);
+        $reserva-> id_user = $request->id_user;
+        $reserva-> id_sala = $request->id_sala;
+        $reserva-> bloque = $request->bloque;
+        $reserva-> estado = $request->estado;
+        $reserva-> fecha_ingreso = $request->input('fecha_ingreso');
+        $reserva-> fecha_salida = $request->input('fecha_salida');
+        $reserva->save();
+        return redirect()->route('listado_reservas');
     }
 
     public function destroy($id)
@@ -612,6 +641,14 @@ class SecretariaController extends Controller
       $reserva -> delete();
       return redirect()->route('listado_reservas');
     }
+
+    public function destroy_confirmar_reserva($id)
+    {
+      $reserva = Reserva::find($id); //Esta funcion elimina la reserva seleccionado
+      $reserva -> delete();
+      return redirect()->route('confirmar_listado_reservas');
+    }
+
     public function destroysala($id)
     {
       $sala = Salas::find($id); //Esta funcion elimina la sala seleccionado

@@ -101,6 +101,11 @@
           </label>
         </div>
       </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="hidden" name="estado" class="form-control" value="1" readonly="readonly" required>
+        </div>
+      </div>
       <a class="waves-effect red darken-1 btn" href="/secretaria" >Cancel</a>
       <button class="btn waves-effect waves-light" type="submit" name="action">Crear Reserva
       <i class="material-icons right">send</i>

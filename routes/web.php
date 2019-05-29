@@ -45,6 +45,22 @@ Route::get('secretaria_listado_reservas/{id}/destroy',[
     'uses' => 'SecretariaController@destroy',
     'as'   => 'secretaria_listado_reservas.destroy']
 );
+
+Route::get('secretaria_listado_reserva/{id}/destroy',[
+    'uses' => 'SecretariaController@destroy_confirmar_reserva',
+    'as'   => 'secretaria_listado_reserva.destroy']
+);
+
+Route::get('secretaria_listado_reservas/{id}/edit',[
+    'uses' => 'SecretariaController@edit',
+    'as'   => 'secretaria_listado_reservas.edit']
+);
+
+Route::post('secretaria_listado_reservas/{id}/update',[
+    'uses' => 'SecretariaController@update',
+    'as'   => 'secretaria_listado_reservas.update']
+);
+
 Route::get('secretaria_listado_salas/{id}/destroy',[
     'uses' => 'SecretariaController@destroysala',
     'as'   => 'secretaria_listado_salas.destroy']
@@ -52,6 +68,9 @@ Route::get('secretaria_listado_salas/{id}/destroy',[
 Route::get('lista_reserva/{id}',['as' => 'lista_reserva.show', 'uses' => 'SecretariaController@show']);
 Route::get('/secretaria_listado_reservas', 'SecretariaController@listado_reservas')->name('listado_reservas');
 Route::get('/secretaria_listado_salas', 'SecretariaController@listado_salas')->name('listado_salas');
+
+Route::get('/secretaria_confirmar_listado_reservas', 'SecretariaController@confirmar_listado_reservas')->name('confirmar_listado_reservas');
+
 Route::post('/agregar_sala', 'SecretariaController@agregar_sala');
 Route::post('/agregar_reserva_secretaria', 'SecretariaController@agregar_reserva');
 
