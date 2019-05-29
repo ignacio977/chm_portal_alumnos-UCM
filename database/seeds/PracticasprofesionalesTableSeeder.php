@@ -23,7 +23,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'Actividad4'    => 'Soporte',
             'PuestoOfrecido'=> 'Junior en programacion',
             'Enfoque'       => 'Python',
-            'Estado'        => 'Pendiente'
+            'Estado'        => 'Pendiente',
+            'updated_at'    => '2019/01/30'
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '1',
@@ -37,7 +38,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'Actividad4'    => 'Soporte',
             'PuestoOfrecido'=> 'Junior en programacion',
             'Enfoque'       => 'Typescript,Angular',
-            'Estado'        => 'Aprobado'
+            'Estado'        => 'Aprobado',
+            'updated_at'    => '2019/02/05'
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '2',
@@ -51,7 +53,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'Actividad4'    => 'Soporte',
             'PuestoOfrecido'=> 'Junior en programacion',
             'Enfoque'       => 'Ruby BackEnd',
-            'Estado'        => 'Aprobado'
+            'Estado'        => 'Aprobado',
+            'updated_at'    => '2019/03/03'
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '3',
@@ -65,7 +68,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'Actividad4'    => '',
             'PuestoOfrecido'=> '',
             'Enfoque'       => 'C',
-            'Estado'        => 'Rechazado'
+            'Estado'        => 'Rechazado',
+            'updated_at'    => '2019/01/05'
           ]);
     }
 }

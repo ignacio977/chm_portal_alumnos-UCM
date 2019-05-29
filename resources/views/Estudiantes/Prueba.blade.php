@@ -31,7 +31,7 @@
                 <td> {{$practica->EmpresaId}} </td>
                 <td> {{$practica->Actividad1}} </td>
                 <td> {{$practica->Enfoque}} </td>
-                <td> {{$practica->created_at}} </td>
+                <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
                 <td>
                   <a class="waves-effect" href="{{route('DetallePractica',['id' => $practica->id])}}">Click Aquí
                 </td>
