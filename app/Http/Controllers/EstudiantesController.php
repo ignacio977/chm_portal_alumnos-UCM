@@ -59,6 +59,6 @@ class EstudiantesController extends Controller
                                     ->where('Estado', '=', 'Aprobado')
                                     ->where('id',$request->id)
                                     ->get();
-        return $Practicas;
+        return view('Estudiantes.PracticasDetalle',compact('Practicas'));
     }
 }
