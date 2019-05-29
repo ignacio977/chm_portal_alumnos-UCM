@@ -15,8 +15,8 @@ class CreatePostulacionesPracticasTable extends Migration
     {
         Schema::create('postulaciones_practicas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('alumnoid')->unsigned();
-            $table->integer('practicaid')->unsigned();
+            $table->bigInteger('alumnoid')->unsigned();
+            $table->bigInteger('practicaid')->unsigned();
             $table->date('fecha');
             $table->string('estado');
             $table->timestamps();
