@@ -25,7 +25,7 @@
 @endsection
 
 @section('body')
-@if($errores == 1)
+@if(session('errores'))
   <div class="card-panel teal accent-1">
     Practica Profesional creada correctamente
   </div>
@@ -34,7 +34,7 @@
 <div class="container">
   <div class="card-panel center">
     <form class="col s12" action="{{url('/empresa/practicas/carga')}}" method="post" >
-      {{ csrf_field() }}
+      @csrf
       <h5 class="center-align black-text text-darken-2">Formulario creacion practicas profesionales</h5>
       <div class="row">
         <div class="input-field col s12">

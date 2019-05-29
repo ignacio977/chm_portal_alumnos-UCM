@@ -159,7 +159,7 @@ class EmpresaController extends Controller
         $request->PuestoOfrecido = "";
         $request->Enfoque = "";
         $errores = 1;
-        return view('Empresa.CreacionPracticasProfesionales', compact('errores', 'request'));
+        return redirect('/empresa/practicas')->with('errores', $errores);
     }
 
     public function show($id)
