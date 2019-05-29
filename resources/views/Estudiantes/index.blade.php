@@ -11,13 +11,9 @@
   @include('layout.materialize')
 @endsection
 
-
 @section('body')
-
-
   @foreach ($students as $student) {{-- Obtención de los datos del estudiante --}}
-      @if ($student->id == Auth::user()->id) {{-- TODO: Arreglar estética --}} 
-
+      @if ($student->id == Auth::user()->id)
         <div class="row"> <!--Seccion izquierda con datos escenciales Nombre y RUT -->
           <div class="col s4">
             <div class="card-panel z-depth-5"> 
@@ -36,12 +32,10 @@
                 <h5><b>Fecha de Ingreso</b></h5>
                 <p><b><i>&nbsp&nbsp{{date("d-m-Y", strtotime($student->fecha_ingreso))}}</i></b></p>
               </div>
-
-             
             </div>
           </div>
           
-          <div class="col s8">  <!--Seccion mensaje de bienvenida al tipo de usuario-->
+          <div class="col s8">  <!--Secci+on mensaje de bienvenida al tipo de usuario-->
             <div class="card-panel z-depth-4">
               <h4>Bienvenido, Estudiante&nbsp<i class="material-icons">insert_emoticon</i></h4> 
             </div>
@@ -78,7 +72,6 @@
               </li>
             </ul>
             
-
             <ul class="collapsible"> <!--Collapsible de información extra1-->
               <li>
                 <div class="collapsible-header"><i class="material-icons">chrome_reader_mode</i>
@@ -108,14 +101,10 @@
                 </div>
               </li>
             </ul>
-
-
           </div>
-        </div>
-        
+        </div>      
       @endif
   @endforeach
-
 @endsection
 
 @section('scripts')
