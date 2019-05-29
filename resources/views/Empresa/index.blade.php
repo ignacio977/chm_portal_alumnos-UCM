@@ -4,7 +4,7 @@
 @extends('layout.master')
 
 @section('title')
-  <title>Perfil INFORMACION EMPRESA</title>
+  <title>Perfil Empresa</title>
 @endsection
 
 @section('styles')
