@@ -12,6 +12,17 @@
 @endsection
 
 @section('body')
+
+<div class="row">
+    <div class="col s12 m5">
+      <div class="card-panel" style="background-color: #253e85;">
+        <span class="white-text">Bienvenido {{Auth::user()->nombres}} tenemos una cartilla de ofertas
+          para tu practica, es momento de selección.
+        </span>
+      </div>
+    </div>
+  </div>
+
 <div class="container">
   <div class="card-panel center">
       <table class="table-border table-striped responsive-table">
