@@ -14,10 +14,10 @@
 @section('body')
 
 <div class="row">
-    <div class="col s12 m5">
+    <div class="col s12 m8">
       <div class="card-panel" style="background-color: #253e85;">
         <span class="white-text">Bienvenido {{Auth::user()->nombres}} tenemos una cartilla de ofertas
-          para tu practica, es momento de selección.
+          para tu practica, puedes dar click a una oferta para revisar en detalle y además realizar tu postulación.
         </span>
       </div>
     </div>
@@ -44,7 +44,7 @@
                 <td> {{$practica->Enfoque}} </td>
                 <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
                 <td>
-                  <a class="waves-effect" href="{{route('DetallePractica',['id' => $practica->id])}}">Click Aquí
+                  <a href="{{route('DetallePractica',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;">Click Aquí</a>
                 </td>
               </tr>
             @endforeach
@@ -57,4 +57,6 @@
 
 @section('scripts')
   <script src={{ asset('js/nav_scripts.js') }}></script>
+  <script src={{ asset('js/table_scripts.js') }}></script>
+  
 @endsection

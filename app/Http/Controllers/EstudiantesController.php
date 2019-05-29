@@ -52,7 +52,7 @@ class EstudiantesController extends Controller
         $Practicas['Practicas'] =   DB::table('practicasprofesionales')
                                     ->where('Estado', '=', 'Aprobado')
                                     ->get();
-        return view('Estudiantes.Prueba')->with($Practicas);
+        return view('Estudiantes.CatalogoPractica')->with($Practicas);
     }
 
     public function practicasdetalle(Request $request)
@@ -61,6 +61,6 @@ class EstudiantesController extends Controller
                                     ->where('Estado', '=', 'Aprobado')
                                     ->where('id',$request->id)
                                     ->get();
-        return $Practicas;
+        return view('Estudiantes.PracticasDetalle')->with($Practicas);
     }
 }
