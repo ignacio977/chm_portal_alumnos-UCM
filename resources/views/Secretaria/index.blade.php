@@ -20,7 +20,7 @@
               <?php $direccion_imagen = Auth::user()->foto ?>
               <div align="center">    
                 @if (empty(Auth::user()->foto))  
-                  <img src="/images/smile.png") style="width:40%">
+                  <img src="/images/default.png") style="width:40%">
                 @else
                   <img src="{{$secretary->foto}}") style="width:40%">
                 @endif

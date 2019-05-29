@@ -19,7 +19,7 @@
             <div class="card-panel z-depth-5"> 
             <div align="center">    
               @if (empty(Auth::user()->foto))  
-                <img src="/images/smile.png") style="width:40%">
+                <img src="/images/default.png") style="width:40%">
               @else
                 <img src="{{$professor->foto}}") style="width:40%">
               @endif
@@ -41,7 +41,7 @@
           
           <div class="col s8">  <!--Seccion mensaje de bienvenida al tipo de usuario-->
             <div class="card-panel z-depth-4">
-              <h4>Bienvenido, Profesor&nbsp<i class="material-icons">insert_emoticon</i></h4> 
+              <h4>Bienvenido, Profesor&nbsp</h4> 
             </div>
 
             <!--Inicio del conjunto de collapsibles de información -->
