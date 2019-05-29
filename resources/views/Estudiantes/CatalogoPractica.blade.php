@@ -9,23 +9,23 @@
 @section('styles')
   @include('layout.materialize')
   <!--provisional-->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 @endsection
 
 @section('body')
 
 <div class="row">
-    <div class="col s12 m8">
-      <div class="card-panel" style="background-color: #253e85;">
-        <span class="white-text">Bienvenido {{Auth::user()->nombres}} tenemos una cartilla de ofertas
-          para tu practica, puedes dar click a una oferta para revisar en detalle y además realizar tu postulación.
-        </span>
-      </div>
+  <div class="col s12 m8">
+    <div class="card-panel" style="background-color: #253e85;">
+      <span class="white-text">Bienvenido {{Auth::user()->nombres}} tenemos una cartilla de ofertas
+        para tu practica, puedes dar click a una oferta para revisar en detalle y además realizar tu postulación.
+      </span>
     </div>
   </div>
+</div>
 
 <div class="container">
   <div class="card-panel center">
+    <div class="container">
       <table class="table-border table-striped responsive-table">
         <thead>
           <tr>
@@ -51,7 +51,9 @@
           </thead>
         </tbody>
       </table>
-      {{ $Practicas->links() }}
+      <!--Aqui crearé la paginación-->
+      @include('layout.pagination')
+    </div>
   </div>
 </div>
 @endsection
@@ -59,5 +61,4 @@
 @section('scripts')
   <script src={{ asset('js/nav_scripts.js') }}></script>
   <script src={{ asset('js/table_scripts.js') }}></script>
-  
 @endsection
