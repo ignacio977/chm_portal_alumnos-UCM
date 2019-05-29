@@ -1,6 +1,5 @@
 {{-- Restriccion de acceso --}}
 
-
 @extends('layout.master')
 
 @section('title')
@@ -9,6 +8,8 @@
 
 @section('styles')
   @include('layout.materialize')
+  <!--provisional-->
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 @endsection
 
 @section('body')
@@ -37,20 +38,20 @@
         </thead>
         <tbody>
           <thead>
-            @foreach ($Practicas as $practica)
-              <tr>
-                <td> {{$practica->EmpresaId}} </td>
-                <td> {{$practica->Actividad1}} </td>
-                <td> {{$practica->Enfoque}} </td>
-                <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
-                <td>
-                  <a href="{{route('DetallePractica',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;">Click Aquí</a>
-                </td>
-              </tr>
-            @endforeach
+              @foreach ($Practicas as $practica)
+                <tr>
+                  <td> {{$practica->EmpresaId}}</td>
+                  <td> {{$practica->Actividad1}}</td>
+                  <td> {{$practica->Enfoque}}</td>
+                  <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
+                  <td>
+                    <a href="{{route('DetallePractica',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;">Click Aquí</a>
+                  </td>
+              @endforeach
           </thead>
         </tbody>
       </table>
+      {{ $Practicas->links() }}
   </div>
 </div>
 @endsection

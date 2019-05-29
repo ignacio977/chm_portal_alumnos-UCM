@@ -31,6 +31,4 @@
 
 @section('scripts')
   <script src={{ asset('js/nav_scripts.js') }}></script>
-  <script src={{ asset('js/table_scripts.js') }}></script>
-  
 @endsection

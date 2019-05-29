@@ -7,7 +7,7 @@ use Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\User;
-use App\practicasprofesionales_table;
+use App\practicasprofesionale;
 
 class EstudiantesController extends Controller
 {
@@ -49,10 +49,8 @@ class EstudiantesController extends Controller
     public function catalogopracticas()
     {
         $estudiante=Auth::user();
-        $Practicas['Practicas'] =   DB::table('practicasprofesionales')
-                                    ->where('Estado', '=', 'Aprobado')
-                                    ->get();
-        return view('Estudiantes.CatalogoPractica')->with($Practicas);
+        $Practicas =   practicasprofesionale::where('Estado', '=', 'Aprobado')->paginate(1);
+        return view('Estudiantes.CatalogoPractica',compact('Practicas'));
     }
 
     public function practicasdetalle(Request $request)
@@ -61,6 +59,6 @@ class EstudiantesController extends Controller
                                     ->where('Estado', '=', 'Aprobado')
                                     ->where('id',$request->id)
                                     ->get();
-        return view('Estudiantes.PracticasDetalle')->with($Practicas);
+        return $Practicas;
     }
 }
