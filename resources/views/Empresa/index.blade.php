@@ -13,13 +13,17 @@
 
 @section('body')
   @foreach ($companies as $company) {{-- Obtención de los datos de la Empresa --}}
-    @if ($company->id == Auth::user()->id) {{-- TODO: Arreglar estética --}} 
+    @if ($company->id == Auth::user()->id) 
       <div class="row">
         <div class="col s4">     
             <div class="card-panel z-depth-5"> <!--Rectangulito donde estará el título y el botón desplegable -->
               <?php $direccion_imagen = Auth::user()->foto ?>
-              <div align="center">                 
-                <img src="{{ URL::asset("{$direccion_imagen}") }}" style="width:40%">
+              <div align="center">    
+                @if (empty(Auth::user()->foto))  
+                  <img src="/images/smile.png") style="width:40%">
+                @else
+                  <img src="{{$company->foto}}") style="width:40%">
+                @endif
               </div>
               <h4><i class="material-icons">person</i>&nbsp{{$company->nombres}}&nbsp{{$company->apellidos}}</h4> 
               
