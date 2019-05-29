@@ -16,7 +16,7 @@
     @if ($secretary->id == Auth::user()->id) 
       <div class="row">
         <div class="col s4">     
-           <div class="card-panel z-depth-5"> <!--Rectangulito donde estará el título y el botón desplegable -->
+           <div class="card-panel z-depth-5"> <!--Rectángulo donde estará el título y el botón desplegable -->
               <?php $direccion_imagen = Auth::user()->foto ?>
               <div align="center">    
                 @if (empty(Auth::user()->foto))  
@@ -35,8 +35,8 @@
            </div>
         </div>      
         <div class="col s8">            
-           <div class="card-panel z-depth-5"> <!--Rectangulito donde estará el título y el botón desplegable -->
-              <h4>Bienvenido/a secretario/a</h4>  
+           <div class="card-panel z-depth-5"> <!--Rectángulo donde estará el título y el botón desplegable -->
+              <h4>Bienvenido, Secretario</h4>  
            </div>
            <ul class="collapsible"> <!--Collapsible de información-->
             <li>
