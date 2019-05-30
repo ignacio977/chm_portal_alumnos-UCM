@@ -10,9 +10,9 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([ 
             'rut' => '0',
             'password' => bcrypt('0'),
-            'nombres' => 'Nombres Estudiante',
+            'nombres' => 'Savio Campos',
             'apellidos' => 'Apellidos Estudiante',
-            'email' => 'estudiante@gmail.com',
+            'email' => 'savio@gmail.com',
             'direccion_actual' => 'Calle Ejemplo',
             'direccion_procedencia' => 'Pasaje Ejemplo',
             'telefono' => '72111111',
@@ -20,13 +20,14 @@ class UsersTableSeeder extends Seeder
             'fecha_ingreso' => Carbon::parse('2015-01-01'),
             'tipo_usuario' => 'estudiante',
           ]);
+          
 
           DB::table('users')->insert([ 
             'rut' => '1',
             'password' => bcrypt('1'),
-            'nombres' => 'Nombres Profesor',
+            'nombres' => 'Marco Toranzo',
             'apellidos' => 'Apellidos Profesor',
-            'email' => 'profesor@gmail.com',
+            'email' => 'MT@gmail.com',
             'direccion_actual' => 'Calle Ejemplo',
             'direccion_procedencia' => 'Pasaje Ejemplo',
             'telefono' => '72111111',
@@ -52,9 +53,9 @@ class UsersTableSeeder extends Seeder
           DB::table('users')->insert([ 
             'rut' => '3',
             'password' => bcrypt('3'),
-            'nombres' => 'Nombres Empresa',
+            'nombres' => 'Microplay',
             'apellidos' => 'NE',
-            'email' => 'empresa@gmail.com',
+            'email' => 'Microplay@gmail.com',
             'direccion_actual' => 'Calle Ejemplo',
             'direccion_procedencia' => 'Pasaje Ejemplo',
             'telefono' => '72111111',
@@ -73,6 +74,87 @@ class UsersTableSeeder extends Seeder
             'telefono' => '72111111',
             'celular' => '911111111',
             'tipo_usuario' => 'secretaria',
+          ]);
+
+          DB::table('users')->insert([ 
+            'rut' => '5',
+            'password' => bcrypt('0'),
+            'nombres' => 'Erik Sanoval',
+            'apellidos' => 'Apellidos Estudiante',
+            'email' => 'Erik@gmail.com',
+            'direccion_actual' => 'Calle Ejemplo',
+            'direccion_procedencia' => 'Pasaje Ejemplo',
+            'telefono' => '72111111',
+            'celular' => '911111111',
+            'fecha_ingreso' => Carbon::parse('2015-01-01'),
+            'tipo_usuario' => 'estudiante',
+          ]);
+
+          DB::table('users')->insert([ 
+            'rut' => '6',
+            'password' => bcrypt('0'),
+            'nombres' => 'Sergio Valdes',
+            'apellidos' => 'Apellidos Estudiante',
+            'email' => 'Sergio@gmail.com',
+            'direccion_actual' => 'Calle Ejemplo',
+            'direccion_procedencia' => 'Pasaje Ejemplo',
+            'telefono' => '72111111',
+            'celular' => '911111111',
+            'fecha_ingreso' => Carbon::parse('2015-01-01'),
+            'tipo_usuario' => 'estudiante',
+          ]);
+
+          DB::table('users')->insert([ 
+            'rut' => '7',
+            'password' => bcrypt('0'),
+            'nombres' => 'Bastian Aliaga',
+            'apellidos' => 'Apellidos Estudiante',
+            'email' => 'Bastian@gmail.com',
+            'direccion_actual' => 'Calle Ejemplo',
+            'direccion_procedencia' => 'Pasaje Ejemplo',
+            'telefono' => '72111111',
+            'celular' => '911111111',
+            'fecha_ingreso' => Carbon::parse('2015-01-01'),
+            'tipo_usuario' => 'estudiante',
+          ]);
+
+          DB::table('users')->insert([ 
+            'rut' => '8',
+            'password' => bcrypt('3'),
+            'nombres' => 'PF',
+            'apellidos' => 'NE',
+            'email' => 'PF@gmail.com',
+            'direccion_actual' => 'Calle Ejemplo',
+            'direccion_procedencia' => 'Pasaje Ejemplo',
+            'telefono' => '72111111',
+            'celular' => '911111111',
+            'tipo_usuario' => 'empresa',
+          ]);
+
+          DB::table('users')->insert([ 
+            'rut' => '9',
+            'password' => bcrypt('3'),
+            'nombres' => 'SuperCompuMundo',
+            'apellidos' => 'NE',
+            'email' => 'SCM@gmail.com',
+            'direccion_actual' => 'Calle Ejemplo',
+            'direccion_procedencia' => 'Pasaje Ejemplo',
+            'telefono' => '72111111',
+            'celular' => '911111111',
+            'tipo_usuario' => 'empresa',
+          ]);
+
+          DB::table('users')->insert([ 
+            'rut' => '10',
+            'password' => bcrypt('3'),
+            'nombres' => 'HyperMegaRed',
+            'apellidos' => 'NE',
+            'email' => 'HMR@gmail.com',
+            'direccion_actual' => 'Calle Ejemplo',
+            'direccion_procedencia' => 'Pasaje Ejemplo',
+            'telefono' => '72111111',
+            'celular' => '911111111',
+            'tipo_usuario' => 'empresa',
           ]);
     }
 }
