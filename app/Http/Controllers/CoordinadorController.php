@@ -23,6 +23,16 @@ class CoordinadorController extends Controller
        $postulacion = PostulacionesPractica::where('id', $id)->first();
        $postulacion->estado = $estado;
        $postulacion->save();
+      
+       if ($estado=="Aceptada") {
+         $postulacionesRestantes = PostulacionesPractica::where('alumnoid', $postulacion->alumno->id)->where('id', '!=', $id)->get();   
+
+         foreach ($postulacionesRestantes as $postulacion) {
+            $postulacion->estado = "Rechazada";
+            $postulacion->save();
+         }
+      } 
+
 
        return redirect('/profesor/coordinador');
 

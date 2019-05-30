@@ -13,7 +13,7 @@ class PostulacionesPractica extends Model
         'fecha', 'Estado'
     ];
 
-    public function practicasprofesionale(){
+    public function practica(){
         return $this->belongsTo(PracticasProfesionale::class, 'practicaid', 'id');
       }
     public function alumno(){
