@@ -29,8 +29,8 @@
               
               <div class="divider"></div>
               <div class="section">
-                <h5>RUT</h5> 
-                <p>{{$secretary->rut}}</p>
+                <h5><b>RUT</b></h5>
+                <p><b><i>&nbsp&nbsp{{$secretary->rut}}</i></b></p>
               </div>
            </div>
         </div>      
