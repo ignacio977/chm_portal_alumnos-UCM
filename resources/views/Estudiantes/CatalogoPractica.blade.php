@@ -24,8 +24,7 @@
 </div>
 
 <div class="container">
-  <div class="card-panel center">
-    <div class="container">
+  <div class="card-content  center">
       <table class="table-border table-striped responsive-table">
         <thead>
           <tr>
@@ -51,9 +50,10 @@
           </thead>
         </tbody>
       </table>
-      <!--Aqui crearé la paginación-->
-      @include('layout.pagination')
-    </div>
+      <div class="container">
+        <!--Aqui crearé la paginación-->
+        @include('layout.pagination')
+      </div>
   </div>
 </div>
 @endsection
