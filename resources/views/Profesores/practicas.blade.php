@@ -19,7 +19,7 @@
     @forelse ($practicasPendientes as $postulacion)
     <div class="row">
         <div class="col s2"></div>
-        <div class="col s8 z-depth-1 section blue lighten-4">
+        <div class="col s8 z-depth-3 section">
             <div class="col s8 section">
                 <h6 class="">Numero de postulación  : {{$postulacion->id}}</h6>
                 <h6 class="">Alumno                 : {{$postulacion->alumno->nombres}}</h6>
