@@ -13,11 +13,11 @@ class PostulacionesPractica extends Model
         'fecha', 'Estado'
     ];
 
-    public function practicasprofesionale(){
-        return $this->hasMany(PracticasProfesionale::class, 'practicaid', 'id');
+    public function practica(){
+        return $this->belongsTo(PracticasProfesionale::class, 'practicaid', 'id');
       }
     public function alumno(){
-    return $this->hasMany(User::class, 'alumnoid', 'id');
+    return $this->belongsTo(User::class, 'alumnoid', 'id');
     }
 
 }
