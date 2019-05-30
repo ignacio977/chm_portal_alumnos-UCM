@@ -27,14 +27,12 @@
           <thead>
             <tr>
               <th>Empresa</th>
+              <th>Almuno</th>
               <th>Actividad Principal</th>
-              <th>Actividad Secundaria</th>
-              <th>Actividad Terciaria</th>
-              <th>Actividad Cuarta</th>
               <th>Desde:</th>
               <th>Hasta:</th>
               <th>Puesto Ofrecido</th>
-              <th>Enfoque</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -42,15 +40,12 @@
                 @foreach ($Practicas as $practica)
                   <tr>
                     <td> {{$practica->EmpresaId}}</td>
+                    <td> {{Auth::user()->id}}</td>
                     <td> {{$practica->Actividad1}}</td>
-                    <td> {{$practica->Actividad2}}</td>
-                    <td> {{$practica->Actividad3}}</td>
-                    <td> {{$practica->Actividad4}}</td>
                     <td> {{$practica->HorasDesde}}</td>
                     <td> {{$practica->HorasHasta}}</td>
                     <td> {{$practica->PuestoOfrecido}}</td>
-                    <td> {{$practica->Enfoque}}</td>
-                    <td> <a href="{{route('solicitud',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;" type="submit" >Postular</a></td>
+                    <td> <a href="{{route('solicitudpractica',['id' => $practica->id],['idestudiante' => '(Auth::user()->id)' ])}}" class="btn waves-effect waves-light" style="background-color: #253e85;" type="submit" >Postular</a></td>
                    
                 @endforeach
             </thead>
