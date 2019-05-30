@@ -84,7 +84,7 @@ class EmpresaController extends Controller
                 }
                 if($request->DesdeH == $request->HastaH){
                     $errores[2] = "No se puede seleccionar la misma hora";    //No hay diferencia de horas, se entra y sale a la misma hora
-                    return "No se puede seleccionar misma hora de entrada que salida";
+                    return view('Empresa.CreacionPracticasProfesionales', compact('errores', 'request'));
                 }
                 else{
                     $errores[2] = "";

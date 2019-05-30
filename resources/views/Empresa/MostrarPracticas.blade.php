@@ -33,32 +33,32 @@
 <br>
 <div class="container">
   <div class="card-content  center">
-      <table class="table-border table-striped responsive-table">
+    <table class="table-border table-striped responsive-table">
+      <thead>
+        <tr>
+          <th>Actividad Principal</th>
+          <th>Enfoque y conocimientos</th>
+          <th>Fecha Publicacion</th>
+          <th>Estado</th>
+          {{-- <th>Detalles</th> --}}
+          
+        </tr>
+      </thead>
+      <tbody>
         <thead>
-          <tr>
-            <th>Actividad Principal</th>
-            <th>Enfoque y conocimientos</th>
-            <th>Fecha Publicacion</th>
-            {{-- <th>Detalles</th> --}}
-            
-          </tr>
+          @foreach ($Practicas as $practica)
+            <tr>
+              <td> {{$practica->Actividad1}}</td>
+              <td> {{$practica->Enfoque}}</td>
+              <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
+              <td> {{$practica->Estado}}</td>
+              {{-- <td>
+                <a href="{{route('DetallePractica',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;">Click Aquí</a>
+              </td> --}}
+          @endforeach
         </thead>
-        <tbody>
-          <thead>
-              @foreach ($Practicas as $practica)
-                <tr>
-                  <td> {{$practica->Actividad1}}</td>
-                  <td> {{$practica->Enfoque}}</td>
-                  <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
-                  {{-- <td>
-                    <a href="{{route('DetallePractica',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;">Click Aquí</a>
-                  </td> --}}
-                  
-                  
-              @endforeach
-          </thead>
-        </tbody>
-      </table>
+      </tbody>
+    </table>
   </div>
 </div>
 
