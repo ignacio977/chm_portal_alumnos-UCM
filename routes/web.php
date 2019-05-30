@@ -20,8 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 #Estudiantes#
 Route::get('/estudiante', 'EstudiantesController@index')->name('estudiante');
-Route::get('/estudiante/solicitud_practicas/{idpractica,idestudiante}', 'EstudiantesController@solicitud_practica')->name('solicitudpractica');
-Route::get('/estudiante/solicitud', 'EstudiantesController@solicitud')->name('solicitud');
+Route::post('/estudiante/solicitud_practicas', 'EstudiantesController@solicitud_practica')->name('solicitudpractica');
 Route::get('/estudiante/practicasofertadas', 'EstudiantesController@catalogopracticas')->name('CatPag');
 Route::get('/estudiante/practicasofertadas/detalle', 'EstudiantesController@practicasdetalle')->name('DetallePractica');
 
