@@ -8,7 +8,6 @@
 
 @section('styles')
   @include('layout.materialize')
-  <!--provisional-->
 @endsection
 
 @section('body')

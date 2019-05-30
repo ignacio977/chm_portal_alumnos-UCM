@@ -45,4 +45,7 @@
 </div>
 
 @endsection
-    
+
+@section('scripts')
+  <script src={{ asset('js/nav_scripts.js') }}></script>
+@endsection
