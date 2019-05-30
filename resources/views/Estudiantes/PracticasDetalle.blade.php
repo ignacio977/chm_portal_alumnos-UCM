@@ -42,6 +42,8 @@
             <thead>
                 @foreach ($Practicas as $practica)
                   <tr>
+                    <form action={{route('solicitudpractica')}} method="post">
+                      {{csrf_field()}}
                     <td> {{$practica->EmpresaId}}</td>
                     <td> {{$practica->Actividad1}}</td>
                     <td> {{$practica->Actividad2}}</td>
@@ -51,19 +53,23 @@
                     <td> {{$practica->HorasHasta}}</td>
                     <td> {{$practica->PuestoOfrecido}}</td>
                     <td> {{$practica->Enfoque}}</td>
-                    <td> <a href="{{route('solicitudpractica',['idpractica' => $practica->id],['{{Auth::user()->id}}'] )}}" class="btn waves-effect waves-light" style="background-color: #253e85;" >Postular</a></td>
-                   
+                    <input type="hidden" name="idalumno" value={{Auth::user()->id}}>
+                    <input type="hidden" name="idpractica" value={{$practica->id}}>
+                    <td><button type="submit" class="btn-floating" >Postular</button></td>
+
+
+                   </form>
                 @endforeach
             </thead>
           </tbody>
         </table>
-        
+
     </div>
   </div>
 </div>
 <div class="container">
   <div class="card-panel center">
-      
+
   </div>
 </div>
 @endsection

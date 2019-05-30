@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\practicasprofesionale;
+use App\PostulacionesPractica;
 
 class EstudiantesController extends Controller
 {
@@ -16,11 +17,16 @@ class EstudiantesController extends Controller
         return view('Estudiantes.index');
     }
 
-    public function solicitud_practica($id,$idestudiante)
+    public function solicitud_practica(Request $request)
     {
-        $idpractica = $id;
-        $estudiante = $idestudiante;
-        return $idpractica; 
+        $datos = new PostulacionesPractica;
+        $datos->practicaid = $request->idpractica;
+        $datos->alumnoid = $request->idalumno;
+        $datos->fecha = '01-01-01';
+        $datos->estado = 'Pendiente';
+
+        $datos->save();
+        return redirect(route('CatPag'));
     }
 
     public function store(Request $request)
@@ -61,10 +67,10 @@ class EstudiantesController extends Controller
                                     ->where('Estado', '=', 'Aprobado')
                                     ->where('id',$request->id)
                                     ->get();
-        
+
         return view ('Estudiantes.PracticasDetalle', $Practicas);
     }
 
- 
+
 
 }
