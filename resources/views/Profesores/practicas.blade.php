@@ -7,7 +7,14 @@
 @section('body')
 <div class="container">
     <div class="row">
-        <div class="col s12"></div>
+        <div class="col s12 m8">
+            <div class="card-panel" style="background-color: #253e85;">
+                <span class="white-text">Bienvenido {{Auth::user()->nombres}} 
+                    aquí se muestran las postulaciones de prácticas pendientes, 
+                    puedes aceptar o rechazar cada practica usando los botones laterales.
+                </span>
+            </div>
+        </div>
     </div>
     @forelse ($practicasPendientes as $postulacion)
     <div class="row">
