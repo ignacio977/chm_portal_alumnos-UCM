@@ -57,7 +57,10 @@ class EstudiantesController extends Controller
     public function catalogopracticas()
     {
         $estudiante=Auth::user();
-        $Practicas =   practicasprofesionale::where('Estado', '=', 'Aprobado')->paginate(5);
+        $practica_en_curso=PostulacionesPractica::where('alumnoid','=',$estudiante->id)->pluck('practicaid');
+        $Practicas= practicasprofesionale:: where('Estado', '=', 'Aprobado')->
+                                            whereNotIn('id',$practica_en_curso)->
+                                            paginate(1);
         return view('Estudiantes.CatalogoPractica',compact('Practicas'));
     }
 
