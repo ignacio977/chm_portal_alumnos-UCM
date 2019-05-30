@@ -8,7 +8,6 @@
 
 @section('styles')
   @include('layout.materialize')
-  <!--provisional-->
 @endsection
 
 @section('body')
@@ -39,7 +38,7 @@
           <thead>
               @foreach ($Practicas as $practica)
                 <tr>
-                  <td> {{$practica->EmpresaId}}</td>
+                  <td> {{$practica->empresa->nombres}}</td>
                   <td> {{$practica->Actividad1}}</td>
                   <td> {{$practica->Enfoque}}</td>
                   <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>

@@ -51,6 +51,7 @@
       @endif
       @if (Auth::user()->tipo_usuario == 'profesor')
         <a class="waves-effect" href="/profesor">Perfil Profesor</a> 
+        <a class="waves-effect" href="/profesor/coordinador">Coordinar Practicas</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
         <a class="waves-effect" href="/director">Perfil Director</a> 
