@@ -40,7 +40,6 @@
         <div class="input-field col s12">
           <label for="disabled" class="black-text text-darken-2">Nombre de la Empresa</label>
           <input disabled value={{Auth::user()->nombres}} type="text" id="disabled">
-          <input name="idEmpresa" value={{Auth::user()->id}} type="hidden" style="display:none">
           <input name="NombreEmpresa" value={{Auth::user()->nombres}} type="hidden" style="display:none">
         </div>
       </div>

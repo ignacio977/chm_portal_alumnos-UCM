@@ -39,6 +39,7 @@ Route::get('/empresa', 'EmpresaController@index')->name('empresa');
 Route::get('/empresa/practicas', 'EmpresaController@CreacionPracticasProfesionales');
 Route::post('/empresa/practicas/carga', 'EmpresaController@VerificacionPracticaProfesional');
 Route::post('/empresa/practicas/enviar', 'EmpresaController@InsercionPracticaProfesional');
+Route::get('/empresa/practicas/mostrar', 'EmpresaController@MostrarPracticas');
 
 #Coordinador de practicas#
 Route::get('/profesor/coordinador', 'CoordinadorController@AprobarPracticas')->name('MostrarPracticas');

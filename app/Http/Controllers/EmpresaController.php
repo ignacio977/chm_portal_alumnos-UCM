@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 
 class EmpresaController extends Controller
 {
@@ -81,7 +82,7 @@ class EmpresaController extends Controller
                         $Dias ++;
                     }
                 }
-                if($request->DesdeH == $request->HastaD){
+                if($request->DesdeH == $request->HastaH){
                     $errores[2] = "No se puede seleccionar la misma hora";    //No hay diferencia de horas, se entra y sale a la misma hora
                     return "No se puede seleccionar misma hora de entrada que salida";
                 }
@@ -134,9 +135,10 @@ class EmpresaController extends Controller
             
         if($request->Actividad4 == "")
             $request->Actividad4 = " ";
-
+        
+        $now = new \DateTime();
         DB::table('practicasprofesionales')->insert([
-            ['EmpresaId' => $request->idEmpresa, 
+            ['EmpresaId' => Auth::user()->id, 
             'DiasDesde' => $request->DesdeD, 
             'DiasHasta' => $request->HastaD, 
             'HorasDesde' => $DesdeH, 
@@ -146,7 +148,8 @@ class EmpresaController extends Controller
             'Actividad3' => $request->Actividad3, 
             'Actividad4' => $request->Actividad4, 
             'PuestoOfrecido' => $request->PuestoOfrecido,
-            'Enfoque' => $request->Enfoque],
+            'Enfoque' => $request->Enfoque,
+            'updated_at' =>$now],
         ]);
         $request->DesdeD = "";
         $request->HastaD = "";
@@ -159,12 +162,14 @@ class EmpresaController extends Controller
         $request->PuestoOfrecido = "";
         $request->Enfoque = "";
         $errores = 1;
-        return redirect('/empresa/practicas')->with('errores', $errores);
+        return redirect('/empresa/practicas/mostrar')->with('errores',$errores);
     }
 
-    public function show($id)
+    public function MostrarPracticas()
     {
-        //
+        $Practicas = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->get();
+        
+        return view('Empresa.MostrarPracticas', compact('Practicas'));
     }
 
     public function edit($id)
