@@ -110,7 +110,7 @@
         <a class="black-text text-darken-2"> 
       </p>
     <a class="waves-effect red darken-1 btn" href="http://localhost:8000/empresa" >Cancel</a>
-    <input class="btn waves-effect waves-light" type="submit">
+    <button class="btn waves-effect waves-light" type="submit">Enviar</button>
     </form>
   </div>
 </div>
