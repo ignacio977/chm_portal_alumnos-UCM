@@ -8,7 +8,6 @@
 
 @section('styles')
   @include('layout.materialize')
-  <!--provisional-->
 @endsection
 
 @section('body')
@@ -24,8 +23,7 @@
 </div>
 
 <div class="container">
-  <div class="card-panel center">
-    <div class="container">
+  <div class="card-content  center">
       <table class="table-border table-striped responsive-table">
         <thead>
           <tr>
@@ -40,7 +38,7 @@
           <thead>
               @foreach ($Practicas as $practica)
                 <tr>
-                  <td> {{$practica->EmpresaId}}</td>
+                  <td> {{$practica->empresa->nombres}}</td>
                   <td> {{$practica->Actividad1}}</td>
                   <td> {{$practica->Enfoque}}</td>
                   <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
@@ -51,9 +49,10 @@
           </thead>
         </tbody>
       </table>
-      <!--Aqui crearé la paginación-->
-      @include('layout.pagination')
-    </div>
+      <div class="container">
+        <!--Aqui crearé la paginación-->
+        @include('layout.pagination')
+      </div>
   </div>
 </div>
 @endsection
