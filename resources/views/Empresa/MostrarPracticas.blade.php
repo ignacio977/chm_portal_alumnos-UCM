@@ -30,6 +30,11 @@
     Practica Profesional creada correctamente
   </div>
 @endif
+@if(session('Eliminado'))
+  <div class="card-panel red accent-1">
+    Practica Profesional eliminada correctamente
+  </div>
+@endif
 <br>
 <div class="container">
   <div class="card-content  center">
@@ -40,6 +45,7 @@
           <th>Enfoque y conocimientos</th>
           <th>Fecha Publicacion</th>
           <th>Estado</th>
+          <th></th>
           {{-- <th>Detalles</th> --}}
           
         </tr>
@@ -48,13 +54,15 @@
         <thead>
           @foreach ($Practicas as $practica)
             <tr>
-              <td> {{$practica->Actividad1}}</td>
-              <td> {{$practica->Enfoque}}</td>
-              <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
-              <td> {{$practica->Estado}}</td>
-              {{-- <td>
-                <a href="{{route('DetallePractica',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;">Click Aquí</a>
-              </td> --}}
+              <form action="{{url('/empresa/practicas/mostrar')}}" method="post">
+                  <input name="id" value={{$practica->id}} type="hidden">
+                  <td> {{$practica->Actividad1}}</td>
+                  <td> {{$practica->Enfoque}}</td>
+                  <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
+                  <td> {{$practica->Estado}}</td>
+                  <td><button name="update_button" class="waves-effect blue btn"><i class="material-icons" >edit</i></button>
+                    <button name="delete_button" class="waves-effect red btn" type="submit"><i class="material-icons">cancel</i>
+              </button></form></td>
           @endforeach
         </thead>
       </tbody>

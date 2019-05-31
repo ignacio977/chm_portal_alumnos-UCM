@@ -16,9 +16,9 @@ class practicasprofesionale extends Model
 
     public function PostulacionPractica(){
         return $this->hasMany(PostulacionPractica::class, 'id', 'practicaid');
-      }
+    }
 
     public function empresa(){
-    return $this->belongsTo(User::class, 'EmpresaId', 'id');
+        return $this->belongsTo(User::class, 'EmpresaId', 'id');
     }
 }

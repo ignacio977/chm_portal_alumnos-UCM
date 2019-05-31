@@ -40,6 +40,8 @@ Route::get('/empresa/practicas', 'EmpresaController@CreacionPracticasProfesional
 Route::post('/empresa/practicas/carga', 'EmpresaController@VerificacionPracticaProfesional');
 Route::post('/empresa/practicas/enviar', 'EmpresaController@InsercionPracticaProfesional');
 Route::get('/empresa/practicas/mostrar', 'EmpresaController@MostrarPracticas');
+Route::post('/empresa/practicas/mostrar', 'EmpresaController@EliminarPracticas');
+Route::post('/empresa/practicas/editar', 'EmpresaController@VerificarPracticas');
 
 #Coordinador de practicas#
 Route::get('/profesor/coordinador', 'CoordinadorController@AprobarPracticas')->name('MostrarPracticas');
