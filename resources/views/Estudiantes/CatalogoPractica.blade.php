@@ -31,6 +31,7 @@
             <th>Actividad Principal</th>
             <th>Enfoque y conocimientos</th>
             <th>Fecha Publicacion</th>
+            <th>Cantidad de Solicitudes</th>
             <th>Detalles</th>
           </tr>
         </thead>
@@ -42,6 +43,7 @@
                   <td> {{$practica->Actividad1}}</td>
                   <td> {{$practica->Enfoque}}</td>
                   <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
+                  <td> {{$practica->PostulacionPractica->count()}}</td>
                   <td>
                     <a href="{{route('DetallePractica',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;">Click Aquí</a>
                   </td>
@@ -50,8 +52,10 @@
         </tbody>
       </table>
       <div class="container">
+        <div class="centered">
         <!--Aqui crearé la paginación-->
         @include('layout.pagination')
+        </div>
       </div>
   </div>
 </div>
