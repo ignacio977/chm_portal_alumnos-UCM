@@ -120,10 +120,9 @@ class EmpresaController extends Controller
 
     public function InsercionPracticaProfesional(Request $request)
     {
-        $DesdeH = $request->DesdeH[0].$request->DesdeH[1].$request->DesdeH[2].$request->DesdeH[3].$request->DesdeH[4];
-        $HastaH = $request->HastaH[0].$request->HastaH[1].$request->HastaH[2].$request->HastaH[3].$request->HastaH[4];
+        $DesdeH = $request->DesdeH[0].$request->DesdeH[1].$request->DesdeH[2].$request->DesdeH[3].$request->DesdeH[4]." ".$request->ConcatenacionDesdeH;
+        $HastaH = $request->HastaH[0].$request->HastaH[1].$request->HastaH[2].$request->HastaH[3].$request->HastaH[4]." ".$request->ConcatenacionHastaH;
 
-        //dd($request->all());
         if($request->Actividad1 == "")
             $request->Actividad1 = " ";
         
@@ -290,7 +289,7 @@ class EmpresaController extends Controller
                         $HorasT --;
                         $MinT = $MinT + 60;
                     }
-                    return view('Empresa.Boletin', compact('Dias', 'HorasT', 'MinT','actividad', 'request'));
+                    return view('Empresa.BoletinEditar', compact('Dias', 'HorasT', 'MinT','actividad', 'request'));
                 }
             }
         }

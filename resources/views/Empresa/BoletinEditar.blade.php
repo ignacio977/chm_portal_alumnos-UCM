@@ -66,12 +66,10 @@
         @elseif($request->HastaD == 7)
           <a>Domingo<input name="HastaD" value="Domingo" type="hidden" style="display:none">
         @endif
-        <input name="DesdeH" type="hidden" value={{$request->DesdeH}}>
-        <input name="ConcatenacionDesdeH" type="hidden" value={{$request->DesdeH[6].$request->DesdeH[7]}}>
+        <input name="DesdeH" value={{$request->DesdeH}} type="hidden" style="display:none">
         <a class="black-text text-darken-2">desde las
-        <a>{{"$request->DesdeH"}}</a>
-        <input name="HastaH" type="hidden" value={{"$request->HastaH"}}>
-        <input name="ConcatenacionHastaH" type="hidden" value={{$request->HastaH[6].$request->HastaH[7]}}>
+        <a>{{"$request->DesdeH"}}
+        <input name="HastaH" value={{$request->HastaH}} type="hidden" style="display:none">
         <a class="black-text text-darken-2">hasta las
         <a>{{"$request->HastaH"}}
         <input name="PuestoOfrecido" value={{$request->PuestoOfrecido}} type="hidden" style="display:none">

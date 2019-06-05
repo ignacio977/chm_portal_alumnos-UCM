@@ -91,7 +91,7 @@
       </div>
       <div class="row">
         <div class="input-field col s6">  
-          <input name="DesdeH" type="text" class="timepicker" value="{{ old('DesdeH', $request->DesdeH) }}">
+          <input name="DesdeH" type="text" value={{ old('DesdeH', $request->DesdeH) }}>
           <label >Desde: </label>
         </div>
         <div class="input-field col s6">  
