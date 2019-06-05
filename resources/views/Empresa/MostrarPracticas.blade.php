@@ -35,6 +35,11 @@
     Practica Profesional eliminada correctamente
   </div>
 @endif
+@if(session('update'))
+  <div class="card-panel blue accent-1">
+    Practica Profesional actualizada correctamente
+  </div>
+@endif
 <br>
 <div class="container">
   <div class="card-content  center">

@@ -40,7 +40,7 @@
         <div class="input-field col s12">
           <label for="disabled" class="black-text text-darken-2">Nombre de la Empresa</label>
           <input disabled value={{Auth::user()->nombres}} type="text" id="disabled">
-          <input name="NombreEmpresa" value={{Auth::user()->nombres}} type="hidden" style="display:none">
+          <input name="id" value="{{ old('id', $request->id) }}" type="hidden" style="display:none">
         </div>
       </div>
       <div class="row">
@@ -91,7 +91,7 @@
       </div>
       <div class="row">
         <div class="input-field col s6">  
-          <input name="DesdeH" type="text" value={{ old('DesdeH', $request->DesdeH) }}>
+          <input name="DesdeH" type="text" value="{{ old('DesdeH', $request->DesdeH) }}"">
           <label >Desde: </label>
         </div>
         <div class="input-field col s6">  

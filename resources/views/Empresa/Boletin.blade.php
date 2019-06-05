@@ -66,33 +66,31 @@
         @elseif($request->HastaD == 7)
           <a>Domingo<input name="HastaD" value="Domingo" type="hidden" style="display:none">
         @endif
-        <input name="DesdeH" type="hidden" value={{$request->DesdeH}}>
-        <input name="ConcatenacionDesdeH" type="hidden" value={{$request->DesdeH[6].$request->DesdeH[7]}}>
+        <input name="DesdeH" type="hidden" value="{{$request->DesdeH}}">
         <a class="black-text text-darken-2">desde las
         <a>{{"$request->DesdeH"}}</a>
-        <input name="HastaH" type="hidden" value={{"$request->HastaH"}}>
-        <input name="ConcatenacionHastaH" type="hidden" value={{$request->HastaH[6].$request->HastaH[7]}}>
+        <input name="HastaH" type="hidden" value="{{$request->HastaH}}">
         <a class="black-text text-darken-2">hasta las
         <a>{{"$request->HastaH"}}
-        <input name="PuestoOfrecido" value={{$request->PuestoOfrecido}} type="hidden" style="display:none">
+        <input name="PuestoOfrecido" value="{{$request->PuestoOfrecido}}" type="hidden" style="display:none">
         <a class="black-text text-darken-2">el puesto ofrecido es 
         <a>{{"$request->PuestoOfrecido"}} 
         <a class="black-text text-darken-2">con enfoque en
-        <input name="Enfoque" value={{$request->Enfoque}} type="hidden" style="display:none">
+        <input name="Enfoque" value="{{$request->Enfoque}}" type="hidden" style="display:none">
         <a>{{"$request->Enfoque"}}
         @if($actividad > 1)
           <a class="black-text text-darken-2">en las activades
           @if($request->Actividad1 != "")
-            <a>{{$request->Actividad1}}<input name="Actividad1" value={{$request->Actividad1}} type="hidden" style="display:none">
+            <a>{{$request->Actividad1}}<input name="Actividad1" value="{{$request->Actividad1}}" type="hidden" style="display:none">
           @endif
           @if($request->Actividad2 != "")
-            <a>,{{$request->Actividad2}}<input name="Actividad2" value={{$request->Actividad2}} type="hidden" style="display:none">
+            <a>,{{$request->Actividad2}}<input name="Actividad2" value="{{$request->Actividad2}}" type="hidden" style="display:none">
           @endif
           @if($request->Actividad3 != "")
-            <a>,{{$request->Actividad3}}<input name="Actividad3" value={{$request->Actividad3}} type="hidden" style="display:none">
+            <a>,{{$request->Actividad3}}<input name="Actividad3" value="{{$request->Actividad3}}" type="hidden" style="display:none">
           @endif
           @if($request->Actividad4 != "")
-            <a>,{{$request->Actividad4}}<input name="Actividad4" value={{$request->Actividad4}} type="hidden" style="display:none">
+            <a>,{{$request->Actividad4}}<input name="Actividad4" value="{{$request->Actividad4}}" type="hidden" style="display:none">
           @endif
         @else
           <a class="black-text text-darken-2">en la actividad

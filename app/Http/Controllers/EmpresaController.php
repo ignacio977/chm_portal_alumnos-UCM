@@ -120,48 +120,67 @@ class EmpresaController extends Controller
 
     public function InsercionPracticaProfesional(Request $request)
     {
-        $DesdeH = $request->DesdeH[0].$request->DesdeH[1].$request->DesdeH[2].$request->DesdeH[3].$request->DesdeH[4]." ".$request->ConcatenacionDesdeH;
-        $HastaH = $request->HastaH[0].$request->HastaH[1].$request->HastaH[2].$request->HastaH[3].$request->HastaH[4]." ".$request->ConcatenacionHastaH;
-
-        if($request->Actividad1 == "")
+        if(isset($_POST['update_data'])){
+            $now = new \DateTime();
+            DB::table('practicasprofesionales')
+            ->where('id', $request->id)
+            ->update([
+                'DiasDesde' => $request->DesdeD, 
+                'DiasHasta' => $request->HastaD, 
+                'HorasDesde' => $request->DesdeH, 
+                'HorasHasta' => $request->HastaH, 
+                'Actividad1' => $request->Actividad1, 
+                'Actividad2' => $request->Actividad2, 
+                'Actividad3' => $request->Actividad3, 
+                'Actividad4' => $request->Actividad4, 
+                'PuestoOfrecido' => $request->PuestoOfrecido,
+                'Enfoque' => $request->Enfoque,
+                'updated_at' =>$now
+            ]);
+            $update = 1;
+            return redirect('/empresa/practicas/mostrar')->with('update',$update);
+        }
+        else{
+            if($request->Actividad1 == "")
             $request->Actividad1 = " ";
         
-        if($request->Actividad2 == "")
-            $request->Actividad2 = " ";
+            if($request->Actividad2 == "")
+                $request->Actividad2 = " ";
+                
+            if($request->Actividad3 == "")
+                $request->Actividad3 = " ";
+                
+            if($request->Actividad4 == "")
+                $request->Actividad4 = " ";
             
-        if($request->Actividad3 == "")
-            $request->Actividad3 = " ";
-            
-        if($request->Actividad4 == "")
-            $request->Actividad4 = " ";
-        
-        $now = new \DateTime();
-        DB::table('practicasprofesionales')->insert([
-            ['EmpresaId' => Auth::user()->id, 
-            'DiasDesde' => $request->DesdeD, 
-            'DiasHasta' => $request->HastaD, 
-            'HorasDesde' => $DesdeH, 
-            'HorasHasta' => $HastaH, 
-            'Actividad1' => $request->Actividad1, 
-            'Actividad2' => $request->Actividad2, 
-            'Actividad3' => $request->Actividad3, 
-            'Actividad4' => $request->Actividad4, 
-            'PuestoOfrecido' => $request->PuestoOfrecido,
-            'Enfoque' => $request->Enfoque,
-            'updated_at' =>$now],
-        ]);
-        $request->DesdeD = "";
-        $request->HastaD = "";
-        $request->DesdeH = "";
-        $request->HastaH = "";
-        $request->Actividad1 = "";
-        $request->Actividad2 = "";
-        $request->Actividad3 = "";
-        $request->Actividad4 = "";
-        $request->PuestoOfrecido = "";
-        $request->Enfoque = "";
-        $errores = 1;
-        return redirect('/empresa/practicas/mostrar')->with('errores',$errores);
+            $now = new \DateTime();
+            DB::table('practicasprofesionales')->insert([
+                ['EmpresaId' => Auth::user()->id, 
+                'DiasDesde' => $request->DesdeD, 
+                'DiasHasta' => $request->HastaD, 
+                'HorasDesde' => $request->DesdeH, 
+                'HorasHasta' => $request->HastaH, 
+                'Actividad1' => $request->Actividad1, 
+                'Actividad2' => $request->Actividad2, 
+                'Actividad3' => $request->Actividad3, 
+                'Actividad4' => $request->Actividad4, 
+                'PuestoOfrecido' => $request->PuestoOfrecido,
+                'Enfoque' => $request->Enfoque,
+                'updated_at' =>$now],
+            ]);
+            $request->DesdeD = "";
+            $request->HastaD = "";
+            $request->DesdeH = "";
+            $request->HastaH = "";
+            $request->Actividad1 = "";
+            $request->Actividad2 = "";
+            $request->Actividad3 = "";
+            $request->Actividad4 = "";
+            $request->PuestoOfrecido = "";
+            $request->Enfoque = "";
+            $errores = 1;
+            return redirect('/empresa/practicas/mostrar')->with('errores',$errores);
+        }
     }
 
     public function MostrarPracticas()
