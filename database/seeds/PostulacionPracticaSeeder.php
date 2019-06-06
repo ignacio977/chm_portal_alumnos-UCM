@@ -13,13 +13,15 @@ class PostulacionPracticaSeeder extends Seeder
     {
       
         DB::table('postulaciones_practicas')->insert([ 
-          'alumnoid'     => '1',
-          'practicaid'     => '1',
-          'fecha'    => '01-01-10',
-          'estado'    => 'Pendiente'
-        ]);
+            'id'     => '1',
+            'alumnoid'     => '1',
+            'practicaid'     => '1',
+            'fecha'    => '01-01-10',
+            'estado'    => 'Pendiente'
+          ]);
 
         DB::table('postulaciones_practicas')->insert([ 
+        'id'     => '2',
         'alumnoid'     => '1',
         'practicaid'     => '2',
         'fecha'    => '01-01-10',
@@ -27,6 +29,15 @@ class PostulacionPracticaSeeder extends Seeder
         ]);
 
         DB::table('postulaciones_practicas')->insert([ 
+          'id'     => '3',
+          'alumnoid'     => '6',
+          'practicaid'     => '1',
+          'fecha'    => '01-01-10',
+          'estado'    => 'Pendiente'
+        ]); 
+
+        DB::table('postulaciones_practicas')->insert([ 
+          'id'     => '4',
           'alumnoid'     => '7',
           'practicaid'     => '1',
           'fecha'    => '01-01-10',
@@ -34,20 +45,15 @@ class PostulacionPracticaSeeder extends Seeder
         ]); 
 
         DB::table('postulaciones_practicas')->insert([ 
-          'alumnoid'     => '8',
-          'practicaid'     => '1',
-          'fecha'    => '01-01-10',
-          'estado'    => 'Pendiente'
-        ]); 
-
-        DB::table('postulaciones_practicas')->insert([ 
-          'alumnoid'     => '7',
+          'id'     => '5',
+          'alumnoid'     => '6',
           'practicaid'     => '14',
           'fecha'    => '01-01-10',
           'estado'    => 'Pendiente'
         ]); 
         DB::table('postulaciones_practicas')->insert([ 
-          'alumnoid'     => '8',
+          'id'     => '6',
+          'alumnoid'     => '7',
           'practicaid'     => '15',
           'fecha'    => '01-01-10',
           'estado'    => 'Pendiente'
