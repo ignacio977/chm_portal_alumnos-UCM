@@ -67,12 +67,11 @@ class EstudiantesController extends Controller
 
     public function practicasdetalle(Request $request)
     {
-        $Practicas['Practicas'] =   DB::table('practicasprofesionales')
-                                    ->where('Estado', '=', 'Aprobado')
+        $Practicas= Practicasprofesionale:: where('Estado', '=', 'Aprobado')
                                     ->where('id',$request->id)
                                     ->get();
 
-        return view ('Estudiantes.PracticasDetalle', $Practicas);
+        return view ('Estudiantes.PracticasDetalle', compact('Practicas'));
     }
 
 

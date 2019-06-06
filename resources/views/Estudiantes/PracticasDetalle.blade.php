@@ -43,7 +43,7 @@
               @foreach ($Practicas as $practica)
                   <form action={{route('solicitudpractica')}} method="post">
                     {{csrf_field()}}
-                  <td> {{$practica->EmpresaId}}</td>
+                  <td> {{$practica->empresa->nombres}}</td>
                   <td> {{$practica->Actividad1}}</td>
                   <td> {{$practica->Actividad2}}</td>
                   <td> {{$practica->Actividad3}}</td>
