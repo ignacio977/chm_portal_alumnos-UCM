@@ -21,7 +21,7 @@ class CreatePostulacionesPracticasTable extends Migration
             $table->string('estado');
             $table->timestamps();
             $table->foreign('alumnoid')->references('id')->on('users');
-            $table->foreign('practicaid')->references('id')->on('practicasprofesionales');
+            $table->foreign('practicaid')->references('id')->on('practicasprofesionales')->onDelete('cascade');
         });
     }
 

@@ -33,7 +33,7 @@
 <br>
 <div class="container">
   <div class="card-panel center">
-    <form class="col s12" action="{{url('/empresa/practicas/carga')}}" method="post" >
+    <form class="col s12" action="{{url('/empresa/practicas/editar')}}" method="post" >
       @csrf
       <h5 class="center-align black-text text-darken-2">Formulario creacion practicas profesionales</h5>
       <div class="row">
@@ -150,7 +150,7 @@
             <label for="Actividad4">Actividad 4</label>
           </div>
       </div>
-      <a class="waves-effect red darken-1 btn" href="http://localhost:8000/empresa" >Cancel</a>
+      <a class="waves-effect red darken-1 btn" href="http://localhost:8000/empresa/practicas/mostrar" >Cancel</a>
       <button class="btn waves-effect waves-light" type="submit">Enviar</button>
     </form>
   </div>

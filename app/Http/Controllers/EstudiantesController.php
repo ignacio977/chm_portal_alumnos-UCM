@@ -60,6 +60,7 @@ class EstudiantesController extends Controller
         $practica_en_curso=PostulacionesPractica::where('alumnoid','=',$estudiante->id)->pluck('practicaid');
         $Practicas= practicasprofesionale:: where('Estado', '=', 'Aprobado')->
                                             whereNotIn('id',$practica_en_curso)->
+                                            orderBy('updated_at', 'desc')->
                                             paginate(5);
         return view('Estudiantes.CatalogoPractica',compact('Practicas'));
     }

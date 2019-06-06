@@ -61,7 +61,8 @@
       @endif
       @if (Auth::user()->tipo_usuario == 'empresa')
       <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
-        <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a> 
+      <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a> 
+      <a class="waves-effect" href="/empresa/practicas/mostrar">Mostrar Practicas</a> 
       @endif
     @endif
   </li>
@@ -72,5 +73,3 @@
 
 {{-- Login Form --}}
 @include ('layout.login_modal')
-
-
