@@ -53,10 +53,12 @@
   <li>
     @if(Auth::check()) {{-- Verificamos que esté iniciada la sesión --}}
       @if (Auth::user()->tipo_usuario == 'estudiante'){{-- Botones a los que tendrá acceso solo el estudiante --}}
-        <a class="waves-effect" href="/estudiante">Perfil Estudiante</a> {{-- Copiar el botón para agregar redireccionamientos --}}        
+      <a class="waves-effect" href="/estudiante">Perfil Estudiante</a> {{-- Copiar el botón para agregar redireccionamientos --}}
+      <a class="waves-effect" href="/estudiante/practicasofertadas">Selección de prácticas</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'profesor')
         <a class="waves-effect" href="/profesor">Perfil Profesor</a> 
+        <a class="waves-effect" href="/profesor/coordinador">Coordinar Practicas</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
         <a class="waves-effect" href="/director">Perfil Director</a> 
@@ -65,7 +67,9 @@
         <a class="waves-effect" href="/secretaria">Perfil Secretaria</a> 
       @endif
       @if (Auth::user()->tipo_usuario == 'empresa')
-        <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
+      <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
+      <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a> 
+      <a class="waves-effect" href="/empresa/practicas/mostrar">Mostrar Practicas</a> 
       @endif
     @endif
   </li>
@@ -79,5 +83,3 @@
 
 {{-- Photo Form --}}
 @include ('layout.photo_modal')
-
-

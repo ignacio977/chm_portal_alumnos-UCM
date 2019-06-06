@@ -7,6 +7,7 @@
   <title>Perfil Estudiante</title>
 @endsection
 
+
 @section('styles')
   @include('layout.materialize')
 @endsection
