@@ -8,12 +8,15 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Salas;
 use App\Reserva;
+use App\User;
+
 
 class ProfesoresController extends Controller
 {
     public function index()
     {
-        return view('Profesores.index');
+        $professors = User::All();
+        return view('Profesores.index', compact('professors'));
     }
 
     public function create()

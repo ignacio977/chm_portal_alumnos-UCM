@@ -18,17 +18,28 @@ Auth::routes();
 Route::get('/', function () {return view('home');});
 Route::get('/home', 'HomeController@index')->name('home');
 
+#Cambiar foto#
+Route::patch('/home/perfil/cambio_foto', 'HomeController@cambiar_foto');
+
 #Estudiantes#
 Route::get('/estudiante', 'EstudiantesController@index')->name('estudiante');
+Route::post('/estudiante/solicitud_practicas', 'EstudiantesController@solicitud_practica')->name('solicitudpractica');
+Route::get('/estudiante/practicasofertadas', 'EstudiantesController@catalogopracticas')->name('CatPag');
+Route::get('/estudiante/practicasofertadas/detalle', 'EstudiantesController@practicasdetalle')->name('DetallePractica');
+
 
 #Profesores#
 Route::get('/profesor', 'ProfesoresController@index')->name('profesor');
-
 Route::get('/profesores_reserva', function () {
         return view('Profesores.reserva');
 });
 Route::post('/agregar_reserva_profesores', 'ProfesoresController@agregar_reserva');
 Route::get('/profesores_listado_reservas', 'ProfesoresController@listado_reservas')->name('Prof_listado_reservas');
+
+#Coordinador de practicas#
+Route::get('/profesor/coordinador', 'CoordinadorController@AprobarPracticas')->name('MostrarPracticas');
+Route::post('/profesor/coordinador', 'CoordinadorController@CambiarEstado')->name('CambiarEstado');
+
 
 #Director#
 Route::get('/director', 'DirectorController@index')->name('director');
@@ -81,3 +92,9 @@ Route::post('/agregar_reserva_secretaria', 'SecretariaController@agregar_reserva
 
 #Empresa#
 Route::get('/empresa', 'EmpresaController@index')->name('empresa');
+Route::get('/empresa/practicas', 'EmpresaController@CreacionPracticasProfesionales');
+Route::post('/empresa/practicas/carga', 'EmpresaController@VerificacionPracticaProfesional');
+Route::post('/empresa/practicas/enviar', 'EmpresaController@InsercionPracticaProfesional');
+Route::get('/empresa/practicas/mostrar', 'EmpresaController@MostrarPracticas');
+Route::post('/empresa/practicas/mostrar', 'EmpresaController@EliminarPracticas');
+Route::post('/empresa/practicas/editar', 'EmpresaController@VerificarPracticas');

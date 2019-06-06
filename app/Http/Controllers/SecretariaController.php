@@ -3,18 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Salas;
 use App\Reserva;
+use App\User;
 
 class SecretariaController extends Controller
 {
 
     public function index()
     {
-        return view('Secretaria.index');
+        $secretaries = User::All();
+        return view('Secretaria.index', compact('secretaries'));
     }
     public function listado_reservas()
     {
