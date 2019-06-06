@@ -56,6 +56,11 @@ Route::get('secretaria_listado_reservas/{id}/edit',[
     'as'   => 'secretaria_listado_reservas.edit']
 );
 
+Route::get('secretaria_listado_reserva/{id}/edit',[
+    'uses' => 'SecretariaController@edit_reserva',
+    'as'   => 'secretaria_listado_reserva.edit']
+);
+
 Route::post('secretaria_listado_reservas/{id}/update',[
     'uses' => 'SecretariaController@update',
     'as'   => 'secretaria_listado_reservas.update']

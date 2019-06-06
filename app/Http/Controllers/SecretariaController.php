@@ -622,6 +622,12 @@ class SecretariaController extends Controller
         return view('secretaria.confirmar_reserva')->with('reserva', $reserva);
     }
 
+    public function edit_reserva($id)
+    {
+        $reserva = Reserva::find($id);//busca la id recibida en la base de datos
+        return view('secretaria.editar_reserva')->with('reserva', $reserva);
+    }
+
     public function update(Request $request, $id)
     {
         $reserva = Reserva::find($id);

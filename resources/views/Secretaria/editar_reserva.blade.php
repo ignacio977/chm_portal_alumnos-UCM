@@ -25,7 +25,7 @@
         </div>
     @endif
     <div class="card-panel center">
-      <h5 class="center-align black-text text-darken-2">Confirmar Reservas</h5>
+      <h5 class="center-align black-text text-darken-2">Modificar Reservas</h5>
       <div class="row">
         <div class="input-field col s12">
           <label class="black-text text-darken-2">Id usuario</label>
@@ -59,11 +59,11 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input type="text" id="fecha_inicio" name="fecha_ingreso" value="{{$reserva->fecha_ingreso}}" readonly="readonly" required>
+          <input type="text" id="fecha_inicio" name="fecha_ingreso" value="{{$reserva->fecha_ingreso}}"  class="datepicker"  required>
           <label class="black-text text-darken-2">Desde: </label>
         </div>
         <div class="input-field col s6">
-          <input type="text" id="fecha_final" name="fecha_salida"  value="{{$reserva->fecha_salida}}"  readonly="readonly" required>
+          <input type="text" id="fecha_final" name="fecha_salida"  value="{{$reserva->fecha_salida}}"  class="datepicker"  required>
           <label class="black-text text-darken-2">Hasta: </label>
         </div>
       </div>
@@ -80,7 +80,7 @@
         </div>
       </div>
       <a class="waves-effect red darken-1 btn" href="/secretaria_confirmar_listado_reservas" >Cancel</a>
-      <button class="btn waves-effect waves-light" type="submit" name="action">Confirmar reserva
+      <button class="btn waves-effect waves-light" type="submit" name="action">Modificar reserva
       <i class="material-icons right">send</i>
       </button>
     </div>
