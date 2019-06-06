@@ -7,7 +7,7 @@ use Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\User;
-use App\practicasprofesionale;
+use App\Practicasprofesionale;
 use App\PostulacionesPractica;
 
 class EstudiantesController extends Controller
@@ -58,8 +58,9 @@ class EstudiantesController extends Controller
     {
         $estudiante=Auth::user();
         $practica_en_curso=PostulacionesPractica::where('alumnoid','=',$estudiante->id)->pluck('practicaid');
-        $Practicas= practicasprofesionale:: where('Estado', '=', 'Aprobado')->
+        $Practicas= Practicasprofesionale:: where('Estado', '=', 'Aprobado')->
                                             whereNotIn('id',$practica_en_curso)->
+                                            orderBy('updated_at', 'desc')->
                                             paginate(5);
         return view('Estudiantes.CatalogoPractica',compact('Practicas'));
     }

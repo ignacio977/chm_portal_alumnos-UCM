@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class practicasprofesionale extends Model
+class Practicasprofesionale extends Model
 {
     protected $fillable = [
         'id', 'EmpresaId', 'DiasDesde',
@@ -15,7 +15,7 @@ class practicasprofesionale extends Model
     ];
 
     public function PostulacionPractica(){
-        return $this->hasMany(PostulacionPractica::class, 'id', 'practicaid');
+        return $this->hasMany(PostulacionesPractica::class, 'id', 'practicaid');
     }
 
     public function empresa(){

@@ -73,5 +73,3 @@
 
 {{-- Login Form --}}
 @include ('layout.login_modal')
-
-
