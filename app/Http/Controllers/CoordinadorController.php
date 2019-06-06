@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PostulacionesPractica;
+use App\Practicasprofesionale;
 
 class CoordinadorController extends Controller
 {
@@ -23,11 +24,17 @@ class CoordinadorController extends Controller
        $postulacion = PostulacionesPractica::where('id', $id)->first();
        $postulacion->estado = $estado;
        $postulacion->save();
+
+       $practica = Practicasprofesionale::all()->where('id', $postulacion->practicaid)->first();
+       $practica->Estado = "Asignada";
+       $practica->save();
       
        if ($estado=="Aceptada") {
-         $postulacionesRestantes = PostulacionesPractica::where('alumnoid', $postulacion->alumno->id)->where('id', '!=', $id)->get();   
+         $postulacionesRestantes = PostulacionesPractica::where('alumnoid', $postulacion->alumno->id)->where('id', '!=', $id)->get();
+         $postulacionesDesechadas = PostulacionesPractica::where('practicaid', $postulacion->practicaid)->where('id', '!=', $id)->get();   
 
-         foreach ($postulacionesRestantes as $postulacion) {
+         $listaPracticas = $postulacionesRestantes->merge($postulacionesDesechadas);   
+         foreach ($listaPracticas as $postulacion) {
             $postulacion->estado = "Rechazada";
             $postulacion->save();
          }
