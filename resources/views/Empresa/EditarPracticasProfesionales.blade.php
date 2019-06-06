@@ -35,7 +35,7 @@
   <div class="card-panel center">
     <form class="col s12" action="{{url('/empresa/practicas/editar')}}" method="post" >
       @csrf
-      <h5 class="center-align black-text text-darken-2">Formulario creacion practicas profesionales</h5>
+      <h5 class="center-align black-text text-darken-2">Formulario editar practicas profesionales</h5>
       <div class="row">
         <div class="input-field col s12">
           <label for="disabled" class="black-text text-darken-2">Nombre de la Empresa</label>
