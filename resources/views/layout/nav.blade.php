@@ -38,9 +38,16 @@
       <div class="background">
         <img src="/images/forest.jpg">
       </div>
-      <a href="#user"><img class="circle" src="/images/smile.png"></a>
-      <a href="#name"><span class="white-text name">Mike John</span></a>
-      <a href="#email"><span class="white-text email">correolindo@gmail.com</span></a>
+      @if (empty(Auth::user()->foto)) {{-- Si el usuario no tiene foto --}}
+        <a class="modal-trigger" href="#modal_photo"><img class="circle" src="/images/default.png"></a>
+      @else {{-- Si el usuario sí tiene foto --}}
+        <?php $direccion_imagen = Auth::user()->foto ?>
+        <a class="modal-trigger" href="#modal_photo"><img class="circle" src="{{ URL::asset("{$direccion_imagen}") }}"></a>
+      @endif
+      @auth
+        <a href="#name"><span class="white-text name">{{Auth::user()->nombres}}</span></a>
+        <a href="#email"><span class="white-text email">{{Auth::user()->email}}</span></a>
+      @endauth
     </div>
   </li>
   <li>
@@ -73,3 +80,6 @@
 
 {{-- Login Form --}}
 @include ('layout.login_modal')
+
+{{-- Photo Form --}}
+@include ('layout.photo_modal')

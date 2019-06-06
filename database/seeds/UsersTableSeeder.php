@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
             'direccion_procedencia' => 'Pasaje Ejemplo',
             'telefono' => '72111111',
             'celular' => '911111111',
+            'foto' => '',
             'fecha_ingreso' => Carbon::parse('2015-01-01'),
             'tipo_usuario' => 'estudiante',
           ]);
@@ -32,6 +33,7 @@ class UsersTableSeeder extends Seeder
             'direccion_procedencia' => 'Pasaje Ejemplo',
             'telefono' => '72111111',
             'celular' => '911111111',
+            'foto' => '',
             'cargo' => 'Cargo Ejemplo',
             'departamento' => 'Departamento Ejemplo',
             'tipo_usuario' => 'profesor',
@@ -47,6 +49,7 @@ class UsersTableSeeder extends Seeder
             'direccion_procedencia' => 'Pasaje Ejemplo',
             'telefono' => '72111111',
             'celular' => '911111111',
+            'foto' => '',
             'tipo_usuario' => 'director',
           ]);
 
@@ -60,6 +63,7 @@ class UsersTableSeeder extends Seeder
             'direccion_procedencia' => 'Pasaje Ejemplo',
             'telefono' => '72111111',
             'celular' => '911111111',
+            'foto' => '',
             'tipo_usuario' => 'empresa',
           ]);
 
@@ -73,6 +77,7 @@ class UsersTableSeeder extends Seeder
             'direccion_procedencia' => 'Pasaje Ejemplo',
             'telefono' => '72111111',
             'celular' => '911111111',
+            'foto' => '',
             'tipo_usuario' => 'secretaria',
           ]);
 

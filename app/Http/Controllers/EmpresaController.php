@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use DB;
 use Auth;
+use App\User;
+
 
 class EmpresaController extends Controller
 {
     public function index()
     {
-        return view('Empresa.index');
+        $companies = User::All();
+        return view('Empresa.index', compact('companies'));
     }
 
     public function CreacionPracticasProfesionales(Request $request)

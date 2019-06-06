@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ProfesoresController extends Controller
 {
     public function index()
     {
-        return view('Profesores.index');
+        $professors = User::All();
+        return view('Profesores.index', compact('professors'));
     }
 
     public function create()
