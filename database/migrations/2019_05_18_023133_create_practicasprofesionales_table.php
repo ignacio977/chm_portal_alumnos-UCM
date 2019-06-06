@@ -14,7 +14,7 @@ class CreatePracticasprofesionalesTable extends Migration
     public function up()
     {
         Schema::create('practicasprofesionales', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
             $table->string('EmpresaId');
             $table->string('DiasDesde');
             $table->string('DiasHasta');
