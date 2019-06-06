@@ -35,9 +35,14 @@
     Practica Profesional eliminada correctamente
   </div>
 @endif
+@if(session('update'))
+  <div class="card-panel blue accent-1">
+    Practica Profesional actualizada correctamente
+  </div>
+@endif
 <br>
 <div class="container">
-  <div class="card-content  center">
+  <div class="card-content center">
     <table class="table-border table-striped responsive-table">
       <thead>
         <tr>
@@ -46,8 +51,6 @@
           <th>Fecha Publicacion</th>
           <th>Estado</th>
           <th></th>
-          {{-- <th>Detalles</th> --}}
-          
         </tr>
       </thead>
       <tbody>
