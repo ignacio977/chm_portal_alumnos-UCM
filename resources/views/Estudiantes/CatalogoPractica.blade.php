@@ -16,7 +16,7 @@
     <div class="col s12 m8">
       <div class="card-panel" style="background-color: #253e85;">
         <span class="white-text">Bienvenido {{Auth::user()->nombres}} tenemos una cartilla de ofertas
-          para tu practica, puedes dar click a una oferta para revisar en detalle y además realizar tu postulación.
+          para tu Coleccion, puedes dar click a una oferta para revisar en detalle y además realizar tu postulación.
         </span>
       </div>
     </div>
@@ -36,7 +36,7 @@
           </thead>
           <tbody>
             <thead>
-                @foreach ($Practicas as $practica)
+                @foreach ($Coleccion as $practica)
                   <tr>
                     <td> {{$practica->empresa->nombres}}</td>
                     <td> {{$practica->Actividad1}}</td>
@@ -66,7 +66,7 @@
 
 @section('scripts')
   <script src={{ asset('js/nav_scripts.js') }}></script>
-  @if(empty($Practicas->total()))
+  @if(empty($Coleccion->total()))
     <script src={{ asset('js/alert.js') }}></script>
   @endif
 @endsection

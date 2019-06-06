@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    @forelse ($practicasPendientes as $postulacion)
+    @forelse ($Coleccion as $postulacion)
     <div class="row">
         <div class="col s2"></div>
         <div class="col s8 z-depth-3 section">
@@ -47,8 +47,12 @@
     @empty
         
     @endforelse
-    
-    
+  
+    <div class="container">
+        <div class="center">
+            @include('layout.pagination')
+        </div>
+    </div>
 </div>
 
 @endsection
