@@ -12,7 +12,7 @@ class PracticasprofesionalesTableSeeder extends Seeder
     public function run()
     {
         DB::table('practicasprofesionales')->insert([ 
-            'EmpresaId'     => '5',
+            'EmpresaId'     => '4',
             'DiasDesde'     => 'Martes',
             'DiasHasta'     => 'Viernes',
             'HorasDesde'    => '08:30 AM',
@@ -27,7 +27,7 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'updated_at'    => '2019/01/30'
           ]);
           DB::table('practicasprofesionales')->insert([ 
-            'EmpresaId'     => '10',
+            'EmpresaId'     => '9',
             'DiasDesde'     => 'Lunes',
             'DiasHasta'     => 'Jueves',
             'HorasDesde'    => '09:00 AM',
