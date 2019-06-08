@@ -67,6 +67,6 @@
 @section('scripts')
   <script src={{ asset('js/nav_scripts.js') }}></script>
   @if(empty($Coleccion->total()))
-    <script src={{ asset('js/alert.js') }}></script>
+    <script type="text/javascript" Cabecera="¡¡Error!!" TextoBajada="No hay practicas por el momento, intenta más tarde" Redirec="/estudiante" src={{ asset('js/alert.js') }}></script>
   @endif
 @endsection
