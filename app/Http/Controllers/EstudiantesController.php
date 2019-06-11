@@ -77,6 +77,9 @@ class EstudiantesController extends Controller
         return view ('Estudiantes.PracticasDetalle', compact('Practicas'));
     }
 
-
+    public function evaluacionpractica(Request $request)
+    {
+        return view ('Estudiantes.EvaluacionAlumnoEmpresa');
+    }
 
 }

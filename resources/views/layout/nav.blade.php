@@ -50,12 +50,11 @@
     </div>
   </li>
   <li>
-    <!--{{$Estudiante=App\User::where('email',Auth::user()->email)->first()}}-->
     @if(Auth::check()) {{-- Verificamos que esté iniciada la sesión --}}
       @if (Auth::user()->tipo_usuario == 'estudiante'){{-- Botones a los que tendrá acceso solo el estudiante --}}
         <a class="waves-effect" href="/estudiante">Perfil Estudiante</a> {{-- Copiar el botón para agregar redireccionamientos --}}
         <a class="waves-effect" href="/estudiante/practicasofertadas">Selección de prácticas</a>
-        @if($Estudiante->PostulacionPractica->where('estado','Finalizada')->first())
+        @if(Auth::user()->PostulacionPractica->where('estado','Finalizada')->first())
           <a class="waves-effect" href="/estudiante/evaluacionpractica">Evaluar Práctica Finalizada</a>
         @endif
       @endif
