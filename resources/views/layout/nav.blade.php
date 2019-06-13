@@ -6,7 +6,15 @@
         <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
       @endauth
     @endif
-    <a href="/home" class="brand-logo" align="middle">UCM</a>
+    @auth <!--Si hay una sesión iniciada-->
+      <a href="/home">
+        <img class="brand-logo" align="middle" src="/images/logo_ucm.png" width="100" style="position: relative; bottom: 5px">
+      </a>
+    @else
+      <a href="/home">
+        <img class="brand-logo" align="middle" src="/images/logo_ucm.png" width="100" style="position: relative; bottom: 5px; left: 62px">
+      </a>
+    @endauth
     <ul class="right hide-on-med-and-down">
       <li><a href="">Botón 1</a></li>
       <li><a href="">Botón 2</a></li>
