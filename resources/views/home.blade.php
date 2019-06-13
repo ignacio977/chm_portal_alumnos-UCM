@@ -17,20 +17,20 @@
   <div class="slider"> <!--Empieza el slider de imágenes -->
     <ul class="slides">
        <li>
-          <img src="http://portal.ucm.cl//content/uploads/bfi_thumb/UCM-continua-con-la-gratuidad-1-ntwadzhcmzhs68how916bw3m6x3qakrzr0wh8q21ye.jpg"> 
+          <img src="http://portal.ucm.cl//content/uploads/2018/08/Ingenier%C3%ADa-en-Estad%C3%ADstica-se-presenta-como-la-carrera-del-futuro2.jpg"> 
           <div class="caption center-align">
              <h3>UCM sumó un nuevo doctorado acreditado</h3>
              <h5 class="light grey-text text-lighten-3">Doctorado del modelamiento matemático aplicado</h5>
           </div>
        </li>
        <li>
-          <img src="http://portal.ucm.cl//content/uploads/bfi_thumb/portada_jesusmaestroUCM-o8lin3oliz8cn4n7pyghznyrlr2838dxsgm510xw14.jpg"> 
+          <img src="http://portal.ucm.cl//content/uploads/bfi_thumb/portada_jesusmaestroUCM-o8lin3oxpj15wapyzfay8e8blasgsa9sisf9yp9a9s.jpg" > 
           <div class="caption left-align">
              <h3>UCM presentó a la comunidad la obra Jesús Maestro Bueno</h3>
           </div>
        </li>
        <li>
-          <img src="http://portal.ucm.cl//content/uploads/bfi_thumb/portada_junio2019-o8s1w3nqlwgbvd0zz72qq9to30678tm08fya3c6se8.jpg"> 
+          <img src="http://www.extension.ucm.cl/wp-content/uploads/2017/07/extension_ucm.png"> 
           <div class="caption right-align">
              <h3>Programa Junio</h3>
           </div>

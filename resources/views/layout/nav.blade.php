@@ -44,7 +44,7 @@
   <li>
     <div class="user-view">
       <div class="background">
-        <img src="/images/forest.jpg">
+        <img src="/images/backucm.png" class="responsive-img">
       </div>
       @if (empty(Auth::user()->foto)) {{-- Si el usuario no tiene foto --}}
         <a class="modal-trigger" href="#modal_photo"><img class="circle" src="/images/default.png"></a>
