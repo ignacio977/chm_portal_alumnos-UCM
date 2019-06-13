@@ -41,7 +41,7 @@
   <br>
   <div class="container">
     <div class="row">
-      <div class="col s3">
+      <div class="col s12 m12 l3">
         <div class="card">
           <div class="card-image">
             <img src="http://portal.ucm.cl//content/uploads/bfi_thumb/Comercio-justo-ucm-2019-3-o98536n493nc3cut91jlrvlp1ru4a6g77qds3gol6i.jpg">
@@ -53,7 +53,7 @@
         </div>
       </div>
       
-      <div class="col s3">
+      <div class="col s12 m12 l3">
         <div class="card">
           <div class="card-image">
             <img src="http://portal.ucm.cl//content/uploads/bfi_thumb/Muestra-interactiva-UCM-1-o97oowxqhhm3as970e8qhbw3nz77ks4ce63vt1vqka.jpg">
@@ -65,7 +65,7 @@
         </div>
       </div>
       
-      <div class="col s3">
+      <div class="col s12 m12 l3">
         <div class="card">
           <div class="card-image">
             <img src="http://portal.ucm.cl//content/uploads/bfi_thumb/Gran-interes-desperto-clases-de-Lengua-de-Señas-Chilena3-1-o97o44q7dd5ul6g0detpckp6t9n1dpm07atdssp456.jpg">
@@ -77,7 +77,7 @@
         </div>
       </div>
       
-      <div class="col s3">
+      <div class="col s12 m12 l3">
         <div class="card">
           <div class="card-image">
             <img src="http://portal.ucm.cl//content/uploads/bfi_thumb/Mesas-PARI_sillas1.ucm_-o97nxrdl1sfvwbp5knoqg6kpv91h7kbhzrmwpa56be.jpg">
@@ -111,30 +111,30 @@
   <div class="links"> {{-- Enlaces de la parte inferior --}}
     <div class="container">
       <div class="row">
-        <div class="col s3">
+        <div class="col s12 m12 l3">
           <a href="" target="" title="Logo 5 Años acreditada por gestión institucional, Docencia de pregrado y vinculación con el medio desde el 2015 al 2020">
             <img src="http://portal.ucm.cl//content/uploads/2016/10/logo-1.png" alt="Logo 5 Años acreditada por gestión institucional, Docencia de pregrado y vinculación con el medio desde el 2015 al 2020"/>
           </a>
         </div>
         
-        <div class="col s3">
+        <div class="col s12 m12 l3">
           <a href="http://www.consejoderectores.cl" target="_blank" title="Logo Consejo de rectores de las universidades chilenas">
             <img src="http://portal.ucm.cl//content/uploads/2016/10/logo-4.png" alt="Logo Consejo de rectores de las universidades chilenas"/>
           </a>
         </div>
 
-        <div class="col s2">
+        <div class="col s12 m12 l2">
           <a href="http://redg9.cl" target="_blank" title="Logo universidades públicas no estatales">
             <img src="http://portal.ucm.cl//content/uploads/2016/10/logo-3.png" alt="Logo universidades públicas no estatales"/>
           </a>
         </div>
         
-        <div class="col s2">
+        <div class="col s12 m12 l2">
           <a href="http://www.auregionales.cl" target="_blank" title="">
             <img src="http://portal.ucm.cl//content/uploads/2016/10/logo-2.png" alt=""/>
           </a>
         </div>
-        <div class="col s1">
+        <div class="col s12 m12 l1">
           <a href="https://www.questionpro.com/a/showEntry.do?uID=2595" target="_blank" title="Aplicación para crear encuestas On Line">
             <img src="http://portal.ucm.cl//content/uploads/2017/12/question_pro.png" alt="Aplicación para crear encuestas On Line"/>
           </a>
