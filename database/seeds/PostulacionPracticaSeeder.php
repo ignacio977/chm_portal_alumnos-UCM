@@ -17,7 +17,7 @@ class PostulacionPracticaSeeder extends Seeder
             'alumnoid'     => '1',
             'practicaid'     => '1',
             'fecha'    => '01-01-10',
-            'estado'    => 'Pendiente'
+            'estado'    => 'Finalizada'
           ]);
 
         DB::table('postulaciones_practicas')->insert([ 

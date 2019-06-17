@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Practicasprofesionale;
 use App\PostulacionesPractica;
+use App\Pregunta;
 
 class EstudiantesController extends Controller
 {
@@ -79,7 +80,27 @@ class EstudiantesController extends Controller
 
     public function evaluacionpractica(Request $request)
     {
-        return view ('Estudiantes.EvaluacionAlumnoEmpresa');
+        $Entrevista = Pregunta::where('TipoPregunta','Practicante')->
+                                orderBy('id', 'asc')->
+                                get();
+        return view ('Estudiantes.EvaluacionAlumnoEmpresa' , compact('Entrevista'));
+    }
+
+    public function evaluacionpracticaenvio(Request $request)
+    {
+        $FinalEncuesta = PostulacionesPractica::where('estado','Finalizada')->first();
+        $FinalEncuesta->estado = 'Finalizada y respondida';
+        $FinalEncuesta->save();
+
+        $MatrizEncuesta = $request->Encuesta;
+        $i=0;
+        foreach ($MatrizEncuesta as $ArrayEncuesta) {
+            $i++;
+            foreach ($ArrayEncuesta as $Opcion) {
+                $IndexArray=key($ArrayEncuesta);
+            }
+        }
+        return $request;
     }
 
 }
