@@ -19,6 +19,7 @@ class AddReservaTable extends Migration
             $table->integer('id_sala')->unsigned();
             $table->integer('bloque');
             $table->integer('estado');
+            $table->integer('dia_semana');
             $table->date('fecha_ingreso');
             $table->date('fecha_salida');
 

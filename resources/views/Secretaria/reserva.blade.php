@@ -40,8 +40,20 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
+          <select name="dia_semana">
+            <option value="1">Lunes</option>
+            <option value="2">Martes</option>
+            <option value="3">Miercoles</option>
+            <option value="4">Jueves</option>
+            <option value="5">Viernes</option>
+          </select>
+          <label class="black-text text-darken-2">Dia: </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
           <input value="basura" id="disabled" type="hidden" class="validate" style="display:none">
-          <label for="disabled" class="black-text text-darken-2">Dias De la Reserva </label>
+          <label for="disabled" class="black-text text-darken-2">Lapsus De la Reserva </label>
           <br>
         </div>
       </div>
@@ -58,7 +70,7 @@
       <div class="row">
         <div class="input-field col s12">
           {{-- <input value="" id="disabled" type="hidden" class="validate" style="display:none"> --}}
-          <h6 class="center-align black-text text-darken-2">Formulario De Reservas</h6>
+          <h6 class="center-align black-text text-darken-2">Seleccione Bloques</h6>
         </div>
       </div>
       <div class="row">
