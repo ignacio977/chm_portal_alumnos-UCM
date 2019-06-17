@@ -11,6 +11,7 @@ use App\User;
 use App\Practicasprofesionale;
 use App\PostulacionesPractica;
 use App\Pregunta;
+use App\Respuesta;
 
 class EstudiantesController extends Controller
 {
@@ -88,16 +89,24 @@ class EstudiantesController extends Controller
 
     public function evaluacionpracticaenvio(Request $request)
     {
-        $FinalEncuesta = PostulacionesPractica::where('estado','Finalizada')->first();
-        $FinalEncuesta->estado = 'Finalizada y respondida';
-        $FinalEncuesta->save();
-
         $MatrizEncuesta = $request->Encuesta;
-        $i=0;
+
+        // $FinalEncuesta = PostulacionesPractica::where('estado','Finalizada')->first();
+        // $FinalEncuesta->estado = 'Finalizada y respondida';
+        // $FinalEncuesta->save();
+
+        return $MatrizEncuesta;
         foreach ($MatrizEncuesta as $ArrayEncuesta) {
-            $i++;
+            $IndexMatrix=key($MatrizEncuesta);
+            return $ArrayEncuesta;
             foreach ($ArrayEncuesta as $Opcion) {
                 $IndexArray=key($ArrayEncuesta);
+                
+                $IngresoBDRespuesta = new Respuesta;
+                $IngresoBDRespuesta->alumnoid = Auth::user()->id;
+                $IngresoBDRespuesta->preguntaid = $IndexMatrix;
+                $IngresoBDRespuesta->NivelDeConformidad = $IndexArray;
+                $IngresoBDRespuesta->save();
             }
         }
         return $request;

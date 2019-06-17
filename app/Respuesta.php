@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Pregunta;
 
 class Respuesta extends Model
 {
@@ -12,7 +13,7 @@ class Respuesta extends Model
         'created_at', 'updated_at',
     ];
 
-    // public function RespuestaPregunta(){
-    //     return $this->hasMany(Respuestas::class, 'id', 'preguntaid');
-    // }
+    public function RespuestaPregunta(){
+        return $this->belongsTo(Pregunta::class, 'preguntaid', 'id');
+    }
 }
