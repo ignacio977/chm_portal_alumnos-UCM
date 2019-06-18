@@ -33,31 +33,31 @@
               <td>{{$Pregunta->ContenidoPregunta}}</td>
               <td>
                 <label>
-                  <input name="Encuesta[{{$Pregunta->id}}][1]" id="Encuesta[{{$Pregunta->id}}][1]" class="filled-in" type="checkbox" onclick="OnChangeCheckbox(this.id)"/>
+                  <input value="{{$Pregunta->id}},1" name="Encuesta[{{$Pregunta->id}}][1]" id="Encuesta[{{$Pregunta->id}}][1]" class="filled-in" type="checkbox" onclick="OnChangeCheckbox(this.id)"/>
                   <span></span>
                 </label>
               </td>
               <td>
                 <label>
-                  <input name="Encuesta[{{$Pregunta->id}}][2]" id="Encuesta[{{$Pregunta->id}}][2]" class="filled-in" type="checkbox" onclick="OnChangeCheckbox(this.id)"/>
+                  <input value="{{$Pregunta->id}},2" name="Encuesta[{{$Pregunta->id}}][2]" id="Encuesta[{{$Pregunta->id}}][2]" class="filled-in" type="checkbox" onclick="OnChangeCheckbox(this.id)"/>
                   <span></span>
                 </label>
               </td>
               <td>
                 <label>
-                  <input name="Encuesta[{{$Pregunta->id}}][3]" id="Encuesta[{{$Pregunta->id}}][3]" class="filled-in" type="checkbox" checked="unChecked" onclick="OnChangeCheckbox(this.id)"/>
+                  <input value="{{$Pregunta->id}},3" name="Encuesta[{{$Pregunta->id}}][3]" id="Encuesta[{{$Pregunta->id}}][3]" class="filled-in" type="checkbox" checked="unChecked" onclick="OnChangeCheckbox(this.id)"/>
                   <span></span>
                 </label>
               </td>
               <td>
                 <label>
-                  <input name="Encuesta[{{$Pregunta->id}}][4]" id="Encuesta[{{$Pregunta->id}}][4]" class="filled-in" type="checkbox" onclick="OnChangeCheckbox(this.id)"/>
+                  <input value="{{$Pregunta->id}},4" name="Encuesta[{{$Pregunta->id}}][4]" id="Encuesta[{{$Pregunta->id}}][4]" class="filled-in" type="checkbox" onclick="OnChangeCheckbox(this.id)"/>
                   <span></span>
                 </label>
               </td>
               <td>
                 <label>
-                  <input name="Encuesta[{{$Pregunta->id}}][5]" id="Encuesta[{{$Pregunta->id}}][5]" class="filled-in" type="checkbox" onclick="OnChangeCheckbox(this.id)"/>
+                  <input value="{{$Pregunta->id}},5" name="Encuesta[{{$Pregunta->id}}][5]" id="Encuesta[{{$Pregunta->id}}][5]" class="filled-in" type="checkbox" onclick="OnChangeCheckbox(this.id)"/>
                   <span></span>
                 </label>
               </td>

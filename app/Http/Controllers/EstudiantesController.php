@@ -91,25 +91,24 @@ class EstudiantesController extends Controller
     {
         $MatrizEncuesta = $request->Encuesta;
 
-        // $FinalEncuesta = PostulacionesPractica::where('estado','Finalizada')->first();
-        // $FinalEncuesta->estado = 'Finalizada y respondida';
-        // $FinalEncuesta->save();
+        $FinalEncuesta = PostulacionesPractica::where('estado','Finalizada')->first();
+        $FinalEncuesta->estado = 'Finalizada y respondida';
+        $FinalEncuesta->save();
 
-        return $MatrizEncuesta;
         foreach ($MatrizEncuesta as $ArrayEncuesta) {
-            $IndexMatrix=key($MatrizEncuesta);
-            return $ArrayEncuesta;
             foreach ($ArrayEncuesta as $Opcion) {
-                $IndexArray=key($ArrayEncuesta);
+                $IndexMatrix = explode(',', $Opcion);
+                $IndexArrayY = $IndexMatrix[0];
+                $IndexArrayX = key($ArrayEncuesta);
+                
                 
                 $IngresoBDRespuesta = new Respuesta;
                 $IngresoBDRespuesta->alumnoid = Auth::user()->id;
-                $IngresoBDRespuesta->preguntaid = $IndexMatrix;
-                $IngresoBDRespuesta->NivelDeConformidad = $IndexArray;
+                $IngresoBDRespuesta->preguntaid = $IndexArrayY;
+                $IngresoBDRespuesta->NivelDeConformidad = $IndexArrayX;
                 $IngresoBDRespuesta->save();
             }
         }
-        return $request;
     }
 
 }
