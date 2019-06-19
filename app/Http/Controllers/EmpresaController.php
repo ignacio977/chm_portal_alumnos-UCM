@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use App\User;
+use App\Practicasprofesionale;
+
 
 class EmpresaController extends Controller
 {
@@ -214,6 +217,10 @@ class EmpresaController extends Controller
             
             return view('Empresa.EditarPracticasProfesionales', compact('errores','request'));
 
+        }else if(isset($_POST['view_button'])){
+            $datos = Practicasprofesionale::where('id', $request->id)->first();
+            
+            return view('Empresa.ViewPracticas', compact('datos'));
         }
     }
 
