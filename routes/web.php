@@ -52,6 +52,9 @@ Route::get('/secretaria_reserva', function () {
 Route::get('/secretaria_agregar_sala', function () {
         return view('Secretaria.agregar_sala');
 });
+Route::get('/secretaria_buscar_disponibilidad', function () {
+        return view('Secretaria.buscar_disponibilidad');
+});
 Route::get('secretaria_listado_reservas/{id}/destroy',[
     'uses' => 'SecretariaController@destroy',
     'as'   => 'secretaria_listado_reservas.destroy']
@@ -88,7 +91,11 @@ Route::get('/secretaria_listado_salas', 'SecretariaController@listado_salas')->n
 Route::get('/secretaria_confirmar_listado_reservas', 'SecretariaController@confirmar_listado_reservas')->name('confirmar_listado_reservas');
 
 Route::post('/agregar_sala', 'SecretariaController@agregar_sala');
+Route::post('/buscar_disponibilidad', 'SecretariaController@buscar_disponibilidad');
 Route::post('/agregar_reserva_secretaria', 'SecretariaController@agregar_reserva');
+
+Route::get('reserva/{id}/{fi}/{ff}/{nombre}/{capacidad}/{dia_semana}',['as' => 'Secretaria.show2', 'uses' => 'SecretariaController@show2']);
+
 
 #Empresa#
 Route::get('/empresa', 'EmpresaController@index')->name('empresa');
