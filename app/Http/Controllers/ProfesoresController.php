@@ -72,34 +72,40 @@ class ProfesoresController extends Controller
                          ->where([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_1],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_ingreso', '<', $request->fecha_ingreso],
                              ['reserva.fecha_salida', '>', $request->fecha_ingreso],
                              ])
                          ->orwhere([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_1],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_ingreso', '<', $request->fecha_salida],
                              ['reserva.fecha_salida', '>', $request->fecha_salida],
                              ])
                          ->orwhere([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_1],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                              ['reserva.fecha_salida', '=', $request->fecha_salida],
                              ])
                           ->orwhere([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_1],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                              ])
                           ->orwhere([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_1],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_salida', '=', $request->fecha_salida],
                              ])
                           ->orwhere([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_1],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
                              ['reserva.fecha_salida', '<', $request->fecha_salida],
                            ])
@@ -112,6 +118,7 @@ class ProfesoresController extends Controller
                                          $reserva->id_sala = $id_sala[0]->id;
                                          $reserva->bloque = $request->bloque_1;
                                          $reserva->estado = $request->estado;
+                                         $reserva->dia_semana = $request->dia_semana;
                                          $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                          $reserva->fecha_salida = $request->input('fecha_salida');
                                          $reserva->save();
@@ -131,34 +138,40 @@ class ProfesoresController extends Controller
                             ->where([
                                 ['salas.id', '=',$id_sala[0]->id],
                                 ['reserva.bloque', '=', $request->bloque_2],
+                                ['reserva.dia_semana', '=', $request->dia_semana],
                                 ['reserva.fecha_ingreso', '<', $request->fecha_ingreso],
                                 ['reserva.fecha_salida', '>', $request->fecha_ingreso],
                                 ])
                             ->orwhere([
                                 ['salas.id', '=',$id_sala[0]->id],
                                 ['reserva.bloque', '=', $request->bloque_2],
+                                ['reserva.dia_semana', '=', $request->dia_semana],
                                 ['reserva.fecha_ingreso', '<', $request->fecha_salida],
                                 ['reserva.fecha_salida', '>', $request->fecha_salida],
                                 ])
                             ->orwhere([
                                 ['salas.id', '=',$id_sala[0]->id],
                                 ['reserva.bloque', '=', $request->bloque_2],
+                                ['reserva.dia_semana', '=', $request->dia_semana],
                                 ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                                 ['reserva.fecha_salida', '=', $request->fecha_salida],
                                 ])
                              ->orwhere([
                                 ['salas.id', '=',$id_sala[0]->id],
                                 ['reserva.bloque', '=', $request->bloque_2],
+                                ['reserva.dia_semana', '=', $request->dia_semana],
                                 ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                                 ])
                              ->orwhere([
                                 ['salas.id', '=',$id_sala[0]->id],
                                 ['reserva.bloque', '=', $request->bloque_2],
+                                ['reserva.dia_semana', '=', $request->dia_semana],
                                 ['reserva.fecha_salida', '=', $request->fecha_salida],
                                 ])
                              ->orwhere([
                                 ['salas.id', '=',$id_sala[0]->id],
                                 ['reserva.bloque', '=', $request->bloque_2],
+                                ['reserva.dia_semana', '=', $request->dia_semana],
                                 ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
                                 ['reserva.fecha_salida', '<', $request->fecha_salida],
                               ])
@@ -171,6 +184,7 @@ class ProfesoresController extends Controller
                                             $reserva->id_sala = $id_sala[0]->id;
                                             $reserva->bloque = $request->bloque_2;
                                             $reserva->estado = $request->estado;
+                                            $reserva->dia_semana = $request->dia_semana;
                                             $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                             $reserva->fecha_salida = $request->input('fecha_salida');
                                             $reserva->save();
@@ -191,34 +205,40 @@ class ProfesoresController extends Controller
                          ->where([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_3],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_ingreso', '<', $request->fecha_ingreso],
                              ['reserva.fecha_salida', '>', $request->fecha_ingreso],
                              ])
                          ->orwhere([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_3],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_ingreso', '<', $request->fecha_salida],
                              ['reserva.fecha_salida', '>', $request->fecha_salida],
                              ])
                          ->orwhere([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_3],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                              ['reserva.fecha_salida', '=', $request->fecha_salida],
                              ])
                           ->orwhere([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_3],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                              ])
                           ->orwhere([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_3],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_salida', '=', $request->fecha_salida],
                              ])
                           ->orwhere([
                              ['salas.id', '=',$id_sala[0]->id],
                              ['reserva.bloque', '=', $request->bloque_3],
+                             ['reserva.dia_semana', '=', $request->dia_semana],
                              ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
                              ['reserva.fecha_salida', '<', $request->fecha_salida],
                            ])
@@ -231,6 +251,7 @@ class ProfesoresController extends Controller
                                          $reserva->id_sala = $id_sala[0]->id;
                                          $reserva->bloque = $request->bloque_3;
                                          $reserva->estado = $request->estado;
+                                         $reserva->dia_semana = $request->dia_semana;
                                          $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                          $reserva->fecha_salida = $request->input('fecha_salida');
                                          $reserva->save();
@@ -251,34 +272,40 @@ class ProfesoresController extends Controller
                           ->where([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_4],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '>', $request->fecha_ingreso],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_4],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_salida],
                               ['reserva.fecha_salida', '>', $request->fecha_salida],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_4],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_4],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_4],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_4],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '<', $request->fecha_salida],
                             ])
@@ -291,6 +318,7 @@ class ProfesoresController extends Controller
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_4;
                                           $reserva->estado = $request->estado;
+                                          $reserva->dia_semana = $request->dia_semana;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -311,34 +339,40 @@ class ProfesoresController extends Controller
                           ->where([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_5],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '>', $request->fecha_ingreso],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_5],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_salida],
                               ['reserva.fecha_salida', '>', $request->fecha_salida],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_5],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_5],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_5],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_5],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '<', $request->fecha_salida],
                             ])
@@ -351,6 +385,7 @@ class ProfesoresController extends Controller
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_5;
                                           $reserva->estado = $request->estado;
+                                          $reserva->dia_semana = $request->dia_semana;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -371,34 +406,40 @@ class ProfesoresController extends Controller
                           ->where([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_6],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '>', $request->fecha_ingreso],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_6],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_salida],
                               ['reserva.fecha_salida', '>', $request->fecha_salida],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_6],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_6],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_6],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_6],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '<', $request->fecha_salida],
                             ])
@@ -411,6 +452,7 @@ class ProfesoresController extends Controller
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_6;
                                           $reserva->estado = $request->estado;
+                                          $reserva->dia_semana = $request->dia_semana;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -431,34 +473,40 @@ class ProfesoresController extends Controller
                           ->where([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_7],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '>', $request->fecha_ingreso],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_7],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_salida],
                               ['reserva.fecha_salida', '>', $request->fecha_salida],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_7],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_7],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_7],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_7],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '<', $request->fecha_salida],
                             ])
@@ -471,6 +519,7 @@ class ProfesoresController extends Controller
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_7;
                                           $reserva->estado = $request->estado;
+                                          $reserva->dia_semana = $request->dia_semana;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -491,34 +540,40 @@ class ProfesoresController extends Controller
                           ->where([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_8],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '>', $request->fecha_ingreso],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_8],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_salida],
                               ['reserva.fecha_salida', '>', $request->fecha_salida],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_8],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_8],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_8],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_8],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '<', $request->fecha_salida],
                             ])
@@ -531,6 +586,7 @@ class ProfesoresController extends Controller
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_8;
                                           $reserva->estado = $request->estado;
+                                          $reserva->dia_semana = $request->dia_semana;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
@@ -551,34 +607,40 @@ class ProfesoresController extends Controller
                           ->where([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_9],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '>', $request->fecha_ingreso],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_9],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '<', $request->fecha_salida],
                               ['reserva.fecha_salida', '>', $request->fecha_salida],
                               ])
                           ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_9],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_9],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_9],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_salida', '=', $request->fecha_salida],
                               ])
                            ->orwhere([
                               ['salas.id', '=',$id_sala[0]->id],
                               ['reserva.bloque', '=', $request->bloque_9],
+                              ['reserva.dia_semana', '=', $request->dia_semana],
                               ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
                               ['reserva.fecha_salida', '<', $request->fecha_salida],
                             ])
@@ -591,6 +653,7 @@ class ProfesoresController extends Controller
                                           $reserva->id_sala = $id_sala[0]->id;
                                           $reserva->bloque = $request->bloque_9;
                                           $reserva->estado = $request->estado;
+                                          $reserva->dia_semana = $request->dia_semana;
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();

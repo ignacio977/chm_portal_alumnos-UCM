@@ -136,6 +136,9 @@ class SecretariaController extends Controller
       if ($request->bloque_9 == 9) {
         $bloques[$i] = $request->bloque_9;
       }
+
+     //dd($bloques[0]);
+
          // return $bloques;
        if (($request->input('fecha_ingreso')) <= ($request->input('fecha_salida')) ) {
          // return $clon;
@@ -144,6 +147,7 @@ class SecretariaController extends Controller
        else{
            return redirect('/secretaria_buscar_disponibilidad')->with('error_reserva', 'Ingrese fecha correctamente');
       }
+
     }
 
     public function agregar_reserva(Request $request)
@@ -794,6 +798,9 @@ class SecretariaController extends Controller
 
     public function update(Request $request, $id)
     {
+      $reserva = Reserva::find($id);
+
+
         $reserva = Reserva::find($id);
         $reserva-> id_user = $request->id_user;
         $reserva-> id_sala = $request->id_sala;

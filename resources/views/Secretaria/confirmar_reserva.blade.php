@@ -40,6 +40,12 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
+          <label for="disabled" class="black-text text-darken-2">Dia de la semana</label>
+          <input type="text" name="dia_semana" value="{{$reserva->dia_semana}}" class="form-control" readonly="readonly" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
           <label for="disabled" class="black-text text-darken-2">Bloque</label>
           <input type="text" name="bloque" value="{{$reserva->bloque}}" class="form-control" readonly="readonly" required>
         </div>
