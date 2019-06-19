@@ -72,11 +72,12 @@
         <a class="waves-effect" href="/secretaria_listado_salas">Listado De Salas</a>
         <a class="waves-effect" href="/secretaria_listado_reservas">Listado De Reservas</a>
         <a class="waves-effect" href="/secretaria_confirmar_listado_reservas">Confirmar Reservas</a>
+        <a class="waves-effect" href="/secretaria_buscar_disponibilidad">Buscar Disponibilidad</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'empresa')
-        <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
-        <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a> 
-        <a class="waves-effect" href="/empresa/practicas/mostrar">Mostrar Practicas</a> 
+        <a class="waves-effect" href="/empresa">Perfil Empresa</a>
+        <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a>
+        <a class="waves-effect" href="/empresa/practicas/mostrar">Mostrar Practicas</a>
       @endif
     @endif
   </li>
@@ -90,4 +91,3 @@
 
 {{-- Photo Form --}}
 @include ('layout.photo_modal')
-
