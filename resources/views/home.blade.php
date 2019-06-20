@@ -48,7 +48,7 @@
             <span class="card-title"><i class="tiny material-icons">access_time</i>&nbsp 12 Jun 2019</span>
           </div>
           <div class="card-content">
-            <p>LLAMAN A FORTALECER LA ASOCIATIVIDAD DE AGRICULTORES [...]</p>
+            <p><b>Llaman a fortalecer la asociatividad de agricultores [...]</b></p>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
             <span class="card-title"><i class="tiny material-icons">access_time</i>&nbsp 12 Jun 2019</span>
           </div>
           <div class="card-content">
-            <p>MUESTRA INTERACTIVA DE MÚSICA Y CIENCIAS PERMITE APRENDER [...]</p>
+            <p><b>Muestra interactiva de música y ciencias permite aprender [...]</b></p>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@
             <span class="card-title"><i class="tiny material-icons">access_time</i>&nbsp 12 Jun 2019</span>
           </div>
           <div class="card-content">
-            <p>GRAN INTERÉS DESPERTÓ CLASES DE LENGUA DE SEÑAS CHILENA [...]</p>
+            <p><b>Gran interés despertó clases de lengua de señas chilena [...]</b></p>
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@
             <span class="card-title"><i class="tiny material-icons">access_time</i>&nbsp 12 Jun 2019</span>
           </div>
           <div class="card-content">
-            <p>ESTUDIANTES CON DISCAPACIDAD FÍSICA RECIBIERON [...]</p>
+            <p><b>Estudiantes con discapacidad física recibieron [...]</b></p>
           </div>
         </div>
       </div>
