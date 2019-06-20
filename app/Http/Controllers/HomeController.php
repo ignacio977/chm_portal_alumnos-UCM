@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use File;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -37,7 +38,7 @@ class HomeController extends Controller
         'select_file'  => 'required|image|mimes:jpeg,jpg,png,gif|max:2048'
         ]);
         $image = $request->file('select_file'); //Declaramos image como el archivo proveniente del select_file
-        $new_name = rand() . '.' . $image->getClientOriginalExtension(); //Se otorga un nombre al azar con la extension de archivo original
+        $new_name = Carbon::now()->timestamp . '.' . $image->getClientOriginalExtension(); //Se otorga un nombre al azar con la extension de archivo original
         $image->move(public_path('images/pfp'), $new_name); //Guardamos archivo en carpeta images de public
         $usuario->foto = 'images/pfp/'. $new_name; //Atributo foto del User se le otorga el directorio de su imagen
         $usuario->save();
