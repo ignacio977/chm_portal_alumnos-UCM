@@ -8,11 +8,11 @@
     @endif
     @auth <!--Si hay una sesión iniciada-->
       <a href="/home">
-        <img class="brand-logo" align="middle" src="/images/logo_ucm.png" width="100" style="position: relative; bottom: 5px">
+        <img class="brand-logo" align="middle" src="/images/logo_ucm.png" width="150" style="position: relative; bottom: 6px">
       </a>
     @else
       <a href="/home">
-        <img class="brand-logo" align="middle" src="/images/logo_ucm.png" width="100" style="position: relative; bottom: 5px; left: 62px">
+        <img class="brand-logo" align="middle" src="/images/logo_ucm.png" width="150" style="position: relative; bottom: 6px; left: 62px">
       </a>
     @endauth
     <ul class="right hide-on-med-and-down">
