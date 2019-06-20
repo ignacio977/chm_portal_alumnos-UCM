@@ -33,12 +33,13 @@ class HomeController extends Controller
     function cambiar_foto(Request $request) //Funcion para el cambio de PFP (Profile Picture)
     {
         $usuario = Auth::User(); //Obtenemos el ID del usuario logeado
+        $rut_limpio= str_replace(array('.','-'), '',$usuario->rut); //Se le quitan puntos y guion al rut 
         $foto_anterior = $usuario->foto; //Directorio de archivo, por si existe un PFP previo
         $this->validate($request, [
         'select_file'  => 'required|image|mimes:jpeg,jpg,png,gif|max:2048'
         ]);
         $image = $request->file('select_file'); //Declaramos image como el archivo proveniente del select_file
-        $new_name = Carbon::now()->timestamp . '.' . $image->getClientOriginalExtension(); //Se otorga un nombre al azar con la extension de archivo original
+        $new_name = Carbon::now()->timestamp . $rut_limpio . '.' . $image->getClientOriginalExtension(); //Se otorga un nombre al azar con la extension de archivo original
         $image->move(public_path('images/pfp'), $new_name); //Guardamos archivo en carpeta images de public
         $usuario->foto = 'images/pfp/'. $new_name; //Atributo foto del User se le otorga el directorio de su imagen
         $usuario->save();
