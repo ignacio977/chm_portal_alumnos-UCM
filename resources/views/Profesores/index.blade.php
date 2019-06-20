@@ -17,16 +17,16 @@
     @if ($professor->id == Auth::user()->id)
         <div class="row"> <!--Seccion izquierda con datos escenciales Nombre y RUT -->
           <div class="col s4">
-            <div class="card-panel z-depth-5"> 
-            <div align="center">    
-              @if (empty(Auth::user()->foto))  
+            <div class="card-panel z-depth-5">
+            <div align="center">
+              @if (empty(Auth::user()->foto))
                 <img src="/images/default.png") style="width:40%">
               @else
                 <img src="{{$professor->foto}}") style="width:40%">
               @endif
             </div> <!--Recoger nombre y RUT de la BD-->
               <h4><i class="material-icons">person</i>&nbsp{{$professor->nombres}}&nbsp{{$professor->apellidos}}
-              </h4>               
+              </h4>
               <div class="divider"></div>
               <div class="section">
                 <h5><b>RUT</b></h5>
@@ -36,13 +36,13 @@
               <div class="section">
                 <h5><b>Cargo</b></h5>
                 <p><b><i>&nbsp&nbsp{{$professor->cargo}}</i></b></p>
-              </div>            
+              </div>
             </div>
           </div>
-          
+
           <div class="col s8">  <!--Seccion mensaje de bienvenida al tipo de usuario-->
             <div class="card-panel z-depth-4">
-              <h4>Bienvenido, Profesor&nbsp</h4> 
+              <h4>Bienvenido, Profesor&nbsp</h4>
             </div>
 
             <!--Inicio del conjunto de collapsibles de información -->
@@ -76,12 +76,12 @@
                     <div class="section">
                       <h7><b>Celular</b></h7>
                       <p><i>&nbsp&nbsp{{$professor->celular}} </i></p>
-                    </div> 
+                    </div>
                   </span>
                 </div>
               </li>
             </ul>
-            
+
             <ul class="collapsible"> <!--Collapsible de información extra1-->
               <li>
                 <div class="collapsible-header"><i class="material-icons">chrome_reader_mode</i>
@@ -91,7 +91,7 @@
                     <div class="section">
                       <h7><b>Ejemplo título</b></h7>
                       <p><i>&nbsp&nbspInformación respectiva al ejemplo.</i></p>
-                    </div> 
+                    </div>
                   </span>
                 </div>
               </li>
@@ -100,14 +100,36 @@
             <ul class="collapsible"> <!--Collapsible de información extra2-->
               <li>
                 <div class="collapsible-header"><i class="material-icons">chrome_reader_mode</i>
-                  &nbsp<b>Información 3</b></h6> </div>
+                  &nbsp<b>Notificaciones</b></h6> </div>
                 <div class="collapsible-body">
-                  <span>
-                    <div class="section">
-                      <h7><b>Ejemplo título</b></h7>
-                      <p><i>&nbsp&nbspInformación respectiva al ejemplo.</i></p>
-                    </div> 
-                  </span>
+                  <div class="header">
+                      <h5 class="title">Reservas Canceladas</h5>
+                  </div>
+                  <form>
+                      <div class="content table-responsive table-full-width">
+                          <table class="table table-hover table-striped">
+                              <thread>
+                              <th>ID sala</th>
+                              <th>Bloque</th>
+                              <th>Comentario</th>
+                              </thread>
+                          <tbody>
+                          @foreach($reserva as $reser) <!--recorre todos los registros encontrados y los muestra en la vista-->
+                          <tr>
+                          @if( $reser->estado == 3 )
+                            <td>{{$reser->id_sala}}</td>
+                            <td>{{$reser->bloque}}</td>
+                            <td>{{$reser->comentario}}</td>
+
+                            @endif
+                          </tr>
+                          @endforeach
+                          </tbody>
+                          </table>
+
+                      </div>
+                      <div class="clearfix"></div>
+                  </form>
                 </div>
               </li>
             </ul>

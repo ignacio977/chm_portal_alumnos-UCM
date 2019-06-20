@@ -69,6 +69,10 @@ Route::get('secretaria_listado_reservas/{id}/edit',[
     'uses' => 'SecretariaController@edit',
     'as'   => 'secretaria_listado_reservas.edit']
 );
+Route::get('secretaria_notificacion/{id}/notificacion',[
+    'uses' => 'SecretariaController@notificacion',
+    'as'   => 'secretaria_notificacion.notificacion']
+);
 
 Route::get('secretaria_listado_reserva/{id}/edit',[
     'uses' => 'SecretariaController@edit_reserva',
@@ -93,6 +97,7 @@ Route::get('/secretaria_confirmar_listado_reservas', 'SecretariaController@confi
 Route::post('/agregar_sala', 'SecretariaController@agregar_sala');
 Route::post('/buscar_disponibilidad', 'SecretariaController@buscar_disponibilidad');
 Route::post('/agregar_reserva_secretaria', 'SecretariaController@agregar_reserva');
+
 
 Route::get('reserva/{id}/{fi}/{ff}/{nombre}/{capacidad}/{dia_semana}',['as' => 'Secretaria.show2', 'uses' => 'SecretariaController@show2']);
 

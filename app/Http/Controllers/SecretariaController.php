@@ -771,9 +771,15 @@ class SecretariaController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function comentario(Request $request)
     {
-        //
+      $reserva = Reserva::find($request->id_reserva);
+      $reserva-> id_user = $request->id_user;
+      $reserva-> estado = '3';
+      $reserva-> comentario = $request->comentario;
+      $reserva->save();
+      return redirect()->route('listado_reservas');
+
     }
     public function show2($id, $fi, $ff, $nombre, $capacidad, $dia_semana)
     {
@@ -788,6 +794,11 @@ class SecretariaController extends Controller
     {
         $reserva = Reserva::find($id);//busca la id recibida en la base de datos
         return view('secretaria.confirmar_reserva')->with('reserva', $reserva);
+    }
+    public function notificacion($id)
+    {
+        $reserva = Reserva::find($id);//busca la id recibida en la base de datos
+        return view('secretaria.notificacion')->with('reserva', $reserva);
     }
 
     public function edit_reserva($id)
@@ -832,5 +843,10 @@ class SecretariaController extends Controller
       $sala = Salas::find($id); //Esta funcion elimina la sala seleccionado
       $sala -> delete();
       return redirect()->route('listado_salas');
+    }
+    public function mostrarNotificaciones($id)
+    {
+      $reserva = Reserva::find($id) //Esta funcion elimina la sala seleccionado
+      return redirect()->route('profesores.index')->with('reserva', $reserva);;
     }
 }

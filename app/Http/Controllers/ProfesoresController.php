@@ -16,7 +16,8 @@ class ProfesoresController extends Controller
     public function index()
     {
         $professors = User::All();
-        return view('Profesores.index', compact('professors'));
+        $reserva = Reserva::All();
+        return view('Profesores.index', compact('professors','reserva'));
     }
 
     public function create()
