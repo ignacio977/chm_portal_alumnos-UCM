@@ -27,6 +27,7 @@ Route::post('/estudiante/solicitud_practicas', 'EstudiantesController@solicitud_
 Route::get('/estudiante/practicasofertadas', 'EstudiantesController@catalogopracticas')->name('CatPag');
 Route::get('/estudiante/practicasofertadas/detalle', 'EstudiantesController@practicasdetalle')->name('DetallePractica');
 Route::get('/estudiante/evaluacionpractica', 'EstudiantesController@evaluacionpractica')->name('EvaluarPractica');
+Route::post('/estudiante/evaluacionpractica', 'EstudiantesController@evaluacionpracticaenvio')->name('EvaluarPracticaEnvio');
 
 
 #Profesores#
