@@ -73,15 +73,30 @@
       </div>
       <div>
         <br>
-        <button class="btn waves-effect waves-light" type="submit">Enviar</button>
+        <button class="btn waves-effect waves-light" type="submit" onclick="pregunta()" >Enviar</button>
         <br>
       </div>
     </form>
   </div>
 </div>
+
+{{--Alerta de pagina de practicas sin datos--}}
+@include('layout.alert')
+
 @endsection
 
 @section('scripts')
   <script src={{ asset('js/nav_scripts.js') }}></script>
   <script src={{ asset('js/options.js') }}></script>
+  @if(empty(Auth::user()->PostulacionPractica->where('estado','Finalizada')->first()))
+    <script type="text/javascript" Cabecera="¡¡Error!!" TextoBajada="Ingreso ilegal a la sección de respuestas" Redirec="/estudiante" src={{ asset('js/alert.js') }}></script>
+  @endif
+  <script src={{ asset('js/sleep.js') }}></script>
+  <script language="JavaScript"> 
+    function pregunta(){ 
+        if (confirm('¿Estas seguro de enviar este formulario?')){
+          document.tuformulario.submit();
+        } 
+    } 
+  </script>
 @endsection

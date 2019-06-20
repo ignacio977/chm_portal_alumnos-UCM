@@ -109,6 +109,7 @@ class EstudiantesController extends Controller
                 $IngresoBDRespuesta->save();
             }
         }
+        return redirect(route('estudiante'));
     }
 
 }
