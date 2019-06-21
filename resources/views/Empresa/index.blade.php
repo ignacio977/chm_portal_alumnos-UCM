@@ -17,27 +17,31 @@
     @if ($company->id == Auth::user()->id) 
         
         <div class="row">
-            <div class="col s12">     
+            <div class="col s12"> 
+                <h5 class="left-align"><i class="material-icons">person</i><b>&nbspDatos Personales</b></h5>    
                 <div class="card horizontal z-depth-1"> {{--Creacion de card superiro con datos de usuario--}}
-                    <div class="col s4">  
+                    <div class="col s3 blue" style="position: relative; top: 0px">  
+                        <h6><b>Nombre:</b></h6>
+                        <h6><b>RUT:</b></h6>
+                        <h6><b>Email:</b></h6>
+                        <h6><b>Teléfono:</b></h6>
+                        <h6><b>Celular:</b></h6>
+                    </div>
+                    <div class="col s9" style="position: relative; top: 0px"> 
+                        <h6>&nbsp{{$company->nombres}}&nbsp{{$company->apellidos}}</h6> 
+                        <h6>&nbsp{{$company->rut}}</h6>
+                        <h6>&nbsp{{$company->email}}</h6>
+                        <h6>&nbsp{{$company->telefono}}</h6>
+                        <h6>&nbsp{{$company->celular}}</h6>
+                    </div>
+                    <div class="col s2">  
                         <div>    
                             @if (empty(Auth::user()->foto))  
-                              <img src="/images/default.png" class="center-align") style="width:30%; position: relative; left: 20px; top: 6px">
+                              <img src="/images/default.png" class="center-align" style="width:80%; position: relative; left: 45px; top: 2px">
                             @else
-                              <img src="{{$company->foto}}") style="width:30%">
+                              <img src="{{$company->foto}}" class="center-align" style="width:80%; position: relative; left: 45px; top: 2px">
                             @endif
                         </div>
-                    </div>
-                    <div class="col s4" style="position: relative; top: 0px">
-                        <h4 class="left-align"><i class="material-icons">person</i><b>&nbspDatos Personales</b></h4>  
-                        <h6><b>Nombre:</b> &nbsp{{$company->nombres}}&nbsp{{$company->apellidos}}</h6>
-                        <h6><b>RUT:</b> &nbsp&nbsp{{$company->rut}}</h6>
-                        <h6><b>Email:</b> &nbsp&nbsp{{$company->email}}</h6>
-                    </div>
-                    <div class="col s4" style="position: relative; top: 60px">  
-                        <h6><b>Dirección:</b> &nbsp&nbsp{{$company->direccion_actual}}</h6>
-                        <h6><b>Teléfono:</b> &nbsp&nbsp{{$company->telefono}}</h6>
-                        <h6><b>Celular:</b> &nbsp&nbsp{{$company->celular}}</h6>
                     </div>
                 </div>
                 </div>
