@@ -52,6 +52,12 @@
                             </div>
                         </div>
                     </div>
+                  </br>
+                    <div class="content center">
+                      <h5 class="title">Generar Reporte de Reservas</h5>
+                      </br>
+                    <a  href="{{route('secretaria_listado_reservas.reportes_reservas')}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">Reporte</i></a>
+                  </div>
                 </div>
             </div>
     </div>

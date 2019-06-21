@@ -55,9 +55,24 @@ Route::get('/secretaria_agregar_sala', function () {
 Route::get('/secretaria_buscar_disponibilidad', function () {
         return view('Secretaria.buscar_disponibilidad');
 });
+Route::get('/secretaria_reportes', function () {
+        return view('Secretaria.generar_reportes');
+});
 Route::get('secretaria_listado_reservas/{id}/destroy',[
     'uses' => 'SecretariaController@destroy',
     'as'   => 'secretaria_listado_reservas.destroy']
+);
+Route::get('secretaria_listado_reservas/reporte',[
+    'uses' => 'SecretariaController@reportes_reservas',
+    'as'   => 'secretaria_listado_reservas.reportes_reservas']
+);
+Route::get('secretaria_historial_sala/{id}/historial',[
+    'uses' => 'SecretariaController@historial_sala',
+    'as'   => 'secretaria_historial_sala.historial_sala']
+);
+Route::get('secretaria_exportar_historial/{id}/exportar',[
+    'uses' => 'SecretariaController@exportar_sala',
+    'as'   => 'secretaria_exportar_historial.exportar_sala']
 );
 
 Route::get('secretaria_listado_reserva/{id}/destroy',[
