@@ -10,13 +10,11 @@
 @endsection
 
 @section('body')
-    <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
+    <div class="container">
+                    <div class="col-md-16">
+                        <div class="card-panel center">
                             <div class="header">
-                                <h4 class="title">Listado De Reservas</h4>
+                                <h4 class="title">Listado De Salas</h4>
                             </div>
                             <div class="content">
                               <form>
@@ -34,7 +32,7 @@
                                       <td>{{$sala->id}}</td>
                                       <td>{{$sala->nombre}}</td>
                                       <td>{{$sala->capacidad}}</td>
-                                      <td><a href="{{route('secretaria_listado_salas.destroy', $sala->id)}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">Cancelar</i></a></td>
+                                      <td><a href="{{route('secretaria_listado_salas.destroy', $sala->id)}}" class="waves-effect waves-light btn-small">Cancelar<i class="material-icons">close</i></a></td>
 
                                       </tr>
                                       @endforeach
@@ -47,8 +45,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
     </div>
 @endsection
 
