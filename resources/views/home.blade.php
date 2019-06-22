@@ -1,7 +1,7 @@
 {{-- Mantenemos estandar base --}} 
 @extends('layout.master')
 
-{{-- Cambiamos titulo de pagina --}}
+{{-- Cambiamos titulo de pagina --}} 
 @section('title')
   <title>Página de Inicio</title>
 @endsection
