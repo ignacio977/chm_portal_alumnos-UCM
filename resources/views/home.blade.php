@@ -1,4 +1,4 @@
-{{-- Mantenemos estandar base --}}
+{{-- Mantenemos estandar base --}} 
 @extends('layout.master')
 
 {{-- Cambiamos titulo de pagina --}}
