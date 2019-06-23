@@ -10,7 +10,7 @@ class CoordinadorController extends Controller
 {
     public function AprobarPracticas()
     {
-       $Coleccion = PostulacionesPractica::where('estado', 'Pendiente')->paginate(2);
+       $Coleccion = PostulacionesPractica::where('estado', 'Pendiente')->paginate(3);
        return view('Profesores.practicas', compact('Coleccion'));
 
     }
