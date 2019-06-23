@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Practicasprofesionale;
 use App\PostulacionesPractica;
+use App\Pregunta;
+use App\Respuesta;
 
 class EstudiantesController extends Controller
 {
@@ -79,7 +81,35 @@ class EstudiantesController extends Controller
 
     public function evaluacionpractica(Request $request)
     {
-        return view ('Estudiantes.EvaluacionAlumnoEmpresa');
+        $Entrevista = Pregunta::where('TipoPregunta','Practicante')->
+                                orderBy('id', 'asc')->
+                                get();
+        return view ('Estudiantes.EvaluacionAlumnoEmpresa' , compact('Entrevista'));
+    }
+
+    public function evaluacionpracticaenvio(Request $request)
+    {
+        $MatrizEncuesta = $request->Encuesta;
+
+        $FinalEncuesta = PostulacionesPractica::where('estado','Finalizada')->first();
+        $FinalEncuesta->estado = 'Finalizada y respondida';
+        $FinalEncuesta->save();
+
+        foreach ($MatrizEncuesta as $ArrayEncuesta) {
+            foreach ($ArrayEncuesta as $Opcion) {
+                $IndexMatrix = explode(',', $Opcion);
+                $IndexArrayY = $IndexMatrix[0];
+                $IndexArrayX = key($ArrayEncuesta);
+                
+                
+                $IngresoBDRespuesta = new Respuesta;
+                $IngresoBDRespuesta->alumnoid = Auth::user()->id;
+                $IngresoBDRespuesta->preguntaid = $IndexArrayY;
+                $IngresoBDRespuesta->NivelDeConformidad = $IndexArrayX;
+                $IngresoBDRespuesta->save();
+            }
+        }
+        return redirect(route('estudiante'));
     }
 
 }
