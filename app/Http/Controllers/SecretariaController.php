@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Salas;
 use App\Reserva;
 use App\User;
+use PDF;
 
 class SecretariaController extends Controller
 {
@@ -816,4 +817,45 @@ class SecretariaController extends Controller
       $sala -> delete();
       return redirect()->route('listado_salas');
     }
+
+
+    public function reportes_reservas()
+    {
+      // $reserva = Reserva::orderBy('id','ASC')->paginate(6);
+      //$reserva = DB::table('reserva')->get();
+      $reserva = Reserva::All();
+      // return $reserva;
+       // return view('Secretaria.reporte_reservas')->with('reserva', $reserva);
+      // $reserva = Reserva::orderBy('id','ASC')->get();
+      // return view('Secretaria.reporte_reservas', compact('reserva'));
+      $pdf = PDF::loadView('Secretaria.reporte_reservas', compact('reserva'));
+      return $pdf->stream('reservas.pdf');
+    }
+
+    public function historial_sala($id)
+    {
+      // $salas = Salas::orderBy('id')->paginate(10;
+      // $salas = DB::table('salas')->where('id', $id)->get();
+      $reservas = DB::table('reserva')
+                          ->join('salas', 'salas.id', '=', 'reserva.id_sala')
+                          ->select('reserva.id_sala','salas.nombre','salas.capacidad','reserva.dia_semana','reserva.bloque','reserva.fecha_ingreso','reserva.fecha_salida')
+                          ->where('reserva.id_sala', $id)
+                          ->get();
+      $cuenta =$reservas->count();
+      // return $reservas;
+      return view('Secretaria.historial_sala', compact('reservas','cuenta','id'));
+      // return $salas;
+    }
+
+    public function exportar_sala($id)
+    {
+      $reservas = DB::table('reserva')
+                          ->join('salas', 'salas.id', '=', 'reserva.id_sala')
+                          ->select('reserva.id_sala','salas.nombre','salas.capacidad','reserva.dia_semana','reserva.bloque','reserva.fecha_ingreso','reserva.fecha_salida')
+                          ->where('reserva.id_sala', $id)
+                          ->get();
+      $pdf = PDF::loadView('Secretaria.exportar_historial', compact('reservas'));
+      return $pdf->stream('historial_sala.pdf');
+    }
+
 }
