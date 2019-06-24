@@ -46,3 +46,5 @@ Route::post('/empresa/practicas/editar', 'EmpresaController@VerificarPracticas')
 #Coordinador de practicas#
 Route::get('/profesor/coordinador', 'CoordinadorController@AprobarPracticas')->name('MostrarPracticas');
 Route::post('/profesor/coordinador', 'CoordinadorController@CambiarEstado')->name('CambiarEstado');
+Route::get('/profesor/addE', 'CoordinadorController@AddEmpresa')->name('AddEmpresa');
+Route::post('/profesor/addE', 'CoordinadorController@NuevaEmpresa')->name('NuevaEmpresa');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PostulacionesPractica;
 use App\Practicasprofesionale;
+use App\User;
 
 class CoordinadorController extends Controller
 {
@@ -43,5 +44,25 @@ class CoordinadorController extends Controller
 
        return redirect('/profesor/coordinador');
 
+    }
+
+    public function AddEmpresa()
+    {
+       return view('Profesores.AddEmpresa');
+    }
+
+    public function NuevaEmpresa()
+    {
+      $data = request()->all();
+
+      $NuevaEmpresa = new User;
+      $NuevaEmpresa->rut= $data["rut"];
+      $NuevaEmpresa->nombres= $data["name"];
+      $NuevaEmpresa->password= $data["password"];
+      $NuevaEmpresa->email= $data["email"];
+      $NuevaEmpresa->direccion_actual= $data["direccion"];
+      $NuevaEmpresa->telefono= $data["phone"];
+      $NuevaEmpresa->save();
+      return view('Profesores.AddEmpresa');
     }
 }
