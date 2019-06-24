@@ -1,4 +1,10 @@
 {{-- Navbar --}}
+<style>
+  .dropdown-content {
+    top: 100% !important;
+    width: 300px !important;
+  }
+</style>
 <nav>
   <div class="nav-wrapper" style="background-color: #253e85;">
     @if (Route::has('login'))
@@ -8,6 +14,18 @@
     @endif
     <a href="/home" class="brand-logo" align="middle">UCM</a>
     <ul class="right hide-on-med-and-down">
+      @if(Auth::user())
+        <li><a class="dropdown-trigger tooltipped waves-effect waves-light" data-target='DropdownNotificacion' data-position="left" data-tooltip="Notificaciones"><i class="material-icons">public</i></a></li>
+        <ul id='DropdownNotificacion' class='dropdown-content'>
+          <li><a class="blue-text text-darken-2" href="/estudiante/novedadespractica"><i class="material-icons">work</i>Novedades de Practica</a></li>
+          <li class="divider" tabindex="-1"></li>
+          <li><a class="blue-text text-darken-2" href="#!">two</a></li>
+          <li class="divider" tabindex="-1"></li>
+          <li><a class="blue-text text-darken-2" href="#!">three</a></li>
+          {{-- <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+          <li><a href="#!"><i class="material-icons">cloud</i>five</a></li> --}}
+        </ul>
+      @endif
       <li><a href="">Botón 1</a></li>
       <li><a href="">Botón 2</a></li>
       <li><a href="">Botón 3</a></li>
@@ -85,3 +103,12 @@
 
 {{-- Photo Form --}}
 @include ('layout.photo_modal')
+
+<script>  
+  $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+</script>
+<script>
+  $('.dropdown-trigger').dropdown();
+</script>

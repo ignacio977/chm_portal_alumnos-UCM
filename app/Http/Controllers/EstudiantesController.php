@@ -112,4 +112,10 @@ class EstudiantesController extends Controller
         return redirect(route('estudiante'));
     }
 
+    public function novedadespractica(Request $request)
+    {
+        
+        $Notificaciones = PostulacionesPractica::whereColumn('inspeccionado','<','updated_at')->get();
+        return view ('Estudiantes.NovedadesPractica' , compact('Notificaciones'));
+    }
 }
