@@ -45,9 +45,11 @@ class ProfesoresController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroycomentario($id)
     {
-        //
+      $reserva = Reserva::find($id); //Esta funcion elimina la reserva seleccionado
+      $reserva -> delete();
+      return redirect()->route('profesor');
     }
 
     public function listado_reservas()
@@ -62,10 +64,6 @@ class ProfesoresController extends Controller
                    ->select('salas.id')
                    ->where('salas.nombre', $request->nombre_sala)
                    ->get();
-
-
-
-
       if ($request->bloque_1 == 1){
          $reserva = DB::table('reserva')
                          ->join('salas', 'salas.id', '=', 'reserva.id_sala')
@@ -189,7 +187,6 @@ class ProfesoresController extends Controller
                                             $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                             $reserva->fecha_salida = $request->input('fecha_salida');
                                             $reserva->save();
-                                      //  return view('reserva.guardado');
                                  }
                                  else {
                                   return redirect('/profesores_reserva')->with('error_reserva', 'Sala ocupada en el bloque 2');
@@ -256,7 +253,6 @@ class ProfesoresController extends Controller
                                          $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                          $reserva->fecha_salida = $request->input('fecha_salida');
                                          $reserva->save();
-                                   //  return view('reserva.guardado');
                               }
                               else {
                                 return redirect('/profesores_reserva')->with('error_reserva', 'Sala ocupada en el bloque 3');
@@ -323,7 +319,6 @@ class ProfesoresController extends Controller
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
-                                    //  return view('reserva.guardado');
                                }
                                else {
                                 return redirect('/profesores_reserva')->with('error_reserva', 'Sala ocupada en el bloque 4');
@@ -390,7 +385,6 @@ class ProfesoresController extends Controller
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
-                                    //  return view('reserva.guardado');
                                }
                                else {
                                 return redirect('/profesores_reserva')->with('error_reserva', 'Sala ocupada en el bloque 5');
@@ -457,7 +451,6 @@ class ProfesoresController extends Controller
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
-                                    //  return view('reserva.guardado');
                                }
                                else {
                                 return redirect('/profesores_reserva')->with('error_reserva', 'Sala ocupada en el bloque 6');
@@ -524,7 +517,6 @@ class ProfesoresController extends Controller
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
-                                    //  return view('reserva.guardado');
                                }
                                else {
                                 return redirect('/profesores_reserva')->with('error_reserva', 'Sala ocupada en el bloque 7');
@@ -591,7 +583,6 @@ class ProfesoresController extends Controller
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
-                                    //  return view('reserva.guardado');
                                }
                                else {
                                 return redirect('/profesores_reserva')->with('error_reserva', 'Sala ocupada en el bloque 8');
@@ -658,7 +649,6 @@ class ProfesoresController extends Controller
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
-                                    //  return view('reserva.guardado');
                                }
                                else {
                                 return redirect('/profesores_reserva')->with('error_reserva', 'Sala ocupada en el bloque 9');
@@ -669,6 +659,5 @@ class ProfesoresController extends Controller
                           }
         }
         return redirect('/profesores_reserva')->with('status_reserva', 'Se ha ingresado la Reserva correctamente');
-
    }
 }

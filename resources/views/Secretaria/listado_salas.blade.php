@@ -10,11 +10,9 @@
 @endsection
 
 @section('body')
-    <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
+    <div class="container">
+                    <div class="col-md-16">
+                        <div class="card-panel center">
                             <div class="header">
                                 <h4 class="title">Listado De Salas</h4>
                             </div>
@@ -34,7 +32,9 @@
                                       <td>{{$sala->id}}</td>
                                       <td>{{$sala->nombre}}</td>
                                       <td>{{$sala->capacidad}}</td>
-                                      <td><a href="{{route('secretaria_listado_salas.destroy', $sala->id)}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">Borrar</i></a> <a href="{{route('secretaria_historial_sala.historial_sala', $sala->id)}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">Historial</i></a></td>
+
+                                      <td><a href="{{route('secretaria_listado_salas.destroy', $sala->id)}}" class="waves-effect waves-light btn-small">Cancelar<i class="material-icons">close</i></a><a href="{{route('secretaria_historial_sala.historial_sala', $sala->id)}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">Historial</i></a></td>
+
 
                                       </tr>
                                       @endforeach
@@ -47,8 +47,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
     </div>
 @endsection
 

@@ -5,7 +5,6 @@
 
 @section('title')
   <title>Perfil Profesor</title>
-  <title>Perfil Profesor</title>
 @endsection
 
 @section('styles')
@@ -81,7 +80,6 @@
                 </div>
               </li>
             </ul>
-
             <ul class="collapsible"> <!--Collapsible de información extra1-->
               <li>
                 <div class="collapsible-header"><i class="material-icons">chrome_reader_mode</i>
@@ -112,6 +110,7 @@
                               <th>ID sala</th>
                               <th>Bloque</th>
                               <th>Comentario</th>
+                              <th></th>
                               </thread>
                           <tbody>
                           @foreach($reserva as $reser) <!--recorre todos los registros encontrados y los muestra en la vista-->
@@ -120,6 +119,7 @@
                             <td>{{$reser->id_sala}}</td>
                             <td>{{$reser->bloque}}</td>
                             <td>{{$reser->comentario}}</td>
+                            <td> <a  href="{{route('profesor_comentario.destroy', $reser->id)}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">X</i></a></td>
 
                             @endif
                           </tr>
