@@ -12,6 +12,7 @@ use App\Practicasprofesionale;
 use App\PostulacionesPractica;
 use App\Pregunta;
 use App\Respuesta;
+use Carbon\Carbon;
 
 class EstudiantesController extends Controller
 {
@@ -114,8 +115,19 @@ class EstudiantesController extends Controller
 
     public function novedadespractica(Request $request)
     {
-        
         $Notificaciones = PostulacionesPractica::whereColumn('inspeccionado','<','updated_at')->get();
-        return view ('Estudiantes.NovedadesPractica' , compact('Notificaciones'));
+        $Registros = PostulacionesPractica::whereColumn('inspeccionado','>=','updated_at')->get();
+        return view ('Estudiantes.NovedadesPractica' , compact('Notificaciones','Registros'));
+    }
+
+    public function VistoPractica(Request $request)
+    {
+        $ValorId = $request->tag;
+        $fecha = Carbon::now();
+        $VistoPostulacion = PostulacionesPractica::where('id',$ValorId)->first();
+        $VistoPostulacion->timestamps = false;
+        $VistoPostulacion->inspeccionado = $fecha;
+        $VistoPostulacion->save();
+        return "ok";
     }
 }

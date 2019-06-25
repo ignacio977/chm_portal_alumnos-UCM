@@ -29,6 +29,7 @@ Route::get('/estudiante/practicasofertadas/detalle', 'EstudiantesController@prac
 Route::get('/estudiante/evaluacionpractica', 'EstudiantesController@evaluacionpractica')->name('EvaluarPractica');
 Route::post('/estudiante/evaluacionpractica', 'EstudiantesController@evaluacionpracticaenvio')->name('EvaluarPracticaEnvio');
 Route::get('/estudiante/novedadespractica', 'EstudiantesController@novedadespractica')->name('NovedadesPractica');
+Route::get('/estudiante/vistopractica', 'EstudiantesController@VistoPractica')->name('VistoPractica');
 
 #Profesores#
 Route::get('/profesor', 'ProfesoresController@index')->name('profesor');
