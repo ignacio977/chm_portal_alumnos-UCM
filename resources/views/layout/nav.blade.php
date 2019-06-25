@@ -15,7 +15,7 @@
         @auth <!--Si hay una sesión iniciada-->
           <li><a>{{ Auth::user()->nombres }}</a></li>
           <li><a href="{{ route('logout') }}"
-                  class="red darken-1" 
+                  class="red darken-1"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
                   <b>{{ __('Cerrar sesión') }}</b>
@@ -59,19 +59,20 @@
         @endif
       @endif
       @if (Auth::user()->tipo_usuario == 'profesor')
-        <a class="waves-effect" href="/profesor">Perfil Profesor</a> 
+        <a class="waves-effect" href="/profesor">Perfil Profesor</a>
         <a class="waves-effect" href="/profesor/coordinador">Coordinar Practicas</a>
+        <a class="waves-effect" href="/profesor/mostrarpracprof">Mostrar Practicas</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
-        <a class="waves-effect" href="/director">Perfil Director</a> 
+        <a class="waves-effect" href="/director">Perfil Director</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'secretaria')
-        <a class="waves-effect" href="/secretaria">Perfil Secretaria</a> 
+        <a class="waves-effect" href="/secretaria">Perfil Secretaria</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'empresa')
-      <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
-      <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a> 
-      <a class="waves-effect" href="/empresa/practicas/mostrar">Mostrar Practicas</a> 
+      <a class="waves-effect" href="/empresa">Perfil Empresa</a>
+      <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a>
+      <a class="waves-effect" href="/empresa/practicas/mostrar">Mostrar Practicas</a>
       @endif
     @endif
   </li>

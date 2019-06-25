@@ -32,6 +32,7 @@ Route::post('/estudiante/evaluacionpractica', 'EstudiantesController@evaluacionp
 
 #Profesores#
 Route::get('/profesor', 'ProfesoresController@index')->name('profesor');
+Route::get('/profesor/mostrarpracprof', 'ProfesoresController@mostrar_practicas')->name('practicasprofesor');
 
 #Coordinador de practicas#
 Route::get('/profesor/coordinador', 'CoordinadorController@AprobarPracticas')->name('MostrarPracticas');
@@ -52,4 +53,3 @@ Route::post('/empresa/practicas/enviar', 'EmpresaController@InsercionPracticaPro
 Route::get('/empresa/practicas/mostrar', 'EmpresaController@MostrarPracticas');
 Route::post('/empresa/practicas/mostrar', 'EmpresaController@FuncionesPracticas');
 Route::post('/empresa/practicas/editar', 'EmpresaController@VerificarPracticas');
-
