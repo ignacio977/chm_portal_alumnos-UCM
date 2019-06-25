@@ -10,7 +10,7 @@ class PostulacionesPractica extends Model
 {
     protected $fillable = [
         'id', 'alumnoid', 'practicaid',
-        'fecha', 'Estado'
+        'fecha', 'Estado', 'inspeccionado'
     ];
 
     public function practica(){

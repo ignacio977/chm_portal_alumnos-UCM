@@ -1,4 +1,10 @@
 {{-- Navbar --}}
+<style>
+  .dropdown-content {
+    top: 100% !important;
+    width: 300px !important;
+  }
+</style>
 <nav>
   <div class="nav-wrapper" style="background-color: #253e85;">
     @if (Route::has('login'))
@@ -8,6 +14,37 @@
     @endif
     <a href="/home" class="brand-logo" align="middle">UCM</a>
     <ul class="right hide-on-med-and-down">
+      @if(Auth::user())
+        <!-- {{$ArregloVisto=Auth::user()->PostulacionPractica->pluck('inspeccionado')}} -->
+        <!-- {{$ArregloUpdate=Auth::user()->PostulacionPractica->pluck('updated_at')}} -->
+        <!-- {{$contador=0}} -->
+        <!-- {{$notificacion=0}} -->
+        @foreach ($ArregloVisto as $FechaVisto)
+          @if($FechaVisto < $ArregloUpdate[$contador])
+            <!-- {{$notificacion=$notificacion+1}} -->
+          @endif  
+          <!-- {{$contador=$contador+1}} -->
+        @endforeach
+        @if($notificacion>0)
+          <li><a class="red dropdown-trigger tooltipped waves-effect waves-light" data-target='DropdownNotificacion' data-position="left" data-tooltip="Notificaciones"><i class="material-icons">public</i></a></li>
+          <ul id='DropdownNotificacion' class='dropdown-content'>
+            <li><a class="red blue-text text-darken-2" href="/estudiante/novedadespractica"><i class="material-icons">work</i>Novedades de Practica</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="blue-text text-darken-2" href="#!">two</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="blue-text text-darken-2" href="#!">three</a></li>
+          </ul>
+        @else
+          <li><a class="dropdown-trigger tooltipped waves-effect waves-light" data-target='DropdownNotificacion' data-position="left" data-tooltip="Notificaciones"><i class="material-icons">public</i></a></li>
+          <ul id='DropdownNotificacion' class='dropdown-content'>
+            <li><a class="blue-text text-darken-2" href="/estudiante/novedadespractica"><i class="material-icons">work</i>Novedades de Practica</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="blue-text text-darken-2" href="#!">two</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="blue-text text-darken-2" href="#!">three</a></li>
+          </ul>
+        @endif
+      @endif
       <li><a href="">Botón 1</a></li>
       <li><a href="">Botón 2</a></li>
       <li><a href="">Botón 3</a></li>
@@ -85,3 +122,12 @@
 
 {{-- Photo Form --}}
 @include ('layout.photo_modal')
+
+<script>  
+  $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+</script>
+<script>
+  $('.dropdown-trigger').dropdown();
+</script>

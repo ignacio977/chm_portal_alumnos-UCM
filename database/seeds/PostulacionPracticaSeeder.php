@@ -17,7 +17,9 @@ class PostulacionPracticaSeeder extends Seeder
             'alumnoid'     => '1',
             'practicaid'     => '1',
             'fecha'    => '01-01-10',
-            'estado'    => 'Finalizada'
+            'estado'    => 'Finalizada',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
 
         DB::table('postulaciones_practicas')->insert([ 
@@ -25,7 +27,9 @@ class PostulacionPracticaSeeder extends Seeder
         'alumnoid'     => '1',
         'practicaid'     => '2',
         'fecha'    => '01-01-10',
-        'estado'    => 'Pendiente'
+        'estado'    => 'Pendiente',
+        'created_at'        => new DateTime(),
+        'updated_at'        => new DateTime()
         ]);
 
         DB::table('postulaciones_practicas')->insert([ 
@@ -33,7 +37,9 @@ class PostulacionPracticaSeeder extends Seeder
           'alumnoid'     => '6',
           'practicaid'     => '1',
           'fecha'    => '01-01-10',
-          'estado'    => 'Pendiente'
+          'estado'    => 'Pendiente',
+          'created_at'        => new DateTime(),
+          'updated_at'        => new DateTime()
         ]); 
 
         DB::table('postulaciones_practicas')->insert([ 
@@ -41,7 +47,9 @@ class PostulacionPracticaSeeder extends Seeder
           'alumnoid'     => '7',
           'practicaid'     => '1',
           'fecha'    => '01-01-10',
-          'estado'    => 'Pendiente'
+          'estado'    => 'Pendiente',
+          'created_at'        => new DateTime(),
+          'updated_at'        => new DateTime()
         ]); 
 
         DB::table('postulaciones_practicas')->insert([ 
@@ -49,14 +57,18 @@ class PostulacionPracticaSeeder extends Seeder
           'alumnoid'     => '6',
           'practicaid'     => '14',
           'fecha'    => '01-01-10',
-          'estado'    => 'Pendiente'
+          'estado'    => 'Pendiente',
+          'created_at'        => new DateTime(),
+          'updated_at'        => new DateTime()
         ]); 
         DB::table('postulaciones_practicas')->insert([ 
           'id'     => '6',
           'alumnoid'     => '7',
           'practicaid'     => '15',
           'fecha'    => '01-01-10',
-          'estado'    => 'Pendiente'
+          'estado'    => 'Pendiente',
+          'created_at'        => new DateTime(),
+          'updated_at'        => new DateTime()
         ]); 
     }
 }
