@@ -22,7 +22,6 @@
         @foreach ($ArregloVisto as $FechaVisto)
           @if($FechaVisto < $ArregloUpdate[$contador])
             <!-- {{$notificacion=$notificacion+1}} -->
-            Registro
           @endif  
           <!-- {{$contador=$contador+1}} -->
         @endforeach
