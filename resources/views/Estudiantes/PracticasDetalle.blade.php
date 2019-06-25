@@ -52,7 +52,7 @@
                   <td> {{$practica->HorasHasta}}</td>
                   <td> {{$practica->PuestoOfrecido}}</td>
                   <td> {{$practica->Enfoque}}</td>
-                  <input type="hidden" name="idalumno" value={{Auth::user()->id}}> 
+                  <input type="hidden" name="idalumno" value={{Auth::user()->id}}>
                   <input type="hidden" name="idpractica" value={{$practica->id}}>
                   <td><button type="submit" class="btn waves-effect waves-light" >Postular</button>
                     <br><br>
