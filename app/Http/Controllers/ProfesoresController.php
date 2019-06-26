@@ -16,7 +16,17 @@ class ProfesoresController extends Controller
     public function index()
     {
         $professors = User::All();
-        $reserva = Reserva::All();
+        $id_reserva = DB::table('reserva')
+                      ->select('reserva.id_sala')
+                      ->where('reserva.estado', '=', 3)
+                      ->get();
+        $reserva = DB::table('reserva')
+                      ->join('salas', 'salas.id', '=','reserva.id_sala')
+                      ->select('reserva.id', 'salas.nombre', 'reserva.bloque', 'reserva.comentario')
+                      ->where([['salas.id', '=', $id_reserva[0]->id_sala],
+                               ['reserva.estado', '=', 3],
+                             ])
+                      ->get();
         return view('Profesores.index', compact('professors','reserva'));
     }
 
@@ -54,7 +64,10 @@ class ProfesoresController extends Controller
 
     public function listado_reservas()
     {
-        $reserva = Reserva::orderBy('id','ASC')->paginate(6);
+        $reserva = DB::table('reserva')
+                      ->join('salas', 'salas.id', '=','reserva.id_sala')
+                      ->select('reserva.id_user','salas.nombre', 'reserva.bloque','reserva.estado', 'reserva.fecha_ingreso','reserva.fecha_salida')
+                      ->get();
          return view('Profesores.listado_reservas')->with('reserva', $reserva);
     }
 

@@ -22,7 +22,10 @@ class SecretariaController extends Controller
     }
     public function listado_reservas()
     {
-        $reserva = Reserva::orderBy('id','ASC')->paginate(6);
+      $reserva = DB::table('reserva')
+                    ->join('salas', 'salas.id', '=','reserva.id_sala')
+                    ->select('reserva.id','reserva.id_user','salas.nombre', 'reserva.bloque','reserva.estado', 'reserva.fecha_ingreso','reserva.fecha_salida')
+                    ->get();
          return view('Secretaria.listado_reservas')->with('reserva', $reserva);
     }
     public function listado_salas()

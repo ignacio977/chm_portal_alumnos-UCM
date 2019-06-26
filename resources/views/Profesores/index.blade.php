@@ -108,6 +108,7 @@
                           <table class="table table-hover table-striped">
                               <thread>
                               <th>ID sala</th>
+                              <th>Nombre sala</th>
                               <th>Bloque</th>
                               <th>Comentario</th>
                               <th></th>
@@ -115,13 +116,14 @@
                           <tbody>
                           @foreach($reserva as $reser) <!--recorre todos los registros encontrados y los muestra en la vista-->
                           <tr>
-                          @if( $reser->estado == 3 )
-                            <td>{{$reser->id_sala}}</td>
+
+                            <td>{{$reser->id}}</td>
+                            <td>{{$reser->nombre}}</td>
                             <td>{{$reser->bloque}}</td>
                             <td>{{$reser->comentario}}</td>
                             <td> <a  href="{{route('profesor_comentario.destroy', $reser->id)}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">X</i></a></td>
 
-                            @endif
+
                           </tr>
                           @endforeach
                           </tbody>

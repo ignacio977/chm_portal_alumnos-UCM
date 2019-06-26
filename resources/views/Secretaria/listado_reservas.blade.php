@@ -10,11 +10,9 @@
 @endsection
 
 @section('body')
-    <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
+    <div class="container">
+                    <div class="col-md-16">
+                        <div class="card-panel center">
                             <div class="header">
                                 <h4 class="title">Listado De Reservas</h4>
                             </div>
@@ -24,7 +22,7 @@
                                       <table class="table table-hover table-striped">
                                           <thread>
                                           <th>ID user</th>
-                                          <th>ID sala</th>
+                                          <th>Nombre Sala</th>
                                           <th>Bloque</th>
                                           <th>Fecha Inicio</th>
                                           <th>Fecha Salida</th>
@@ -35,7 +33,7 @@
                                       <tr>
                                       @if( $reser->estado == 1 )
                                         <td>{{$reser->id_user}}</td>
-                                        <td>{{$reser->id_sala}}</td>
+                                        <td>{{$reser->nombre}}</td>
                                         <td>{{$reser->bloque}}</td>
                                         <td>{{$reser->fecha_ingreso}}</td>
                                         <td>{{$reser->fecha_salida}}</td>
@@ -46,7 +44,7 @@
                                       @endforeach
                                       </tbody>
                                       </table>
-                                      {!! $reserva->render()!!}
+
                                   </div>
                                   <div class="clearfix"></div>
                               </form>
@@ -59,8 +57,6 @@
                       </br>
                     <a  href="{{route('secretaria_listado_reservas.reportes_reservas')}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">Reporte</i></a>
                   </div>
-                </div>
-            </div>
     </div>
 @endsection
 
