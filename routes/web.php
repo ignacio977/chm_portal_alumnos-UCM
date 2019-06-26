@@ -58,6 +58,16 @@ Route::get('/secretaria_buscar_disponibilidad', function () {
 Route::get('/secretaria_reportes', function () {
         return view('Secretaria.generar_reportes');
 });
+
+
+
+
+
+
+
+
+
+
 Route::get('secretaria_listado_reservas/{id}/destroy',[
     'uses' => 'SecretariaController@destroy',
     'as'   => 'secretaria_listado_reservas.destroy']
