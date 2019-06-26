@@ -44,11 +44,9 @@
           <input type="text" name="comentario" class="form-control"   required>
         </div>
       </div>
-
-
-      <a class="waves-effect red darken-1 btn" href="/secretaria" >Cancel</a>
-      <button class="btn waves-effect waves-light" type="submit" name="action">Crear Reserva
-      <i class="material-icons right">send</i>
+      <a class="waves-effect red darken-1 btn" href="/secretaria_listado_reservas" >Cancel<i class="material-icons right">close</i></a>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Crear Comentario
+      <i class="material-icons right">comment</i>
       </button>
     </div>
   </form>

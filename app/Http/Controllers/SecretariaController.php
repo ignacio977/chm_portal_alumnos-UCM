@@ -35,14 +35,7 @@ class SecretariaController extends Controller
     {
         $reserva = Reserva::orderBy('id','ASC')->paginate(6);
          return view('Secretaria.confirmar_listado_reservas')->with('reserva', $reserva);
-
-
-        /*$reserva = Reserva::where('estado', '=', 0)->get();
-         return view('Secretaria.listado_reservas')->with('reserva', $reserva);*/
     }
-
-
-
     public function agregar_sala(Request $request)
     {
       $agregar = new Salas;
@@ -54,8 +47,6 @@ class SecretariaController extends Controller
 
     public function buscar_disponibilidad(Request $request)
     {
-      //dd($request);
-      // return $request;
       $dia_semana = $request->dia_semana;
       $fi = $request->fecha_ingreso;
       $ff = $request->fecha_salida;
@@ -93,9 +84,6 @@ class SecretariaController extends Controller
                           ['reserva.fecha_salida', '<', $request->fecha_salida],
                         ])
                       ->get();
-
-      // return $reserva;
-
        $salas = DB::table('salas')
                      ->select('salas.id', 'salas.nombre', 'salas.capacidad')
                      ->get();
@@ -148,7 +136,6 @@ class SecretariaController extends Controller
        else{
            return redirect('/secretaria_buscar_disponibilidad')->with('error_reserva', 'Ingrese fecha correctamente');
       }
-
     }
 
     public function agregar_reserva(Request $request)
@@ -157,9 +144,6 @@ class SecretariaController extends Controller
                    ->select('salas.id','salas.nombre')
                    ->where('salas.nombre', $request->nombre_sala)
                    ->get();
-
-
-
 
       if ($request->bloque_1 == 1){
          $reserva = DB::table('reserva')
@@ -284,7 +268,6 @@ class SecretariaController extends Controller
                                             $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                             $reserva->fecha_salida = $request->input('fecha_salida');
                                             $reserva->save();
-                                      //  return view('reserva.guardado');
                                  }
                                  else {
                                   return redirect('/secretaria_reserva')->with('error_reserva', 'Sala ocupada en el bloque 2');
@@ -351,7 +334,6 @@ class SecretariaController extends Controller
                                          $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                          $reserva->fecha_salida = $request->input('fecha_salida');
                                          $reserva->save();
-                                   //  return view('reserva.guardado');
                               }
                               else {
                                 return redirect('/secretaria_reserva')->with('error_reserva', 'Sala ocupada en el bloque 3');
@@ -417,7 +399,6 @@ class SecretariaController extends Controller
                                           $reserva->fecha_ingreso = $request->input('fecha_ingreso');
                                           $reserva->fecha_salida = $request->input('fecha_salida');
                                           $reserva->save();
-                                    //  return view('reserva.guardado');
                                }
                                else {
                                 return redirect('/secretaria_reserva')->with('error_reserva', 'Sala ocupada en el bloque 4');
@@ -766,12 +747,6 @@ class SecretariaController extends Controller
 
    }
 
-
-    public function create()
-    {
-        //
-    }
-
     public function comentario(Request $request)
     {
       $reserva = Reserva::find($request->id_reserva);
@@ -810,9 +785,6 @@ class SecretariaController extends Controller
 
     public function update(Request $request, $id)
     {
-      $reserva = Reserva::find($id);
-
-
         $reserva = Reserva::find($id);
         $reserva-> id_user = $request->id_user;
         $reserva-> id_sala = $request->id_sala;
@@ -845,6 +817,7 @@ class SecretariaController extends Controller
       $sala -> delete();
       return redirect()->route('listado_salas');
     }
+
 
     public function reportes_reservas()
     {
