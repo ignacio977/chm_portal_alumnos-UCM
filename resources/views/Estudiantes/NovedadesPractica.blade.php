@@ -39,7 +39,7 @@
                     </tr>
                 @endforeach
                 @foreach ($Registros as $registro)
-                    <tr class="red lighten-5">
+                    <tr class="white">
                         <td> Visto </td>
                         <td> {{\Carbon\Carbon::parse($registro->updated_at)->diffForHumans()}} </td>
                         <td> {{$registro->practica->empresa->nombres}} </td>

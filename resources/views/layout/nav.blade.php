@@ -4,6 +4,21 @@
     top: 100% !important;
     width: 300px !important;
   }
+  .notification-badge {
+    position: relative;
+    right: 0px;
+    top: -18px;
+    color: #ffffff;
+    background-color: #FF4081;
+    margin: 0 -.8em;
+    border-radius: 50%;
+    padding: 1px 5px;
+    font-family: "Roboto";
+  }
+  .notification-icon--fixed {
+    max-height: 60px;
+    width: 60px;
+  }
 </style>
 <nav>
   <div class="nav-wrapper" style="background-color: #253e85;">
@@ -26,13 +41,13 @@
           <!-- {{$contador=$contador+1}} -->
         @endforeach
         @if($notificacion>0)
-          <li><a class="red dropdown-trigger tooltipped waves-effect waves-light" data-target='DropdownNotificacion' data-position="left" data-tooltip="Notificaciones"><i class="material-icons">public</i></a></li>
+          <li><a class="dropdown-trigger tooltipped waves-effect waves-light" data-target='DropdownNotificacion' data-position="left" data-tooltip="Notificaciones"><i class="material-icons" style="margin-right: 10px;">public<small class="notification-badge">{{$notificacion}}</small></i></a></li>
           <ul id='DropdownNotificacion' class='dropdown-content'>
             <li><a class="red blue-text text-darken-2" href="/estudiante/novedadespractica"><i class="material-icons">work</i>Novedades de Practica</a></li>
-            <li class="divider" tabindex="-1"></li>
+            {{-- <li class="divider" tabindex="-1"></li>
             <li><a class="blue-text text-darken-2" href="#!">two</a></li>
             <li class="divider" tabindex="-1"></li>
-            <li><a class="blue-text text-darken-2" href="#!">three</a></li>
+            <li><a class="blue-text text-darken-2" href="#!">three</a></li> --}}
           </ul>
         @else
           <li><a class="dropdown-trigger tooltipped waves-effect waves-light" data-target='DropdownNotificacion' data-position="left" data-tooltip="Notificaciones"><i class="material-icons">public</i></a></li>
