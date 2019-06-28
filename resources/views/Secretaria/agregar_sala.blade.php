@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <a class="waves-effect red darken-1 btn" href="/secretaria" >Cancel</a>
+      <a class="waves-effect red darken-1 btn" href="/secretaria"><i>Cancel</i><i class="material-icons">close</i></a>
       <button class="btn waves-effect waves-light" type="submit" >Crear Sala
       <i class="material-icons right">send</i>
       </button>

@@ -10,7 +10,7 @@
 @endsection
 
 @section('body')
-    <div class="container">
+    <div class="content">
                     <div class="col-md-16">
                         <div class="card-panel center">
                             <div class="header">

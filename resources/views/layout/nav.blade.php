@@ -61,6 +61,7 @@
         <a class="waves-effect" href="/profesor/coordinador">Coordinar Practicas</a>
         <a class="waves-effect" href="/profesores_reserva">Reserva De Salas</a>
         <a class="waves-effect" href="/profesores_listado_reservas">Mis Reservas</a>
+        <a class="waves-effect" href="/profesores_listado_reservas">Mis Eventos</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
         <a class="waves-effect" href="/director">Perfil Director</a>
