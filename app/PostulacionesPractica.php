@@ -15,9 +15,9 @@ class PostulacionesPractica extends Model
 
     public function practica(){
         return $this->belongsTo(PracticasProfesionale::class, 'practicaid', 'id');
-      }
+    }
     public function alumno(){
-    return $this->belongsTo(User::class, 'alumnoid', 'id');
+        return $this->belongsTo(User::class, 'id', 'alumnoid');
     }
 
 }

@@ -42,6 +42,6 @@ class User extends Authenticatable
     ];
 
     public function PostulacionPractica(){
-        return $this->hasMany(PostulacionesPractica::class, 'id', 'alumnoid');
-      }
+        return $this->hasMany(PostulacionesPractica::class, 'alumnoid', 'id');
+    }
 }

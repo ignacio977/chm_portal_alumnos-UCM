@@ -3,4 +3,5 @@ $(document).ready(function(){
     $('.modal').modal(); 
     $('select').formSelect();
     $('.timepicker').timepicker();
+    $('.collapsible').collapsible(); 
 });

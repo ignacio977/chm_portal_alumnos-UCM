@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use DB;
 use Auth;
+use App\User;
+
 
 class EmpresaController extends Controller
 {
     public function index()
     {
-        return view('Empresa.index');
+        $companies = User::All();
+        return view('Empresa.index', compact('companies'));
     }
 
     public function CreacionPracticasProfesionales(Request $request)
@@ -190,7 +194,7 @@ class EmpresaController extends Controller
         return view('Empresa.MostrarPracticas', compact('Practicas'));
     }
 
-    public function EliminarPracticas(Request $request)
+    public function FuncionesPracticas(Request $request)
     {
         if (isset($_POST['delete_button'])) {
 
@@ -199,8 +203,6 @@ class EmpresaController extends Controller
             return redirect('/empresa/practicas/mostrar')->with('Eliminado', 'Hola');
 
         }else if(isset($_POST['update_button'])){
-
-            
             $auxiliar = DB::table('practicasprofesionales')->where('id', $request->id)->first();
             $request->DesdeH = $auxiliar->HorasDesde;
             $request->HastaH = $auxiliar->HorasHasta;
@@ -214,6 +216,9 @@ class EmpresaController extends Controller
             
             return view('Empresa.EditarPracticasProfesionales', compact('errores','request'));
 
+        }else if(isset($_POST['view_button'])){
+            $errores = 1;
+            return view('Empresa.ViewPracticas', compact('request'));
         }
     }
 

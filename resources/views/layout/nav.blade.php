@@ -30,7 +30,6 @@
     </ul>
   </div>
 </nav>
-
 {{-- Sidenav --}}
 <ul id="slide-out" class="sidenav">
   <li>
@@ -38,16 +37,26 @@
       <div class="background">
         <img src="/images/forest.jpg">
       </div>
-      <a href="#user"><img class="circle" src="/images/smile.png"></a>
-      <a href="#name"><span class="white-text name">Mike John</span></a>
-      <a href="#email"><span class="white-text email">correolindo@gmail.com</span></a>
+      @if (empty(Auth::user()->foto)) {{-- Si el usuario no tiene foto --}}
+        <a class="modal-trigger" href="#modal_photo"><img class="circle" src="/images/default.png"></a>
+      @else {{-- Si el usuario sí tiene foto --}}
+        <?php $direccion_imagen = Auth::user()->foto ?>
+        <a class="modal-trigger" href="#modal_photo"><img class="circle" src="{{ URL::asset("{$direccion_imagen}") }}"></a>
+      @endif
+      @auth
+        <a href="#name"><span class="white-text name">{{Auth::user()->nombres}}</span></a>
+        <a href="#email"><span class="white-text email">{{Auth::user()->email}}</span></a>
+      @endauth
     </div>
   </li>
   <li>
     @if(Auth::check()) {{-- Verificamos que esté iniciada la sesión --}}
       @if (Auth::user()->tipo_usuario == 'estudiante'){{-- Botones a los que tendrá acceso solo el estudiante --}}
-      <a class="waves-effect" href="/estudiante">Perfil Estudiante</a> {{-- Copiar el botón para agregar redireccionamientos --}}
-      <a class="waves-effect" href="/estudiante/practicasofertadas">Selección de prácticas</a>
+        <a class="waves-effect" href="/estudiante">Perfil Estudiante</a> {{-- Copiar el botón para agregar redireccionamientos --}}
+        <a class="waves-effect" href="/estudiante/practicasofertadas">Selección de prácticas</a>
+        @if(Auth::user()->PostulacionPractica->where('estado','Finalizada')->first())
+          <a class="waves-effect" href="/estudiante/evaluacionpractica">Evaluar Práctica Finalizada</a>
+        @endif
       @endif
       @if (Auth::user()->tipo_usuario == 'profesor')
         <a class="waves-effect" href="/profesor">Perfil Profesor</a> 
@@ -73,3 +82,6 @@
 
 {{-- Login Form --}}
 @include ('layout.login_modal')
+
+{{-- Photo Form --}}
+@include ('layout.photo_modal')
