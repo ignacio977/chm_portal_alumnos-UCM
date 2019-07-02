@@ -9,6 +9,39 @@ use App\User;
 
 class CoordinadorController extends Controller
 {
+   public function VerPracticas()
+    {
+      $Coleccion= Practicasprofesionale:: orderBy('updated_at', 'desc')->
+                                          paginate(5);
+      return view('Profesores.CatalogoProfesor',compact('Coleccion'));       
+
+    }
+
+    public function DetallePracticas(Request $request)
+    {
+        $Practicas= Practicasprofesionale::where('id', $request->id)->get();
+        $ListaAlumnos = Practicasprofesionale::where('id', $request->id)
+                                             ->first()
+                                             ->PostulacionPractica
+                                             ->pluck('alumnoid');
+         $Postulantes = User::all()->whereIn('id', $ListaAlumnos);
+
+
+        return view ('Profesores.CoordinadorDetallePractica', compact('Practicas', 'Postulantes'));
+    }
+
+    public function EliminarPractica(Request $request)
+    {
+      $data = request()->all();
+      $id = $data["idpractica"];
+      $practica= Practicasprofesionale::find($id);
+
+      foreach ($practica->PostulacionPractica as $postulacion) {
+         $postulacion->delete();
+      }
+      $practica->delete();
+    }
+
     public function AprobarPracticas()
     {
        $Coleccion = PostulacionesPractica::where('estado', 'Pendiente')->paginate(3);
