@@ -115,7 +115,10 @@
       @endif
       @if (Auth::user()->tipo_usuario == 'profesor')
         <a class="waves-effect" href="/profesor">Perfil Profesor</a> 
-        <a class="waves-effect" href="/profesor/coordinador">Coordinar Practicas</a>
+        <a class="waves-effect" href="/profesor/practicas">Catalogo de practicas</a>
+        <a class="waves-effect" href="/profesor/coordinador">Postulaciones</a>
+        <a class="waves-effect" href="/profesor/coordinador/PracticaActual">Practicas en curso</a>
+        <a class="waves-effect" href="/profesor/coordinador/addE">Agregar Empresa</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
         <a class="waves-effect" href="/director">Perfil Director</a> 

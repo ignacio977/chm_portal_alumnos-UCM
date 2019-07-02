@@ -30,7 +30,7 @@
                     {{ csrf_field() }}
                     <input type="hidden" name="id_postulacion" value={{$postulacion->id}}>
                     <input type="hidden" name="estado" value="Aceptada">
-                    <br><button type= "submit" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">check</i></button>
+                    <br><button type= "submit" class="btn-floating btn-large waves-effect waves-light blue darken-2"><i class="material-icons">check</i></button>
                 </form>
             </div>
             <div class="col s2 section">
@@ -38,7 +38,7 @@
                     {{ csrf_field() }}
                     <input type="hidden" name="id_postulacion" value={{$postulacion->id}}>
                     <input type="hidden" name="estado" value="Rechazada">
-                    <br><button type= "submit" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">clear</i></button>
+                    <br><button type= "submit" class="btn-floating btn-large waves-effect waves-light red darken-2"><i class="material-icons">clear</i></button>
                 </form>
             </div>
         </div>
