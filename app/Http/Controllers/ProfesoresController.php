@@ -22,7 +22,7 @@ class ProfesoresController extends Controller
                       ->get();
         $reserva = DB::table('reserva')
                       ->join('salas', 'salas.id', '=','reserva.id_sala')
-                      ->select('reserva.id', 'salas.nombre', 'reserva.bloque', 'reserva.comentario')
+                      ->select('reserva.id', 'salas.nombre', 'reserva.bloque','reserva.dia_semana','reserva.comentario')
                       ->where([['salas.id', '=', $id_reserva[0]->id_sala],
                                ['reserva.estado', '=', 3],
                              ])
@@ -165,7 +165,7 @@ class ProfesoresController extends Controller
     {
         $reserva = DB::table('reserva')
                       ->join('salas', 'salas.id', '=','reserva.id_sala')
-                      ->select('reserva.id_user','salas.nombre', 'reserva.bloque','reserva.estado', 'reserva.fecha_ingreso','reserva.fecha_salida')
+                      ->select('reserva.id_user','salas.nombre', 'reserva.bloque','reserva.dia_semana','reserva.estado', 'reserva.fecha_ingreso','reserva.fecha_salida')
                       ->get();
          return view('Profesores.listado_reservas')->with('reserva', $reserva);
     }

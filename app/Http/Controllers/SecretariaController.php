@@ -24,7 +24,7 @@ class SecretariaController extends Controller
     {
       $reserva = DB::table('reserva')
                     ->join('salas', 'salas.id', '=','reserva.id_sala')
-                    ->select('reserva.id','reserva.id_user','salas.nombre', 'reserva.bloque','reserva.estado', 'reserva.fecha_ingreso','reserva.fecha_salida')
+                    ->select('reserva.id','reserva.id_user','salas.nombre', 'reserva.bloque','reserva.dia_semana' ,'reserva.estado', 'reserva.fecha_ingreso','reserva.fecha_salida')
                     ->get();
          return view('Secretaria.listado_reservas')->with('reserva', $reserva);
     }

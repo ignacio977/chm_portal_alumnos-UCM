@@ -118,7 +118,7 @@
           <input type="hidden" name="estado" class="form-control" value="0" readonly="readonly" required>
         </div>
       </div>
-      <a class="waves-effect red darken-1 btn" href="/" >Cancel</a>
+      <a class="waves-effect red darken-1 btn" href="/" ><i>Cancelar</i> <i class="material-icons">close</i></a>
       <button class="btn waves-effect waves-light" type="submit" name="action">Crear Reserva
       <i class="material-icons right">send</i>
       </button>

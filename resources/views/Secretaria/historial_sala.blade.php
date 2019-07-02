@@ -78,7 +78,7 @@
                     <div class="content center">
                       <h5 class="title">Exportar Reporte</h5>
                       </br>
-                    <a  href="{{route('secretaria_exportar_historial.exportar_sala', $reserva->id_sala)}}" class="waves-effect waves-light btn-small"><i class="pe-7s-trash">Exportar</i></a>
+                    <a  href="{{route('secretaria_exportar_historial.exportar_sala', $reserva->id_sala)}}" class="waves-effect waves-light btn"><i class="pe-7s-trash">Exportar</i> <i class="material-icons">assignment</i></a>
                   </div>
                 </div>
             </div>
