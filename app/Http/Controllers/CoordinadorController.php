@@ -40,6 +40,7 @@ class CoordinadorController extends Controller
          $postulacion->delete();
       }
       $practica->delete();
+      return redirect('/profesor/practicas');
     }
 
     public function AprobarPracticas()
