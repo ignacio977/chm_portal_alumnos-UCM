@@ -15,19 +15,29 @@ class ProfesoresController extends Controller
 {
     public function index()
     {
+
         $professors = User::All();
         $id_reserva = DB::table('reserva')
                       ->select('reserva.id_sala')
                       ->where('reserva.estado', '=', 3)
                       ->get();
-        $reserva = DB::table('reserva')
-                      ->join('salas', 'salas.id', '=','reserva.id_sala')
-                      ->select('reserva.id', 'salas.nombre', 'reserva.bloque','reserva.dia_semana','reserva.comentario')
-                      ->where([['salas.id', '=', $id_reserva[0]->id_sala],
-                               ['reserva.estado', '=', 3],
-                             ])
-                      ->get();
-        return view('Profesores.index', compact('professors','reserva'));
+
+        $i= count($id_reserva);
+        if ($i != 0){
+          $reserva = DB::table('reserva')
+                        ->join('salas', 'salas.id', '=','reserva.id_sala')
+                        ->select('reserva.id','reserva.id_user', 'salas.nombre', 'reserva.bloque','reserva.dia_semana','reserva.comentario')
+                        ->where([
+                                 ['reserva.estado', '=', 3],
+                               ])
+                        ->get();
+          return view('Profesores.index', compact('professors','reserva','i'));
+        }
+        else {
+          $i=0;
+          return view('Profesores.index', compact('professors','i'));
+        }
+
     }
     public function create()
     {
