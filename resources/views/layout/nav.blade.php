@@ -29,36 +29,40 @@
     @endif
     <a href="/home" class="brand-logo" align="middle">UCM</a>
     <ul class="right hide-on-med-and-down">
+      {{-- En este sector se ponen las notificaciones --}}
       @if(Auth::user())
-        <!-- {{$ArregloVisto=Auth::user()->PostulacionPractica->pluck('inspeccionado')}} -->
-        <!-- {{$ArregloUpdate=Auth::user()->PostulacionPractica->pluck('updated_at')}} -->
-        <!-- {{$contador=0}} -->
-        <!-- {{$NotificacionPractica=0}} -->
-        @foreach ($ArregloVisto as $FechaVisto)
-          @if($FechaVisto < $ArregloUpdate[$contador])
-            <!-- {{$NotificacionPractica=$NotificacionPractica+1}} -->
-          @endif  
-          <!-- {{$contador=$contador+1}} -->
-        @endforeach
-        <!-- {{$NotificacionTotal=$NotificacionPractica}} -->
-        <li><a class="dropdown-trigger tooltipped waves-effect waves-light" data-target='DropdownNotificacion' data-position="left" data-tooltip="Notificaciones"><i class="material-icons" style="margin-right: 10px;">public
-          @if($NotificacionTotal>0)
-            <small class="notification-badge">{{$NotificacionTotal}}</small>
-          @endif
-        </i></a></li>
-        <ul id='DropdownNotificacion' class='dropdown-content'>
-          <li><a class="blue-text text-darken-2" href="/estudiante/novedadespractica"><i class="material-icons">work
-          @if($NotificacionPractica>0)
-            <small class="notification-badge">{{$NotificacionPractica}}</small>
-          @endif
-            </i>Novedades de Practica</a>
-          </li>
-          {{-- <li class="divider" tabindex="-1"></li>
-          <li><a class="blue-text text-darken-2" href="#!">two</a></li>
-          <li class="divider" tabindex="-1"></li>
-          <li><a class="blue-text text-darken-2" href="#!">three</a></li> --}}
-        </ul>
+        @if(Auth::user()->tipo_usuario=="estudiante")
+          <!-- {{$ArregloVisto=Auth::user()->PostulacionPractica->pluck('inspeccionado')}} -->
+          <!-- {{$ArregloUpdate=Auth::user()->PostulacionPractica->pluck('updated_at')}} -->
+          <!-- {{$contador=0}} -->
+          <!-- {{$NotificacionPractica=0}} -->
+          @foreach ($ArregloVisto as $FechaVisto)
+            @if($FechaVisto < $ArregloUpdate[$contador])
+              <!-- {{$NotificacionPractica=$NotificacionPractica+1}} -->
+            @endif  
+            <!-- {{$contador=$contador+1}} -->
+          @endforeach
+          <!-- {{$NotificacionTotal=$NotificacionPractica}} -->
+          <li><a class="dropdown-trigger tooltipped waves-effect waves-light" data-target='DropdownNotificacion' data-position="left" data-tooltip="Notificaciones"><i class="material-icons" style="margin-right: 10px;">public
+            @if($NotificacionTotal>0)
+              <small class="notification-badge">{{$NotificacionTotal}}</small>
+            @endif
+          </i></a></li>
+          <ul id='DropdownNotificacion' class='dropdown-content'>
+            <li><a class="blue-text text-darken-2" href="/estudiante/novedadespractica"><i class="material-icons">work
+            @if($NotificacionPractica>0)
+              <small class="notification-badge">{{$NotificacionPractica}}</small>
+            @endif
+              </i>Novedades de Practica</a>
+            </li>
+            {{-- <li class="divider" tabindex="-1"></li>
+            <li><a class="blue-text text-darken-2" href="#!">two</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="blue-text text-darken-2" href="#!">three</a></li> --}}
+          </ul>
+        @endif
       @endif
+      {{-- Se cierra el sector de notificaciones --}}
       <li><a href="">Botón 1</a></li>
       <li><a href="">Botón 2</a></li>
       <li><a href="">Botón 3</a></li>
