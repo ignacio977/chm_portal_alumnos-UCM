@@ -29,7 +29,6 @@ class ProfesoresController extends Controller
                       ->get();
         return view('Profesores.index', compact('professors','reserva'));
     }
-
     public function create()
     {
         //
@@ -42,9 +41,15 @@ class ProfesoresController extends Controller
 
     public function show($id)
     {
-        //
+
     }
 
+
+     public function show2($id, $fi, $ff, $nombre, $capacidad, $dia_semana)
+     {
+       // return("estoy en show");
+         return view('Profesores.reserva_busqueda', compact('id','fi','ff','nombre','capacidad','dia_semana'));
+     }
     public function edit($id)
     {
         //
@@ -62,6 +67,100 @@ class ProfesoresController extends Controller
       return redirect()->route('profesor');
     }
 
+    public function buscar_disponibilidad(Request $request)
+    {
+      $dia_semana = $request->dia_semana;
+      $fi = $request->fecha_ingreso;
+      $ff = $request->fecha_salida;
+      $fi=date("Y-m-d", strtotime($fi));
+      $ff=date("Y-m-d", strtotime($ff));
+      $reservas = DB::table('reserva')
+                      ->join('salas', 'salas.id', '=', 'reserva.id_sala')
+                      ->select('reserva.id','reserva.id_sala','reserva.dia_semana','reserva.bloque')
+                      ->where([
+                          ['reserva.dia_semana', '=', $request->dia_semana],
+                          ['reserva.fecha_ingreso', '<', $request->fecha_ingreso],
+                          ['reserva.fecha_salida', '>', $request->fecha_ingreso],
+                          ])
+                      ->orwhere([
+                          ['reserva.dia_semana', '=', $request->dia_semana],
+                          ['reserva.fecha_ingreso', '<', $request->fecha_salida],
+                          ['reserva.fecha_salida', '>', $request->fecha_salida],
+                          ])
+                      ->orwhere([
+                          ['reserva.dia_semana', '=', $request->dia_semana],
+                          ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
+                          ['reserva.fecha_salida', '=', $request->fecha_salida],
+                          ])
+                       ->orwhere([
+                          ['reserva.dia_semana', '=', $request->dia_semana],
+                          ['reserva.fecha_ingreso', '=', $request->fecha_ingreso],
+                          ])
+                       ->orwhere([
+                          ['reserva.dia_semana', '=', $request->dia_semana],
+                          ['reserva.fecha_salida', '=', $request->fecha_salida],
+                          ])
+                       ->orwhere([
+                          ['reserva.dia_semana', '=', $request->dia_semana],
+                          ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
+                          ['reserva.fecha_salida', '<', $request->fecha_salida],
+                        ])
+                      ->get();
+       $salas = DB::table('salas')
+                     ->select('salas.id', 'salas.nombre', 'salas.capacidad')
+                     ->get();
+      $bloques = array();
+      $i = 0;
+      if ($request->bloque_1 == 1) {
+        $bloques[$i] = $request->bloque_1;
+
+        $i++;
+      }
+      if ($request->bloque_2 == 2) {
+        $bloques[$i] = $request->bloque_2;
+        $i++;
+      }
+      if ($request->bloque_3 == 3) {
+        $bloques[$i] = $request->bloque_3;
+        $i++;
+      }
+      if ($request->bloque_4 == 4) {
+        $bloques[$i] = $request->bloque_4;
+        $i++;
+      }
+      if ($request->bloque_5 == 5) {
+        $bloques[$i] = $request->bloque_5;
+        $i++;
+      }
+      if ($request->bloque_6 == 6) {
+        $bloques[$i] = $request->bloque_6;
+        $i++;
+      }
+      if ($request->bloque_7 == 7) {
+        $bloques[$i] = $request->bloque_7;
+        $i++;
+      }
+      if ($request->bloque_8 == 8) {
+        $bloques[$i] = $request->bloque_8;
+        $i++;
+      }
+      if ($request->bloque_9 == 9) {
+        $bloques[$i] = $request->bloque_9;
+      }
+
+     //dd($bloques[0]);
+
+        // return ('estoy en busqueda profe');
+       if (($request->input('fecha_ingreso')) <= ($request->input('fecha_salida')) ) {
+         // return $clon;
+          return view('Profesores.resultado_busqueda', compact('bloques', 'reservas','salas','fi','ff','dia_semana'));
+       }
+       else{
+           return redirect('/profesores_buscar_disponibilidad')->with('error_reserva', 'Ingrese fecha correctamente');
+      }
+    }
+
+
     public function listado_reservas()
     {
         $reserva = DB::table('reserva')
@@ -70,6 +169,8 @@ class ProfesoresController extends Controller
                       ->get();
          return view('Profesores.listado_reservas')->with('reserva', $reserva);
     }
+
+
 
     public function agregar_reserva(Request $request)
     {
@@ -673,4 +774,5 @@ class ProfesoresController extends Controller
         }
         return redirect('/profesores_reserva')->with('status_reserva', 'Se ha ingresado la Reserva correctamente');
    }
+
 }
