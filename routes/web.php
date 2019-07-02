@@ -33,8 +33,15 @@ Route::get('/profesor', 'ProfesoresController@index')->name('profesor');
 Route::get('/profesores_reserva', function () {
         return view('Profesores.reserva');
 });
+Route::get('/profesores_buscar_disponibilidad', function () {
+        return view('Profesores.buscar_disponibilidad');
+});
 Route::post('/agregar_reserva_profesores', 'ProfesoresController@agregar_reserva');
 Route::get('/profesores_listado_reservas', 'ProfesoresController@listado_reservas')->name('Prof_listado_reservas');
+Route::post('/buscar_disponibilidad_profesores', 'ProfesoresController@buscar_disponibilidad');
+Route::get('reserva_profe/{id}/{fi}/{ff}/{nombre}/{capacidad}/{dia_semana}',['as' => 'Profesores.show2', 'uses' => 'ProfesoresController@show2']);
+
+
 
 Route::get('profesor_comentario/{id}/destroy',[
     'uses' => 'ProfesoresController@destroycomentario',

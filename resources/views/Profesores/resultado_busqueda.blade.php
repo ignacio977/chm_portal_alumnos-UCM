@@ -48,7 +48,7 @@
                                           <tr>
                                           <td>{{$sala->nombre}}</td>
                                           <td>{{$sala->capacidad}}</td>
-                                          <td><a href="{{ route('Secretaria.show2',[$sala->id, $fi, $ff, $sala->nombre, $sala->capacidad,$dia_semana]) }}" class="btn btn-primary">Reservar</a>
+                                          <td><a href="{{ route('Profesores.show2',[$sala->id, $fi, $ff, $sala->nombre, $sala->capacidad,$dia_semana]) }}" class="btn btn-primary">Reservar</a>
                                           </tr>
                                           @endif
                                         @endforeach
