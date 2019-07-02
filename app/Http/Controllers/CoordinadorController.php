@@ -99,4 +99,11 @@ class CoordinadorController extends Controller
       $NuevaEmpresa->save();
       return view('Profesores.AddEmpresa');
     }
+
+    public function PracticaEnCurso(){
+      $Coleccion = PostulacionesPractica:: where("estado","Aceptada")
+                                                   ->orderBy('updated_at', 'desc')
+                                                   ->paginate(5);
+      return view('Profesores.EmpresaPracticaActual', compact('Coleccion'));
+    }
 }

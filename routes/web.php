@@ -37,6 +37,7 @@ Route::get('/profesor', 'ProfesoresController@index')->name('profesor');
 #Coordinador de practicas#
 Route::get('/profesor/coordinador', 'CoordinadorController@AprobarPracticas')->name('MostrarPracticas');
 Route::post('/profesor/coordinador', 'CoordinadorController@CambiarEstado')->name('CambiarEstado');
+Route::get('/profesor/coordinador/PracticaActual','CoordinadorController@PracticaEnCurso')->name('PracticasActuales');
 
 #Director#
 Route::get('/director', 'DirectorController@index')->name('director');

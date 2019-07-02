@@ -115,8 +115,13 @@ class EstudiantesController extends Controller
 
     public function novedadespractica(Request $request)
     {
-        $Notificaciones = PostulacionesPractica::whereColumn('inspeccionado','<','updated_at')->get();
-        $Registros = PostulacionesPractica::whereColumn('inspeccionado','>=','updated_at')->get();
+        $estudiante=Auth::user();
+        $Notificaciones = PostulacionesPractica::   where('alumnoid','=',$estudiante->id)->
+                                                    whereColumn('inspeccionado','<','updated_at')->
+                                                    get();
+        $Registros = PostulacionesPractica::where('alumnoid','=',$estudiante->id)->
+                                            whereColumn('inspeccionado','>=','updated_at')->
+                                            get();
         return view ('Estudiantes.NovedadesPractica' , compact('Notificaciones','Registros'));
     }
 
