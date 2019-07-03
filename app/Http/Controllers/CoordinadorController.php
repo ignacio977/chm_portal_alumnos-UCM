@@ -162,9 +162,23 @@ class CoordinadorController extends Controller
     }
 
     public function   PracticasConcluidas(){
-      $Coleccion = PostulacionesPractica:: where("estado","Concluida")
+      $practicas = PostulacionesPractica:: where("estado","Concluida")
                                                    ->orderBy('updated_at', 'desc')
                                                    ->paginate(5);
-      return view('Profesores.EmpresaPracticaActual', compact('Coleccion'));
+      return view('Profesores.EmpresaPracticaActual', compact('practicas'));
+    }
+
+    public function   PracticasConcluidasDetalle(Request $request){
+
+      $Coleccion = DB::table('postulaciones_practicas')
+                          ->join('evaluacionempresa')
+                          ->where('idalumno', '=', $request->alumnoid)
+                          ->where('practicaid', '=', $request->practicaid)
+                          ->get();
+
+
+//view('Profesores.EmpresaPracticaActual', compact('Coleccion'))
+
+      return $Coleccion;
     }
 }

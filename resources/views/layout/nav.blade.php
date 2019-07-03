@@ -119,6 +119,7 @@
         <a class="waves-effect" href="/profesor/coordinador">Postulaciones</a>
         <a class="waves-effect" href="/profesor/coordinador/PracticaActual">Practicas en curso</a>
         <a class="waves-effect" href="/profesor/coordinador/addE">Agregar Empresa</a>
+        <a class="waves-effect" href="/profesor/coordinador/practicasconcluidas">Postulaciones Concluidas</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
         <a class="waves-effect" href="/director">Perfil Director</a>

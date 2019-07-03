@@ -59,7 +59,7 @@
                 @include('layout.pagination')
             </div>
         </div>
-    </div>    
+    </div>
 </div>
 
 
@@ -221,10 +221,10 @@
                 }
             });
         });
-    </script>  
-    
+    </script>
+
     @if(empty($Coleccion->total()))
-        <script type="text/javascript" Cabecera=" Error " TextoBajada="No existen practicas que se estén realizando por el momento." 
+        <script type="text/javascript" Cabecera=" Error " TextoBajada="No existen practicas que se estén realizando por el momento."
         Redirec="/profesor/coordinador" src={{ asset('js/alert.js') }}></script>
     @endif
 @endsection
