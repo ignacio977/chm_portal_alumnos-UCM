@@ -73,7 +73,7 @@
       </div>
       <div>
         <br>
-        <button class="btn waves-effect waves-light" type="submit" onclick="pregunta()" >Enviar</button>
+        <a class="btn waves-effect waves-light" onclick="pregunta()" >Enviar</a>
         <br>
       </div>
     </form>
@@ -95,7 +95,7 @@
   <script language="JavaScript"> 
     function pregunta(){ 
         if (confirm('¿Estas seguro de enviar este formulario?')){
-          document.tuformulario.submit();
+          document.Formulario.submit();
         } 
     } 
   </script>

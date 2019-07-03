@@ -26,7 +26,7 @@
                 </tr>
             </thead>
             <tbody>
-                    @foreach ($Notificaciones as $notificacion)
+                @foreach ($Notificaciones as $notificacion)
                     <tr class="blue lighten-5">
                         <td> No visto </td>
                         <td> {{\Carbon\Carbon::parse($notificacion->updated_at)->diffForHumans()}} </td>
@@ -44,7 +44,7 @@
                         <td> {{\Carbon\Carbon::parse($registro->updated_at)->diffForHumans()}} </td>
                         <td> {{$registro->practica->empresa->nombres}} </td>
                         <td>
-                        <a id="BotonVisto{{$registro->id}}" name="BotonVisto" value="{{$registro->id}}" class="waves-effect waves-light blue btn modal-trigger" data-target="NotificacionId">
+                            <a id="BotonVisto{{$registro->id}}" name="BotonVisto" value="{{$registro->id}}" class="waves-effect waves-light blue btn modal-trigger" data-target="NotificacionId">
                                 <i class="material-icons left">remove_red_eye</i>Ver
                             </a>
                         </td>
@@ -150,6 +150,7 @@
             var ArrayRegistros = {!! $Registros !!};
             var ArrayCompleto = [];
             ArrayCompleto.push(ArrayNotificaciones,ArrayRegistros);
+            console.log(ArrayCompleto);
             ArrayCompleto.forEach(ArregloRegistro => {
                 ArregloRegistro.forEach(registro => {
                     if (registro.id == id) {
