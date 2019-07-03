@@ -6,9 +6,67 @@ use Illuminate\Http\Request;
 use App\PostulacionesPractica;
 use App\Practicasprofesionale;
 use App\User;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Validator;
+
 
 class CoordinadorController extends Controller
 {
+
+   public function NuevaEmpresa()
+    {
+      $data = request()->all();
+      $rules = array(
+
+         'nombre' => 'required',
+         'rut' => 'required|unique:users,rut',
+         'email' => 'required:email|unique:users,email',
+         'pass' => 'required',
+         'phone' => 'required',
+         'direccion' => 'required'
+      );
+
+      for ($i=0; $i < 6; $i++) { 
+         $errores[$i] = "";
+       }
+
+      if ($data["nombre"] == null) $errores[0]="El nombre es requerido";
+      if ($data["rut"] == null) $errores[1]="El rut es requerido";
+      if ($data["email"] == null) $errores[2]="El email es requerido";
+      if ($data["pass"] == null) $errores[3]="La contraseña es requerida";
+      if ($data["phone"] == null) $errores[4]="El telefono es requerido";
+      if ($data["direccion"] == null) $errores[5]="La direccion es requerida";
+
+      if (User::where('rut', $data["rut"])->get()->count() == 1) {
+         $errores[1]="Este usuario ya se encuentra registrado";
+      }
+      if (User::where('email', $data["email"])->get()->count() == 1) {
+         $errores[2]="Este email ya se encuentra registrado";
+      }
+
+      $v = Validator::make($data, $rules);
+      
+      if ($v->fails()) {
+         return view('Profesores.AddEmpresa', compact('errores'));
+      }
+
+      $NuevaEmpresa = new User;
+      $NuevaEmpresa->rut= $data["rut"];
+      $NuevaEmpresa->nombres= $data["nombre"];
+      $NuevaEmpresa->password= bcrypt($data["pass"]);
+      $NuevaEmpresa->email= $data["email"];
+      $NuevaEmpresa->direccion_actual= $data["direccion"];
+      $NuevaEmpresa->telefono= $data["phone"];
+      $NuevaEmpresa->apellidos= "NE";
+      $NuevaEmpresa->direccion_procedencia= "NE";
+      $NuevaEmpresa->celular= "NE";
+      $NuevaEmpresa->foto= " ";
+      $NuevaEmpresa->tipo_usuario= "empresa";
+
+      $NuevaEmpresa->save();
+      return view('Profesores.AddEmpresa', compact('errores'));
+    }
+
    public function VerPracticas()
     {
       $Coleccion= Practicasprofesionale:: orderBy('updated_at', 'desc')->
@@ -82,29 +140,12 @@ class CoordinadorController extends Controller
 
     public function AddEmpresa()
     {
-       return view('Profesores.AddEmpresa');
+       for ($i=0; $i < 6; $i++) { 
+         $errores[$i] = "";
+       }
+       return view('Profesores.AddEmpresa', compact('errores'));
     }
 
-    public function NuevaEmpresa()
-    {
-      $data = request()->all();
-
-      $NuevaEmpresa = new User;
-      $NuevaEmpresa->rut= $data["rut"];
-      $NuevaEmpresa->nombres= $data["name"];
-      $NuevaEmpresa->password= bcrypt($data["password"]);
-      $NuevaEmpresa->email= $data["email"];
-      $NuevaEmpresa->direccion_actual= $data["direccion"];
-      $NuevaEmpresa->telefono= $data["phone"];
-      $NuevaEmpresa->apellidos= "NE";
-      $NuevaEmpresa->direccion_procedencia= "NE";
-      $NuevaEmpresa->celular= "NE";
-      $NuevaEmpresa->foto= " ";
-      $NuevaEmpresa->tipo_usuario= "empresa";
-
-      $NuevaEmpresa->save();
-      return view('Profesores.AddEmpresa');
-    }
 
     public function PracticaEnCurso(){
       $Coleccion = PostulacionesPractica:: where("estado","Aceptada")
