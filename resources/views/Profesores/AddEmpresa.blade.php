@@ -7,11 +7,11 @@
 @section('body')
 <div class="row">
     <div class="col s8 offset-s2">
-        <div style="font-size:5vw;text-align:center;">Formulario para ingreso de nuevas empresas</div>
+        <div style="font-size:3vw;text-align:center;">Formulario para ingreso de nuevas empresas</div>
     </div>
 </div>
 <div class="row">
-    <form class="col s12 " action="/profesor/addE" method="post">
+    <form class="col s12 " action="/profesor/coordinador/addE" method="post">
     {{ csrf_field() }}
       <div class="row">
         <div class="input-field col s4 offset-s2">
@@ -20,9 +20,9 @@
             <label for="name">Nombre</label>
         </div>
         <div class="input-field col s4">
-            <i class="material-icons prefix">chrome_reader_mode</i>
-          <input id="rut" type="text" name="rut" class="validate">
-          <label for="rut">Rut</label>
+          <i class="material-icons prefix">chrome_reader_mode</i>
+          <input id="identificador" type="text" name="rut" class="validate">
+          <label for="identificador">Rut</label>
         </div>
       </div>
       <div class="row">
@@ -33,8 +33,8 @@
         </div>
         <div class="input-field col s4">
             <i class="material-icons prefix">lock</i>
-            <input id="password" type="password" name="password" class="validate">
-            <label for="password">Password</label>
+            <input id="contra" type="password" name="pass" class="validate">
+            <label for="contra">Password</label>
         </div>
       </div>
       <div class="row">
@@ -50,8 +50,8 @@
         </div>
       </div>
       <div class="row">
-          <div class="col s2 offset-s2">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+          <div class="col s2 offset-s8 right-align">
+                <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Enviar
                     <i class="material-icons right">send</i>
                 </button>
           </div>
@@ -59,4 +59,8 @@
     </form>
   </div>
         
+@endsection
+
+@section('scripts')
+  <script src={{ asset('js/nav_scripts.js') }}></script>
 @endsection
