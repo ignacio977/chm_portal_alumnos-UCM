@@ -1,4 +1,4 @@
-<?php
+c<?php
 
 namespace App\Http\Controllers;
 
@@ -218,8 +218,9 @@ class EmpresaController extends Controller
             return view('Empresa.EditarPracticasProfesionales', compact('errores','request'));
 
         }else if(isset($_POST['view_button'])){
-            $errores = 1;
-            return view('Empresa.ViewPracticas', compact('request'));
+            $datos = Practicasprofesionale::where('id', $request->id)->first();
+
+            return view('Empresa.ViewPracticas', compact('datos'));
         }
     }
 

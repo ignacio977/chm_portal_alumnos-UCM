@@ -10,14 +10,14 @@ class PostulacionesPractica extends Model
 {
     protected $fillable = [
         'id', 'alumnoid', 'practicaid',
-        'fecha', 'Estado'
+        'fecha', 'Estado', 'inspeccionado'
     ];
 
     public function practica(){
         return $this->belongsTo(PracticasProfesionale::class, 'practicaid', 'id');
     }
     public function alumno(){
-        return $this->belongsTo(User::class, 'id', 'alumnoid');
+        return $this->belongsTo(User::class, 'alumnoid', 'id');
     }
 
 }

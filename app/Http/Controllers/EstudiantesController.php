@@ -100,8 +100,8 @@ class EstudiantesController extends Controller
                 $IndexMatrix = explode(',', $Opcion);
                 $IndexArrayY = $IndexMatrix[0];
                 $IndexArrayX = key($ArrayEncuesta);
-                
-                
+
+
                 $IngresoBDRespuesta = new Respuesta;
                 $IngresoBDRespuesta->alumnoid = Auth::user()->id;
                 $IngresoBDRespuesta->preguntaid = $IndexArrayY;
