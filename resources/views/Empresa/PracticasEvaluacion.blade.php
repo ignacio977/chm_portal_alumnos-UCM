@@ -40,63 +40,68 @@
         <tbody>
           <thead>
               @foreach ($practica as $practicas)
-                  <form action={{route( 'evaluacionempresa' )}} method="post">
+                  <form name="formulario" action={{route( 'evaluacionempresa' )}} method="post">
                     {{csrf_field()}}
                   <td> {{$practicas->alumnoid}}</td>
                   <td> {{$practicas->practicaid}}</td>
                   <td>
-                  <div class="input-field col s6">
-                    <select name="pregunta1">
-                      <option value="1">Muy insatisfecho</option>
-                      <option value="2">Insatisfecho</option>
-                      <option value="3">Regular</option>
-                      <option value="4">Bien</option>
-                      <option value="5">Distingido</option>
-                    </select>
-                    <label class="black-text text-darken-2"> </label>
-                  </div>
+                    <div class="input-field col s6">
+                      <select name="pregunta1">
+                        <option value="Muy insatisfecho">Muy insatisfecho</option>
+                        <option value="Insatisfecho">Insatisfecho</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bien">Bien</option>
+                        <option value="Distingido">Distingido</option>
+                      </select>
+                      <label class="black-text text-darken-2"> </label>
+                    </div>
                   </td>
                   <td>
-                  <div class="input-field col s6">
-                    <select name="pregunta2">
-                      <option value="1">Muy insatisfecho</option>
-                      <option value="2">Insatisfecho</option>
-                      <option value="3">Regular</option>
-                      <option value="4">Bien</option>
-                      <option value="5">Distingido</option>
-                    </select>
-                    <label class="black-text text-darken-2"> </label>
-                  </div>
+                    <div class="input-field col s6">
+                      <select name="pregunta2">
+                        <option value="Muy insatisfecho">Muy insatisfecho</option>
+                        <option value="Insatisfecho">Insatisfecho</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bien">Bien</option>
+                        <option value="Distingido">Distingido</option>
+                      </select>
+                      <label class="black-text text-darken-2"> </label>
+                    </div>
                   </td>
                   <td>
-                  <div class="input-field col s6">
-                    <select name="pregunta3">
-                      <option value="1">Muy insatisfecho</option>
-                      <option value="2">Insatisfecho</option>
-                      <option value="3">Regular</option>
-                      <option value="4">Bien</option>
-                      <option value="5">Distingido</option>
-                    </select>
-                    <label class="black-text text-darken-2"> </label>
-                  </div>
+                    <div class="input-field col s6">
+                      <select name="pregunta3">
+                        <option value="Muy insatisfecho">Muy insatisfecho</option>
+                        <option value="Insatisfecho">Insatisfecho</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bien">Bien</option>
+                        <option value="Distingido">Distingido</option>
+                      </select>
+                      <label class="black-text text-darken-2"> </label>
+                    </div>
                   </td>
                   <td>
                   <div class="input-field col s6">
                     <select name="pregunta4">
-                      <option value="1">Muy insatisfecho</option>
-                      <option value="2">Insatisfecho</option>
-                      <option value="3">Regular</option>
-                      <option value="4">Bien</option>
-                      <option value="5">Distingido</option>
+                      <option value="Muy insatisfecho">Muy insatisfecho</option>
+                      <option value="Insatisfecho">Insatisfecho</option>
+                      <option value="Regular">Regular</option>
+                      <option value="Bien">Bien</option>
+                      <option value="Distingido">Distingido</option>
                     </select>
                     <label class="black-text text-darken-2"> </label>
                   </div>
                   </td>
+                  <input type="hidden" name="id" value={{$practicas->id}}>
                   <input type="hidden" name="idalumno" value={{$practicas->alumnoid}}>
                   <input type="hidden" name="idpractica" value={{$practicas->practicaid}}>
+                  <input type="hidden" name="pregunta1" value="hola">
+                  <input type="hidden" name="pregunta2" value="hola">
+                  <input type="hidden" name="pregunta3" value="hola">
+                  <input type="hidden" name="pregunta4" value="hola">
                   <td><button type="submit" class="btn waves-effect waves-light" >Enviar</button>
                     <br><br>
-                  
+
                   </form>
               @endforeach
           </thead>

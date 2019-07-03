@@ -18,7 +18,6 @@ class CreateEvaluacionempresaTable extends Migration
             $table->timestamps();
             $table->Integer('alumnoid')->unsigned();
             $table->Integer('practicaid')->unsigned();
-            $table->date('fecha');
             $table->string('pregunta1');
             $table->string('pregunta2');
             $table->string('pregunta3');

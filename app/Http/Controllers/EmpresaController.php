@@ -1,4 +1,4 @@
-c<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -9,6 +9,7 @@ use Auth;
 use App\User;
 use App\PostulacionesPractica;
 use App\Practicasprofesionale;
+use App\evaluacionempresa;
 
 class EmpresaController extends Controller
 {
@@ -353,7 +354,40 @@ class EmpresaController extends Controller
 
     public function Evaluacion(Request $request)
     {
-      return $request;
+      $estado = DB::table('postulaciones_practicas')
+                        ->select('postulaciones_practicas.estado')
+                        ->where('id', $request->id)
+                        ->get();
+      if ($estado = 'Finalizada y respondida A') {
+
+        $evaluacion = new evaluacionempresa ;
+        DB::table('evaluacionempresa')
+                ->insert([
+                    ['alumnoid' => $request->idalumno,
+                    'practicaid' => $request->idpractica,
+                    'pregunta1' => $request->pregunta1,
+                    'pregunta2' => $request->pregunta2,
+                    'pregunta3' => $request->pregunta3,
+                    'pregunta4' => $request->pregunta4],
+                ]);
+        PostulacionesPractica::where('id', $request->id)
+                              ->update(['estado' => ' Concluida']);
+      }else {
+        $evaluacion = new evaluacionempresa ;
+        DB::table('evaluacionempresa')
+                ->insert([
+                    ['alumnoid' => $request->idalumno,
+                    'practicaid' => $request->idpractica,
+                    'pregunta1' => $request->pregunta1,
+                    'pregunta2' => $request->pregunta2,
+                    'pregunta3' => $request->pregunta3,
+                    'pregunta4' => $request->pregunta4],
+                ]);
+        PostulacionesPractica::where('id', $request->id)
+                              ->update(['estado' => ' Finalizada y respondida E']);
+      }
+
+      return redirect(route('practicasfinalizadasempresa')) ;
 
     }
 }
