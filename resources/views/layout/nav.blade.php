@@ -63,6 +63,7 @@
         <a class="waves-effect" href="/profesores_listado_reservas">Mis Reservas</a>
         <a class="waves-effect" href="/profesores_listado_reservas">Mis Eventos</a>
         <a class="waves-effect" href="/profesores_buscar_disponibilidad">Buscar Disponibilidad</a>
+        <a class="waves-effect" href="{{ asset('/Evento/index') }}">Calendario</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
         <a class="waves-effect" href="/director">Perfil Director</a>
