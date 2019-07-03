@@ -22,28 +22,29 @@
     </div>
   </div>
   <div class="container">
-    <div class="card-content  center">
-        <table class="table-border table-striped responsive-table">
+    <div class="card center">
+        <table class="highlight responsive-table">
           <thead>
             <tr>
-              <th>Nombre Empresa</th>
-              <th>Actividad Principal</th>
-              <th>Enfoque y conocimientos</th>
-              <th>Fecha Publicacion</th>
-              <th>Cantidad de Solicitudes</th>
-              <th>Detalles</th>
+                <th>Fecha de postulación</th>
+                <th>Nombre empresa</th>
+                <th>Nombre practicante</th>
+                <th>Ver practica</th>
             </tr>
           </thead>
           <tbody>
             <thead>
                 @foreach ($Coleccion as $practica)
-                  <tr>
-                    <td> {{$practica->practica->empresa->nombres}}</td>
-                    <td> {{$practica->practica->empresa->nombres}}</td>
-                    <td> {{$practica->practica->empresa->apellidos}}</td>
-                    <td> {{$practica->practica->empresa->direccion_actual}}</td>
-                    <td> {{$practica->practica->empresa->celular}}</td>
-                    
+                    <tr>
+                        <td>{{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}}</td>
+                        <td>{{$practica->practica->empresa->nombres}}</td>
+                        <td>{{$practica->alumno->nombres}}</td>
+                        <td>
+                            <a id="BotonVisto" name="BotonVisto" class="waves-effect waves-light blue btn modal-trigger" data-target="NotificacionId">
+                            <i class="material-icons left">remove_red_eye</i>Ver
+                            </a>
+                        </td>
+                    </tr>
                 @endforeach
             </thead>
           </tbody>

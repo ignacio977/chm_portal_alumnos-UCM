@@ -41,7 +41,7 @@
         <tbody>
           <thead>
               @foreach ($Practicas as $practica)
-                  <form action={{route('EliminarPractica')}} method="post">
+                  <form name="FormEliminarPractica" action={{route('EliminarPractica')}} method="post">
                     {{csrf_field()}}
                   <td> {{$practica->empresa->nombres}}</td>
                   <td> {{$practica->Actividad1}}</td>
@@ -53,7 +53,7 @@
                   <td> {{$practica->PuestoOfrecido}}</td>
                   <td> {{$practica->Enfoque}}</td>
                   <input type="hidden" name="idpractica" value={{$practica->id}}>
-                  <td><button type="submit" class="btn waves-effect waves-light red darken-2" >Eliminar</button>
+                  <td><a class="btn waves-effect waves-light red darken-2 btn modal-trigger" href="#modal2" >Eliminar</a>
                   </form>
               @endforeach
           </thead>
@@ -101,8 +101,27 @@
   </div>
 </div>
 
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <h4>Cuidado! <i class="medium material-icons" style="vertical-align: bottom; color: #ff8f00;">report_problem</i></h4>
+    <p>Esto eliminara de forma permante esta practica y todas sus postulaciones asociadas.</p>
+    <p>¿Está seguro que desea continuar?</p>
+  </div>
+  <div class="modal-footer">
+      <a class="modal-close btn waves-effect waves-light red darken-2" onclick="confirmacion()">Eliminar</a>
+      <a class="modal-close btn waves-effect waves-light blue darken-4">Cancelar</a>
+  </div>
+</div>
+
 @endsection
 
 @section('scripts')
   <script src={{ asset('js/nav_scripts.js') }}></script>
+  <script language="JavaScript"> 
+    function confirmacion(){ 
+          document.FormEliminarPractica.submit();
+    } 
+  </script>
 @endsection

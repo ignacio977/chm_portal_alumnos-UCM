@@ -92,10 +92,16 @@ class CoordinadorController extends Controller
       $NuevaEmpresa = new User;
       $NuevaEmpresa->rut= $data["rut"];
       $NuevaEmpresa->nombres= $data["name"];
-      $NuevaEmpresa->password= $data["password"];
+      $NuevaEmpresa->password= bcrypt($data["password"]);
       $NuevaEmpresa->email= $data["email"];
       $NuevaEmpresa->direccion_actual= $data["direccion"];
       $NuevaEmpresa->telefono= $data["phone"];
+      $NuevaEmpresa->apellidos= "NE";
+      $NuevaEmpresa->direccion_procedencia= "NE";
+      $NuevaEmpresa->celular= "NE";
+      $NuevaEmpresa->foto= " ";
+      $NuevaEmpresa->tipo_usuario= "empresa";
+
       $NuevaEmpresa->save();
       return view('Profesores.AddEmpresa');
     }
