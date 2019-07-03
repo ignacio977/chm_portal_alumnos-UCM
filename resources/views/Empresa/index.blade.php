@@ -52,10 +52,36 @@
         <div class="row">
           <div class="col s6">     
             <div class="card-panel z-depth-1"> <!--Rectangulito donde estará el título y el botón desplegable -->
-              <h5 class="left-align"><b>&nbspInformación nº1</b></h5> 
+              <h5 class="left-align"><b>Próximas Reuniones de Práctica</b></h5> 
+              <table class="highlight">
+                  <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>Fecha</th>
+                        <th>Horario</th>
+                        <th>Facultad</th>
+                        <th>Sala</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Lunes</td>
+                      <td>22 de Julio</td>
+                      <td>12:00 - 13:00</td>
+                      <td>Facultad de Ingeniería</td>
+                      <td>Eugenio Munita</td>
+                    </tr>
+                    <tr>
+                      <td>Jueves</td>
+                      <td>25 de Julio</td>
+                      <td>8:30 - 9:30</td>
+                      <td>Facultad de Ingeniería</td>
+                      <td>Eugenio Munita</td>
+                    </tr>
+                  </tbody>
+                </table>
             </div>
           </div>      
-
           <div class="col s6">            
               <div class="card-panel z-depth-1"> <!--Rectangulito donde estará el título y el botón desplegable -->
                 <h5 class="left-align"><b>&nbspInformación nº2</b></h5>

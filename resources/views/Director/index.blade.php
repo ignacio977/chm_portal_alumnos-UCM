@@ -50,8 +50,44 @@
         <div class="row">
           <div class="col s6">     
             <div class="card-panel z-depth-1"> <!--Rectangulito donde estará el título y el botón desplegable -->
-              <h5 class="left-align"><b>&nbspInformación nº1</b></h5> 
-            </div>
+              <h5 class="left-align"><b>Próximas Reuniones</b></h5> 
+              <table class="highlight">
+                  <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>Fecha</th>
+                        <th>Horario</th>
+                        <th>Persona</th>
+                        <th>Contacto</th>
+                    </tr>
+                  </thead>
+          
+                  <tbody>
+                    <tr>
+                      <td>Miércoles</td>
+                      <td>10 de Julio</td>
+                      <td>17:00 - 18:00</td>
+                      <td>Ricardo Retamal</td>
+                      <td>+569 93844369</td>
+                    </tr>
+                    <tr>
+                      <td>Viernes</td>
+                      <td>12 de Julio</td>
+                      <td>8:30 - 10:30</td>
+                      <td>Luis Gajardo</td>
+                      <td>+569 937485832</td>
+                    </tr>
+                    <tr>
+                      <td>Lunes</td>
+                      <td>13 de Julio</td>
+                      <td>8:30 - 13:00</td>
+                      <td>Rodrigo Valenzuela</td>
+                      <td>+569 873743231</td>
+                      </tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
           </div>      
 
           <div class="col s6">            
