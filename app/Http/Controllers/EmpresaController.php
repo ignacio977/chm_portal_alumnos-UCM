@@ -8,6 +8,7 @@ use DB;
 use Auth;
 use App\User;
 use App\Practicasprofesionale;
+use App\PostulacionesPractica;
 
 
 class EmpresaController extends Controller
@@ -24,6 +25,16 @@ class EmpresaController extends Controller
         return view('Empresa.CreacionPracticasProfesionales', compact('errores', 'request'));
     }
 
+    public function MostrarPracticantes(Request $request)
+    {
+        $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
+
+        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', "Aceptada")->get();
+
+        //dd($Practicantes->all());
+
+        return view('Empresa.MostrarPracticantes', compact('Practicantes'));
+    }
 
      public function VerificacionPracticaProfesional(Request $request)
     {
