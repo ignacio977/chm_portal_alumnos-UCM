@@ -33,7 +33,7 @@ class CoordinadorController extends Controller
          'direccion' => 'required'
       );
 
-      for ($i=0; $i < 6; $i++) { 
+      for ($i=0; $i < 6; $i++) {
          $errores[$i] = "";
        }
 
@@ -52,7 +52,7 @@ class CoordinadorController extends Controller
       }
 
       $v = Validator::make($data, $rules);
-      
+
       if ($v->fails()) {
          return view('Profesores.AddEmpresa', compact('errores'));
       }
@@ -78,7 +78,7 @@ class CoordinadorController extends Controller
    {
       $Coleccion= Practicasprofesionale:: orderBy('updated_at', 'desc')->
                                           paginate(5);
-      return view('Profesores.CatalogoProfesor',compact('Coleccion'));       
+      return view('Profesores.CatalogoProfesor',compact('Coleccion'));
 
    }
 
@@ -128,17 +128,17 @@ class CoordinadorController extends Controller
       $practica = Practicasprofesionale::all()->where('id', $postulacion->practicaid)->first();
       $practica->Estado = "Asignada";
       $practica->save();
-      
+
       if ($estado=="Aceptada") {
          $postulacionesRestantes = PostulacionesPractica::where('alumnoid', $postulacion->alumno->id)->where('id', '!=', $id)->get();
-         $postulacionesDesechadas = PostulacionesPractica::where('practicaid', $postulacion->practicaid)->where('id', '!=', $id)->get();   
+         $postulacionesDesechadas = PostulacionesPractica::where('practicaid', $postulacion->practicaid)->where('id', '!=', $id)->get();
 
-         $listaPracticas = $postulacionesRestantes->merge($postulacionesDesechadas);   
+         $listaPracticas = $postulacionesRestantes->merge($postulacionesDesechadas);
          foreach ($listaPracticas as $postulacion) {
             $postulacion->estado = "Rechazada";
             $postulacion->save();
          }
-      } 
+      }
 
 
       return redirect('/profesor/coordinador');
@@ -147,7 +147,7 @@ class CoordinadorController extends Controller
 
     public function AddEmpresa()
     {
-       for ($i=0; $i < 6; $i++) { 
+       for ($i=0; $i < 6; $i++) {
          $errores[$i] = "";
        }
        return view('Profesores.AddEmpresa', compact('errores'));
@@ -156,6 +156,13 @@ class CoordinadorController extends Controller
 
     public function PracticaEnCurso(){
       $Coleccion = PostulacionesPractica:: where("estado","Aceptada")
+                                                   ->orderBy('updated_at', 'desc')
+                                                   ->paginate(5);
+      return view('Profesores.EmpresaPracticaActual', compact('Coleccion'));
+    }
+
+    public function   PracticasConcluidas(){
+      $Coleccion = PostulacionesPractica:: where("estado","Concluida")
                                                    ->orderBy('updated_at', 'desc')
                                                    ->paginate(5);
       return view('Profesores.EmpresaPracticaActual', compact('Coleccion'));
