@@ -331,10 +331,28 @@ class EmpresaController extends Controller
 
         $practica = DB::table('practicasprofesionales')
                               ->join('postulaciones_practicas', 'practicasprofesionales.id', '=', 'postulaciones_practicas.practicaid')
+                              ->where('practicasprofesionales.EmpresaId', '=', Auth::user()->id )
                               ->where('postulaciones_practicas.estado', '=', 'Finalizada')
                               ->orWhere('postulaciones_practicas.estado', '=', 'Finalizada y respondida')
                               ->get();
 
-        return $practica;
+
+        return view('Empresa.PracticasFinalizadas', compact('practica')) ;
+    }
+
+    public function PracticasEvaluacion(Request $request )
+    {
+      $practica = DB::table('postulaciones_practicas')
+                          ->where('id', $request->id)
+                          ->get();
+
+      return view('Empresa.PracticasEvaluacion', compact('practica'));
+
+    }
+
+    public function Evaluacion(Request $request)
+    {
+      return $request;
+
     }
 }

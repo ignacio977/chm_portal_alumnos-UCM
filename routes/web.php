@@ -54,3 +54,5 @@ Route::get('/empresa/practicas/mostrar', 'EmpresaController@MostrarPracticas');
 Route::post('/empresa/practicas/mostrar', 'EmpresaController@FuncionesPracticas');
 Route::post('/empresa/practicas/editar', 'EmpresaController@VerificarPracticas');
 Route::get('/empresa/practicas/mostrar_finalizadas', 'EmpresaController@MostrarPracticasFinalizadas');
+Route::get('/empresa/practicas/finalizadas_evaluacion', 'EmpresaController@PracticasEvaluacion')->name('practicasevaluacion');
+Route::post('/empresa/practicas/evaluacionempresa', 'EmpresaController@Evaluacion')->name('evaluacionempresa');

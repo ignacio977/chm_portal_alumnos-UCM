@@ -14,10 +14,5 @@ class evaluacionempresa extends Model
       'pregunta3', 'pregunta4'
   ];
 
-  public function practica(){
-      return $this->belongsTo(PostulacionesPractica::class, 'id', 'practicaid',  'alumnoid');
-  }
-  public function alumno(){
-      return $this->belongsTo(User::class, 'id', 'alumnoid');
-  }
+
 }

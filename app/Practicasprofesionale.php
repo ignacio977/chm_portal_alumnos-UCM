@@ -21,4 +21,5 @@ class Practicasprofesionale extends Model
     public function empresa(){
         return $this->belongsTo(User::class, 'EmpresaId', 'id');
     }
+
 }
