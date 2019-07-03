@@ -3,35 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\PostulacionesPractica;
-use App\Practicasprofesionale;
+
+use Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Practicasprofesionale;
+use App\PostulacionesPractica;
+use App\Pregunta;
+use App\Respuesta;
+use Carbon\Carbon;
 
 class CoordinadorController extends Controller
 {
    public function VerPracticas()
-    {
+   {
       $Coleccion= Practicasprofesionale:: orderBy('updated_at', 'desc')->
                                           paginate(5);
       return view('Profesores.CatalogoProfesor',compact('Coleccion'));       
 
-    }
+   }
 
-    public function DetallePracticas(Request $request)
-    {
-        $Practicas= Practicasprofesionale::where('id', $request->id)->get();
-        $ListaAlumnos = Practicasprofesionale::where('id', $request->id)
+   public function DetallePracticas(Request $request)
+   {
+      $Practicas= Practicasprofesionale::where('id', $request->id)->get();
+      $ListaAlumnos = Practicasprofesionale::where('id', $request->id)
                                              ->first()
                                              ->PostulacionPractica
                                              ->pluck('alumnoid');
          $Postulantes = User::all()->whereIn('id', $ListaAlumnos);
 
 
-        return view ('Profesores.CoordinadorDetallePractica', compact('Practicas', 'Postulantes'));
-    }
+      return view ('Profesores.CoordinadorDetallePractica', compact('Practicas', 'Postulantes'));
+   }
 
-    public function EliminarPractica(Request $request)
-    {
+   public function EliminarPractica(Request $request)
+   {
       $data = request()->all();
       $id = $data["idpractica"];
       $practica= Practicasprofesionale::find($id);
@@ -41,30 +48,30 @@ class CoordinadorController extends Controller
       }
       $practica->delete();
       return redirect('/profesor/practicas');
-    }
+   }
 
-    public function AprobarPracticas()
-    {
-       $Coleccion = PostulacionesPractica::where('estado', 'Pendiente')->paginate(3);
-       return view('Profesores.practicas', compact('Coleccion'));
+   public function AprobarPracticas()
+   {
+      $Coleccion = PostulacionesPractica::where('estado', 'Pendiente')->paginate(3);
+      return view('Profesores.practicas', compact('Coleccion'));
 
-    }
+   }
 
-    public function CambiarEstado()
-    {
-       $data = request()->all();
-       $id = $data["id_postulacion"];
-       $estado = $data["estado"];
+   public function CambiarEstado()
+   {
+      $data = request()->all();
+      $id = $data["id_postulacion"];
+      $estado = $data["estado"];
 
-       $postulacion = PostulacionesPractica::where('id', $id)->first();
-       $postulacion->estado = $estado;
-       $postulacion->save();
+      $postulacion = PostulacionesPractica::where('id', $id)->first();
+      $postulacion->estado = $estado;
+      $postulacion->save();
 
-       $practica = Practicasprofesionale::all()->where('id', $postulacion->practicaid)->first();
-       $practica->Estado = "Asignada";
-       $practica->save();
+      $practica = Practicasprofesionale::all()->where('id', $postulacion->practicaid)->first();
+      $practica->Estado = "Asignada";
+      $practica->save();
       
-       if ($estado=="Aceptada") {
+      if ($estado=="Aceptada") {
          $postulacionesRestantes = PostulacionesPractica::where('alumnoid', $postulacion->alumno->id)->where('id', '!=', $id)->get();
          $postulacionesDesechadas = PostulacionesPractica::where('practicaid', $postulacion->practicaid)->where('id', '!=', $id)->get();   
 
@@ -76,17 +83,17 @@ class CoordinadorController extends Controller
       } 
 
 
-       return redirect('/profesor/coordinador');
+      return redirect('/profesor/coordinador');
 
-    }
+   }
 
-    public function AddEmpresa()
-    {
-       return view('Profesores.AddEmpresa');
-    }
+   public function AddEmpresa()
+   {
+      return view('Profesores.AddEmpresa');
+   }
 
-    public function NuevaEmpresa()
-    {
+   public function NuevaEmpresa()
+   {
       $data = request()->all();
 
       $NuevaEmpresa = new User;
@@ -98,12 +105,14 @@ class CoordinadorController extends Controller
       $NuevaEmpresa->telefono= $data["phone"];
       $NuevaEmpresa->save();
       return view('Profesores.AddEmpresa');
-    }
+   }
 
-    public function PracticaEnCurso(){
-      $Coleccion = PostulacionesPractica:: where("estado","Aceptada")
-                                                   ->orderBy('updated_at', 'desc')
-                                                   ->paginate(5);
-      return view('Profesores.EmpresaPracticaActual', compact('Coleccion'));
-    }
+   public function PracticaEnCurso(){
+      $Coleccion=  PostulacionesPractica::where("estado","=","Aceptada")->
+                                          orderBy('updated_at', 'desc')->
+                                          paginate(5);
+      $Coleccionjava= PostulacionesPractica::where("estado","=","Aceptada")->
+                                             get();
+      return view ('Profesores.EmpresaPracticaActual', compact('Coleccionjava','Coleccion'));
+   }
 }
