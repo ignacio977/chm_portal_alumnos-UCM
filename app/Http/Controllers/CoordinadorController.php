@@ -155,7 +155,7 @@ class CoordinadorController extends Controller
 
 
     public function PracticaEnCurso(){
-      $Coleccion = PostulacionesPractica:: where("estado","Aceptada")
+      $Coleccion = EnCursoPractica:: where("estado","Aceptada")
                                                    ->orderBy('updated_at', 'desc')
                                                    ->paginate(5);
       return view('Profesores.EmpresaPracticaActual', compact('Coleccion'));

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRespuestasTable extends Migration
+class CreateComentariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateRespuestasTable extends Migration
      */
     public function up()
     {
-        Schema::create('respuestas', function (Blueprint $table) {
+        Schema::create('comentarios', function (Blueprint $table) {
             $table->Increments('id');
             $table->Integer('alumnoid');
-            $table->Integer('preguntaid');
             $table->Integer('postulacionid');
-            $table->Integer('NivelDeConformidad');
+            $table->string('comentario')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateRespuestasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('respuestas');
+        Schema::dropIfExists('comentarios');
     }
 }

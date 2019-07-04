@@ -19,5 +19,11 @@ class PostulacionesPractica extends Model
     public function alumno(){
         return $this->belongsTo(User::class, 'alumnoid', 'id');
     }
+    public function respuesta(){
+        return $this->hasMany(Respuesta::class, 'postulacionid', 'id');
+    }
+    public function comentario(){
+        return $this->hasMany(Comentario::class, 'postulacionid', 'id');
+    }
 
 }
