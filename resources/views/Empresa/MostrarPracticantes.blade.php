@@ -55,7 +55,6 @@
             <th>E-Mail</th>
             <th>Enfoque</th>
             <th>Puesto</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -71,8 +70,6 @@
                   @endphp --}}
                   <td>{{$Practicante->practica->Enfoque}}</td>
                   <td>{{$Practicante->practica->PuestoOfrecido}}</td>
-                  <td><button name="accept_button"  class="btn waves-effect waves-light" type="submit">Finalizar Practica
-              </button></form></td>
           </thead>
         </tbody>
       </table>

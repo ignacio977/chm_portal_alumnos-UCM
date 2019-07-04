@@ -22,6 +22,7 @@ class EnCursoPracticasTable extends Migration
             $table->float('nota1');
             $table->float('nota2');
             $table->float('nota3');
+            $table->string('estado')->default('EnCurso');
             $table->timestamps();
             $table->foreign('alumnoid')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('practicaid')->references('id')->on('practicasprofesionales');
