@@ -122,6 +122,13 @@ Route::post('/agregar_reserva_secretaria', 'SecretariaController@agregar_reserva
 Route::post('/agregar_comentario', 'SecretariaController@comentario');
 Route::get('reserva/{id}/{fi}/{ff}/{nombre}/{capacidad}/{dia_semana}',['as' => 'Secretaria.show2', 'uses' => 'SecretariaController@show2']);
 
+#Calendario#
+Route::get('Evento/form','ControllerEvent@form');
+Route::post('Evento/create','ControllerEvent@create');
+Route::get('Evento/details/{id}','ControllerEvent@details');
+Route::get('Evento/index','ControllerEvent@index');
+Route::get('Evento/index/{month}','ControllerEvent@index_month');
+
 
 #Empresa#
 Route::get('/empresa', 'EmpresaController@index')->name('empresa');
