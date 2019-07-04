@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use DB;
 use Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Practicasprofesionale;
 use App\PostulacionesPractica;
-use App\Respuesta;
-use App\EnCursoPractica;
 use App\Pregunta;
+use App\Respuesta;
 use App\Comentario;
+use App\EnCursoPractica;
 use Carbon\Carbon;
+use DateTime;
 
 class EmpresaController extends Controller
 {
@@ -378,7 +381,7 @@ class EmpresaController extends Controller
                               ->join('en_curso_practicas', 'practicasprofesionales.id', '=', 'en_curso_practicas.practicaid')
                               ->where('practicasprofesionales.EmpresaId', '=', Auth::user()->id )
                               ->where('en_curso_practicas.estado', '=', 'Finalizada')
-                              ->orWhere('en_curso_practicas.estado', '=', 'Finalizada y respondida')
+                              ->orWhere('en_curso_practicas.estado', '=', 'FinalizadaRespondidaA')
                               ->get();
 
 
@@ -387,16 +390,64 @@ class EmpresaController extends Controller
 
     public function PracticasEvaluacion(Request $request )
     {
-        $Entrevista = Pregunta::where('TipoPregunta','Empresa')->
+        $Coleccion = Pregunta::where('TipoPregunta','Empresa')->
+                                where('id', '<=', '20')->
                                 orderBy('id', 'asc')->
                                 get();
-        return view ('Estudiantes.EvaluacionAlumnoEmpresa' , compact('Entrevista'));
+        $Coleccion2 = Pregunta::where('TipoPregunta','Empresa')->
+                                where('id', '>=', '20')->
+                                orderBy('id', 'asc')->
+                                get();
+        $id = $request->id;
+        return view ('Empresa.PracticasEvaluacion' , compact('Coleccion','Coleccion2','id'));
     }
 
     public function Evaluacion(Request $request)
     {
+        $MatrizEncuesta = $request->Encuesta;
+        $practicaid = Auth::user()->PostulacionPractica;
+        return $practicaid;
+        $FinalEncuesta = EnCursoPractica::where('postulacionid', $practicaid)-> 
+                                                where('estado','Finalizada')->
+                                                orWhere('estado','FinalizadaRespondidaA')->
+                                                first();
+        if($FinalEncuesta->estado == "Finalizada"){
+            $FinalEncuesta->estado = "FinalizadaRespondidaE";
+        }
+        if($FinalEncuesta->estado == "FinalizadaRespondidaA"){
+            $FinalEncuesta->estado = "Concluida";
+        }
+        return $FinalEncuesta;
+
+        $FinalEncuesta->save();
+
+        foreach ($MatrizEncuesta as $ArrayEncuesta) {
+            foreach ($ArrayEncuesta as $Opcion) {
+                $IndexMatrix = explode(',', $Opcion);
+                $IndexArrayY = $IndexMatrix[0];
+                $IndexArrayX = key($ArrayEncuesta);
+
+
+                $IngresoBDRespuesta = new Respuesta;
+                $IngresoBDRespuesta->alumnoid = Auth::user()->id;
+                $IngresoBDRespuesta->preguntaid = $IndexArrayY;
+                $IngresoBDRespuesta->postulacionid = $FinalEncuesta->id;
+                $IngresoBDRespuesta->NivelDeConformidad = $IndexArrayX;
+                $IngresoBDRespuesta->save();
+            }
+        }
+        $IngresoBDComentario = new Comentario;
+        $IngresoBDComentario->alumnoid = Auth::user()->id;
+        $IngresoBDComentario->postulacionid = $FinalEncuesta->id;
+        $IngresoBDComentario->comentario = $request->Comentario;
+        $IngresoBDComentario->save();
+
+        return redirect(route(''));
     
-    return;
+
+
+
+    
 
     }
 }

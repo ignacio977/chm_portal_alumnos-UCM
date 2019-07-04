@@ -67,6 +67,12 @@ class PreguntasTableSeeder extends Seeder
             'updated_at'        => new DateTime()
         ]);
         DB::table('preguntas')->insert([ 
+            'ContenidoPregunta' => 'Facilidad para Adaptarse al nuevo entorno',
+            'TipoPregunta'      => 'Empresa',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
+        ]);
+        DB::table('preguntas')->insert([ 
             'ContenidoPregunta' => 'Puntualidad en el horario',
             'TipoPregunta'      => 'Empresa',
             'created_at'        => new DateTime(),
