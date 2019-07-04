@@ -841,7 +841,7 @@ class SecretariaController extends Controller
       // $salas = DB::table('salas')->where('id', $id)->get();
       $reservas = DB::table('reserva')
                           ->join('salas', 'salas.id', '=', 'reserva.id_sala')
-                          ->select('reserva.id_sala','salas.nombre','salas.capacidad','reserva.dia_semana','reserva.bloque','reserva.fecha_ingreso','reserva.fecha_salida')
+                          ->select('reserva.id_sala','salas.nombre','salas.capacidad','reserva.dia_semana','reserva.bloque','reserva.estado','reserva.fecha_ingreso','reserva.fecha_salida')
                           ->where('reserva.id_sala', $id)
                           ->get();
       $cuenta =$reservas->count();
@@ -854,7 +854,7 @@ class SecretariaController extends Controller
     {
       $reservas = DB::table('reserva')
                           ->join('salas', 'salas.id', '=', 'reserva.id_sala')
-                          ->select('reserva.id_sala','salas.nombre','salas.capacidad','reserva.dia_semana','reserva.bloque','reserva.fecha_ingreso','reserva.fecha_salida')
+                          ->select('reserva.id_sala','salas.nombre','salas.capacidad','reserva.dia_semana','reserva.bloque','reserva.estado','reserva.fecha_ingreso','reserva.fecha_salida')
                           ->where('reserva.id_sala', $id)
                           ->get();
       $pdf = PDF::loadView('Secretaria.exportar_historial', compact('reservas'));
