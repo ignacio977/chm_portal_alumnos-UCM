@@ -20,6 +20,8 @@ class UsersTableSeeder extends Seeder
             'foto' => '',
             'fecha_ingreso' => Carbon::parse('2015-01-01'),
             'tipo_usuario' => 'estudiante',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
           
 
@@ -37,6 +39,8 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Cargo Ejemplo',
             'departamento' => 'Departamento Ejemplo',
             'tipo_usuario' => 'profesor',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
 
           DB::table('users')->insert([ 
@@ -51,6 +55,8 @@ class UsersTableSeeder extends Seeder
             'celular' => '911111111',
             'foto' => '',
             'tipo_usuario' => 'director',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
 
           DB::table('users')->insert([ 
@@ -65,6 +71,8 @@ class UsersTableSeeder extends Seeder
             'celular' => '911111111',
             'foto' => '',
             'tipo_usuario' => 'empresa',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
 
           DB::table('users')->insert([ 
@@ -79,6 +87,8 @@ class UsersTableSeeder extends Seeder
             'celular' => '911111111',
             'foto' => '',
             'tipo_usuario' => 'secretaria',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
 
           DB::table('users')->insert([ 
@@ -94,6 +104,8 @@ class UsersTableSeeder extends Seeder
             'foto' =>'',
             'fecha_ingreso' => Carbon::parse('2015-01-01'),
             'tipo_usuario' => 'estudiante',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
 
           DB::table('users')->insert([ 
@@ -108,6 +120,8 @@ class UsersTableSeeder extends Seeder
             'celular' => '911111111',
             'fecha_ingreso' => Carbon::parse('2015-01-01'),
             'tipo_usuario' => 'estudiante',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
 
           DB::table('users')->insert([ 
@@ -122,6 +136,8 @@ class UsersTableSeeder extends Seeder
             'celular' => '911111111',
             'fecha_ingreso' => Carbon::parse('2015-01-01'),
             'tipo_usuario' => 'estudiante',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
 
           DB::table('users')->insert([ 
@@ -135,6 +151,8 @@ class UsersTableSeeder extends Seeder
             'telefono' => '72111111',
             'celular' => '911111111',
             'tipo_usuario' => 'empresa',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
 
           DB::table('users')->insert([ 
@@ -148,6 +166,8 @@ class UsersTableSeeder extends Seeder
             'telefono' => '72111111',
             'celular' => '911111111',
             'tipo_usuario' => 'empresa',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
 
           DB::table('users')->insert([ 
@@ -161,6 +181,8 @@ class UsersTableSeeder extends Seeder
             'telefono' => '72111111',
             'celular' => '911111111',
             'tipo_usuario' => 'empresa',
+            'created_at'        => new DateTime(),
+            'updated_at'        => new DateTime()
           ]);
     }
 }
