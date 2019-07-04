@@ -25,11 +25,17 @@ class EmpresaController extends Controller
         return view('Empresa.CreacionPracticasProfesionales', compact('errores', 'request'));
     }
 
+    public function MostrarRetroalimentacion(Request $request)
+    {
+        //$Informacion = DB::table('respuestas')->where('')
+        return view('Empresa.RetroalimentacionPracticas');
+    }
+
     public function MostrarPracticantes(Request $request)
     {
         $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
 
-        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', "Aceptada")->get();
+        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '!=',"Pendiente")->get();
 
         //dd($Practicantes->all());
 

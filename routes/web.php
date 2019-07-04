@@ -54,6 +54,7 @@ Route::post('/empresa/practicas/enviar', 'EmpresaController@InsercionPracticaPro
 Route::get('/empresa/practicas/mostrar', 'EmpresaController@MostrarPracticas');
 Route::post('/empresa/practicas/mostrar', 'EmpresaController@FuncionesPracticas');
 Route::get('/empresa/practicas/mostrarP', 'EmpresaController@MostrarPracticantes');
+Route::get('/empresa/practicas/mostrarR', 'EmpresaController@MostrarRetroalimentacion');
 Route::post('/empresa/practicas/editar', 'EmpresaController@VerificarPracticas');
 
 #Coordinador de practicas#
