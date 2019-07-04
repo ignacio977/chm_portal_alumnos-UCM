@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Practicasprofesionale;
 use App\PostulacionesPractica;
+use App\EnCursoPractica;
 use App\Pregunta;
 use App\Respuesta;
 use Carbon\Carbon;
@@ -155,10 +156,10 @@ class CoordinadorController extends Controller
 
 
     public function PracticaEnCurso(){
-      $Coleccion = EnCursoPractica:: where("estado","Aceptada")
+      $Coleccion = EnCursoPractica:: where("estado","EnCurso")
                                                    ->orderBy('updated_at', 'desc')
                                                    ->paginate(5);
-      return view('Profesores.EmpresaPracticaActual', compact('Coleccion'));
+      return view('Profesores.PracticaEnCursoProfesor', compact('Coleccion'));
     }
 
     public function   PracticasConcluidas(){

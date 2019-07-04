@@ -8,8 +8,8 @@ use DB;
 use Auth;
 use App\User;
 use App\PostulacionesPractica;
-use App\Practicasprofesionale;
-use App\evaluacionempresa;
+use App\Respuesta;
+
 
 class EmpresaController extends Controller
 {
@@ -25,11 +25,41 @@ class EmpresaController extends Controller
         return view('Empresa.CreacionPracticasProfesionales', compact('errores', 'request'));
     }
 
+    public function MostrarRetroalimentacion(Request $request)
+    {
+        $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
+
+        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '!=',"Pendiente")->pluck('Id');
+
+        $Informacion = Respuesta::whereIn('alumnoid', $Practicantes)->get();
+
+        return view('Empresa.RetroalimentacionPracticas', compact('Informacion'));
+    }
+
+    public function DetalleRetroalimentacion(Request $request)
+    {
+        $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
+
+        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '!=',"Pendiente")->pluck('Id');
+
+        $Informacion = Respuesta::whereIn('alumnoid', $Practicantes)->get();
+
+        $i =  $request->i;
+
+        $Comentarios = DB::table('comentarios')->where('alumnoid', $Informacion[$i]->alumnoid)->first();
+        if($Comentarios == null){
+            $Comentarios = "0";
+        }
+
+
+        return view('Empresa.DetalleRetroalimentacion', compact('Informacion', 'i', 'Comentarios'));
+    }
+
     public function MostrarPracticantes(Request $request)
     {
         $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
 
-        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', "Aceptada")->get();
+        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '=',"Aceptada")->get();
 
         //dd($Practicantes->all());
 
@@ -364,40 +394,8 @@ class EmpresaController extends Controller
 
     public function Evaluacion(Request $request)
     {
-      $estado = DB::table('postulaciones_practicas')
-                        ->select('postulaciones_practicas.estado')
-                        ->where('id', $request->id)
-                        ->get();
-      if ($estado = 'Finalizada y respondida A') {
-
-        $evaluacion = new evaluacionempresa ;
-        DB::table('evaluacionempresa')
-                ->insert([
-                    ['alumnoid' => $request->idalumno,
-                    'practicaid' => $request->idpractica,
-                    'pregunta1' => $request->pregunta1,
-                    'pregunta2' => $request->pregunta2,
-                    'pregunta3' => $request->pregunta3,
-                    'pregunta4' => $request->pregunta4],
-                ]);
-        PostulacionesPractica::where('id', $request->id)
-                              ->update(['estado' => ' Concluida']);
-      }else {
-        $evaluacion = new evaluacionempresa ;
-        DB::table('evaluacionempresa')
-                ->insert([
-                    ['alumnoid' => $request->idalumno,
-                    'practicaid' => $request->idpractica,
-                    'pregunta1' => $request->pregunta1,
-                    'pregunta2' => $request->pregunta2,
-                    'pregunta3' => $request->pregunta3,
-                    'pregunta4' => $request->pregunta4],
-                ]);
-        PostulacionesPractica::where('id', $request->id)
-                              ->update(['estado' => ' Finalizada y respondida E']);
-      }
-
-      return redirect(route('practicasfinalizadasempresa')) ;
+    
+    return;
 
     }
 }

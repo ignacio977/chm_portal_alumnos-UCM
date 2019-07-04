@@ -135,6 +135,7 @@
       <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a>
       <a class="waves-effect" href="/empresa/practicas/mostrar">Mostrar Practicas</a>
       <a class="waves-effect" href="/empresa/practicas/mostrarP">Mostrar Practicantes</a>
+      <a class="waves-effect" href="/empresa/practicas/mostrarR">Retroalimentacion Practicas</a>
       <a class="waves-effect" href="/empresa/practicas/mostrar_finalizadas">Practicas Finalizadas</a>
       @endif
     @endif
