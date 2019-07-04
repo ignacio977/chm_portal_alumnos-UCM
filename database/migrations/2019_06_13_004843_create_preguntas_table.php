@@ -15,7 +15,7 @@ class CreatePreguntasTable extends Migration
     {
         Schema::create('preguntas', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('ContenidoPregunta');
+            $table->longText('ContenidoPregunta');
             $table->string('TipoPregunta');
             $table->timestamps();
         });
