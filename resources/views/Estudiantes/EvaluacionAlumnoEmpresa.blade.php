@@ -87,7 +87,7 @@
 @section('scripts')
   <script src={{ asset('js/nav_scripts.js') }}></script>
   <script src={{ asset('js/options.js') }}></script>
-  @if(empty(Auth::user()->PostulacionPractica->where('estado','Aceptada')->first()->encurso->first()))
+  @if(empty(Auth::user()->PostulacionPractica->where('estado','Aceptada')->first()->encurso->first()||Auth::user()->PostulacionPractica->where('estado','Confirmada')->first()->encurso->first()))
     <script type="text/javascript" Cabecera="¡¡Error!!" TextoBajada="Ingreso ilegal a la sección de respuestas" Redirec="/estudiante" src={{ asset('js/alert.js') }}></script>
   @endif
   <script src={{ asset('js/sleep.js') }}></script>

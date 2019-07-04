@@ -68,7 +68,7 @@ class EstudiantesController extends Controller
     {
         $estudiante=Auth::user();
         $practica_en_curso=PostulacionesPractica::where('alumnoid','=',$estudiante->id)->pluck('practicaid');
-        $Coleccion= Practicasprofesionale:: where('Estado', '=', 'Aceptada')->
+        $Coleccion= Practicasprofesionale:: where('Estado', '=', 'Aprobado')->
                                             whereNotIn('id',$practica_en_curso)->
                                             orderBy('updated_at', 'desc')->
                                             paginate(5);
@@ -77,7 +77,7 @@ class EstudiantesController extends Controller
 
     public function practicasdetalle(Request $request)
     {
-        $Practicas = Practicasprofesionale:: where('Estado', '=', 'Aceptada')
+        $Practicas = Practicasprofesionale:: where('Estado', '=', 'Aprobado')
                                             ->where('id',$request->id)
                                             ->get();
 
@@ -99,6 +99,7 @@ class EstudiantesController extends Controller
 
         $CambioInspeccion = PostulacionesPractica::where('alumnoid',Auth::user()->id)->
                                                     where('estado','Aceptada')->
+                                                    orWhere('Estado', '=', 'Confirmada')->
                                                     first();
         $CambioInspeccion->inspeccionado = new DateTime();
         $CambioInspeccion->timestamps = false;

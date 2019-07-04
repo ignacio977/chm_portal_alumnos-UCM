@@ -40,6 +40,9 @@
                     @if($notificacion->where('estado','Aceptada')->first())
                     <!--<td> {{ $estado = $notificacion->where('estado','Aceptada')->first()->encurso->first() }} </td>-->
                     @endif
+                    @if($notificacion->where('estado','Confirmada')->first())
+                    <!--<td> {{ $estado = $notificacion->where('estado','Confirmada')->first()->encurso->first() }} </td>-->
+                    @endif
                 @endforeach
                 @foreach ($Registros as $registro)
                     <tr class="white">
@@ -53,6 +56,9 @@
                         </td>
                         @if($registro->where('estado','Aceptada')->first())
                         <!--<td> {{ $estado = $registro->where('estado','Aceptada')->first()->encurso->first() }} </td>-->
+                        @endif
+                        @if($registro->where('estado','Confirmada')->first())
+                        <!--<td> {{ $estado = $registro->where('estado','Confirmada')->first()->encurso->first() }} </td>-->
                         @endif
                     </tr>
                 @endforeach
@@ -172,7 +178,7 @@
                         var PracticaEnfoque = registro.practica.Enfoque;
                         var PracticaCreadaDia = registro.practica.created_at;
                         var PostulacionVista = registro.inspeccionado;
-                        if(registro.estado=="Aceptada"){
+                        if(registro.estado=="EnCurso"){
                             var PostulacionEstado = "{!!$estado->estado!!}";
                             var PostulacionActualizado = "{!!$estado->created_at!!}";
                             var PostulacionRealizada = "{!!$estado->updated_at!!}";
