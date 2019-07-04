@@ -68,7 +68,7 @@ class EstudiantesController extends Controller
     {
         $estudiante=Auth::user();
         $practica_en_curso=PostulacionesPractica::where('alumnoid','=',$estudiante->id)->pluck('practicaid');
-        $Coleccion= Practicasprofesionale:: where('Estado', '=', 'Aprobado')->
+        $Coleccion= Practicasprofesionale:: where('Estado', '=', 'Aceptada')->
                                             whereNotIn('id',$practica_en_curso)->
                                             orderBy('updated_at', 'desc')->
                                             paginate(5);
@@ -77,7 +77,7 @@ class EstudiantesController extends Controller
 
     public function practicasdetalle(Request $request)
     {
-        $Practicas = Practicasprofesionale:: where('Estado', '=', 'Aprobado')
+        $Practicas = Practicasprofesionale:: where('Estado', '=', 'Aceptada')
                                             ->where('id',$request->id)
                                             ->get();
 
@@ -96,10 +96,17 @@ class EstudiantesController extends Controller
     {
         $MatrizEncuesta = $request->Encuesta;
 
-        $FinalEncuesta = EnCursoPractica::      where('alumnoid',Auth::user()->id)->
-                                                where('estado','Finalizada')->
-                                                orWhere('estado','FinalizadaRespondidaE')->
-                                                first();
+        $CambioInspeccion = PostulacionesPractica::where('alumnoid',Auth::user()->id)->
+                                                    where('estado','Aceptada')->
+                                                    first();
+        $CambioInspeccion->inspeccionado = new DateTime();
+        $CambioInspeccion->timestamps = false;
+        $CambioInspeccion->save();
+
+        $FinalEncuesta = EnCursoPractica::  where('alumnoid',Auth::user()->id)->
+                                            where('estado','Finalizada')->
+                                            orWhere('estado','FinalizadaRespondidaE')->
+                                            first();
         if($FinalEncuesta->estado == "Finalizada"){
             $FinalEncuesta->estado = "FinalizadaRespondidaA";
         }
