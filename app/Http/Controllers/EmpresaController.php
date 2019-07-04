@@ -449,6 +449,10 @@ class EmpresaController extends Controller
     {
         $MatrizEncuesta = $request->Encuesta;
         
+        $CambioInspeccion = PostulacionesPractica::where('practicaid', (int)$request->practicaid)->first();
+        $CambioInspeccion->inspeccionado = new DateTime();
+        $CambioInspeccion->timestamps = false;
+        $CambioInspeccion->save();
         
         $FinalEncuesta = EnCursoPractica::where('postulacionid', $request->id)-> 
                                                 where('estado','Finalizada')->
@@ -461,17 +465,6 @@ class EmpresaController extends Controller
             $FinalEncuesta->estado = "Concluida";
         }
         $FinalEncuesta->save();
-        
-        $CambioInspeccion = PostulacionesPractica::where('practicaid', $request->practicaid);
-        $CambioInspeccion->inspeccionado = new DateTime();
-        $CambioInspeccion->timestamps = false;
-
-
-        $CambioInspeccion->save();
-
-        
-         
-        
 
         foreach ($MatrizEncuesta as $ArrayEncuesta) {
             foreach ($ArrayEncuesta as $Opcion) {
