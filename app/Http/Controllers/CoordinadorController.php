@@ -17,6 +17,7 @@ use App\EnCursoPractica;
 use App\Pregunta;
 use App\Respuesta;
 use Carbon\Carbon;
+use DateTime;
 
 class CoordinadorController extends Controller
 {
@@ -169,19 +170,6 @@ class CoordinadorController extends Controller
       return view('Profesores.EmpresaPracticaActual', compact('practicas'));
     }
 
-    public function   PracticasConcluidasDetalle(Request $request){
-
-      $Coleccion = DB::table('postulaciones_practicas')
-                          ->join('evaluacionempresa')
-                          ->where('idalumno', '=', $request->alumnoid)
-                          ->where('practicaid', '=', $request->practicaid)
-                          ->get();
-
-
-//view('Profesores.EmpresaPracticaActual', compact('Coleccion'))
-
-      return $Coleccion;
-    }
 
     public function SubirNotas(){
       $data = request()->all();
@@ -207,6 +195,10 @@ class CoordinadorController extends Controller
 
       if ($isChecked) {
          $PracticaEnCurso->estado = "Finalizada";
+         $CambioInspeccion = PostulacionesPractica::find($PracticaEnCurso->practicaid);
+         $CambioInspeccion->inspeccionado = new DateTime();
+         $CambioInspeccion->timestamps = false;
+         $CambioInspeccion->save();
       }
 
       $PracticaEnCurso->save();
