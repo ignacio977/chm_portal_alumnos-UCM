@@ -67,8 +67,8 @@
       </table>
       <div class="row">
         <div class="input-field col s12">
-          <textarea name="Comentario" id="Comentario" class="materialize-textarea"></textarea>
-          <label for="Comentario">Comentarios finales (No es obligatorio)</label>
+          <textarea name="Comentario" id="Comentario" class="materialize-textarea" maxlength="255"></textarea>
+          <label for="Comentario">Comentarios finales (No es obligatorio, Máximo 255 caracteres)</label>
         </div>
       </div>
       <div>
@@ -88,7 +88,7 @@
 @section('scripts')
   <script src={{ asset('js/nav_scripts.js') }}></script>
   <script src={{ asset('js/options.js') }}></script>
-  @if(empty(Auth::user()->PostulacionPractica->where('estado','Finalizada')->first()))
+  @if(empty(Auth::user()->PostulacionPractica->where('estado','Finalizada')->first()||Auth::user()->PostulacionPractica->where('estado','FinalizadaRespondidaE')->first()))
     <script type="text/javascript" Cabecera="¡¡Error!!" TextoBajada="Ingreso ilegal a la sección de respuestas" Redirec="/estudiante" src={{ asset('js/alert.js') }}></script>
   @endif
   <script src={{ asset('js/sleep.js') }}></script>
