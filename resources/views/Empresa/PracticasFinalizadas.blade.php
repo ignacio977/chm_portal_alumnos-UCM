@@ -39,7 +39,7 @@
                     <td> {{$practicas->PuestoOfrecido}}</td>
                     <td> {{$practicas->Enfoque}}</td>
                     <td>
-                      <a href="{{route('practicasevaluacion',['id' => $practicas->id] )}}"
+                      <a href="{{route('practicasevaluacion',['id' => $practicas->postulacionid, 'practicaid' => $practicas->practicaid] )}}"
                        class="btn waves-effect waves-light" style="background-color: #253e85;">Evaluar</a>
                     </td>
                 @endforeach

@@ -124,7 +124,8 @@
         <div class="input-field col s12">
           <th>Detalle de las principales funciones realizadas por el alumno y apreciación del trabajo realizado</th>
           <textarea name="Comentario" id="Comentario" class="materialize-textarea" maxlength="255" ></textarea>
-          <input type="hidden" name="practicaid" value='{{$id}}'  >  
+          <input type="hidden" name="id" value='{{$id}}'  > 
+          <input type="hidden" name="practicaid" value='{{$practicaid}}'  >   
         </div>
       </div>
       <div>

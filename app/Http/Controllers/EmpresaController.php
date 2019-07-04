@@ -17,6 +17,8 @@ use App\EnCursoPractica;
 use Carbon\Carbon;
 use DateTime;
 
+
+
 class EmpresaController extends Controller
 {
     public function index()
@@ -414,8 +416,8 @@ class EmpresaController extends Controller
                               ->where('en_curso_practicas.estado', '=', 'Finalizada')
                               ->orWhere('en_curso_practicas.estado', '=', 'FinalizadaRespondidaA')
                               ->get();
-
-
+       
+        
         return view('Empresa.PracticasFinalizadas', compact('practica')) ;
     }
 
@@ -430,14 +432,17 @@ class EmpresaController extends Controller
                                 orderBy('id', 'asc')->
                                 get();
         $id = $request->id;
-        return view ('Empresa.PracticasEvaluacion' , compact('Coleccion','Coleccion2','id'));
+        $practicaid = $request->practicaid;
+
+        return view ('Empresa.PracticasEvaluacion' , compact('Coleccion','Coleccion2','id','practicaid'));
     }
 
     public function Evaluacion(Request $request)
     {
         $MatrizEncuesta = $request->Encuesta;
         
-        $FinalEncuesta = EnCursoPractica::where('postulacionid', $request->practicaid)-> 
+        
+        $FinalEncuesta = EnCursoPractica::where('postulacionid', $request->id)-> 
                                                 where('estado','Finalizada')->
                                                 orWhere('estado','FinalizadaRespondidaA')->
                                                 first();
@@ -447,13 +452,18 @@ class EmpresaController extends Controller
         if($FinalEncuesta->estado == "FinalizadaRespondidaA"){
             $FinalEncuesta->estado = "Concluida";
         }
-        $CambioInspeccion = PostulacionesPractica::where('practicaid',$request->practicaid);
+        $FinalEncuesta->save();
+        
+        $CambioInspeccion = PostulacionesPractica::where('practicaid', $request->practicaid);
         $CambioInspeccion->inspeccionado = new DateTime();
         $CambioInspeccion->timestamps = false;
+       
+
         $CambioInspeccion->save();
+
         
          
-        $FinalEncuesta->save();
+        
 
         foreach ($MatrizEncuesta as $ArrayEncuesta) {
             foreach ($ArrayEncuesta as $Opcion) {
