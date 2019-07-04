@@ -16,4 +16,8 @@ class Respuesta extends Model
     public function RespuestaPregunta(){
         return $this->belongsTo(Pregunta::class, 'preguntaid', 'id');
     }
+
+    public function pertenecealumno(){
+        return $this->belongsTo(User::class, 'alumnoid', 'id');
+    }
 }

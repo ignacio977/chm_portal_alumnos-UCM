@@ -9,6 +9,7 @@ use Auth;
 use App\User;
 use App\Practicasprofesionale;
 use App\PostulacionesPractica;
+use App\Respuesta;
 
 
 class EmpresaController extends Controller
@@ -27,15 +28,20 @@ class EmpresaController extends Controller
 
     public function MostrarRetroalimentacion(Request $request)
     {
-        //$Informacion = DB::table('respuestas')->where('')
-        return view('Empresa.RetroalimentacionPracticas');
+        $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
+
+        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '!=',"Pendiente")->pluck('Id');
+
+        $Informacion = DB::table('respuestas')->whereIn('alumnoid', $Practicantes)->get();
+
+        return view('Empresa.RetroalimentacionPracticas', compact('Informacion'));
     }
 
     public function MostrarPracticantes(Request $request)
     {
         $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
 
-        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '!=',"Pendiente")->get();
+        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '=',"Aceptada")->get();
 
         //dd($Practicantes->all());
 
