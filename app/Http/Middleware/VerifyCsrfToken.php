@@ -22,7 +22,8 @@ class VerifyCsrfToken extends Middleware
         '/empresa/practicas/carga',
         '/empresa/practicas/enviar',
         '/empresa/practicas/mostrar',
-        '/empresa/practicas/mostrarR'
+        '/empresa/practicas/mostrarR',
+        '/empresa/practicas/Accion'
     ];
     
 }

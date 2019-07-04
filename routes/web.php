@@ -41,6 +41,7 @@ Route::post('/profesor/coordinador', 'CoordinadorController@CambiarEstado')->nam
 Route::get('/profesor/coordinador/practicasconcluidas', 'CoordinadorController@PracticasConcluidas')->name('PracticasConcluidas');
 Route::get('/profesor/coordinador/practicasconcluidasdetalle', 'CoordinadorController@PracticasConcluidasDetalle')->name('PracticasConcluidasDetalle');
 Route::get('/profesor/coordinador/PracticaActual','CoordinadorController@PracticaEnCurso')->name('PracticasActuales');
+Route::post('/profesor/coordinador/notas', 'CoordinadorController@SubirNotas')->name('SubirNotas');
 #Director#
 Route::get('/director', 'DirectorController@index')->name('director');
 
@@ -54,7 +55,7 @@ Route::post('/empresa/practicas/carga', 'EmpresaController@VerificacionPracticaP
 Route::post('/empresa/practicas/enviar', 'EmpresaController@InsercionPracticaProfesional');
 Route::get('/empresa/practicas/mostrar', 'EmpresaController@MostrarPracticas');
 Route::post('/empresa/practicas/mostrar', 'EmpresaController@FuncionesPracticas');
-Route::post('/empresa/practicas/Aceptar', 'EmpresaController@AceptarPracticas');
+Route::get('/empresa/practicas/Aceptar', 'EmpresaController@AceptarPracticas');
 Route::get('/empresa/practicas/mostrarP', 'EmpresaController@MostrarPracticantes');
 Route::get('/empresa/practicas/mostrarR', 'EmpresaController@MostrarRetroalimentacion');
 Route::post('/empresa/practicas/mostrarR', 'EmpresaController@DetalleRetroalimentacion');
@@ -64,6 +65,7 @@ Route::get('/empresa/practicas/finalizadas_evaluacion', 'EmpresaController@Pract
 Route::post('/empresa/practicas/evaluacionempresa', 'EmpresaController@Evaluacion')->name('evaluacionempresa');
 
 
+Route::post('/empresa/practicas/accion', 'EmpresaController@Accion');
 
 #Coordinador de practicas#
 Route::get('/profesor/coordinador', 'CoordinadorController@AprobarPracticas')->name('AprobarPracticas');

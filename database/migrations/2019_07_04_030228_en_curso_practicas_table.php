@@ -26,7 +26,7 @@ class EnCursoPracticasTable extends Migration
             $table->timestamps();
             $table->foreign('alumnoid')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('practicaid')->references('id')->on('practicasprofesionales');
-            $table->foreign('postulacionid')->references('id')->on('postulaciones_practicas');
+            $table->foreign('postulacionid')->references('id')->on('postulaciones_practicas')->onDelete('cascade');
 
         });
     }

@@ -65,7 +65,7 @@ class EmpresaController extends Controller
     {
         $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
 
-        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '=',"Aceptada")->get();
+        $Practicantes = EnCursoPractica::whereIn('practicaid', $Total)->get();
 
         //dd($Practicantes->all());
 
@@ -367,6 +367,37 @@ class EmpresaController extends Controller
             }
         }
         return view('Empresa.EditarPracticasProfesionales', compact('errores'));
+    }
+
+    public function AceptarPracticas(Request $request)
+    {
+        $practicas = DB::table('practicasprofesionales')->where('EmpresaId',  Auth::user()->id)->pluck('Id');
+
+        $Coleccion = PostulacionesPractica::whereIn('practicaId', $practicas)->where('estado', 'Aceptada')->paginate(3);
+        
+        return view('Empresa.AceptarPractica', compact('Coleccion')); 
+    }
+
+    public function Accion(Request $request)
+    {
+
+      if($request->estado == "Aceptada"){
+            $datos = DB::table('postulaciones_practicas')->where('id', $request->id_postulacion)->first();
+
+            $nuevo = new EnCursoPractica;
+            $nuevo->alumnoid = $datos->alumnoid;
+            $nuevo->practicaid = $datos->practicaid;
+            $nuevo->postulacionid = $datos->id;
+            $nuevo->save();
+
+            PostulacionesPractica::where('id', $request->id_postulacion)
+                                ->update(['estado' => "Confirmada"]);
+      }else{
+            DB::table('postulaciones_practicas')->where('id', $request->id_postulacion)->delete();
+
+      }
+
+      return redirect('/empresa/practicas/Aceptar');
     }
 
     public function destroy($id)

@@ -24,7 +24,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Junior en programacion',
             'Enfoque'       => 'Python',
             'Estado'        => 'Pendiente',
-            'updated_at'    => '2019/01/30'
+            'updated_at'    => '2019/01/30',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '9',
@@ -39,7 +40,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Secretario',
             'Enfoque'       => 'Typescript,Angular',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/02/05'
+            'updated_at'    => '2019/02/05',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -54,7 +56,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'Ruby BackEnd',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/03/03'
+            'updated_at'    => '2019/03/03',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -69,7 +72,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'Ruby',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/03/03'
+            'updated_at'    => '2019/03/03',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -84,7 +88,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'HTML y Materialize',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/03/03'
+            'updated_at'    => '2019/03/03',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -99,7 +104,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'PostgreSQL',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/03/03'
+            'updated_at'    => '2019/03/03',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -114,7 +120,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'BI en Cognos',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/03/03'
+            'updated_at'    => '2019/03/03',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -129,7 +136,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'Ruby on Rails',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/03/03'
+            'updated_at'    => '2019/03/03',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -144,7 +152,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'Ruby on Rails',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/05/03'
+            'updated_at'    => '2019/05/03',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -159,7 +168,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'HTML y Vue.js',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/05/03'
+            'updated_at'    => '2019/05/03',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -174,7 +184,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'PostgreSQL',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/05/25'
+            'updated_at'    => '2019/05/25',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -189,7 +200,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'Flutter',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/05/25'
+            'updated_at'    => '2019/05/25',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -204,7 +216,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'Flutter',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/05/25'
+            'updated_at'    => '2019/05/25',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '10',
@@ -219,7 +232,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Inspector de impresoras',
             'Enfoque'       => 'Flutter',
             'Estado'        => 'Aprobado',
-            'updated_at'    => '2019/05/25'
+            'updated_at'    => '2019/05/25',
+            'created_at'        => new DateTime()
           ]);
           DB::table('practicasprofesionales')->insert([ 
             'EmpresaId'     => '11',
@@ -234,7 +248,8 @@ class PracticasprofesionalesTableSeeder extends Seeder
             'PuestoOfrecido'=> 'Analista progamador',
             'Enfoque'       => 'C',
             'Estado'        => 'Rechazado',
-            'updated_at'    => '2019/01/05'
+            'updated_at'    => '2019/01/05',
+            'created_at'        => new DateTime()
           ]);
     }
 }
