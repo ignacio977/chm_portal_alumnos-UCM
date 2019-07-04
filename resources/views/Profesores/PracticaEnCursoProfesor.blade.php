@@ -45,16 +45,95 @@
                     </td>
                   <div id="modalpractica{{$practica->id}}" class="modal">
                       <div class="modal-content">
-                        <div class="container"></div>
-                          <form action="">
-                            <input type="text">
-                            <input type="text">
-                            <input type="text">
-                          </form>
+                        <div class="">
+                          <div class="row blue darken-2 z-depth-1" style="text-align: left">
+                              <div class="col s3">
+                                  <b>Nombre</b>
+                              </div>
+                              <div class="col s3">
+                                  <b>Apellidos</b>
+                              </div>
+                              <div class="col s3">
+                                  <b>Email</b>
+                              </div>
+                              <div class="col s3">
+                                  <b>Celular</b>
+                              </div>
+                          </div>
+                          <div class="row grey lighten-2 z-depth-1" style="text-align: left">
+                              <div class="col s3">
+                                  <h6>{{$practica->alumno->nombres}}</h6>
+                              </div>
+                              <div class="col s3">
+                                  <h6>{{$practica->alumno->apellidos}}</h6>
+                              </div>
+                              <div class="col s3">
+                                  <h6>{{$practica->alumno->email}}</h6>
+                              </div>
+                              <div class="col s3">
+                                  <h6>{{$practica->alumno->celular}}</h6>
+                              </div>
+                          </div>
+                          <div class="row  blue darken-2 z-depth-1" style="text-align: left">
+                              <div class="col s3">
+                                  <b>Empresa</b>
+                              </div>
+                              <div class="col s3">
+                                  <b>Telefono</b>
+                              </div>
+                              <div class="col s3">
+                                  <b>Email</b>
+                              </div>
+                              <div class="col s3">
+                                  <b>Dirección</b>
+                              </div>
+                          </div>
+                          <div class="row grey lighten-2 z-depth-1" style="text-align: left" >
+                              <div class="col s3">
+                                  <h6>{{$practica->practica->empresa->nombres}}</h6>
+                              </div>
+                              <div class="col s3">
+                                  <h6>{{$practica->practica->empresa->telefono}}</h6>
+                              </div>
+                              <div class="col s3">
+                                  <h6>{{$practica->practica->empresa->email}}</h6>
+                              </div>
+                              <div class="col s3">
+                                  <h6>{{$practica->practica->empresa->direccion_actual}}</h6>
+                              </div>
+                          </div>
+                            <form id="form-{{$practica->id}}" action="/profesor/coordinador/notas" method="POST">
+                                {{ csrf_field() }}
+                              <div class="container">
+                                <div class="row">
+                                    <div class="col input-field s4">
+                                        <input name="nota1" id="nota1-{{$practica->id}}" type="number" value="{{$practica->nota1}}" max = "7" min="1" step="0.1">
+                                        <label for="nota1-{{$practica->id}}">Nota 1</label>
+                                    </div>
+                                    <div class="col input-field s4">
+                                        <input name="nota2" id="nota2-{{$practica->id}}" type="text" value="{{$practica->nota2}}" max = "7" min="1" step="0.1">
+                                        <label for="nota2-{{$practica->id}}">Nota 2</label>
+                                    </div>
+                                    <div class="col input-field s4">
+                                        <input name="nota3" id="nota3-{{$practica->id}}" type="text" value="{{$practica->nota3}}" max = "7" min="1" step="0.1">
+                                        <label for="nota3-{{$practica->id}}">Nota 3</label>
+                                    </div>
+                                </div>
+                              </div>
+                                  <p>
+                                    <label>
+                                      <input name="finalizar" type="checkbox" class="filled-in"/>
+                                      <span>Finalizar practica</span>
+                                    </label>
+                                  </p>
+                              <input type="hidden" name="id" value="{{$practica->id}}">
+                            </form>
+                        </div>
+                          
                       </div>
                       <div class="modal-footer">
-                          <a class="modal-close btn waves-effect waves-light red darken-2">Eliminar</a>
-                          <a class="modal-close btn waves-effect waves-light blue darken-4">Cancelar</a>
+                          <a class="modal-close btn waves-effect waves-light blue darken-2" onclick="enviar('form-{{$practica->id}}')">Guardar</a>
+                          <a class="modal-close btn waves-effect waves-light red darken-4">Cancelar</a>
                       </div>
                   </div>
                 @endforeach
@@ -80,4 +159,9 @@
   @if(empty($Coleccion->total()))
     <script type="text/javascript" Cabecera="¡¡Error!!" TextoBajada="No hay practicas por el momento, intenta más tarde" Redirec="/estudiante" src={{ asset('js/alert.js') }}></script>
   @endif
+  <script language="JavaScript"> 
+      function enviar(name){ 
+          document.getElementById(name).submit(); 
+      } 
+    </script>
 @endsection

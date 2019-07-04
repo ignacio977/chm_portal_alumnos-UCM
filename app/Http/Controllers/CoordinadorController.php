@@ -161,4 +161,38 @@ class CoordinadorController extends Controller
                                                    ->paginate(5);
       return view('Profesores.PracticaEnCursoProfesor', compact('Coleccion'));
     }
+
+    public function SubirNotas(){
+      $data = request()->all();
+      $id = $data["id"];
+      $nota1 = $data["nota1"];
+      $nota2 = $data["nota2"];
+      $nota3 = $data["nota3"];
+      $isChecked = request()->has('finalizar');
+
+      if ($nota1<1) $nota1 = 1;
+      if ($nota1>7) $nota1 = 7; 
+
+      if ($nota2<1) $nota2 = 1;
+      if ($nota2>7) $nota2 = 7; 
+
+      if ($nota3<1) $nota3 = 1;
+      if ($nota3>7) $nota3 = 7; 
+
+      $PracticaEnCurso = EnCursoPractica::find($id);
+      $PracticaEnCurso->nota1 = $nota1;
+      $PracticaEnCurso->nota2 = $nota2;
+      $PracticaEnCurso->nota3 = $nota3;
+
+      if ($isChecked) {
+         $PracticaEnCurso->estado = "Finalizada";
+      }
+
+      $PracticaEnCurso->save();
+
+      return redirect('/profesor/coordinador/PracticaActual');
+
+    }
+
+
 }

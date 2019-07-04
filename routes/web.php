@@ -61,3 +61,4 @@ Route::get('/profesor/practicas', 'CoordinadorController@VerPracticas')->name('V
 Route::get('/profesor/practicas/detalle', 'CoordinadorController@DetallePracticas')->name('DetalleCoordinacionPractica');
 Route::post('/profesor/EliminarPractica', 'CoordinadorController@EliminarPractica')->name('EliminarPractica');
 Route::get('/profesor/coordinador/PracticaActual','CoordinadorController@PracticaEnCurso')->name('PracticasActuales');
+Route::post('/profesor/coordinador/notas', 'CoordinadorController@SubirNotas')->name('SubirNotas');
