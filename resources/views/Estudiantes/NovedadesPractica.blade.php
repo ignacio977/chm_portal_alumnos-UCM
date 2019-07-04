@@ -171,6 +171,12 @@
                         var PostulacionActualizado = registro.updated_at;
                         var PostulacionRealizada = registro.created_at;
                         var PostulacionVista = registro.inspeccionado;
+                        if(PostulacionEstado=="FinalizadaRespondidaA"){
+                            PostulacionEstado = "Finalizada y Respondida por Alumno"
+                        }
+                        if(PostulacionEstado=="FinalizadaRespondidaE"){
+                            PostulacionEstado = "Finalizada y Respondida por Empresa"
+                        }
                         document.getElementById('CNomPractica').innerHTML = "Practica de " + EmpresaNom;
                         document.getElementById('CMail').innerHTML = EmpresaMail;
                         document.getElementById('CDireccion').innerHTML = EmpresaDir;
