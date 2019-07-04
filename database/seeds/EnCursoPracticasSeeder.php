@@ -21,5 +21,15 @@ class EnCursoPracticasSeeder extends Seeder
         $a->nota2 = 1.3;
         $a->nota3 = 1.3;
         $a->save();
+
+        $a = new EnCursoPractica;
+        $a->alumnoid = 6;
+        $a->practicaid = 2;
+        $a->fecha = "01-01-01";
+        $a->postulacionid = 2;
+        $a->nota1 = 1.2;
+        $a->nota2 = 1.3;
+        $a->nota3 = 1.3;
+        $a->save();
     }
 }

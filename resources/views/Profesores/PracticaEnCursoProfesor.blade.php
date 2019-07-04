@@ -15,7 +15,7 @@
   <div class="row">
     <div class="col s12 m8">
       <div class="card-panel" style="background-color: #253e85;">
-        <span class="white-text">Bienvenido {{Auth::user()->nombres}} aqui se muestran las practicas que actualmente cuentan con postulaciones abiertas.
+        <span class="white-text">Bienvenido {{Auth::user()->nombres}} aqui se muestran las practicas que actualmente se encuentran en curso.
         </span>
       </div>
     </div>
@@ -25,11 +25,10 @@
         <table class="table-border table-striped responsive-table">
           <thead>
             <tr>
+              <th>Alumno</th>
               <th>Empresa</th>
-              <th>Actividad Principal</th>
-              <th>Enfoque y conocimientos</th>
-              <th>Fecha Publicacion</th>
-              <th>Cantidad de Solicitudes</th>
+              <th>Actividad</th>
+              <th>Fecha Inicio</th>
               <th></th>
             </tr>
           </thead>
@@ -37,14 +36,27 @@
             <thead>
                 @foreach ($Coleccion as $practica)
                   <tr>
-                    <td> {{$practica->empresa->nombres}}</td>
-                    <td> {{$practica->Actividad1}}</td>
-                    <td> {{$practica->Enfoque}}</td>
-                    <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
-                    <td> {{$practica->PostulacionPractica->count()}}</td>
+                    <td> {{$practica->alumno->nombres}}</td>
+                    <td> {{$practica->practica->empresa->nombres}}</td>
+                    <td> {{$practica->practica->PuestoOfrecido}}</td>
+                    <td> {{\Carbon\Carbon::parse($practica->created_at)->diffForHumans()}} </td>
                     <td>
-                      <a href="{{route('DetalleCoordinacionPractica',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;">Detalles</a>
+                      <a href="#modalpractica{{$practica->id}}" class="btn waves-effect waves-light modal-trigger" style="background-color: #253e85;">Detalles</a>
                     </td>
+                  <div id="modalpractica{{$practica->id}}" class="modal">
+                      <div class="modal-content">
+                        <div class="container"></div>
+                          <form action="">
+                            <input type="text">
+                            <input type="text">
+                            <input type="text">
+                          </form>
+                      </div>
+                      <div class="modal-footer">
+                          <a class="modal-close btn waves-effect waves-light red darken-2">Eliminar</a>
+                          <a class="modal-close btn waves-effect waves-light blue darken-4">Cancelar</a>
+                      </div>
+                  </div>
                 @endforeach
             </thead>
           </tbody>

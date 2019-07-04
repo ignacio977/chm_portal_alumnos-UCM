@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->truncarTablas([
             'postulaciones_practicas',
             'practicasprofesionales',
-            'users'
+            'users',
+            'en_curso_practicas'
         ]);
 
         $this->call(UsersTableSeeder::class);
