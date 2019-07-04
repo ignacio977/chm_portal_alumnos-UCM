@@ -32,9 +32,28 @@ class EmpresaController extends Controller
 
         $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '!=',"Pendiente")->pluck('Id');
 
-        $Informacion = DB::table('respuestas')->whereIn('alumnoid', $Practicantes)->get();
+        $Informacion = Respuesta::whereIn('alumnoid', $Practicantes)->get();
 
         return view('Empresa.RetroalimentacionPracticas', compact('Informacion'));
+    }
+
+    public function DetalleRetroalimentacion(Request $request)
+    {
+        $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
+
+        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '!=',"Pendiente")->pluck('Id');
+
+        $Informacion = Respuesta::whereIn('alumnoid', $Practicantes)->get();
+
+        $i =  $request->i;
+
+        $Comentarios = DB::table('comentarios')->where('alumnoid', $Informacion[$i]->alumnoid)->first();
+        if($Comentarios == null){
+            $Comentarios = "0";
+        }
+
+
+        return view('Empresa.DetalleRetroalimentacion', compact('Informacion', 'i', 'Comentarios'));
     }
 
     public function MostrarPracticantes(Request $request)

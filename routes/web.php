@@ -50,8 +50,10 @@ Route::post('/empresa/practicas/carga', 'EmpresaController@VerificacionPracticaP
 Route::post('/empresa/practicas/enviar', 'EmpresaController@InsercionPracticaProfesional');
 Route::get('/empresa/practicas/mostrar', 'EmpresaController@MostrarPracticas');
 Route::post('/empresa/practicas/mostrar', 'EmpresaController@FuncionesPracticas');
+Route::post('/empresa/practicas/Aceptar', 'EmpresaController@AceptarPracticas');
 Route::get('/empresa/practicas/mostrarP', 'EmpresaController@MostrarPracticantes');
 Route::get('/empresa/practicas/mostrarR', 'EmpresaController@MostrarRetroalimentacion');
+Route::post('/empresa/practicas/mostrarR', 'EmpresaController@DetalleRetroalimentacion');
 Route::post('/empresa/practicas/editar', 'EmpresaController@VerificarPracticas');
 
 #Coordinador de practicas#

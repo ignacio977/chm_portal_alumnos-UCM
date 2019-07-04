@@ -14,37 +14,49 @@
   <div class="card-panel center">
     <h5>Retroalimentacion Practica Profesional</h5>
     <br>
-    @foreach ($Informacion as $Practicante)
+    @for($i = 0; $i< count($Informacion); $i = $i+10)
       <div class="card-panel center">
         <table class="table-border table-striped responsive-table">
           <thead>
             <tr>
-              <th>Nombre Completo</th>
-              <th>Rut</th>
+              <th>Nombre Alumno</th>
               <th>E-Mail</th>
-              <th>Enfoque</th>
-              <th>Puesto</th>
+              <th>Conformidad Promedio</th>
+              <th>Detalle</th>
             </tr>
           </thead>
           <tbody>
             <thead>
               <tr>
-                <form action="{{url('/empresa/practicas/mostrar')}}" method="post">
-                    <input name="id" value={{$Practicante->alumno->id}} type="hidden">
-                    <td>{{$Practicante->alumno->nombres}}<br>{{$Practicante->alumno->apellidos}}</td>
-                    <td>{{$Practicante->alumno->rut}}</td>
-                    <td>{{$Practicante->alumno->email}}</td>
-                    {{-- @php
-                        $tiempo = \Carbon\Carbon::parse($practica->updated_at)->diffForHumans();
-                    @endphp --}}
-                    <td>{{$Practicante->practica->Enfoque}}</td>
-                    <td>{{$Practicante->practica->PuestoOfrecido}}</td>
+                <form action="{{url('/empresa/practicas/mostrarR')}}" method="post">
+                  <input name="informacion" value={{$Informacion}} type="hidden">
+                  <input name="i" value={{$i}} type="hidden">
+                  <td>{{$Informacion[$i]->RespuestaUsuario->nombres}}<br>{{$Informacion[$i]->RespuestaUsuario->apellidos}}</td>
+                  <td>{{$Informacion[$i]->RespuestaUsuario->email}}</td>   
+                  <td><?php $promedio = 0;?>
+                    @for($j = $i; $j< ($i + 10); $j++)
+                      <?php $promedio = $promedio + $Informacion[$j]->NivelDeConformidad?>
+                    @endfor
+                    @if(1<=($promedio/10) && ($promedio/10) <2)
+                      Muy en desacuerdo
+                    @elseif(2<= ($promedio/10) && ($promedio/10) <3)
+                      En desacuerdo
+                    @elseif(3<= ($promedio/10) && ($promedio/10) <4)
+                      Indiferente
+                    @elseif(4<=($promedio/10) && ($promedio/10) <5)
+                      De acuerdo
+                    @elseif(5<=($promedio/10) && ($promedio/10) <6)
+                      Muy de acuerdo
+                    @endif</td>
+                    <td><button name="view_button" id="view_button" class="waves-effect orange btn" type="submit">
+                      <i class="material-icons">visibility</i></button>
+                  </form> 
+                  </td>
             </thead>
           </tbody>
         </table>
       </div>
-    @endforeach
-    <a class="btn waves-effect waves-light" href="http://localhost:8000/empresa/practicas/mostrar" >Volver</a>
+    @endfor
   </div>
 </div>
 @endsection
