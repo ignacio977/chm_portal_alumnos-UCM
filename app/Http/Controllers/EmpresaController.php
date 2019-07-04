@@ -14,8 +14,8 @@ use App\Pregunta;
 use App\Respuesta;
 use App\Comentario;
 use App\EnCursoPractica;
-// use Carbon\Carbon;
-// use DateTime;
+use Carbon\Carbon;
+use DateTime;
 
 
 
@@ -465,7 +465,7 @@ class EmpresaController extends Controller
         $CambioInspeccion = PostulacionesPractica::where('practicaid', $request->practicaid);
         $CambioInspeccion->inspeccionado = new DateTime();
         $CambioInspeccion->timestamps = false;
-       
+
 
         $CambioInspeccion->save();
 
