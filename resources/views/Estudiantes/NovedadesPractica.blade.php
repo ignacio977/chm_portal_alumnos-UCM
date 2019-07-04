@@ -90,11 +90,11 @@
                     <div class="card-content">
                         <span class="card-title">Detalles de práctica</span>
                         <div class="collection">
-                            <a class="collection-item black-text">Días:     <span id="CDias" >de XXX hasta XXX</span></a>
-                            <a class="collection-item black-text">Horario:  <span id="CHorario" >de XXX hasta XXX</span></a>
-                            <a class="collection-item black-text">Puesto ofrecido: <span id="CPuesto" >XXX</span></a>
-                            <a class="collection-item black-text">Enfoque y conocimientos: <span id="CEnfoque" >XXX</span></a>
-                            <a class="collection-item black-text">Creado: <span id="CCreado" >XXX</span></a>
+                            <a class="collection-item black-text"><div class="col s5">Días:</div><span id="CDias" >de XXX hasta XXX</span></a>
+                            <a class="collection-item black-text"><div class="col s5">Horario:  </div><span id="CHorario" >de XXX hasta XXX</span></a>
+                            <a class="collection-item black-text"><div class="col s5">Puesto ofrecido: </div>Puesto ofrecido: <span id="CPuesto" >XXX</span></a>
+                            <a class="collection-item black-text"><div class="col s5">Enfoque y conocimientos: </div><span id="CEnfoque" >XXX</span></a>
+                            <a class="collection-item black-text"><div class="col s5">Creado: </div><span id="CCreado" >XXX</span></a>
                         </div>
                     </div>
                 </div>
