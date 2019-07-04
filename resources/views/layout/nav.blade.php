@@ -108,8 +108,11 @@
     @if(Auth::check()) {{-- Verificamos que esté iniciada la sesión --}}
       @if (Auth::user()->tipo_usuario == 'estudiante'){{-- Botones a los que tendrá acceso solo el estudiante --}}
         <a class="waves-effect" href="/estudiante">Perfil Estudiante</a> {{-- Copiar el botón para agregar redireccionamientos --}}
-        <a class="waves-effect" href="/estudiante/practicasofertadas">Selección de prácticas</a>
-        @if(Auth::user()->PostulacionPractica->where('estado','Finalizada')->first())
+        @if(empty(Auth::user()->PostulacionPractica->where('estado','Finalizada')->first()||Auth::user()->PostulacionPractica->where('estado','FinalizadaRespondidaE')->first()
+                ||Auth::user()->PostulacionPractica->where('estado','FinalizadaRespondidaA')->first()||Auth::user()->PostulacionPractica->where('estado','Aprobado')->first()))
+          <a class="waves-effect" href="/estudiante/practicasofertadas">Selección de prácticas</a>
+        @endif
+        @if(Auth::user()->PostulacionPractica->where('estado','Finalizada')->first()||Auth::user()->PostulacionPractica->where('estado','FinalizadaRespondidaE')->first())
           <a class="waves-effect" href="/estudiante/evaluacionpractica">Evaluar Práctica Finalizada</a>
         @endif
       @endif

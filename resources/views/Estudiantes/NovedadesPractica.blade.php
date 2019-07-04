@@ -150,7 +150,6 @@
             var ArrayRegistros = {!! $Registros !!};
             var ArrayCompleto = [];
             ArrayCompleto.push(ArrayNotificaciones,ArrayRegistros);
-            console.log(ArrayCompleto);
             ArrayCompleto.forEach(ArregloRegistro => {
                 ArregloRegistro.forEach(registro => {
                     if (registro.id == id) {
