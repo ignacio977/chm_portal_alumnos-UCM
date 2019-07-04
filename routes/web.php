@@ -34,10 +34,7 @@ Route::get('/estudiante/vistopractica', 'EstudiantesController@VistoPractica')->
 #Profesores#
 Route::get('/profesor', 'ProfesoresController@index')->name('profesor');
 
-#Coordinador de practicas#
-Route::get('/profesor/coordinador', 'CoordinadorController@AprobarPracticas')->name('MostrarPracticas');
-Route::post('/profesor/coordinador', 'CoordinadorController@CambiarEstado')->name('CambiarEstado');
-Route::get('/profesor/coordinador/PracticaActual','CoordinadorController@PracticaEnCurso')->name('PracticasActuales');
+
 
 #Director#
 Route::get('/director', 'DirectorController@index')->name('director');
@@ -63,3 +60,4 @@ Route::post('/profesor/coordinador/addE', 'CoordinadorController@NuevaEmpresa')-
 Route::get('/profesor/practicas', 'CoordinadorController@VerPracticas')->name('VerPracticas');
 Route::get('/profesor/practicas/detalle', 'CoordinadorController@DetallePracticas')->name('DetalleCoordinacionPractica');
 Route::post('/profesor/EliminarPractica', 'CoordinadorController@EliminarPractica')->name('EliminarPractica');
+Route::get('/profesor/coordinador/PracticaActual','CoordinadorController@PracticaEnCurso')->name('PracticasActuales');
