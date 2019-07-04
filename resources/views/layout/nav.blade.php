@@ -111,9 +111,9 @@
         @if(empty(Auth::user()->PostulacionPractica->where('estado','Aceptada')->first()))
           <a class="waves-effect" href="/estudiante/practicasofertadas">Selección de prácticas</a>
         @endif
-        @if(Auth::user()->PostulacionPractica->where('estado','Aceptada')->first())
-          @if(Auth::user()->PostulacionPractica->where('estado','Aceptada')->first()->encurso->where('estado','Finalizada')->first()||
-              Auth::user()->PostulacionPractica->where('estado','Aceptada')->first()->encurso->where('estado','FinalizadaRespondidaE')->first())
+        @if(Auth::user()->PostulacionPractica->where('estado','Confirmada')->first())
+          @if(Auth::user()->PostulacionPractica->where('estado','Confirmada')->first()->encurso->where('estado','Finalizada')->first()||
+              Auth::user()->PostulacionPractica->where('estado','Confirmada')->first()->encurso->where('estado','FinalizadaRespondidaE')->first())
             <a class="waves-effect" href="/estudiante/evaluacionpractica">Evaluar Práctica Finalizada</a>
           @endif
         @endif
