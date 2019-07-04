@@ -37,6 +37,9 @@
                             </a>
                         </td>
                     </tr>
+                    @if($notificacion->where('estado','Aceptada')->first())
+                    <!--<td> {{ $estado = $notificacion->where('estado','Aceptada')->first()->encurso->first() }} </td>-->
+                    @endif
                 @endforeach
                 @foreach ($Registros as $registro)
                     <tr class="white">
@@ -48,10 +51,11 @@
                                 <i class="material-icons left">remove_red_eye</i>Ver
                             </a>
                         </td>
-                        <!--<td> {{ $estado = $registro->where('estado','Aprobado')->first()->encurso->first() }} </td>-->
+                        @if($registro->where('estado','Aceptada')->first())
+                        <!--<td> {{ $estado = $registro->where('estado','Aceptada')->first()->encurso->first() }} </td>-->
+                        @endif
                     </tr>
                 @endforeach
-                
             </tbody>
         </table>
     </div>    
@@ -153,7 +157,6 @@
             ArrayCompleto.forEach(ArregloRegistro => {
                 ArregloRegistro.forEach(registro => {
                     if (registro.id == id) {
-                        console.log(registro);
                         var EmpresaNom = registro.practica.empresa.nombres;
                         var EmpresaMail = registro.practica.empresa.email;
                         var EmpresaDir = registro.practica.empresa.direccion_actual;
@@ -168,10 +171,17 @@
                         var PracticaPuesto = registro.practica.PuestoOfrecido;
                         var PracticaEnfoque = registro.practica.Enfoque;
                         var PracticaCreadaDia = registro.practica.created_at;
-                        var PostulacionEstado = "{!!$estado->estado!!}";
-                        var PostulacionActualizado = "{!!$estado->created_at!!}";
-                        var PostulacionRealizada = "{!!$estado->updated_at!!}";
                         var PostulacionVista = registro.inspeccionado;
+                        if(registro.estado=="Aceptada"){
+                            var PostulacionEstado = "{!!$estado->estado!!}";
+                            var PostulacionActualizado = "{!!$estado->created_at!!}";
+                            var PostulacionRealizada = "{!!$estado->updated_at!!}";
+                        }
+                        else{
+                            var PostulacionEstado = registro.estado;
+                            var PostulacionActualizado = registro.updated_at;
+                            var PostulacionRealizada = registro.created_at;
+                        }
                         if(PostulacionEstado=="FinalizadaRespondidaA"){
                             PostulacionEstado = "Finalizada y Respondida por Alumno"
                         }

@@ -14,8 +14,9 @@ use App\Pregunta;
 use App\Respuesta;
 use App\Comentario;
 use App\EnCursoPractica;
-use Carbon\Carbon;
-use DateTime;
+// use Carbon\Carbon;
+// use DateTime;
+
 
 
 
@@ -391,6 +392,13 @@ class EmpresaController extends Controller
             $nuevo->practicaid = $datos->practicaid;
             $nuevo->postulacionid = $datos->id;
             $nuevo->save();
+
+            // $CambioInspeccion = PostulacionesPractica:: where('alumnoid',$datos->alumnoid)->
+            //                                             where('estado','Aceptada')->
+            //                                             first();
+            // $CambioInspeccion->inspeccionado = new DateTime();
+            // $CambioInspeccion->timestamps = false;
+            // $CambioInspeccion->save();
 
             PostulacionesPractica::where('id', $request->id_postulacion)
                                 ->update(['estado' => "Confirmada"]);
