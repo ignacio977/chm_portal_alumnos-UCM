@@ -9,7 +9,10 @@ use Auth;
 use App\User;
 use App\PostulacionesPractica;
 use App\Respuesta;
-
+use App\EnCursoPractica;
+use App\Pregunta;
+use App\Comentario;
+use Carbon\Carbon;
 
 class EmpresaController extends Controller
 {
@@ -372,10 +375,10 @@ class EmpresaController extends Controller
     {
 
         $practica = DB::table('practicasprofesionales')
-                              ->join('postulaciones_practicas', 'practicasprofesionales.id', '=', 'postulaciones_practicas.practicaid')
+                              ->join('en_curso_practicas', 'practicasprofesionales.id', '=', 'en_curso_practicas.practicaid')
                               ->where('practicasprofesionales.EmpresaId', '=', Auth::user()->id )
-                              ->where('postulaciones_practicas.estado', '=', 'Finalizada')
-                              ->orWhere('postulaciones_practicas.estado', '=', 'Finalizada y respondida')
+                              ->where('en_curso_practicas.estado', '=', 'Finalizada')
+                              ->orWhere('en_curso_practicas.estado', '=', 'Finalizada y respondida')
                               ->get();
 
 
@@ -384,12 +387,10 @@ class EmpresaController extends Controller
 
     public function PracticasEvaluacion(Request $request )
     {
-      $practica = DB::table('postulaciones_practicas')
-                          ->where('id', $request->id)
-                          ->get();
-
-      return view('Empresa.PracticasEvaluacion', compact('practica'));
-
+        $Entrevista = Pregunta::where('TipoPregunta','Empresa')->
+                                orderBy('id', 'asc')->
+                                get();
+        return view ('Estudiantes.EvaluacionAlumnoEmpresa' , compact('Entrevista'));
     }
 
     public function Evaluacion(Request $request)
