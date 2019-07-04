@@ -13,7 +13,9 @@ use App\PostulacionesPractica;
 use App\Pregunta;
 use App\Respuesta;
 use App\Comentario;
+use App\EnCursoPractica;
 use Carbon\Carbon;
+use DateTime;
 
 class EstudiantesController extends Controller
 {
@@ -31,6 +33,7 @@ class EstudiantesController extends Controller
         $datos->alumnoid = $request->idalumno;
         $datos->fecha = '01-01-01';
         $datos->estado = 'Pendiente';
+        $datos->inspeccionado = new DateTime();
 
         $datos->save();
         return redirect(route('CatPag'));
@@ -74,9 +77,9 @@ class EstudiantesController extends Controller
 
     public function practicasdetalle(Request $request)
     {
-        $Practicas= Practicasprofesionale:: where('Estado', '=', 'Aprobado')
-                                    ->where('id',$request->id)
-                                    ->get();
+        $Practicas = Practicasprofesionale:: where('Estado', '=', 'Aprobado')
+                                            ->where('id',$request->id)
+                                            ->get();
 
         return view ('Estudiantes.PracticasDetalle', compact('Practicas'));
     }
@@ -93,7 +96,7 @@ class EstudiantesController extends Controller
     {
         $MatrizEncuesta = $request->Encuesta;
 
-        $FinalEncuesta = PostulacionesPractica::where('alumnoid',Auth::user()->id)->
+        $FinalEncuesta = EnCursoPractica::      where('alumnoid',Auth::user()->id)->
                                                 where('estado','Finalizada')->
                                                 orWhere('estado','FinalizadaRespondidaE')->
                                                 first();
@@ -122,7 +125,7 @@ class EstudiantesController extends Controller
         }
         $IngresoBDComentario = new Comentario;
         $IngresoBDComentario->alumnoid = Auth::user()->id;
-        $IngresoBDComentario->postulacionid = $FinalEncuesta->id;
+        $IngresoBDComentario->postulacionid = $FinalEncuesta->postulacionid;
         $IngresoBDComentario->comentario = $request->Comentario;
         $IngresoBDComentario->save();
 
