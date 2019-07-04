@@ -17,7 +17,7 @@ class PostulacionPracticaSeeder extends Seeder
           'alumnoid'     => '1',
           'practicaid'     => '1',
           'fecha'    => '01-01-10',
-          'estado'    => 'Finalizada',
+          'estado'    => 'Aceptada',
           'inspeccionado'     => "2019-01-01 00:00:00",
           'created_at'        => new DateTime(),
           'updated_at'        => new DateTime()
