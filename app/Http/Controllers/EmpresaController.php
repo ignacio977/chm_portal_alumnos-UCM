@@ -447,7 +447,13 @@ class EmpresaController extends Controller
         if($FinalEncuesta->estado == "FinalizadaRespondidaA"){
             $FinalEncuesta->estado = "Concluida";
         }
-        
+        $CambioInspeccion = PostulacionesPractica::where('practicaid',Auth::user()->PracticasProfesionale->practicaid)->
+                                                    where('estado','Aprobado')->
+                                                    first();
+        $CambioInspeccion->inspeccionado = new DateTime();
+        $CambioInspeccion->timestamps = false;
+        $CambioInspeccion->save();
+        return $CambioInspeccion;
          
         $FinalEncuesta->save();
 
