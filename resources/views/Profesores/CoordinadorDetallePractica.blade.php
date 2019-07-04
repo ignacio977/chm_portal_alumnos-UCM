@@ -78,8 +78,6 @@
         <tbody>
           <thead>
               @foreach ($Postulantes as $Postulante)
-                  <form action={{route('EliminarPractica')}} method="post">
-                    {{csrf_field()}}
                   <tr>
                   <td> {{$Postulante->nombres}}</td>
                   <td> {{$Postulante->apellidos}}</td>
@@ -91,9 +89,7 @@
                   <td></td>
                   <td></td>
                   <input type="hidden" name="idpostulante" value={{$Postulante->id}}>
-                  <td><button type="submit" class="btn waves-effect waves-light blue darken-2" >Ver</button>
                   </tr>
-                  </form>
               @endforeach
           </thead>
         </tbody>
