@@ -12,6 +12,7 @@ use App\Practicasprofesionale;
 use App\PostulacionesPractica;
 use App\Pregunta;
 use App\Respuesta;
+use App\Comentario;
 use Carbon\Carbon;
 
 class EstudiantesController extends Controller
@@ -92,8 +93,16 @@ class EstudiantesController extends Controller
     {
         $MatrizEncuesta = $request->Encuesta;
 
-        $FinalEncuesta = PostulacionesPractica::where('estado','Finalizada')->first();
-        $FinalEncuesta->estado = 'Finalizada y respondida';
+        $FinalEncuesta = PostulacionesPractica::where('alumnoid',Auth::user()->id)->
+                                                where('estado','Finalizada')->
+                                                orWhere('estado','FinalizadaRespondidaE')->
+                                                first();
+        if($FinalEncuesta->estado == "Finalizada"){
+            $FinalEncuesta->estado = "FinalizadaRespondidaA";
+        }
+        if($FinalEncuesta->estado == "FinalizadaRespondidaE"){
+            $FinalEncuesta->estado = "Concluida";
+        }
         $FinalEncuesta->save();
 
         foreach ($MatrizEncuesta as $ArrayEncuesta) {
@@ -106,10 +115,17 @@ class EstudiantesController extends Controller
                 $IngresoBDRespuesta = new Respuesta;
                 $IngresoBDRespuesta->alumnoid = Auth::user()->id;
                 $IngresoBDRespuesta->preguntaid = $IndexArrayY;
+                $IngresoBDRespuesta->postulacionid = $FinalEncuesta->id;
                 $IngresoBDRespuesta->NivelDeConformidad = $IndexArrayX;
                 $IngresoBDRespuesta->save();
             }
         }
+        $IngresoBDComentario = new Comentario;
+        $IngresoBDComentario->alumnoid = Auth::user()->id;
+        $IngresoBDComentario->postulacionid = $FinalEncuesta->id;
+        $IngresoBDComentario->comentario = $request->Comentario;
+        $IngresoBDComentario->save();
+
         return redirect(route('estudiante'));
     }
 

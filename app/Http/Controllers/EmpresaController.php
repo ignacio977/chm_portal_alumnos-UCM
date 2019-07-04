@@ -8,6 +8,9 @@ use DB;
 use Auth;
 use App\User;
 use App\Practicasprofesionale;
+use App\PostulacionesPractica;
+use App\Respuesta;
+use App\EnCursoPractica;
 
 
 class EmpresaController extends Controller
@@ -24,6 +27,46 @@ class EmpresaController extends Controller
         return view('Empresa.CreacionPracticasProfesionales', compact('errores', 'request'));
     }
 
+    public function MostrarRetroalimentacion(Request $request)
+    {
+        $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
+
+        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '!=',"Pendiente")->pluck('Id');
+
+        $Informacion = Respuesta::whereIn('alumnoid', $Practicantes)->get();
+
+        return view('Empresa.RetroalimentacionPracticas', compact('Informacion'));
+    }
+
+    public function DetalleRetroalimentacion(Request $request)
+    {
+        $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
+
+        $Practicantes = PostulacionesPractica::whereIn('practicaid', $Total)->where('estado', '!=',"Pendiente")->pluck('Id');
+
+        $Informacion = Respuesta::whereIn('alumnoid', $Practicantes)->get();
+
+        $i =  $request->i;
+
+        $Comentarios = DB::table('comentarios')->where('alumnoid', $Informacion[$i]->alumnoid)->first();
+        if($Comentarios == null){
+            $Comentarios = "0";
+        }
+
+
+        return view('Empresa.DetalleRetroalimentacion', compact('Informacion', 'i', 'Comentarios'));
+    }
+
+    public function MostrarPracticantes(Request $request)
+    {
+        $Total = DB::table('practicasprofesionales')->where('EmpresaId', Auth::user()->id)->pluck('Id');
+
+        $Practicantes = EnCursoPractica::whereIn('practicaid', $Total)->get();
+
+        //dd($Practicantes->all());
+
+        return view('Empresa.MostrarPracticantes', compact('Practicantes'));
+    }
 
      public function VerificacionPracticaProfesional(Request $request)
     {
@@ -320,6 +363,37 @@ class EmpresaController extends Controller
             }
         }
         return view('Empresa.EditarPracticasProfesionales', compact('errores'));
+    }
+
+    public function AceptarPracticas(Request $request)
+    {
+        $practicas = DB::table('practicasprofesionales')->where('EmpresaId',  Auth::user()->id)->pluck('Id');
+
+        $Coleccion = PostulacionesPractica::whereIn('practicaId', $practicas)->where('estado', 'Aceptada')->paginate(3);
+        
+        return view('Empresa.AceptarPractica', compact('Coleccion')); 
+    }
+
+    public function Accion(Request $request)
+    {
+
+      if($request->estado == "Aceptada"){
+            $datos = DB::table('postulaciones_practicas')->where('id', $request->id_postulacion)->first();
+
+            $nuevo = new EnCursoPractica;
+            $nuevo->alumnoid = $datos->alumnoid;
+            $nuevo->practicaid = $datos->practicaid;
+            $nuevo->postulacionid = $datos->id;
+            $nuevo->save();
+
+            PostulacionesPractica::where('id', $request->id_postulacion)
+                                ->update(['estado' => "Confirmada"]);
+      }else{
+            DB::table('postulaciones_practicas')->where('id', $request->id_postulacion)->delete();
+
+      }
+
+      return redirect('/empresa/practicas/Aceptar');
     }
 
     public function destroy($id)
