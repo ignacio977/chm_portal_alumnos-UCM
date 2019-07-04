@@ -48,6 +48,7 @@
                                 <i class="material-icons left">remove_red_eye</i>Ver
                             </a>
                         </td>
+                        <!--<td> {{ $estado = $registro->where('estado','Aprobado')->first()->encurso->first() }} </td>-->
                     </tr>
                 @endforeach
                 
@@ -55,7 +56,6 @@
         </table>
     </div>    
 </div>
-
 <div id="NotificacionId" class="modal">
     <div class="modal-content">
         <h4 id="CTipoRegistro" style="display:inline;">Notificacion: </h4>
@@ -153,6 +153,7 @@
             ArrayCompleto.forEach(ArregloRegistro => {
                 ArregloRegistro.forEach(registro => {
                     if (registro.id == id) {
+                        console.log(registro);
                         var EmpresaNom = registro.practica.empresa.nombres;
                         var EmpresaMail = registro.practica.empresa.email;
                         var EmpresaDir = registro.practica.empresa.direccion_actual;
@@ -167,9 +168,9 @@
                         var PracticaPuesto = registro.practica.PuestoOfrecido;
                         var PracticaEnfoque = registro.practica.Enfoque;
                         var PracticaCreadaDia = registro.practica.created_at;
-                        var PostulacionEstado = registro.estado;
-                        var PostulacionActualizado = registro.updated_at;
-                        var PostulacionRealizada = registro.created_at;
+                        var PostulacionEstado = "{!!$estado->estado!!}";
+                        var PostulacionActualizado = "{!!$estado->created_at!!}";
+                        var PostulacionRealizada = "{!!$estado->updated_at!!}";
                         var PostulacionVista = registro.inspeccionado;
                         if(PostulacionEstado=="FinalizadaRespondidaA"){
                             PostulacionEstado = "Finalizada y Respondida por Alumno"
