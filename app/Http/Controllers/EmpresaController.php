@@ -452,7 +452,6 @@ class EmpresaController extends Controller
         $CambioInspeccion->timestamps = false;
         $CambioInspeccion->save();
         
-        return $CambioInspeccion;
          
         $FinalEncuesta->save();
 
