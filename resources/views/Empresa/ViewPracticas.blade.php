@@ -9,6 +9,7 @@
 @endsection
 
 @section('body')
+<br>
 <div class="container">
   <div class="card-panel center">
     <h5>Oferta Practica Profesional</h5>
@@ -63,11 +64,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s12">
-            <input disabled type="text" id="text1" value="{{$datos->Estado}}">
-            <label class="black-text text-darken-2" for="text1">Estado</label>
-        </div>
+      <div class="input-field col s12">
+          <input disabled type="text" id="text1" value="{{$datos->Estado}}">
+          <label class="black-text text-darken-2" for="text1">Estado</label>
       </div>
+    </div>
+    <a class="btn waves-effect waves-light" href="http://localhost:8000/empresa/practicas/mostrar" >Volver</a>
   </div>
 </div>
 @endsection
