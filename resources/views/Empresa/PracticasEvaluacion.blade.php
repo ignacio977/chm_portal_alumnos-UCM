@@ -115,6 +115,7 @@
                   <span></span>
                 </label>
               </td>
+              
             </tr>
           @endforeach
         </tbody>
@@ -122,7 +123,8 @@
       <div class="row">
         <div class="input-field col s12">
           <th>Detalle de las principales funciones realizadas por el alumno y apreciación del trabajo realizado</th>
-          <textarea name="Comentario" id="Comentario" class="materialize-textarea" maxlength="255" ></textarea>  
+          <textarea name="Comentario" id="Comentario" class="materialize-textarea" maxlength="255" ></textarea>
+          <input type="hidden" name="practicaid" value='{{$id}}'  >  
         </div>
       </div>
       <div>

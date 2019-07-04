@@ -436,9 +436,8 @@ class EmpresaController extends Controller
     public function Evaluacion(Request $request)
     {
         $MatrizEncuesta = $request->Encuesta;
-        $practicaid = Auth::user()->PostulacionPractica;
-        return $practicaid;
-        $FinalEncuesta = EnCursoPractica::where('postulacionid', $practicaid)-> 
+        
+        $FinalEncuesta = EnCursoPractica::where('postulacionid', $request->practicaid)-> 
                                                 where('estado','Finalizada')->
                                                 orWhere('estado','FinalizadaRespondidaA')->
                                                 first();
@@ -448,8 +447,8 @@ class EmpresaController extends Controller
         if($FinalEncuesta->estado == "FinalizadaRespondidaA"){
             $FinalEncuesta->estado = "Concluida";
         }
-        return $FinalEncuesta;
-
+        
+         
         $FinalEncuesta->save();
 
         foreach ($MatrizEncuesta as $ArrayEncuesta) {
@@ -473,11 +472,7 @@ class EmpresaController extends Controller
         $IngresoBDComentario->comentario = $request->Comentario;
         $IngresoBDComentario->save();
 
-        return redirect(route(''));
-    
-
-
-
+        return redirect(route('empresa'));
     
 
     }

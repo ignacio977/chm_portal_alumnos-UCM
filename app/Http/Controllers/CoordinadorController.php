@@ -182,7 +182,7 @@ class CoordinadorController extends Controller
 
       return $Coleccion;
     }
-}
+
     public function SubirNotas(){
       $data = request()->all();
       $id = $data["id"];
@@ -212,7 +212,6 @@ class CoordinadorController extends Controller
       $PracticaEnCurso->save();
 
       return redirect('/profesor/coordinador/PracticaActual');
-
     }
 
 
