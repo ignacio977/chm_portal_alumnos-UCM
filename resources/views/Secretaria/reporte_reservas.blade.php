@@ -118,7 +118,7 @@ table {
 								<thead>
 									<tr>
                     <th>ID user</th>
-                    <th>ID sala</th>
+                    <th>Nombre Sala</th>
                     <th>Bloque</th>
 										<th>Dia semana</th>
                     <th>Fecha Inicio</th>
@@ -127,12 +127,14 @@ table {
 								</thead>
 
 								<tbody>
+									<tr>
                   @foreach($reserva as $reser) <!--recorre todos los registros encontrados y los muestra en la vista-->
-                  <tr>
+
                   @if( $reser->estado == 1 )
                     <td>{{$reser->id_user}}</td>
-                    <td>{{$reser->id_sala}}</td>
+                    <td>{{$reser->nombre}}</td>
                     <td>{{$reser->bloque}}</td>
+										<td>{{$reser->dia_semana}}</td>
 										@if( $reser->dia_semana == 1)
 										<td>Lunes</td>
 										@endif
@@ -151,8 +153,9 @@ table {
                     <td>{{$reser->fecha_ingreso}}</td>
                     <td>{{$reser->fecha_salida}}</td>
                   @endif
-                  </tr>
+
                   @endforeach
+									</tr>
 								</tbody>
 							</table>
 						</div>

@@ -824,9 +824,15 @@ class SecretariaController extends Controller
 
     public function reportes_reservas()
     {
+      $reserva = DB::table('reserva')
+                    ->join('salas', 'salas.id', '=','reserva.id_sala')
+                    ->select('reserva.id','reserva.id_user','salas.nombre', 'reserva.bloque','reserva.dia_semana' ,'reserva.estado', 'reserva.fecha_ingreso','reserva.fecha_salida')
+                    ->get();
+      // return ($reserva);
       // $reserva = Reserva::orderBy('id','ASC')->paginate(6);
       //$reserva = DB::table('reserva')->get();
-      $reserva = Reserva::All();
+      // $reserva = Reserva::All();
+      // dd($reserva);
       // return $reserva;
        // return view('Secretaria.reporte_reservas')->with('reserva', $reserva);
       // $reserva = Reserva::orderBy('id','ASC')->get();
