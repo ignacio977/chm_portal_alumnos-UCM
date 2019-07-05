@@ -105,7 +105,6 @@ table {
 <body>
 	<div class="navbar-header">
 		<div class="table">
-
 			 <img src="images\logoucm.png" border="0" width="150" height="100">
 			 <h3 align="center" class="box-header with-border">
 				 <font face="Times New Roman " size="15">HISTORIAL DE LA SALA</font></h3>
@@ -126,10 +125,10 @@ table {
                     <th>Fecha Salida</th>
 									</tr>
 								</thead>
-
 								<tbody>
                   @foreach($reservas as $reserva) <!--recorre todos los registros encontrados y los muestra en la vista-->
                   <tr>
+										@if($reserva->estado == 1)
 										<td>{{$reserva->id_sala}}</td>
 										<td>{{$reserva->nombre}}</td>
 										<td>{{$reserva->capacidad}}</td>
@@ -151,6 +150,7 @@ table {
 										<td>{{$reserva->bloque}}</td>
 										<td>{{$reserva->fecha_ingreso}}</td>
 										<td>{{$reserva->fecha_salida}}</td>
+										@endif
                   </tr>
                   @endforeach
 								</tbody>
