@@ -52,42 +52,7 @@
         <div class="row">
           <div class="col s6">     
             <div class="card-panel z-depth-1"> <!--Rectangulito donde estará el título y el botón desplegable -->
-              <h5 class="left-align"><b>Mis Notas - Semestre I - 2019</b></h5> 
-              <table class="highlight">
-                <thead>
-                  <tr>
-                      <th>Ramo</th>
-                      <th>Nota 1</th>
-                      <th>Nota 2</th>
-                      <th>Nota 3</th>
-                      <th>Nota 4</th>
-                  </tr>
-                </thead>
-        
-                <tbody>
-                  <tr>
-                    <td>Ingeniería de Software</td>
-                    <td>57</td>
-                    <td>42</td>
-                    <td>50</td>
-                    <td>48</td>
-                  </tr>
-                  <tr>
-                    <td>Modelamiento de Datos</td>
-                    <td>25</td>
-                    <td>55</td>
-                    <td>48</td>
-                    <td>45</td>
-                  </tr>
-                  <tr>
-                    <td>Introducción a la Fe</td>
-                    <td>65</td>
-                    <td>68</td>
-                    <td>50</td>
-                    <td>55</td>
-                  </tr>
-                </tbody>
-              </table>
+              <h5 class="left-align"><b>Título de Ejemplo</b></h5> 
             </div>
           </div>      
           

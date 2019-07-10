@@ -52,38 +52,7 @@
       <div class="row">
         <div class="col s6">     
           <div class="card-panel z-depth-1"> <!--Rectangulito donde estará el título y el botón desplegable -->
-            <h5 class="left-align"><b>Cursos Dictados - Semestre I - 2019</b></h5> 
-            <table class="highlight">
-              <thead>
-                <tr>
-                    <th>Código del Curso</th>
-                    <th>Ramo</th>
-                    <th>Día</th>
-                    <th>Módulos</th>
-                </tr>
-              </thead>
-      
-              <tbody>
-                <tr>
-                  <td>INF-113</td>
-                  <td>Introducción a la Computación</td>
-                  <td>Lunes</td>
-                  <td>8:30 - 11:50</td>
-                </tr>
-                <tr>
-                  <td>ICI-215</td>
-                  <td>Estructura de Datos</td>
-                  <td>Miércoles</td>
-                  <td>14:30 - 17:50</td>
-                </tr>
-                <tr>
-                  <td>ICI-625</td>
-                  <td>Programación Avanzada</td>
-                  <td>Viernes</td>
-                  <td>19:10 - 21:15</td>
-                </tr>
-              </tbody>
-            </table>
+            <h5 class="left-align"><b>Título de Ejemplo</b></h5> 
           </div>
         </div>      
 
