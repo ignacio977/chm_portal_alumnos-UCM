@@ -9,6 +9,8 @@ use Carbon\Carbon;
 use App\Salas;
 use App\Reserva;
 use App\User;
+use App\Practicasprofesionale;
+use App\PostulacionesPractica;
 
 
 class ProfesoresController extends Controller
@@ -21,7 +23,6 @@ class ProfesoresController extends Controller
                       ->select('reserva.id_sala')
                       ->where('reserva.estado', '=', 3)
                       ->get();
-
         $i= count($id_reserva);
         if ($i != 0){
           $reserva = DB::table('reserva')
@@ -39,9 +40,10 @@ class ProfesoresController extends Controller
         }
 
     }
-    public function create()
+    public function mostrar_practicas()
     {
-        //
+        $practicas= PostulacionesPractica::where('Estado', '=', 'Aprobado')->get();
+        return view ('Profesores.MostrarPracticas', compact('practicas'));
     }
 
     public function store(Request $request)
