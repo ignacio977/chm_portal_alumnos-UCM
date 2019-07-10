@@ -22,7 +22,7 @@
 </div>
 
 <div class="container">
-  <div class="card-content center">
+  <div class="card-content center ">
       <table class="table-border table-striped responsive-table">
         <thead>
           <tr>
@@ -52,11 +52,11 @@
                   <td> {{$practica->HorasHasta}}</td>
                   <td> {{$practica->PuestoOfrecido}}</td>
                   <td> {{$practica->Enfoque}}</td>
-                  <input type="hidden" name="idalumno" value={{Auth::user()->id}}> 
+                  <input type="hidden" name="idalumno" value={{Auth::user()->id}}>
                   <input type="hidden" name="idpractica" value={{$practica->id}}>
                   <td><button type="submit" class="btn waves-effect waves-light" >Postular</button>
                     <br><br>
-                  <a href="/estudiante/practicasofertadas" class="btn waves-effect waves-light red" >Rechazar</a> </td>
+                  <a href="/estudiante/practicasofertadas" class="btn waves-effect waves-light red" >Cancelar</a> </td>
                   </form>
               @endforeach
           </thead>

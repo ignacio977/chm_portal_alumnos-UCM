@@ -26,7 +26,7 @@
             <h6 class="">Practica               : {{$postulacion->practica->empresa->nombres}} : {{$postulacion->practica->PuestoOfrecido}}</h6>
             </div>
             <div class="col s2 section">
-                <form action="/profesor/coordinador" method="post">
+                <form action="/empresa/practicas/accion" method="post">
                     {{ csrf_field() }}
                     <input type="hidden" name="id_postulacion" value={{$postulacion->id}}>
                     <input type="hidden" name="estado" value="Aceptada">
@@ -34,7 +34,7 @@
                 </form>
             </div>
             <div class="col s2 section">
-                <form action="/profesor/coordinador" method="post">
+                <form action="/empresa/practicas/accion" method="post">
                     {{ csrf_field() }}
                     <input type="hidden" name="id_postulacion" value={{$postulacion->id}}>
                     <input type="hidden" name="estado" value="Rechazada">
