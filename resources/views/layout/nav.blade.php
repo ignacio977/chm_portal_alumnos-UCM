@@ -27,7 +27,15 @@
         <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
       @endauth
     @endif
-    <a href="/home" class="brand-logo" align="middle">UCM</a>
+    @auth <!--Si hay una sesión iniciada-->
+      <a href="/home">
+        <img class="brand-logo" align="middle" src="/images/logo_ucm.png" width="150" style="position: relative; bottom: 6px">
+      </a>
+    @else
+      <a href="/home">
+        <img class="brand-logo" align="middle" src="/images/logo_ucm.png" width="150" style="position: relative; bottom: 6px; left: 62px">
+      </a>
+    @endauth
     <ul class="right hide-on-med-and-down">
       {{-- En este sector se ponen las notificaciones --}}
       @if(Auth::user())
@@ -90,7 +98,7 @@
   <li>
     <div class="user-view">
       <div class="background">
-        <img src="/images/forest.jpg">
+        <img src="/images/backucm.png" class="responsive-img">
       </div>
       @if (empty(Auth::user()->foto)) {{-- Si el usuario no tiene foto --}}
         <a class="modal-trigger" href="#modal_photo"><img class="circle" src="/images/default.png"></a>
@@ -108,6 +116,7 @@
     @if(Auth::check()) {{-- Verificamos que esté iniciada la sesión --}}
       @if (Auth::user()->tipo_usuario == 'estudiante'){{-- Botones a los que tendrá acceso solo el estudiante --}}
         <a class="waves-effect" href="/estudiante">Perfil Estudiante</a> {{-- Copiar el botón para agregar redireccionamientos --}}
+
         @if(empty(Auth::user()->PostulacionPractica->where('estado','Aceptada')->first()))
           <a class="waves-effect" href="/estudiante/practicasofertadas">Selección de prácticas</a>
         @endif
@@ -124,21 +133,29 @@
         <a class="waves-effect" href="/profesor/coordinador">Postulaciones</a>
         <a class="waves-effect" href="/profesor/coordinador/PracticaActual">Practicas en curso</a>
         <a class="waves-effect" href="/profesor/coordinador/addE">Agregar Empresa</a>
+        <a class="waves-effect" href="/profesores_reserva">Reserva De Salas</a>
+        <a class="waves-effect" href="/profesores_listado_reservas">Mis Reservas</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'director')
         <a class="waves-effect" href="/director">Perfil Director</a>
       @endif
       @if (Auth::user()->tipo_usuario == 'secretaria')
         <a class="waves-effect" href="/secretaria">Perfil Secretaria</a>
+        <a class="waves-effect" href="/secretaria_reserva">Reserva De Salas</a>
+        <a class="waves-effect" href="/secretaria_agregar_sala">Agregar Sala</a>
+        <a class="waves-effect" href="/secretaria_listado_salas">Listado De Salas</a>
+        <a class="waves-effect" href="/secretaria_listado_reservas">Listado De Reservas</a>
+        <a class="waves-effect" href="/secretaria_confirmar_listado_reservas">Confirmar Reservas</a>
+
       @endif
       @if (Auth::user()->tipo_usuario == 'empresa')
-      <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
-      <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a> 
-      <a class="waves-effect" href="/empresa/practicas/mostrar">Mostrar Practicas</a> 
-      <a class="waves-effect" href="/empresa/practicas/Aceptar">Aceptar Practicas</a> 
-      <a class="waves-effect" href="/empresa/practicas/mostrarP">Mostrar Practicantes</a>
-      <a class="waves-effect" href="/empresa/practicas/mostrarR">Retroalimentacion Practicas</a>
-      <a class="waves-effect" href="/empresa/practicas/mostrar_finalizadas">Practicas Finalizadas</a>
+        <a class="waves-effect" href="/empresa">Perfil Empresa</a> 
+        <a class="waves-effect" href="/empresa/practicas">Crear Practicas</a> 
+        <a class="waves-effect" href="/empresa/practicas/mostrar">Mostrar Practicas</a> 
+        <a class="waves-effect" href="/empresa/practicas/Aceptar">Aceptar Practicas</a> 
+        <a class="waves-effect" href="/empresa/practicas/mostrarP">Mostrar Practicantes</a>
+        <a class="waves-effect" href="/empresa/practicas/mostrarR">Retroalimentacion Practicas</a>
+        <a class="waves-effect" href="/empresa/practicas/mostrar_finalizadas">Practicas Finalizadas</a>
       @endif
     @endif
   </li>
