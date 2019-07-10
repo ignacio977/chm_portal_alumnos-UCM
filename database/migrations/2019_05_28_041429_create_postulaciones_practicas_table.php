@@ -19,6 +19,7 @@ class CreatePostulacionesPracticasTable extends Migration
             $table->Integer('practicaid')->unsigned();
             $table->date('fecha');
             $table->string('estado');
+            $table->dateTime('inspeccionado')->nullable();
             $table->timestamps();
             $table->foreign('alumnoid')->references('id')->on('users');
             $table->foreign('practicaid')->references('id')->on('practicasprofesionales')->onDelete('cascade');

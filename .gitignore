@@ -4,7 +4,6 @@
 /public/storage
 /storage/*.key
 /vendor
-/database/seeds/
 .env
 .phpunit.result.cache
 Homestead.json
@@ -14,4 +13,3 @@ yarn-error.log
 
 /app/Providers/AppServiceProvider.php
 /config/database.php
-/database/seeds/UsersTableSeeder.php

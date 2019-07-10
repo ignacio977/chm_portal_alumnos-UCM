@@ -61,10 +61,17 @@
                   <input name="id" value={{$practica->id}} type="hidden">
                   <td> {{$practica->Actividad1}}</td>
                   <td> {{$practica->Enfoque}}</td>
-                  <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
+                  @php
+                      $tiempo = \Carbon\Carbon::parse($practica->updated_at)->diffForHumans();
+                  @endphp
+                  <td> {{ucfirst($tiempo)}} </td>
                   <td> {{$practica->Estado}}</td>
-                  <td><button name="update_button" class="waves-effect blue btn"><i class="material-icons" >edit</i></button>
-                    <button name="delete_button" class="waves-effect red btn" type="submit"><i class="material-icons">cancel</i>
+                  <td><button name="view_button" id="view_button" class="waves-effect orange btn" type="submit">
+                    <i class="material-icons">visibility</i></button>                    
+                    <button name="update_button" class="waves-effect blue btn" type="submit">
+                    <i class="material-icons" >edit</i></button>
+                    <button name="delete_button" class="waves-effect red btn" type="submit">
+                    <i class="material-icons">cancel</i></button>
               </button></form></td>
           @endforeach
         </thead>

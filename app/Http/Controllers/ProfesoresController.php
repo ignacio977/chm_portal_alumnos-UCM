@@ -9,6 +9,8 @@ use Carbon\Carbon;
 use App\Salas;
 use App\Reserva;
 use App\User;
+use App\Practicasprofesionale;
+use App\PostulacionesPractica;
 
 
 class ProfesoresController extends Controller
@@ -19,9 +21,10 @@ class ProfesoresController extends Controller
         return view('Profesores.index', compact('professors'));
     }
 
-    public function create()
+    public function mostrar_practicas()
     {
-        //
+        $practicas= PostulacionesPractica::where('Estado', '=', 'Aprobado')->get();
+        return view ('Profesores.MostrarPracticas', compact('practicas'));
     }
 
     public function store(Request $request)

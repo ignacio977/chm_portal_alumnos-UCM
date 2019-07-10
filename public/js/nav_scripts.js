@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
-    $('.modal').modal();
     $('select').formSelect();
     $('.timepicker').timepicker();
     $('.datepicker').datepicker({
@@ -8,6 +7,10 @@ $(document).ready(function(){
       selectYears: 15, // Creates a dropdown of 15 years to control year
       format: 'yyyy-mm-dd' });
     $('.collapsible').collapsible(); 
+    $('.modal').modal({
+      dismissible: false,
+      opacity: 0.8
+    });
     $('.slider').slider({full_width: true});
     $('.carousel.carousel-slider').carousel({
         fullWidth: true,

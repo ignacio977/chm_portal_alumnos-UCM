@@ -42,6 +42,14 @@ class User extends Authenticatable
     ];
 
     public function PostulacionPractica(){
-        return $this->hasMany(PostulacionesPractica::class, 'id', 'alumnoid');
-      }
+        return $this->hasMany(PostulacionesPractica::class, 'alumnoid', 'id');
+    }
+
+    public function UsuarioRespuesta(){
+        return $this->hasMany(Respuesta::class, 'alumnoid', 'id');
+    }
+    
+    public function UsuarioComentario(){
+        return $this->hasMany(Comentario::class, 'alumnoid', 'id');
+    }
 }

@@ -3,7 +3,7 @@
 @extends('layout.master')
 
 @section('title')
-  <title>Perfil Estudiante</title>
+  <title>Coordinador de practicas</title>
 @endsection
 
 @section('styles')
@@ -15,8 +15,7 @@
   <div class="row">
     <div class="col s12 m8">
       <div class="card-panel" style="background-color: #253e85;">
-        <span class="white-text">Bienvenido {{Auth::user()->nombres}} tenemos una cartilla de ofertas
-          para tu Coleccion, puedes dar click a una oferta para revisar en detalle y además realizar tu postulación.
+        <span class="white-text">Bienvenido {{Auth::user()->nombres}} aqui se muestran las practicas que actualmente cuentan con postulaciones abiertas.
         </span>
       </div>
     </div>
@@ -31,7 +30,7 @@
               <th>Enfoque y conocimientos</th>
               <th>Fecha Publicacion</th>
               <th>Cantidad de Solicitudes</th>
-              <th>Detalles</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -44,7 +43,7 @@
                     <td> {{\Carbon\Carbon::parse($practica->updated_at)->diffForHumans()}} </td>
                     <td> {{$practica->PostulacionPractica->count()}}</td>
                     <td>
-                      <a href="{{route('DetallePractica',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;">Click Aquí</a>
+                      <a href="{{route('DetalleCoordinacionPractica',['id' => $practica->id])}}" class="btn waves-effect waves-light" style="background-color: #253e85;">Detalles</a>
                     </td>
                 @endforeach
             </thead>
